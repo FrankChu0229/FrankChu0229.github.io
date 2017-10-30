@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="notes,summary,Python," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Frank Chu" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Dive Into Python3 Notes - Native Datatypes">
+<meta name="keywords" content="notes,summary,Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dive Into Python3 Notes Native Datatypes">
+<meta property="og:url" content="http://frankchu0229.github.io/2017/10/19/Dive Into Python3 Notes - Native Datatypes/index.html">
+<meta property="og:site_name" content="Frank Chu">
+<meta property="og:description" content="Dive Into Python3 Notes - Native Datatypes">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-30T03:46:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Dive Into Python3 Notes Native Datatypes">
+<meta name="twitter:description" content="Dive Into Python3 Notes - Native Datatypes">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://frankchu0229.github.io/2017/10/19/Dive Into Python3 Notes - Native Datatypes/"/>
+
+
+
+
+
+  <title>Dive Into Python3 Notes Native Datatypes | Frank Chu</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?afc1ff6ca3a0ed413bece7a8c28ea24b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Frank Chu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">The world need dreamers who do.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://frankchu0229.github.io/2017/10/19/Dive Into Python3 Notes - Native Datatypes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frank Chu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/author.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frank Chu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Dive Into Python3 Notes Native Datatypes</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-19T16:15:23+08:00">
+                2017-10-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/notes/" itemprop="url" rel="index">
+                    <span itemprop="name">notes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/19/Dive Into Python3 Notes - Native Datatypes/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/10/19/Dive Into Python3 Notes - Native Datatypes/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description">
+                  Dive Into Python3 Notes - Native Datatypes
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Dive-Into-Python3-Notes-Native-Datatypes"><a href="#Dive-Into-Python3-Notes-Native-Datatypes" class="headerlink" title="Dive Into Python3 Notes - Native Datatypes"></a>Dive Into Python3 Notes - Native Datatypes</h1><p>在python中，任何value都有type，但是你不需要显式地声明value的类型。Python根据该变量第一次被赋值的不同来对该变量的类型做出推断。</p>
+<p>Python中主要的数据类型有：</p>
+<ul>
+<li>Boolean： <code>True</code> or <code>False</code></li>
+<li>Numbers： they can be integers，floats，fractions(1/3) and even complex numbers</li>
+<li>Strings: an sequence of Unicode characters</li>
+<li>Bytes and byte arrays: e.g., an jpeg image</li>
+<li>List: ordered sequence of values</li>
+<li>Set: <strong>unordered</strong> sequence of values</li>
+<li>Tuple: ordered and <strong>immutable</strong> sequence of values</li>
+<li>Dict: unordered key-value pairs</li>
+</ul>
+<h2 id="Number"><a href="#Number" class="headerlink" title="Number"></a>Number</h2><ul>
+<li>use <code>type()</code> and <code>isinstance()</code> to get the datatype and judge</li>
+<li>use <code>int(2.0)</code> and <code>float(1)</code>, <code>int(-2.5) = -2</code> 来做type转换</li>
+<li>float numbers 小数点后最多只能有15位</li>
+<li>与python2既有int又有long不同， python3中只有int， 并且int可以取得像python2中long的最大值</li>
+</ul>
+<h3 id="Number-Operations"><a href="#Number-Operations" class="headerlink" title="Number Operations"></a>Number Operations</h3><ul>
+<li><code>/</code> 除法， 返回float类型</li>
+<li><code>//</code> 整数除法： <code>11 // 2 = 5</code>, <code>-11 // 2 = -6</code> </li>
+<li><code>**</code> 幂操作</li>
+<li><code>%</code> 取余数</li>
+</ul>
+<h3 id="分数-Fractions"><a href="#分数-Fractions" class="headerlink" title="分数 Fractions"></a>分数 Fractions</h3><ul>
+<li>使用 <code>import fractions</code>, <code>print(fractions.Fraction(1, 3))</code></li>
+</ul>
+<h3 id="其他数字"><a href="#其他数字" class="headerlink" title="其他数字"></a>其他数字</h3><ul>
+<li>PI : <code>import math</code>, <code>print(math.pi)</code></li>
+<li>需要注意的是python中没有infinite的精度， 因此像<code>sin(\pi)</code>的结果不是0， 而是一个很小的数</li>
+</ul>
+<h3 id="数字用在-bolean-context"><a href="#数字用在-bolean-context" class="headerlink" title="数字用在 bolean context"></a>数字用在 bolean context</h3><ul>
+<li>如果数字的value为0， 则为False； 否则为True</li>
+</ul>
+<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><p>Python中list大小可以动态改变，并且list中可以add各种不同类型的value。</p>
+<h3 id="Define-a-list"><a href="#Define-a-list" class="headerlink" title="Define a list"></a>Define a list</h3><p>Define a list <code>a = []</code> or <code>a = [1, &#39;hello&#39;, 1.0, [1,2,3]]</code></p>
+<h3 id="Get-the-values-from-the-list"><a href="#Get-the-values-from-the-list" class="headerlink" title="Get the values from the list"></a>Get the values from the list</h3><p>Get the values from the list: <code>a[0], a[1], a[2], a[3]</code> or <code>a[-1], a[-2], a[-3], a[-4]</code></p>
+<h3 id="Slicing-the-list"><a href="#Slicing-the-list" class="headerlink" title="Slicing the list"></a>Slicing the list</h3><p>Slicing the list: <code>a[1:3]</code> can get the sublist of <code>a[0]</code> and <code>a[1]</code>, 即不包括最后的一位；如果前后有省略，则默认为从该list的第一位开始(包含)，或者到最后一位(包含)；如果前后都没有，则结果为整个list</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a[:2] -&gt; [1, &apos;hello&apos;]</div><div class="line">a[2:] -&gt; [1.0, [1,2,3]]</div></pre></td></tr></table></figure>
+<h3 id="Adding-items-to-list"><a href="#Adding-items-to-list" class="headerlink" title="Adding items to list:"></a>Adding items to list:</h3><p>Four ways to add items to a list:</p>
+<ul>
+<li>Operation <code>+</code> : <code>a = [1, 2]</code>, <code>b = [2]</code>, <code>a = a + b -&gt; [1,2,2]</code>, 这里需要注意的是， <code>+</code>操作会new 一个新的list</li>
+<li><code>a.append()</code>函数, <code>append()</code>函数会把append的内容(无论什么类型)加到list中, 例如： <code>a.append([4,5,6]) -&gt; a = [1,2,2,[4,5,6]]</code></li>
+<li><code>a.extend([4,5,6])</code>函数会把extend的内容一个一个的加到list中， 得到<code>a = [1,2,2,4,5,6]</code></li>
+<li><code>a.insert(0, &#39;4&#39;)</code>, 会把value插入到指定的index处</li>
+</ul>
+<h3 id="Searching-in-a-list"><a href="#Searching-in-a-list" class="headerlink" title="Searching in a list"></a>Searching in a list</h3><ul>
+<li><code>a_list.count(&#39;a&#39;)</code>: return the number of specific values in a list</li>
+<li><code>&#39;a&#39; in a_list</code>, return a boolean value to show if the value is in the list</li>
+<li><code>a_list.index(&#39;a&#39;)</code> to return the index of the given value</li>
+</ul>
+<h3 id="Removing-items-in-a-list"><a href="#Removing-items-in-a-list" class="headerlink" title="Removing items in a list"></a>Removing items in a list</h3><ul>
+<li><code>del a_list[1]</code> to delete the value in the index of 1</li>
+<li><code>a_list.remove(&#39;a&#39;)</code> to remove the first occurance of the value in a list</li>
+<li><code>a_list.pop()</code> removes the last value in a list</li>
+<li><code>a_list.pop(0)</code> removes the value in the given index</li>
+</ul>
+<h3 id="List-in-a-boolean-context"><a href="#List-in-a-boolean-context" class="headerlink" title="List in a boolean context"></a>List in a boolean context</h3><ul>
+<li>empty list will be <code>False</code> in a boolean context and list which is not empty will be <code>True</code>.</li>
+</ul>
+<h2 id="Tuples"><a href="#Tuples" class="headerlink" title="Tuples"></a>Tuples</h2><p>A tuple is an immutable list. A tuple cannot be changed once it is created.</p>
+<p>Tuple和List比较像， tuple可以看做是一个不可变的list。Tuple比list更快，如果这个set是不会被更改的，则使用Tuple，同时它也会使你的code更加安全。</p>
+<p>在Python中，只有immutable的才可以作为Dict 的key，如果tuple中的变量都是immutable的，那么</p>
+<h3 id="Tuple的创建和获取元素"><a href="#Tuple的创建和获取元素" class="headerlink" title="Tuple的创建和获取元素"></a>Tuple的创建和获取元素</h3><ul>
+<li><code>a_tuple = (1,2,3,Ture)</code>, Tuple用圆括号来创建，元素获取的方式同list</li>
+<li>Tuple的slice方式<code>a_list[1:3]</code>同list，不同之处在于，tuple的slice返回的仍是tuple</li>
+</ul>
+<h3 id="Tuple中元素的操作"><a href="#Tuple中元素的操作" class="headerlink" title="Tuple中元素的操作"></a>Tuple中元素的操作</h3><ul>
+<li>Tuple元素的操作不包括：如 <code>pop()</code>, <code>append()</code>等添加或者删除元素的函数</li>
+<li>Tuple中可以使用<code>count()</code>和<code>index()</code>, <code>&#39;a&#39; in a_tuple</code>等操作 </li>
+</ul>
+<h3 id="Tuple-和-List的转换"><a href="#Tuple-和-List的转换" class="headerlink" title="Tuple 和 List的转换"></a>Tuple 和 List的转换</h3><ul>
+<li><code>tuple()</code> functuon can convert list into tuples and <code>list()</code> function can convert tuples into list. </li>
+</ul>
+<h3 id="Tuples-in-boolean-context"><a href="#Tuples-in-boolean-context" class="headerlink" title="Tuples in boolean context"></a>Tuples in boolean context</h3><ul>
+<li>同list一样， 在boolean context中，如果tuple为空，则返回False； 否则返回True</li>
+<li>值得注意的是，在创建只有一个值的tuple时，应为<code>(False,)</code>；即需要加一个逗号”，“， 否则python无法识别出是带有一个值的tuple。</li>
+</ul>
+<h3 id="将tuple用来同时给多个变量赋值"><a href="#将tuple用来同时给多个变量赋值" class="headerlink" title="将tuple用来同时给多个变量赋值"></a>将tuple用来同时给多个变量赋值</h3><ul>
+<li><code>(x, y, z) = (1,2,3)</code></li>
+</ul>
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p>在python中， set是无序的，并且没有冗余元素的数据结构。A single set can contain values of any immutable datatype, 因此像list不能是set中的元素，因为list不是immutable的，但是tuple可以。</p>
+<h3 id="Set的创建"><a href="#Set的创建" class="headerlink" title="Set的创建"></a>Set的创建</h3><ul>
+<li><code>a_set = {1,2,3}</code> 可以用来创建一个set， 但是<code>{}</code>为一个空的dict； <code>set()</code>才是创建一个空set的方式。</li>
+<li>同时也可以使用<code>set([1,2,3])</code>函数来将一个list转换为一个set，此操作不会对list做改变。</li>
+</ul>
+<h3 id="增加和删除set中的元素"><a href="#增加和删除set中的元素" class="headerlink" title="增加和删除set中的元素"></a>增加和删除set中的元素</h3><h4 id="增加set中的元素："><a href="#增加set中的元素：" class="headerlink" title="增加set中的元素："></a>增加set中的元素：</h4><ul>
+<li><code>a_set.add({1,2,3})</code>, 同list中的<code>append()</code>一样， 会将传进去的datatype加到一个变量中去</li>
+<li><code>a_set.update({1,2,3}，{1，2，3})</code>, 同list中的<code>extend()</code>一样， 会将set或者list中的每一个元素加到set中，并且会去除重复元素，保证unique。</li>
+</ul>
+<h4 id="删除set中的元素："><a href="#删除set中的元素：" class="headerlink" title="删除set中的元素："></a>删除set中的元素：</h4><ul>
+<li><code>a_set.discard(1)</code> 将会删除set中的变量1，如果变量1不存在，没有任何影响；</li>
+<li><code>a_set.remove(1)</code>将会删除set中的变量1，如果变量1不存在，则会raise Exception KeyError。</li>
+<li><code>a_set.pop()</code> 将会随机删除set中的一个元素，因为set是无序的，因此不能像list一样pop掉最后的元素。</li>
+<li><code>a_set.clear()</code> 将会clear掉set的全部元素，返回一个空的set</li>
+</ul>
+<h3 id="Set的操作"><a href="#Set的操作" class="headerlink" title="Set的操作"></a>Set的操作</h3><ul>
+<li><code>1 in a_set</code> will return True if a_set contains 1, otherwise return False</li>
+<li><code>a_set.union(b_set)</code> 将会把 a_set和b_set取并集</li>
+<li><code>a_set.intersection(b_set)</code> 将会取a_set 和 b_set 的交集</li>
+<li><code>a_set.difference(b_set)</code> 将会取在a_set 但是不在b_set中的元素</li>
+<li><code>a_set.symmetric_difference(b_set)</code> 将会取只出现在a_set 和 只出现在b_set的并集</li>
+</ul>
+<h3 id="Set-in-a-boolean-context"><a href="#Set-in-a-boolean-context" class="headerlink" title="Set in a boolean context"></a>Set in a boolean context</h3><ul>
+<li>同list 和tuple 一样，空的set在boolean context中为False，否则为True</li>
+</ul>
+<h2 id="Dictionary"><a href="#Dictionary" class="headerlink" title="Dictionary"></a>Dictionary</h2><p>在python中，Dictionary为无序的key-value pair的set。当向dict中添加一个key的时候，你也必须添加一个相应的值。</p>
+<h3 id="Dict的创建和元素获取"><a href="#Dict的创建和元素获取" class="headerlink" title="Dict的创建和元素获取"></a>Dict的创建和元素获取</h3><ul>
+<li><code>{}</code> 为空的dict， <code>a_dict = {&#39;1&#39;: &#39;h&#39;, &#39;2&#39;: &#39;w&#39;}</code> 创建一个dict</li>
+<li><code>a_dict[&#39;1&#39;]</code> 根据相应的key，来获取对应的value； 当<code>a_dict[&#39;3&#39;]</code> 获取一个未包含的key的时候，会raise KeyError Exception</li>
+</ul>
+<h3 id="Dict的更改"><a href="#Dict的更改" class="headerlink" title="Dict的更改"></a>Dict的更改</h3><ul>
+<li><code>a_dict[&#39;3&#39;] = &#39;hhh&#39;</code>来增加新的key-value pair</li>
+<li><code>a_dict[&#39;1&#39;] = &#39;hh&#39;</code> 来对已经存在的key-value pair进行更改</li>
+</ul>
+<h3 id="Mixed-Value-Dict"><a href="#Mixed-Value-Dict" class="headerlink" title="Mixed Value Dict"></a>Mixed Value Dict</h3><p>Dict 的value可以是任何类型， 但是dict的key 需要时immutable的， 例如： integer， string， tuple等。</p>
+<ul>
+<li>和list、set、tuple等一样, dict可以用<code>len()</code>来返回key-value pair的个数</li>
+<li>和list、set、tuple等一样， 可以使用<code>in</code> 来判断一个变量是不是dict中的一个key</li>
+</ul>
+<h3 id="Dict-in-a-boolean-context"><a href="#Dict-in-a-boolean-context" class="headerlink" title="Dict in a boolean context"></a>Dict in a boolean context</h3><ul>
+<li>An empty dict is False</li>
+<li>Otherwise, it’s True</li>
+</ul>
+<h2 id="None"><a href="#None" class="headerlink" title="None"></a>None</h2><ul>
+<li>None 是Python中一个比较特殊的constants，它是一个null值。</li>
+<li>None有他自己特殊的type，为NoneType</li>
+<li>将None同其他不是None的值进行比较，都将返回False。</li>
+<li>所有的None值 (值为None的变量) 都相等。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>我知道是不会有人点的，但万一有人想不开呢？</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/img/weixin.jpg" alt="Frank Chu 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/img/zhifubao.jpg" alt="Frank Chu 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Frank Chu
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://frankchu0229.github.io/2017/10/19/Dive Into Python3 Notes - Native Datatypes/" title="Dive Into Python3 Notes Native Datatypes">http://frankchu0229.github.io/2017/10/19/Dive Into Python3 Notes - Native Datatypes/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/notes/" rel="tag"># notes</a>
+          
+            <a href="/tags/summary/" rel="tag"># summary</a>
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/15/Dive Into Python Notes/" rel="next" title="Dive Into Python3 Notes Your First Program">
+                <i class="fa fa-chevron-left"></i> Dive Into Python3 Notes Your First Program
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/25/tf_symposium/" rel="prev" title="TF Symposium 1.4.0 Summary">
+                TF Symposium 1.4.0 Summary <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2017/10/19/Dive Into Python3 Notes - Native Datatypes/"
+           data-title="Dive Into Python3 Notes Native Datatypes" data-url="http://frankchu0229.github.io/2017/10/19/Dive Into Python3 Notes - Native Datatypes/">
+      </div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/img/author.jpg"
+                alt="Frank Chu" />
+            
+              <p class="site-author-name" itemprop="name">Frank Chu</p>
+              <p class="site-description motion-element" itemprop="description">AI从业者，希望结识更多同道中人。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Dive-Into-Python3-Notes-Native-Datatypes"><span class="nav-number">1.</span> <span class="nav-text">Dive Into Python3 Notes - Native Datatypes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Number"><span class="nav-number">1.1.</span> <span class="nav-text">Number</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Number-Operations"><span class="nav-number">1.1.1.</span> <span class="nav-text">Number Operations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分数-Fractions"><span class="nav-number">1.1.2.</span> <span class="nav-text">分数 Fractions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他数字"><span class="nav-number">1.1.3.</span> <span class="nav-text">其他数字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数字用在-bolean-context"><span class="nav-number">1.1.4.</span> <span class="nav-text">数字用在 bolean context</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List"><span class="nav-number">1.2.</span> <span class="nav-text">List</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Define-a-list"><span class="nav-number">1.2.1.</span> <span class="nav-text">Define a list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Get-the-values-from-the-list"><span class="nav-number">1.2.2.</span> <span class="nav-text">Get the values from the list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Slicing-the-list"><span class="nav-number">1.2.3.</span> <span class="nav-text">Slicing the list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Adding-items-to-list"><span class="nav-number">1.2.4.</span> <span class="nav-text">Adding items to list:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Searching-in-a-list"><span class="nav-number">1.2.5.</span> <span class="nav-text">Searching in a list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Removing-items-in-a-list"><span class="nav-number">1.2.6.</span> <span class="nav-text">Removing items in a list</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List-in-a-boolean-context"><span class="nav-number">1.2.7.</span> <span class="nav-text">List in a boolean context</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tuples"><span class="nav-number">1.3.</span> <span class="nav-text">Tuples</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tuple的创建和获取元素"><span class="nav-number">1.3.1.</span> <span class="nav-text">Tuple的创建和获取元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tuple中元素的操作"><span class="nav-number">1.3.2.</span> <span class="nav-text">Tuple中元素的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tuple-和-List的转换"><span class="nav-number">1.3.3.</span> <span class="nav-text">Tuple 和 List的转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tuples-in-boolean-context"><span class="nav-number">1.3.4.</span> <span class="nav-text">Tuples in boolean context</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将tuple用来同时给多个变量赋值"><span class="nav-number">1.3.5.</span> <span class="nav-text">将tuple用来同时给多个变量赋值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set"><span class="nav-number">1.4.</span> <span class="nav-text">Set</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Set的创建"><span class="nav-number">1.4.1.</span> <span class="nav-text">Set的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增加和删除set中的元素"><span class="nav-number">1.4.2.</span> <span class="nav-text">增加和删除set中的元素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#增加set中的元素："><span class="nav-number">1.4.2.1.</span> <span class="nav-text">增加set中的元素：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除set中的元素："><span class="nav-number">1.4.2.2.</span> <span class="nav-text">删除set中的元素：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set的操作"><span class="nav-number">1.4.3.</span> <span class="nav-text">Set的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set-in-a-boolean-context"><span class="nav-number">1.4.4.</span> <span class="nav-text">Set in a boolean context</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dictionary"><span class="nav-number">1.5.</span> <span class="nav-text">Dictionary</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dict的创建和元素获取"><span class="nav-number">1.5.1.</span> <span class="nav-text">Dict的创建和元素获取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dict的更改"><span class="nav-number">1.5.2.</span> <span class="nav-text">Dict的更改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mixed-Value-Dict"><span class="nav-number">1.5.3.</span> <span class="nav-text">Mixed Value Dict</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dict-in-a-boolean-context"><span class="nav-number">1.5.4.</span> <span class="nav-text">Dict in a boolean context</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#None"><span class="nav-number">1.6.</span> <span class="nav-text">None</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Frank Chu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"frankchu0229"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

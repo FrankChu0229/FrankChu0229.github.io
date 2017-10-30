@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Machine Learning,SVD,Jesen's Inequality,Matrix Calculus,Optimization," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Frank Chu" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="本文介绍了机器学习中常用到的统计和优化的基础知识。">
+<meta name="keywords" content="Machine Learning,SVD,Jesen&#39;s Inequality,Matrix Calculus,Optimization">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Statics and Optimization in Machine Learning">
+<meta property="og:url" content="http://frankchu0229.github.io/2016/03/31/ML2/index.html">
+<meta property="og:site_name" content="Frank Chu">
+<meta property="og:description" content="本文介绍了机器学习中常用到的统计和优化的基础知识。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-30T01:57:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Statics and Optimization in Machine Learning">
+<meta name="twitter:description" content="本文介绍了机器学习中常用到的统计和优化的基础知识。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://frankchu0229.github.io/2016/03/31/ML2/"/>
+
+
+
+
+
+  <title>Statics and Optimization in Machine Learning | Frank Chu</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?afc1ff6ca3a0ed413bece7a8c28ea24b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Frank Chu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">The world need dreamers who do.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://frankchu0229.github.io/2016/03/31/ML2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frank Chu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/author.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frank Chu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Statics and Optimization in Machine Learning</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-31T20:50:49+08:00">
+                2016-03-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/03/31/ML2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/31/ML2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description">
+                  本文介绍了机器学习中常用到的统计和优化的基础知识。
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Machine Learning 是一门集计算机、统计和优化于一体的学科。这一篇打算写一些机器学习中常用到的统计和优化的基础知识。由于时间有限，英文和中文哪个方便就用哪个写了^_^。</p>
+<h1 id="Jenson’s-Inequality"><a href="#Jenson’s-Inequality" class="headerlink" title="Jenson’s Inequality:"></a>Jenson’s Inequality:</h1><p>Jenson 不等式是机器学习中经常用到的一个不等式。有时我们在evaluate一个变量函数的期望的时候，可能我们不需要知道这个期望的确切数值，只需要知道这个期望的bound就足够了。这时我们就可以用到Jenson不等式。Jenson不等式在推倒EM算法公式的时候会被经常用到。</p>
+<p>令 \(X\)为一随机变量，\(f\)为关于\(X\)的凸函数，则有：<br> $$ E(f(X)) \geq f(E(X))$$<br> 如果 \(f\)为凹函数，则有，<br> $$E(f(X))   \leq f(E(X))$$</p>
+<h1 id="SVD-分解"><a href="#SVD-分解" class="headerlink" title="SVD 分解:"></a>SVD 分解:</h1><p> SVD分解是机器学习中常用到的一种矩阵分解方法。SVD是PCA算法的主要实现手段，而PCA算法又是机器学习中用的最多的降维的方法。</p>
+<p> 矩阵 \(X\) 的 SVD 分解为 \(X ＝ U_X \Sigma_X V_X^T\)，其中 \(X=[x_1,x_2,…x_N] \in R^{D\ \times N}\)，\(U_X \in R^{D\ \times D}\), \(\Sigma_X \in R^{D\ \times N}\), \(V_X \in R^{N\ \times N}\). 其中，\(U_X\), \(V_X\)为unitary matrix (\(U U^{* } = U^{\ * } U = I \))，\(\Sigma_X\)为奇异值矩阵。</p>
+<p> <strong>PCA via SVD:</strong> 令 \(X=[x_1,x_2,…x_N] \in R^{D \times N}\)为减去均值后的数据集，\(X\)的SVD分解结果为 \(X ＝ U_X \Sigma_X V_X^T\), 则经过降维后的数据集为\(\Sigma_X V_X^T\)的顶部\(d\times N\)部分；降维转换矩阵\(U\)为\(U_X\)的前d列。</p>
+<p> ps:关于PCA的推倒和实现会在后续文章里提到。暂时打算将降维和维度诅咒写在一起。</p>
+<h1 id="Matrix-Calculus"><a href="#Matrix-Calculus" class="headerlink" title="Matrix Calculus:"></a>Matrix Calculus:</h1><p> 梯度下降法是机器学习中用的最多的算法之一，而它的关键就是对矩阵求导。求导在 deep learning 里面也是关键。然而矩阵求导一直是我的弱项，复杂一点的有时候要求好久，下面好好梳理下矩阵求导。</p>
+<ul>
+<li>若 \(\mathbf{x}\) 为 \(n\) 维向量，\(f：R^{n} \rightarrow R^{m}  \) 为关于 \(\mathbf{x}\) 的函数，则 \((\frac{\partial f}{\partial \mathbf{x}})_{ij} = \frac{\partial f_i }{\partial x_j}\). </li>
+</ul>
+<ul>
+<li><p>若 \(\mathbf{x}\) 为 \(n\) 维列向量，\(f：R^{n} \rightarrow R \) 为关于 \(\mathbf{x}\) 的函数，则 \(\frac{\partial f}{\partial \mathbf{x}}\) 为\(n\) 维行向量，且\(\frac{\partial f}{\partial \mathbf{x}} = [\frac{\partial f}{\partial x_{i}}]\). </p>
+</li>
+<li><p>若 \(\mathbf{X}\) 为 \(m  \times n\) 的矩阵， \(f：R^{m\ \times n} \rightarrow R \) 为关于 \(\mathbf{X}\) 的函数，则 \(\frac{\partial f}{\partial \mathbf{X}}\) 为\(n \times m\) 的矩阵，且\([\frac{\partial{f}}{\partial \mathbf{X}}]_{ij} = [\frac{\partial f}{X_{ji}}]\).</p>
+</li>
+</ul>
+<p><strong>矩阵求导的三步：</strong></p>
+<ul>
+<li>1  弄清求导的维度</li>
+<li>2  根据求导的维度，将 \(f\) 展开成关于 \(x_i\) 的形式，然后用element-wise calculations 算出每一项的导数</li>
+<li>3  将算出来的每一项导数放到向量或者矩阵里面。</li>
+</ul>
+<h2 id="Example-1-scalar-by-vector"><a href="#Example-1-scalar-by-vector" class="headerlink" title="Example 1: scalar by vector"></a>Example 1: scalar by vector</h2><p> \( \frac{\partial (\mathbf{x}^{T}\mathbf{a})}{\partial \mathbf{x}} =  \frac{\partial (\mathbf{a}^{T} \mathbf{x})}{\partial \mathbf{x}} = \mathbf{a^{T}}\) .</p>
+<p> 根据矩阵求导三步：1. \(\mathbf{x}^{T}\mathbf{a}\) 是两个向量的内机，为scalar；\( \mathbf{x}\)是向量，所以 \(\frac{\partial f}{\partial \mathbf{x}} = [\frac{\partial f}{\partial x_{i}}]\) 是一个行向量. 2. \(\mathbf{x}^{T} \mathbf{a} ＝ \sum_{i=1}^{n} a_i x_i\), 所以 \(\frac{\partial f}{\partial x_{i}} = a_i\). 3. 将每一项求导结果放在向量中就得到了结果：\( \mathbf{a^{T}}\).</p>
+<h2 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2:"></a>Example 2:</h2><p> \( q(x) = || Ax - b||_2^2\), where \(A\) is \(m \times n\), \(x\) is \(n \times  1\), \(b\) is \(m \times 1\), \(\frac{\partial q(x)}{x} =  ?\)</p>
+<p> 首先看几个其他公式：</p>
+<ul>
+<li>\(y = Ax\), \(\frac{\partial y}{\partial x} = A\), \(\frac{\partial y}{\partial z} = A \frac{\partial x}{\partial z}\)</li>
+<li>\(\alpha = y^T Ax\), \(\frac{\partial \alpha}{\partial x} = y^T A\); \(\alpha = x^T A^T y\),\(\frac{\partial \alpha}{\partial y} = x^T A^T\); \( \frac{\partial \alpha}{\partial A} = yx^{T}\);</li>
+<li>\(\alpha = y^T x\), \(\frac{\partial \alpha}{\partial z} = x^T \frac{\partial y}{\partial z} + y^T \frac{\partial x}{\partial z}\); Proof: \(\frac{\partial \alpha}{\partial z} = \frac{\partial \alpha}{\partial y}\frac{\partial y}{\partial z}+ \frac{\partial \alpha }{\partial x}\frac{\partial x}{\partial z} = x^T \frac{\partial y}{\partial z} + y^T \frac{\partial x}{\partial z} \)</li>
+<li>\(\alpha = x^Tx\),\(\frac{\partial \alpha}{\partial x} = 2x^T\); \(\alpha = x^TAx\), \(\frac{\partial \alpha}{\partial x} = (Ax)^T + x^TA = x^T(A^T + A)\)</li>
+</ul>
+<p>回到我们这个问题上，\( q(x) = || Ax - b||_2^2 ＝ (Ax-b)^T (Ax-b)\), 则从上面公式可得：\(\frac{\partial q(x)}{\partial x} = 2(Ax-b)^T \frac{\partial (Ax-b)}{\partial x} = 2(Ax-b)^TA\).</p>
+<p> \(f(x)\) 关于\(x\) 的二阶导数称为Hessian matrix：\([\frac{\partial^2f(x)}{\partial x^2}]_{ij} = \frac{\partial^2f(x)}{\partial x_i \partial x_j}\), 其中，\(\mathbf{x}\) 为 \(n\) 维列向量，\(f：R^{n} \rightarrow R \) 为关于 \(\mathbf{x}\) 的函数。</p>
+<p> ps：更多关于矩阵求导相关公式会在深度学习中提到。</p>
+<h1 id="Optimization"><a href="#Optimization" class="headerlink" title="Optimization:"></a>Optimization:</h1><p> 刚看了周志华老师<a href="url1">新书</a>的附录部分，发现我想写的里面都有，而且深入浅出，浅显易懂^_^。关于优化部分，主要想写下拉格朗日乘子法、KKT条件和一些其他的凸优化相关知识。</p>
+<h2 id="拉格朗日乘子法："><a href="#拉格朗日乘子法：" class="headerlink" title="拉格朗日乘子法："></a>拉格朗日乘子法：</h2><p> 拉格朗日乘子法是寻找多元函数在一组约束条件下极值的方法；通过引入拉格朗日乘子，将d个变量在k个约束条件下的极值问题转化成d＋k个变量无约束的极值问题。<a href="prml">PRML</a>这本书的附录E里面有更加详细的关于拉格朗日乘子的介绍。</p>
+<h3 id="等式约束："><a href="#等式约束：" class="headerlink" title="等式约束："></a>等式约束：</h3><p> 假设 \(\mathbf{x}\) 为 d 维向量，我们要找到一个取值\(\mathbf{x^{*}}\), 使得目标函数 \(f(\mathbf{x})\) 在约束条件\(g(\mathbf{x})=0\) 下取得最小值。 满足约束条件\(g(\mathbf{x})=0\) 的点在一个 \(d-1\) 维的曲面上，对于约束曲面上的任意一点\(x_i\)，它的梯度 \(\nabla g(\mathbf{x_i})\) 都正交于该曲面。对于我们要找的 \(\mathbf{x^{*}}\), 目标函数在该点的梯度 \(\nabla f(\mathbf{x^*})\) 也要正交于约束曲面。因为如果不正交的话，我们可沿着梯度方向在约束曲面上移动一小段距离，从而可以找到更小的值。也就是\(\nabla g(\mathbf{x}) + \lambda \nabla f(\mathbf{x}) = 0\), 其中，\(\lambda \neq 0\)。</p>
+<p> 下面引出拉格朗日函数：\(L(\mathbf{x},\lambda) = f(\mathbf{x}) + \lambda g(\mathbf{x})\). 将 \(L(\mathbf{x},\lambda)\) 对 \(\mathbf{x}\) 求导可得：\(\nabla f(\mathbf{x}) + \lambda \nabla g(\mathbf{x}) = 0\)； 对\(\lambda \) 求导可得：\(g(\mathbf{x})=0\). 所以对拉格朗日函数的无约束优化即等价于原等式约束优化。</p>
+<h3 id="不等式约束："><a href="#不等式约束：" class="headerlink" title="不等式约束："></a>不等式约束：</h3><p>当\(g(\mathbf{x}) \leq 0\), 有两种情况：</p>
+<ul>
+<li>\(g(\mathbf{x}) &lt; 0\) 时, 约束条件 \(g(\mathbf{x}) \leq 0\) 不起作用，此时等价于 \(\lambda ＝ 0\)，可直接通过 \(\nabla f(\mathbf{x}) = 0\) 求解.</li>
+<li>\(g(\mathbf{x}) = 0\) 时，情况和上一条等价约束比较类似，不过此处 \( \lambda&gt; 0\).</li>
+</ul>
+<p>由此引出<strong>KKT条件：</strong> </p>
+<ul>
+<li>\(\nabla g(\mathbf{x}) + \lambda \nabla f(\mathbf{x}) = 0\)</li>
+<li>\(g(\mathbf{x}) \leq 0\)</li>
+<li>\( \lambda \geq 0\)</li>
+<li>\( \lambda g(\mathbf{x}) = 0 \)</li>
+</ul>
+<p>综上，当有多个约束时，考虑有 m 个等式约束和 n 个不等式约束,<br>$$\min_{\mathbf{x}} f(\mathbf{x}) \\ s.t. \ h_{i}(\mathbf{x})=0 \ (i = 1,2,…m) \\ g_{j}(\mathbf{x}) \leq 0 \ (j = 1,2,…n) $$</p>
+<p>引入拉格朗日乘子，\(\mathbf{\lambda} = (\lambda_{1},\lambda_{2},\ldots,\lambda_{m})^{T}\), \(\mathbf{\mu} = (\mu_{1}, \mu_{2},\ldots,\mu_{n})^{T} \), 得到拉格朗日函数为：</p>
+<p>\(L(\mathbf{x},\mathbf{\lambda},\mathbf{\mu}) = f(\mathbf{x}) + \sum_{i=1}^{m}\lambda_{i} h_{i}(\mathbf{x}) + \sum_{j=1}^{n} \mu_{j} g_{j}(\mathbf{x})\)</p>
+<p>其中，由不等式引入的 KKT 条件为 (\(j = 1,2,\ldots,n\))：</p>
+<ul>
+<li>\( g_{j}(\mathbf{x}) \leq 0  \)</li>
+<li>\(\mu_j \geq 0\)</li>
+<li>\(\mu_j g_j(\mathbf{x}) = 0\)</li>
+</ul>
+<h2 id="Convexity-Optimization"><a href="#Convexity-Optimization" class="headerlink" title="Convexity Optimization"></a>Convexity Optimization</h2><p>通过上面拉格朗日乘子和KKT条件算出的结果只是必要条件，只有当目标函数是凸的情况下，才能保证是充分必要条件 (取到全局最优)。通常来讲，找一个函数的全局最优解是很难的；但是如果我们可以将一个问题formulate 成凸优化问题，解决起来会容易很多。</p>
+<h3 id="Convex-Sets"><a href="#Convex-Sets" class="headerlink" title="Convex Sets"></a>Convex Sets</h3><p>在判断一个函数是不是凸函数的时候，首先要看它的定义域是不是一个凸集；所以首先介绍下什么是凸集。</p>
+<p><strong>Definition:</strong> A set \(C \) is convex, if for all \(x,y \ in \ C \) and \(\theta \in R\) with \(0 \leq \theta \leq 1\), \(\theta x + (1-\theta)y \in C \). 意思就是说，对于集合中任意两个元素，我们在这两个元素之间做一条线段，如果线段上的所有点都在集合内，则这个集合就是凸的。</p>
+<p>常见的凸集有：</p>
+<ul>
+<li>All of \(R^{n}\)</li>
+<li>The non-negative orthant, \(R_{+}^{n}\): \(R_{+}^{n} = \{x: x_i \geq 0 \ \forall i= 1,2,…n \}\)</li>
+<li>Norm balls: e.g., \(||x|| \leq 1\)</li>
+<li>Affine subspaces \(\{x \in R^{n} : Ax = b\}\) and polyhedra \(\{x \in R^{n} : Ax \preceq b\}\), where \(\preceq \) denotes componentwise inequality.</li>
+<li>Intersections of convex sets</li>
+<li>Positive semidefine matrices \(S_{+}^{n}\): \(A = A^{T},\) and for all \(x \in R^{n}\), \(x^{T}Ax \geq 0\).</li>
+</ul>
+<h3 id="Convex-Functions"><a href="#Convex-Functions" class="headerlink" title="Convex Functions:"></a>Convex Functions:</h3><p>凸函数是凸优化中一个比较核心的概念，被用在凸优化各个方面。</p>
+<p><strong>Definition:</strong> A function \(R^{n} \rightarrow R \) is convex, if its domain (denoted as D(f)) is a convex set, and if for all \(x,y \in D(f)\) and \(\theta \in R \) with \(0 \leq \theta \leq 1\), \(f(\theta x + (1-\theta)y) \leq \theta f(x) + (1-\theta)f(y)\). </p>
+<p>如果该等式左侧在该条件下(且\(x \neq y\))恒小于右侧，我们就说该函数是 strictly convex。 如果一个函数 \(f \)的负数 \(-f \) 是凸函数，则该函数 \(f\)为凹函数。</p>
+<p>如果函数 \(f \) 是凸函数，则它的局部最小值即为它的全局最小值。如果 \(f \) 是strictly convex的，\(f \) 最多只有一个全局最小值；也就是说如果\(f \)有最小值，那么这个最小值就是唯一的。</p>
+<p><strong>First Order Condition of Convexity:</strong><br>Suppose a function \(R^{n} \rightarrow R \) is differentiable (i.e., the gradient \(\nabla f(x)\) exists for all \(x\) in the domain of \(f\)). Then \(f \) is convex, if and only if \(D(f)\) is a convex set and for all \(x, y \in D(f)\), \(f(y) \geq f(x) + \nabla f(x)^{T}(y-x)\). 也就是说我们在点\(x\)处做切线，用这个切线上的点来近似函数\(f\)上的点，那么这个切线上的所有点都在函数\(f\)相应点的下方。如果恒大于的话，即为strictly convex；如果不等号相反，那么\(f\)即为凹函数。</p>
+<p><strong>Second Order Condition of Convexity:</strong><br> Suppose a function \(R^{n} \rightarrow R \) is twice differentiable (i.e., the Hessian Matrix \(\nabla^{2} f(x)\) is defined for all \(x\) in the domain of \(f\)). Then \(f \) is convex, if and only if \(D(f)\) is a convex set and \(\nabla^{2} f(x)\) is positive semidefine. If \(\nabla^{2} f(x)\) is positive define, then \(f\) is strictly convex. If \(\nabla^{2} f(x)\) is negative semidefine, then \(f\) is concave. 当\(x\)为一维的时候，即为\(\nabla^{2} f(x) \geq 0\)</p>
+<p>If \(f\) is convex, then the \(\alpha\)-sublevel set (\(x \in D(f): f(x) \leq \alpha\)) is a convex set.</p>
+<p><strong>常见的凸函数</strong></p>
+<ul>
+<li>Exponential functions</li>
+<li>Negative logarithm:</li>
+<li>Affine functions: \(f(x) = b^{T}x + c\), \(b \in R^{n}, \ c \in R\). In this case \(\nabla^{2} f(x) = 0\), the affine functions of this form are the \(\mathbf{only}\) functions that are both convex and concave.</li>
+<li>Quadratic functions: \(f(x) = x^{T}Ax + b^{T}x + c \), when \(A\) is symmetric and \(A\) is positive semidefine, \(f(x)\) is convex. ( \(\nabla^{2} f(x) = A\)).</li>
+<li>Norms (using the definition to prove it)</li>
+<li>Nonnegative weighted sums of convex functions</li>
+</ul>
+<h3 id="Convex-Optimization-Problems"><a href="#Convex-Optimization-Problems" class="headerlink" title="Convex Optimization Problems:"></a>Convex Optimization Problems:</h3><p>$$\min_x f(x) \\ s.t. g_i(x)\leq 0, \ i= 1,2,…n \\ h_j(x) = 0,\ j = 1,2,…n $$<br>where \(f\) is a convex function, \(g_i\) are convex functions and \(h_i\) are affine functions.</p>
+<p><strong>Special cases of convex problems:</strong></p>
+<ul>
+<li>Linear Programming (LP):<br>$$\min_x c^{T}x + d \\ s.t. Gx \preceq h \\ Ax = b$$<br>where \(\preceq \) denotes elementwise inequality.</li>
+<li>Quadratic Programming (QP):<br>$$ \min_x \frac{1}{2} x^{T}Px + c^{T}x + d \\ s.t. Gx \preceq h \\ Ax = b$$ where \(P\) is a symmetric positive semidefine matrix.</li>
+<li>Quadratically Constrained Quadratic Programming (QCQP):<br>$$\min_x \frac{1}{2} x^{T}Px + c^{T} +d \\ s.t. \frac{1}{2} x^{T}Q_ix + r_i^{T}x + s_i \leq 0 \ \ i = 1,2…,m \\ Ax= b$$<br>where \(P\) and \(Q_i\) are symmetric positive semidefine matrices. </li>
+</ul>
+<h1 id="共轭分布、多项分布与-Dirichlet-分布"><a href="#共轭分布、多项分布与-Dirichlet-分布" class="headerlink" title="共轭分布、多项分布与 Dirichlet 分布"></a>共轭分布、多项分布与 Dirichlet 分布</h1><p>在很多模型中 (e.g., LDA)，一个节点到其他节点的概率之和为1，这时我们就用多项分布来建模。比如现在我们有一个\(d\)维向量\(\mathbf{x}\), 其中\(\mathbf{x}\)是 1-of-K 的形式。令\(x_i\)取1 的概率为\(\mu_i\), 并且\(\sum_{i = 1}^{d}\mu_i = 1\),那么我们就能得到关于\(\mathbf{x}\)的多项分布：\(P(\mathbf{x}|\mathbf{\mu}) = \prod_{i=1}^{d} \mu_i^{x_i}\). 其中，\(\mathbf{\mu}\)即为我们模型的参数。</p>
+<p>现在我们想对参数\(\mathbf{\mu}\)加先验，我们认为参数\(\mathbf{\mu}\)服从一个分布。通常来讲，我们都会选共轭分布来作为先验分布 (在很多情况下，共轭分布能使问题简化)。多项分布的共轭分布是Dirichlet 分布，因为将多项分布和Dirichlet 分布相乘仍是Dirichlet 分布。在生成模型中，多项分布和Dirichlet 分布用的比较多，这里先简单介绍下，在后面的LDA模型中，我会详细介绍。</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li>Book: <a href="prml">Pattern Recognition and Machine Learning by Christopher Bishop</a></li>
+<li><a href="http://www.holehouse.org/mlclass" target="_blank" rel="external">notes of machine learning by Andrew Ng in cousera</a></li>
+<li>GPCA (Generalized Principle Component Analysis) by <a href="http://yima.csl.illinois.edu/" target="_blank" rel="external">Yi Ma</a> (to be published)</li>
+<li><a href="http://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/MLbook2016.htm" target="_blank" rel="external">机器学习</a> 周志华</li>
+<li><a href="MD">Matrix Differentiation</a></li>
+<li><a href="MCB">Matrix CookBook</a></li>
+<li><a href="http://cs229.stanford.edu/" target="_blank" rel="external">Notes of CS229 in Stanford</a></li>
+</ul>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>我知道是不会有人点的，但万一有人想不开呢？</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/img/weixin.jpg" alt="Frank Chu 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/img/zhifubao.jpg" alt="Frank Chu 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Frank Chu
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://frankchu0229.github.io/2016/03/31/ML2/" title="Statics and Optimization in Machine Learning">http://frankchu0229.github.io/2016/03/31/ML2/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
+          
+            <a href="/tags/SVD/" rel="tag"># SVD</a>
+          
+            <a href="/tags/Jesen-s-Inequality/" rel="tag"># Jesen's Inequality</a>
+          
+            <a href="/tags/Matrix-Calculus/" rel="tag"># Matrix Calculus</a>
+          
+            <a href="/tags/Optimization/" rel="tag"># Optimization</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/19/ML1/" rel="next" title="Introduction">
+                <i class="fa fa-chevron-left"></i> Introduction
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/07/ML3/" rel="prev" title="Model Selection and Evaluation">
+                Model Selection and Evaluation <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2016/03/31/ML2/"
+           data-title="Statics and Optimization in Machine Learning" data-url="http://frankchu0229.github.io/2016/03/31/ML2/">
+      </div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/img/author.jpg"
+                alt="Frank Chu" />
+            
+              <p class="site-author-name" itemprop="name">Frank Chu</p>
+              <p class="site-description motion-element" itemprop="description">AI从业者，希望结识更多同道中人。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jenson’s-Inequality"><span class="nav-number">1.</span> <span class="nav-text">Jenson’s Inequality:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SVD-分解"><span class="nav-number">2.</span> <span class="nav-text">SVD 分解:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Matrix-Calculus"><span class="nav-number">3.</span> <span class="nav-text">Matrix Calculus:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-1-scalar-by-vector"><span class="nav-number">3.1.</span> <span class="nav-text">Example 1: scalar by vector</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-2"><span class="nav-number">3.2.</span> <span class="nav-text">Example 2:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Optimization"><span class="nav-number">4.</span> <span class="nav-text">Optimization:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#拉格朗日乘子法："><span class="nav-number">4.1.</span> <span class="nav-text">拉格朗日乘子法：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#等式约束："><span class="nav-number">4.1.1.</span> <span class="nav-text">等式约束：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不等式约束："><span class="nav-number">4.1.2.</span> <span class="nav-text">不等式约束：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Convexity-Optimization"><span class="nav-number">4.2.</span> <span class="nav-text">Convexity Optimization</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Convex-Sets"><span class="nav-number">4.2.1.</span> <span class="nav-text">Convex Sets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Convex-Functions"><span class="nav-number">4.2.2.</span> <span class="nav-text">Convex Functions:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Convex-Optimization-Problems"><span class="nav-number">4.2.3.</span> <span class="nav-text">Convex Optimization Problems:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#共轭分布、多项分布与-Dirichlet-分布"><span class="nav-number">5.</span> <span class="nav-text">共轭分布、多项分布与 Dirichlet 分布</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Frank Chu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"frankchu0229"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

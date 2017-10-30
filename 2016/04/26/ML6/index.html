@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Machine Learning,Coordinate Descent,BFGS,Exercises," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Frank Chu" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="本文是对前面涉及到的算法的实践。">
+<meta name="keywords" content="Machine Learning,Coordinate Descent,BFGS,Exercises">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Exercises">
+<meta property="og:url" content="http://frankchu0229.github.io/2016/04/26/ML6/index.html">
+<meta property="og:site_name" content="Frank Chu">
+<meta property="og:description" content="本文是对前面涉及到的算法的实践。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://frankchu0229.github.io/2016/04/26/img/softThreshold.png">
+<meta property="og:updated_time" content="2017-10-30T01:57:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Exercises">
+<meta name="twitter:description" content="本文是对前面涉及到的算法的实践。">
+<meta name="twitter:image" content="http://frankchu0229.github.io/2016/04/26/img/softThreshold.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://frankchu0229.github.io/2016/04/26/ML6/"/>
+
+
+
+
+
+  <title>Exercises | Frank Chu</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?afc1ff6ca3a0ed413bece7a8c28ea24b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Frank Chu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">The world need dreamers who do.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://frankchu0229.github.io/2016/04/26/ML6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frank Chu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/author.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frank Chu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Exercises</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-26T00:00:00+08:00">
+                2016-04-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/Exercise/" itemprop="url" rel="index">
+                    <span itemprop="name">Exercise</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/04/26/ML6/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/26/ML6/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description">
+                  本文是对前面涉及到的算法的实践。
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Part-I-Data-Preprocessing"><a href="#Part-I-Data-Preprocessing" class="headerlink" title="Part I : Data Preprocessing"></a>Part I : Data Preprocessing</h2><p>在实际数据中，我们总会遇到类别变量(category variables)。对于这种变量，它是没有数值意义上大小的，我们要用dummy coding来编码，然后再来处理。常用的dummy coding方法：对于有n种类别的类别变量，我们用n-1位数来编码。(例如：有四个类别种类的变量，我们用000，001，010，100来编码)。在实际数据中，经常也会出现数据缺失的情况，在这里我是用该属性(attribute)的均值来填充的(当然也可以用其他的办法来解决：比如删除有缺失属性的样本，或者将缺失的属性作为一个新的类别等).</p>
+<h2 id="Part-II-Linear-Regression-and-Stochastic-Gradient-Descent-SGD"><a href="#Part-II-Linear-Regression-and-Stochastic-Gradient-Descent-SGD" class="headerlink" title="Part II: Linear Regression and Stochastic Gradient Descent (SGD)"></a>Part II: Linear Regression and Stochastic Gradient Descent (SGD)</h2><p>这一部分主要贴下minibatch-SGD的实现，关于Linear Regression的实现已经在前几篇博客中提过了。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="params">[paraTheta,cost]</span> = <span class="title">sgd</span><span class="params">(theta0,X,y)</span></span></div><div class="line"></div><div class="line">epochs = <span class="number">50</span>;</div><div class="line">minibatch = <span class="number">256</span>;</div><div class="line">m = <span class="built_in">size</span>(X,<span class="number">1</span>);</div><div class="line">alpha = <span class="number">0.001</span>;</div><div class="line"></div><div class="line">paraTheta = theta0;</div><div class="line"></div><div class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: epochs</div><div class="line">	rp = randperm(m);</div><div class="line">	</div><div class="line">	<span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span> : minibatch : (m - minibatch + <span class="number">1</span>)</div><div class="line">		x1 = X(rp(<span class="built_in">j</span>:<span class="built_in">j</span>+minibatch<span class="number">-1</span>)',:);</div><div class="line">		y1 = y(rp(<span class="built_in">j</span>:<span class="built_in">j</span>+minibatch<span class="number">-1</span>)');</div><div class="line">		[cost,gradient] = linearRegressionCost(paraTheta,x1,y1);</div><div class="line">		paraTheta = paraTheta - alpha*gradient;</div><div class="line">	<span class="keyword">end</span></div><div class="line">	</div><div class="line">	alpha = alpha/<span class="number">2.0</span>;</div><div class="line">cost = <span class="number">0.5</span>*norm(X*paraTheta-y);</div><div class="line"><span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="params">[cost, gradient]</span> = <span class="title">linearRegressionCost</span><span class="params">(theta,X,y)</span></span></div><div class="line"> cost = <span class="number">0.5</span>*norm(X*theta-y,<span class="number">2</span>);</div><div class="line"> gradient = X'*(X*theta - y);</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<h2 id="Part-III-Overfitting-and-Regularization-for-Regression"><a href="#Part-III-Overfitting-and-Regularization-for-Regression" class="headerlink" title="Part III: Overfitting and Regularization for Regression"></a>Part III: Overfitting and Regularization for Regression</h2><p>当我们对模型参数加了L1 norm约束之后(LASSO)，模型的优化目标不再是在全部点处可导，这时basic gradient descent的方法就不再可行了。关于LASSO的一阶最优条件，在 <a href="http://frankchu0229.github.io/2016/04/12/ML4/">Linear Models for Regression</a>这篇博客中已经提过了。常用的求解LASSO的方法有：迭代软阈值算法(IST), 最小角回归(LARS), 坐标下降法(coordinate descent), ADMM 等。</p>
+<h3 id="迭代软阈值算法-IST"><a href="#迭代软阈值算法-IST" class="headerlink" title="迭代软阈值算法(IST)"></a>迭代软阈值算法(IST)</h3><p>在linear regression中，我们的优化目标为\(E_{in} = \frac{1}{2} ||\mathbf{X}\theta - \mathbf{y}||_2^2 + \lambda||\theta||_{1} = f(\theta) + \lambda||\theta||_{1}\). </p>
+<p>IST算法：在点\(\theta\)处，$$ Q(z,\theta) = f(\theta) + \nabla f(\theta)^T(z - \theta) + \frac{1}{2}||z - \theta||_2^2$$ 是对\(f(z)\)的二阶近似。现在考虑我们的L1约束问题：\(\min_{\theta}  f(\theta) + \lambda||\theta||_{1} \)，对第k次迭代，IST用local的\(Q(z,\theta_{k}) + \lambda ||z||_1\)来代替：\( f(\theta) + \lambda||\theta||_{1} \). 这样有：<br>$$\theta_{k+1} = arg \min_{z} Q(z,\theta_{k}) + \lambda ||z||_1 $$</p>
+<p>\(\theta_{k+1}\)的解的形式可以用软阈值算子来写出：\(\theta_{k+1} = S_{\lambda}(\theta_{k} - \nabla f(\theta_{k}^T)) = S_{\lambda}(\theta_{k} - \mathbf{X}^T(\mathbf{X}\theta_{k} - \mathbf{y})\). 其中，</p>
+<div align="center"><br><img src="../img/softThreshold.png" width="200" height="100" alt="softThreshold.png" align="center"><br></div>
+
+<p>关于软阈值算子的实现：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">y</span> = <span class="title">soft</span><span class="params">(x,tau)</span></span></div><div class="line"><span class="comment">%This is the soft-thresholding operator</span></div><div class="line">y = <span class="built_in">sign</span>(x).*max(<span class="built_in">abs</span>(x)-tau,<span class="number">0</span>);</div></pre></td></tr></table></figure>
+<p>总结：IST是一种迭代优化的方法，对于第k次迭代\(\theta_k\), IST对目标函数在\(\theta_k\)处进行展开，用目标函数的二阶近似来代替该目标函数；通过求解该二阶近似函数来得出第k+1次迭代\(\theta_{k+1}\)的值。</p>
+<h3 id="坐标下降法-Coordinate-Descent"><a href="#坐标下降法-Coordinate-Descent" class="headerlink" title="坐标下降法 (Coordinate Descent)"></a>坐标下降法 (Coordinate Descent)</h3><p>Coordinate descent (CD)是一种常用的求解模型参数的方法。在每一次迭代中，CD不是沿着参数梯度方向进行搜索，而是沿着坐标方向进行搜索。对于有n个参数的linear regression问题，CD在每一次迭代中沿着一个坐标方向去搜索，通过循环使用不同坐标方向来达到目标函数的局部最小值。</p>
+<p>\(E_{in} = \frac{1}{2} ||\mathbf{X}\theta - \mathbf{y}||_2^2 + \lambda||\theta||_{1} = f(\theta) + \lambda||\theta||_{1}\). </p>
+<p>对第i个坐标方向进行最小化,得到一阶最优条件：<br>$$\mathbf{X}^T_{i}(\mathbf{X}\theta - \mathbf{y}) + \lambda s_i = \mathbf{X}^T_{i} \mathbf{X}_i \theta_i + \mathbf{X}^T_{i}\mathbf{X}{-i}\theta_{-i} - \mathbf{X}^T_{i}\mathbf{y} +  \lambda s_i  = 0 $$</p>
+<p>其中，\(\mathbf{X}_i \)表示 \(\mathbf{X}\)的第i列，\(\mathbf{X}_{-i} \)表示\(\mathbf{X}\)除去第i列，\(s_i\)表示次梯度。</p>
+<p>通过以上一阶最优条件解得：</p>
+<p>$$\theta_i = S_{\lambda / ||\mathbf{X}_i||_2^2}(\frac{\mathbf{X}_i^T (\mathbf{y} - \mathbf{X}{-i}\theta_{-i})}{\mathbf{X}_i^T \mathbf{X}_i})$$</p>
+<p>其中，\(i = 1,2,…n\), S为软阈值算子。</p>
+<p>当目标函数为光滑的时候，CD通过沿着不同坐标方向不断迭代，可以收敛到局部极小值或者驻点；当目标函数不光滑的时候，CD可能会收敛到非驻点(non-stationary point).</p>
+<p>下面是对Linear Regression问题的CD解法。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="params">[paraTheta, cost]</span> = <span class="title">cdCost</span><span class="params">(theta0,X,y,lambda)</span></span></div><div class="line"></div><div class="line">theta = theta0;</div><div class="line">epochs = <span class="number">50</span>;</div><div class="line">n = <span class="built_in">size</span>(X,<span class="number">2</span>);</div><div class="line">optTol = <span class="number">0.0001</span>;</div><div class="line"></div><div class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>: epochs</div><div class="line">theta_old = theta;</div><div class="line"><span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:n </div><div class="line">	theta(<span class="built_in">j</span>) = softThreshold(<span class="built_in">j</span>,theta,X,y,lambda);</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">cost = <span class="number">0.5</span>*norm(X*theta-y) + lambda*norm(theta,<span class="number">1</span>)</div><div class="line"><span class="comment">%% checking convergence:</span></div><div class="line"><span class="keyword">if</span> sum(<span class="built_in">abs</span>(theta-theta_old))/sum(<span class="built_in">abs</span>(theta)) &lt; optTol</div><div class="line">	<span class="keyword">break</span>;</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="keyword">end</span></div><div class="line">paraTheta = theta;</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="params">[thetai]</span> = <span class="title">softThreshold</span><span class="params">(i,theta,X,y,lambda)</span></span></div><div class="line">Xt = X';</div><div class="line">a = Xt(<span class="built_in">i</span>,:)*y;</div><div class="line">c = X*theta - X(:,<span class="built_in">i</span>)*theta(<span class="built_in">i</span>);</div><div class="line">b = Xt(<span class="built_in">i</span>,:)*c;</div><div class="line">den = Xt(<span class="built_in">i</span>,:)*X(:,<span class="built_in">i</span>);</div><div class="line"></div><div class="line"><span class="keyword">if</span>(a-b &gt; lambda)</div><div class="line">	thetai = (a-b-lambda) / den;</div><div class="line"></div><div class="line"><span class="keyword">elseif</span>(a-b &lt; -lambda)</div><div class="line">	thetai = (a-b+lambda) / den;</div><div class="line"><span class="keyword">else</span></div><div class="line">	thetai = <span class="number">0</span>;</div><div class="line"></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<h2 id="Part-IV-Classification"><a href="#Part-IV-Classification" class="headerlink" title="Part IV: Classification"></a>Part IV: Classification</h2><p> 关于Logistic Regression model的实现已经在<a href="http://frankchu0229.github.io/2016/04/24/ML5/">Linear Models for Classification</a>这篇博客中提过了 (用了gradient descent，Newton method，BFGS 和 l-BFGS(minfunc)四个优化方法来实现)。</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
+<li>Book: <a href="prml">Pattern Recognition and Machine Learning by Christopher Bishop</a></li>
+<li><a href="http://www.holehouse.org/mlclass" target="_blank" rel="external">Notes of machine learning by Andrew Ng in cousera</a></li>
+<li><a href="http://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/MLbook2016.htm" target="_blank" rel="external">机器学习</a> 周志华</li>
+<li>Slides by <a href="http://sist.shanghaitech.edu.cn/StaffDetail.asp?id=334" target="_blank" rel="external">Prof. Wang</a></li>
+<li><a href="http://www.hangli-hl.com/books.html" target="_blank" rel="external">统计学习方法</a></li>
+<li><a href="https://www.cs.cmu.edu/~ggordon/10725-F12/slides/25-coord-desc.pdf" target="_blank" rel="external">Coordinate Descent</a></li>
+</ul>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+<!--<div  align="center">    
+<img src="/img/photoswithboyd.jpg" width = "300" height = "200" alt="PhotosWithStephenBoyd" align=center />
+</div>-->
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>我知道是不会有人点的，但万一有人想不开呢？</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/img/weixin.jpg" alt="Frank Chu 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/img/zhifubao.jpg" alt="Frank Chu 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Frank Chu
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://frankchu0229.github.io/2016/04/26/ML6/" title="Exercises">http://frankchu0229.github.io/2016/04/26/ML6/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
+          
+            <a href="/tags/Coordinate-Descent/" rel="tag"># Coordinate Descent</a>
+          
+            <a href="/tags/BFGS/" rel="tag"># BFGS</a>
+          
+            <a href="/tags/Exercises/" rel="tag"># Exercises</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/24/ML5/" rel="next" title="Linear Models for Classification">
+                <i class="fa fa-chevron-left"></i> Linear Models for Classification
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/09/ML7/" rel="prev" title="Support Vector Machines">
+                Support Vector Machines <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2016/04/26/ML6/"
+           data-title="Exercises" data-url="http://frankchu0229.github.io/2016/04/26/ML6/">
+      </div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/img/author.jpg"
+                alt="Frank Chu" />
+            
+              <p class="site-author-name" itemprop="name">Frank Chu</p>
+              <p class="site-description motion-element" itemprop="description">AI从业者，希望结识更多同道中人。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-I-Data-Preprocessing"><span class="nav-number">1.</span> <span class="nav-text">Part I : Data Preprocessing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-II-Linear-Regression-and-Stochastic-Gradient-Descent-SGD"><span class="nav-number">2.</span> <span class="nav-text">Part II: Linear Regression and Stochastic Gradient Descent (SGD)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-III-Overfitting-and-Regularization-for-Regression"><span class="nav-number">3.</span> <span class="nav-text">Part III: Overfitting and Regularization for Regression</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代软阈值算法-IST"><span class="nav-number">3.1.</span> <span class="nav-text">迭代软阈值算法(IST)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#坐标下降法-Coordinate-Descent"><span class="nav-number">3.2.</span> <span class="nav-text">坐标下降法 (Coordinate Descent)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-IV-Classification"><span class="nav-number">4.</span> <span class="nav-text">Part IV: Classification</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number"></span> <span class="nav-text">Reference</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Frank Chu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"frankchu0229"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
