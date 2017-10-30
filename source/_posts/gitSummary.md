@@ -49,3 +49,5 @@ If you need to compare it against a old fingerprint you also need to specify to 
 7. Delete the now untracked submodule files
 8. rm -rf path_to_submodule
 
+
+--- 

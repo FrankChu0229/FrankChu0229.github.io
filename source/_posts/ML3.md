@@ -108,3 +108,5 @@ $$R^2 =  1 - \frac{\sum\_{i=1}^{m} (f(\mathbf{x\_i}) - y\_{i})^2}{\sum\_{j=1}^{m
 [MCB]:https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+--- 

@@ -62,3 +62,7 @@ Adaboost算法还有另一种解释，即认为损失函数为指数函数\\(E =
 [prml]:http://www.rmki.kfki.hu/~banmi/elte/Bishop%20-%20Pattern%20Recognition%20and%20Machine%20Learning.pdf
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+
+
+--- 

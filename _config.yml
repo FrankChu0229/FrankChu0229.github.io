@@ -89,14 +89,13 @@ theme: next
   ##compress: true
 #RSS
 plugins:
-- hexo-generator-feed
-- hexo-generator-sitemap
+#- hexo-generator-feed
+#- hexo-generator-sitemap
 #Feed Atom
 feed:
-	type: Atom
-	path: atom.xml
-	limit: 20
-	
+  type: Atom
+  path: atom.xml
+  limit: 20  
 #sitemap
 sitemap:
 path: sitemap.xml
@@ -105,3 +104,10 @@ path: sitemap.xml
 deploy:
   type: git
   repo: https://github.com/FrankChu0229/FrankChu0229.github.io.git
+  branch: master
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000 

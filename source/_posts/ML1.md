@@ -126,3 +126,6 @@ If the dimension of the data is too high, we will meet the following problems:
 [urllearn]:http://www.holehouse.org/mlclass/01_02_Introduction_regression_analysis_and_gr.html
 [url4]:http://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/MLbook2016.htm
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+
+--- 

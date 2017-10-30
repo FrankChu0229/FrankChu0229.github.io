@@ -196,3 +196,5 @@ $$\max\_{\alpha} \sum\_{i=1}^{m}\alpha\_i -\frac{1}{2} \sum\_{i=1}^{m}\sum\_{j=1
 
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+--- 

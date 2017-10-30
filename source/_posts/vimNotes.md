@@ -152,3 +152,5 @@ description: This is the summary from vimtutor, you can find all the basic vim u
   5. Create a **vimrc** startup script to keep your preferred settings.
 
   6. When typing a  `:`  command, press `CTRL-D` to see possible completions. Press `<TAB>` to use one completion.
+
+---

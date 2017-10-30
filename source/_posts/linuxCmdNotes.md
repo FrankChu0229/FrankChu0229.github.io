@@ -18,7 +18,7 @@ description: 熟悉ubuntu命令行快捷键，可以很好的提高在ubuntu下�
 - `Ctrl + u` 删除光标左边所有元素
 - `Ctrl + k` 删除光标右边所有元素
 
-
+--- 
 
 
 

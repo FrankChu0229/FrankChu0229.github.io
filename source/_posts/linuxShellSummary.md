@@ -51,4 +51,5 @@ ln -s 源地址 目的地址
 
 `cat /etc/issue `  
 
+--- 
 　　

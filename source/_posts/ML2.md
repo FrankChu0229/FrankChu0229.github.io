@@ -190,3 +190,4 @@ where \\(P\\) and \\(Q\_i\\) are symmetric positive semidefine matrices.
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
+--- 

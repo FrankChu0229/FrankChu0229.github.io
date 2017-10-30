@@ -1,4 +1,4 @@
-title: "about"
+title: "About"
 date: 2015-04-10 12:45:39
 ---
 # Home

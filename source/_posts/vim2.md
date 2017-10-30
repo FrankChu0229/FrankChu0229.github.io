@@ -48,3 +48,5 @@ description: vim 进阶
 
 ## delete the whole line satisfied with the pattern:
 `:g/^9 /d`
+
+--- 
