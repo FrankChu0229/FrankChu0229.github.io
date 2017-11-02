@@ -63,5 +63,9 @@ Python modules are objects and you can use some attributes of them:
 
 - all modules have an attribute: `__name__`. 如果你是import a module， `__name__`即为该module的filename (不带路径名)；但如果你将该module单独的去run，此时`__name__`的值为它的default值：`__main__`
 
+## Reference
+
+- [Dive into Python 3] (http://www.diveintopython3.net/)
+
 
 --- 

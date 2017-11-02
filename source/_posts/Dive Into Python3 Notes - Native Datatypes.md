@@ -199,5 +199,8 @@ Dict 的value可以是任何类型， 但是dict的key 需要时immutable的， 
 - 将None同其他不是None的值进行比较，都将返回False。
 - 所有的None值 (值为None的变量) 都相等。
 
+## Reference
+
+- [Dive into Python 3] (http://www.diveintopython3.net/)
 
 ---
