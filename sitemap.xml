@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://frankchu0229.github.io/2017/10/19/Dive%20Into%20Python3%20Notes%20-%20Native%20Datatypes/</loc>
+    
+    <lastmod>2017-11-02T03:16:39.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu0229.github.io/2017/10/15/Dive%20Into%20Python%20Notes/</loc>
+    
+    <lastmod>2017-11-02T03:16:27.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://frankchu0229.github.io/2016/10/21/vimNotes/</loc>
     
     <lastmod>2017-10-30T12:29:24.000Z</lastmod>
@@ -124,20 +138,6 @@
     <loc>http://frankchu0229.github.io/2017/09/03/gitSummary/</loc>
     
     <lastmod>2017-10-30T12:27:11.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://frankchu0229.github.io/2017/10/15/Dive%20Into%20Python%20Notes/</loc>
-    
-    <lastmod>2017-10-30T12:26:50.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://frankchu0229.github.io/2017/10/19/Dive%20Into%20Python3%20Notes%20-%20Native%20Datatypes/</loc>
-    
-    <lastmod>2017-10-30T12:26:44.000Z</lastmod>
     
   </url>
   
