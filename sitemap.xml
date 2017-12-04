@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://frankchu0229.github.io/2017/12/04/vimium-notes/</loc>
+    
+    <lastmod>2017-12-04T12:46:35.919Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://frankchu0229.github.io/2017/10/19/Dive%20Into%20Python3%20Notes%20-%20Native%20Datatypes/</loc>
     
     <lastmod>2017-11-02T03:16:39.000Z</lastmod>
@@ -33,6 +40,13 @@
     <loc>http://frankchu0229.github.io/2017/09/23/TmuxNotes/</loc>
     
     <lastmod>2017-10-30T12:29:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu0229.github.io/2017/10/25/tf_symposium/</loc>
+    
+    <lastmod>2017-10-30T12:28:58.000Z</lastmod>
     
   </url>
   
@@ -145,13 +159,6 @@
     <loc>http://frankchu0229.github.io/2016/09/15/books/</loc>
     
     <lastmod>2017-10-30T12:26:23.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://frankchu0229.github.io/2017/10/25/tf_symposium/</loc>
-    
-    <lastmod>2017-10-30T05:08:48.000Z</lastmod>
     
   </url>
   
