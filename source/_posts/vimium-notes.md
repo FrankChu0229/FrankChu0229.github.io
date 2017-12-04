@@ -10,7 +10,7 @@ Vimium 是chrome浏览器中的一款非常好用的插件，通过vimium，你�
 
 ## Vimium Summary Picture
 
-![Vimium Summary](../img/vimium.png)
+![Vimium Summary](/img/vimium.png)
 
 ## Vimium Summary 
 
