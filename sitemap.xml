@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://frankchu0229.github.io/2017/09/03/linuxShellSummary/</loc>
+    
+    <lastmod>2018-01-04T12:37:39.875Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://frankchu0229.github.io/2017/12/18/NoSQL/</loc>
     
     <lastmod>2017-12-18T07:45:02.173Z</lastmod>
@@ -131,13 +138,6 @@
     <loc>http://frankchu0229.github.io/2015/09/25/MathTest/</loc>
     
     <lastmod>2017-10-30T12:27:40.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://frankchu0229.github.io/2017/09/03/linuxShellSummary/</loc>
-    
-    <lastmod>2017-10-30T12:27:33.000Z</lastmod>
     
   </url>
   

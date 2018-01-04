@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Frank Chu">
 <meta property="og:description" content="Linux shell summary。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-30T12:27:33.000Z">
+<meta property="og:updated_time" content="2018-01-04T12:37:39.875Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Shell Summary">
 <meta name="twitter:description" content="Linux shell summary。">
@@ -441,6 +441,12 @@
 <p>　　<code>ln -s /opt/linux/rootfs_dir  /home/xxx/rootfs_dir</code>
 　　</p>
 <h2 id="查看系统版本"><a href="#查看系统版本" class="headerlink" title="查看系统版本"></a>查看系统版本</h2><p><code>cat /etc/issue</code>  </p>
+<h2 id="Mac-查看端口占用并kill掉相关进程"><a href="#Mac-查看端口占用并kill掉相关进程" class="headerlink" title="Mac 查看端口占用并kill掉相关进程"></a>Mac 查看端口占用并kill掉相关进程</h2><ul>
+<li><p>查看端口<br>终端输入：<code>lsof -i tcp:port</code> 将port换成被占用的端口(如：8086、9998)<br>将会出现占用端口的进程信息。</p>
+</li>
+<li><p>kill进程<br>找到进程的PID,使用kill命令：<code>kill PID</code>（进程的PID，如2044），杀死对应的进程</p>
+</li>
+</ul>
 <hr>
 <p>　　</p>
 
@@ -656,7 +662,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linus-Shell-Summary"><span class="nav-number">1.</span> <span class="nav-text">Linus Shell Summary</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看端口使用情况："><span class="nav-number">1.1.</span> <span class="nav-text">查看端口使用情况：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Copy-Public-Key"><span class="nav-number">1.2.</span> <span class="nav-text">Copy Public Key :</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查找gz文件中的log"><span class="nav-number">2.</span> <span class="nav-text">查找gz文件中的log</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#从服务器上-下载-上传-文件到本地"><span class="nav-number">2.1.</span> <span class="nav-text">从服务器上 (下载|上传) 文件到本地</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ubuntu-soft-link"><span class="nav-number">2.2.</span> <span class="nav-text">ubuntu soft link</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看系统版本"><span class="nav-number">2.3.</span> <span class="nav-text">查看系统版本</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linus-Shell-Summary"><span class="nav-number">1.</span> <span class="nav-text">Linus Shell Summary</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看端口使用情况："><span class="nav-number">1.1.</span> <span class="nav-text">查看端口使用情况：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Copy-Public-Key"><span class="nav-number">1.2.</span> <span class="nav-text">Copy Public Key :</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查找gz文件中的log"><span class="nav-number">2.</span> <span class="nav-text">查找gz文件中的log</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#从服务器上-下载-上传-文件到本地"><span class="nav-number">2.1.</span> <span class="nav-text">从服务器上 (下载|上传) 文件到本地</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ubuntu-soft-link"><span class="nav-number">2.2.</span> <span class="nav-text">ubuntu soft link</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看系统版本"><span class="nav-number">2.3.</span> <span class="nav-text">查看系统版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac-查看端口占用并kill掉相关进程"><span class="nav-number">2.4.</span> <span class="nav-text">Mac 查看端口占用并kill掉相关进程</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -676,7 +682,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
