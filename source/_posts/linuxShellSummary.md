@@ -51,6 +51,13 @@ ln -s 源地址 目的地址
 
 `cat /etc/issue `  
 
+## `WC` Notes
+
+- `wc -l test.txt` 查看文件行数
+- `wc -w test.txt` 查看文件字数，一个字被定义为由空白、跳格或换行字符分隔的字符串。
+- `wc -c test.txt` 统计字节数| `wc -m test.txt` 统计字符数
+- `wc -L test.txt` 打印最长的一行的长度 
+
 ## Mac 查看端口占用并kill掉相关进程
 
 - 查看端口
