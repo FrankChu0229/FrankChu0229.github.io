@@ -41,6 +41,8 @@ k-means中有两个问题需要值得注意：
 #### k-means中的k怎么选取
 当k取值越大时，相应的E会越来越小，如果k取为数据点的总数，那么E会变成0。所以单独的E不能作为k选取的标准。一种解决方法是用\\(E+complexity\\)来作为衡量的标准，其中complexity与k的大小有关，k越大，相应的complexity越大。常用的衡量标准有 BIC (Bayesian Information Criterion)。还有一个在聚类中经常用到的衡量标准：CH (Calinski-Harabasz) index，有兴趣的读者可以自行google，这里不做具体介绍了。
 
+**Canopy + Kmeans**: 将Canopy和Kmeans结合起来使用，可以不用预先定义K，在hadoop等工具中已经有相关算法。
+
 ## Mixtures of Gaussians
 k-means 在某种条件下，可以看作是mixtures of Gaussians的特例。在k-means中，我们认为每一个数据点必须属于某一个簇，这个条件太硬(hard)了， 在mixtures of Gaussians中，我们认为每一个数据点按照某个概率属于某一个簇。
 
