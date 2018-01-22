@@ -90,7 +90,7 @@
 <meta property="og:description" content="聚类 (clustering)是机器学习中经常会涉及到的一个task, 本篇文章从k-means开始讲起，然后到Mixtures of Gaussians和EM算法，最后介绍层次聚类、密度聚类和Learning Vector Quantization (LVQ)。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://frankchu0229.github.io/img/spectralClustering.jpg">
-<meta property="og:updated_time" content="2017-10-30T12:28:38.000Z">
+<meta property="og:updated_time" content="2018-01-22T09:52:08.725Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Clustering">
 <meta name="twitter:description" content="聚类 (clustering)是机器学习中经常会涉及到的一个task, 本篇文章从k-means开始讲起，然后到Mixtures of Gaussians和EM算法，最后介绍层次聚类、密度聚类和Learning Vector Quantization (LVQ)。">
@@ -442,6 +442,7 @@
 <li>用k-means++方式来初始化。k-means++的初始化方法与第二种方法比较像，不同之处在于k-means+＋引入了概率，即每一个数据点成为下一个中心点的概率正比于该数据点与其最近中心点距离的平方\(D(x)^2\)。</li>
 </ol>
 <h4 id="k-means中的k怎么选取"><a href="#k-means中的k怎么选取" class="headerlink" title="k-means中的k怎么选取"></a>k-means中的k怎么选取</h4><p>当k取值越大时，相应的E会越来越小，如果k取为数据点的总数，那么E会变成0。所以单独的E不能作为k选取的标准。一种解决方法是用\(E+complexity\)来作为衡量的标准，其中complexity与k的大小有关，k越大，相应的complexity越大。常用的衡量标准有 BIC (Bayesian Information Criterion)。还有一个在聚类中经常用到的衡量标准：CH (Calinski-Harabasz) index，有兴趣的读者可以自行google，这里不做具体介绍了。</p>
+<p><strong>Canopy + Kmeans</strong>: 将Canopy和Kmeans结合起来使用，可以不用预先定义K，在hadoop等工具中已经有相关算法。</p>
 <h2 id="Mixtures-of-Gaussians"><a href="#Mixtures-of-Gaussians" class="headerlink" title="Mixtures of Gaussians"></a>Mixtures of Gaussians</h2><p>k-means 在某种条件下，可以看作是mixtures of Gaussians的特例。在k-means中，我们认为每一个数据点必须属于某一个簇，这个条件太硬(hard)了， 在mixtures of Gaussians中，我们认为每一个数据点按照某个概率属于某一个簇。</p>
 <h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>数据通常满足一定的分布，对于比较简单且满足高斯分布的数据，我们可以用一个高斯分布来对这些数据来建模。然而，现实中数据的分布通常比较复杂，只用一个高斯分布建模效果不好，通常用若干个高斯分布的组合来建模数据的分布，这里我们用K个高斯分布的组合来建模数据的分布：</p>
 <p>$$p(\mathbf{x}) = \sum_{k = 1}^{K} \pi_{k} N(\mathbf{x}|\mu_{k}, \Sigma_{k})$$ 其中\(\pi_{k}\)为高斯分布\(N(\mathbf{x}|\mu_{k}, \Sigma_{k})\)的加权系数。</p>
