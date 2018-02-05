@@ -97,6 +97,12 @@ update test_table set name='mike' where id=1;
 - `ALTER TABLE testalter_tbl ALTER i DROP DEFAULT;` 删除字段默认值
 - `ALTER TABLE testalter_tbl RENAME TO alter_tbl;` 更改表名
 
+### Use mysql on mac
+
+- install by homebrew: `brew install mysql`
+- start up mysql by homebrew `brew services start mysql`
+- Verify the installed MySQL instance : `mysql -V`
+
 ## Reference
 
 - http://blog.csdn.net/chinacodec/article/details/5797127/
