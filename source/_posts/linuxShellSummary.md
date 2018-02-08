@@ -58,6 +58,9 @@ ln -s 源地址 目的地址
 - `wc -c test.txt` 统计字节数| `wc -m test.txt` 统计字符数
 - `wc -L test.txt` 打印最长的一行的长度 
 
+## 查看文件夹下所有文件夹所占空间大小
+- `sudo du -h --max-depth=1 `s
+
 ## Mac 查看端口占用并kill掉相关进程
 
 - 查看端口
