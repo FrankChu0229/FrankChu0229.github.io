@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python Coding Style]]></title>
+    <url>%2F2018%2F02%2F11%2Fpython-coding-style%2F</url>
+    <content type="text"><![CDATA[Name Convention module_name, package_name, ClassName, method_name, ExceptionName, function_name, GLOBAL_CONSTANT_NAME, global_var_name, instance_var_name, function_parameter_name, local_var_name CLASS_CONSTANT_NAME Reference Goole Python Coding Style]]></content>
+      <categories>
+        <category>coding style</category>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>summary</tag>
+        <tag>coding style</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Cuda Notes]]></title>
+    <url>%2F2018%2F02%2F08%2Fcuda-notes%2F</url>
+    <content type="text"><![CDATA[Nvidia CUDA 9.1 Install download runfile from here install according to the instructions add the path, i.e. PATH and LD_LIBRARY_PATH, to your ~/.bashrc like this: 12export PATH=$PATH:/usr/local/cuda-9.1/bin/export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-9.1/lib64 NVCC Usage show version: nvcc --version show help: nvcc --help 查看nvidia gpu 使用情况 nvidia-smi]]></content>
+      <categories>
+        <category>notes</category>
+      </categories>
+      <tags>
+        <tag>notes</tag>
+        <tag>ubuntu</tag>
+        <tag>cuda</tag>
+        <tag>DL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Mac Cassandra Notes]]></title>
     <url>%2F2018%2F01%2F04%2Fcassandra-note%2F</url>
     <content type="text"><![CDATA[Mac cassandra installInstall Instructions Mac Cassandra start and stop start: brew services start cassandra stop: brew services stop cassandra]]></content>
