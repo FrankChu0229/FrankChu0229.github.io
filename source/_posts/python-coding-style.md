@@ -2,7 +2,7 @@ title: Python Coding Style
 date: 2018-02-11 16:06:46
 tags:  [coding style, python, summary]
 categories: [coding style, python]
-description: python coding style summary.
+description: Python coding style summary.
 ---
 
 ## Name Convention
@@ -22,4 +22,6 @@ description: python coding style summary.
 
 ## Reference
 - [Goole Python Coding Style](https://google.github.io/styleguide/pyguide.html)
+
+---
 
