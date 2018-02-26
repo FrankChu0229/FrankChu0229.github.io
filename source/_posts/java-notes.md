@@ -2,7 +2,7 @@ title: Java中的String, StringBuilder和 StringBuffer
 date: 2018-02-26 23:05:41
 tags: [java, notes, engineering]
 categories: java
-description: java 中的String, StringBuilder和 StringBuffer
+description: Java 中的String, StringBuilder和 StringBuffer
 ---
 
 ## StringBuilder 与 StringBuffer
