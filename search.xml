@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Java中的String, StringBuilder和 StringBuffer]]></title>
+    <url>%2F2018%2F02%2F26%2Fjava-notes%2F</url>
+    <content type="text"><![CDATA[StringBuilder 与 StringBuffer StringBuilder 执行速度比StringBuffer要快，但是StringBuilder不是线程安全的 StringBuffer 是线程安全的，执行速度比StringBuilder要慢 String在java中，String字符串常量是不可改变的对象，每当在String上进行操作时，实际上都是在创建一个新的String对象。以下代码： 121. String s = &quot;abx&quot;;2. String s = s + &quot;ds&quot;; 其中，第二行中的s会被重新创建，原来的对象会被GC掉。而StringBuilder和StringBuffer是可变对象，在同一个对象上进行操作。 值得注意的一点是： 1String s = &quot;this &quot; + &quot;is &quot; + &quot;my &quot; + &quot;home&quot; 等同于String s = &quot;This is my home&quot;, 在这种情况下String操作要比StringBuilder和StringBuffer要快，是JVM的一个把戏。但是当字符串拼接中有其他的String变量时，JVM就会按照原来的方式来做。 Reference http://www.cnblogs.com/A_ming/archive/2010/04/13/1711395.html]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>notes</tag>
+        <tag>java</tag>
+        <tag>engineering</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python Coding Style]]></title>
     <url>%2F2018%2F02%2F11%2Fpython-coding-style%2F</url>
     <content type="text"><![CDATA[Name Convention module_name, package_name, ClassName, method_name, ExceptionName, function_name, GLOBAL_CONSTANT_NAME, global_var_name, instance_var_name, function_parameter_name, local_var_name CLASS_CONSTANT_NAME Reference Goole Python Coding Style]]></content>
