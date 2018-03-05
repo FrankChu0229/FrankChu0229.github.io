@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[design_pattern]]></title>
+    <title><![CDATA[Maven Summary]]></title>
+    <url>%2F2018%2F03%2F05%2Fmaven-notes%2F</url>
+    <content type="text"><![CDATA[Show all dependencies mvn dependency:tree RM dependnecy in pom123456&lt;exclusions&gt; &lt;exclusion&gt; &lt;groupId&gt;com.group&lt;/groupId&gt; &lt;artifactId&gt;name&lt;/artifactId&gt; &lt;/exclusion&gt;&lt;/exclusions&gt;]]></content>
+      <tags>
+        <tag>java</tag>
+        <tag>maven</tag>
+        <tag>package management</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Ali Xiaomi Transfer Learning]]></title>
+    <url>%2F2018%2F03%2F04%2Ftransfer-learning-alimi%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[DrQA]]></title>
+    <url>%2F2018%2F03%2F04%2Fdrqa%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Design Pattern]]></title>
     <url>%2F2018%2F02%2F27%2Fdesign-pattern%2F</url>
     <content type="text"></content>
   </entry>

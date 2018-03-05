@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://frankchu0229.github.io/"/>
-  <updated>2018-02-27T09:21:54.056Z</updated>
+  <updated>2018-03-05T04:07:47.517Z</updated>
   <id>http://frankchu0229.github.io/</id>
   
   <author>
@@ -17,11 +17,66 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>design_pattern</title>
+    <title>Maven Summary</title>
+    <link href="http://frankchu0229.github.io/2018/03/05/maven-notes/"/>
+    <id>http://frankchu0229.github.io/2018/03/05/maven-notes/</id>
+    <published>2018-03-05T04:00:45.000Z</published>
+    <updated>2018-03-05T04:07:47.517Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Show-all-dependencies"><a href="#Show-all-dependencies" class="headerlink" title="Show all dependencies"></a>Show all dependencies</h2><ul><li><code>mvn dependency:tree</code></li></ul><h2 id="RM-dependnecy-in-pom"><a href="#RM-dependnecy-in-pom" class="headerlink" title="RM dependnecy in pom"></a>RM dependnecy in pom</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;exclusions&gt;</div><div class="line">  &lt;exclusion&gt;</div><div class="line">    &lt;groupId&gt;com.group&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;name&lt;/artifactId&gt;</div><div class="line">  &lt;/exclusion&gt;</div><div class="line">&lt;/exclusions&gt;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Show-all-dependencies&quot;&gt;&lt;a href=&quot;#Show-all-dependencies&quot; class=&quot;headerlink&quot; title=&quot;Show all dependencies&quot;&gt;&lt;/a&gt;Show all dependencies&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
+    
+      <category term="maven" scheme="http://frankchu0229.github.io/tags/maven/"/>
+    
+      <category term="package management" scheme="http://frankchu0229.github.io/tags/package-management/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ali Xiaomi Transfer Learning</title>
+    <link href="http://frankchu0229.github.io/2018/03/04/transfer-learning-alimi/"/>
+    <id>http://frankchu0229.github.io/2018/03/04/transfer-learning-alimi/</id>
+    <published>2018-03-04T06:23:42.000Z</published>
+    <updated>2018-03-05T04:02:54.230Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>DrQA</title>
+    <link href="http://frankchu0229.github.io/2018/03/04/drqa/"/>
+    <id>http://frankchu0229.github.io/2018/03/04/drqa/</id>
+    <published>2018-03-04T06:23:23.000Z</published>
+    <updated>2018-03-05T04:02:25.686Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Design Pattern</title>
     <link href="http://frankchu0229.github.io/2018/02/27/design-pattern/"/>
     <id>http://frankchu0229.github.io/2018/02/27/design-pattern/</id>
     <published>2018-02-27T09:21:54.000Z</published>
-    <updated>2018-02-27T09:21:54.056Z</updated>
+    <updated>2018-03-05T04:02:12.669Z</updated>
     
     <summary type="html">
     
@@ -445,94 +500,6 @@
       <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
     
       <category term="vim" scheme="http://frankchu0229.github.io/tags/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Recommended Books</title>
-    <link href="http://frankchu0229.github.io/2016/09/15/books/"/>
-    <id>http://frankchu0229.github.io/2016/09/15/books/</id>
-    <published>2016-09-15T14:56:05.000Z</published>
-    <updated>2017-10-30T12:26:23.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><ul><li><a href="http://union.click.jd.com/jdc?d=sp9Y9L" target="_blank" rel="external">机器学习</a> by 周志华: 周志华老师的这本书非常适合作为机器学习入门的书籍，书中的例子十分形象且简单易懂。</li><li><a href="http://s.click.taobao.com/t?e=m%3D2%26s%3Dvoz%2B2wUYDVIcQipKwQzePOeEDrYVVa64K7Vc7tFgwiHjf2vlNIV67im%2FDi4clQ3Zz%2BnB8CFd%2BwI%2FLTvqqHUmN%2FSQc5E%2BACfRlCN%2FCfnE38N8UtmKu0ijLvTWyv95D3bGhJCy0erBlaJPav5W3RZfiE7ABVnJDlblxg5p7bh%2BFbQ%3D&amp;pvid=10_124.76.32.119_23247_1476627551167" target="_blank" rel="external">统计机器学习</a> by 李航：李航老师的这本书偏优化和推倒，推倒相应算法的时候可以参考这本书。</li><li><a href="http://www.rmki.kfki.hu/~banmi/elte/Bishop%20-%20Pattern%20Recognition%20and%20Machine%20Learning.pdf" target="_blank" rel="external">PRML</a> by Christopher Bishop: PRML这本书有点偏Bayesian了，初学者看起来可能有些困难，可以和前两本结合起来看。</li><li><a href="http://www.vision.jhu.edu/gpca/" target="_blank" rel="external">GPCA</a> by Yi Ma: 这本书由马毅老师耗时十年精心打造，推荐阅读。</li><li><a href="https://mitpress.mit.edu/books/machine-learning-0" target="_blank" rel="external">Machine Learning A Probabilistic Perspective</a> by Kevin P. Murphy: MLAPP这本书也是一本比较经典的机器学习书，可以和PRML互相补充着来看。</li></ul><h2 id="自然语言处理"><a href="#自然语言处理" class="headerlink" title="自然语言处理"></a>自然语言处理</h2><ul><li><a href="http://union.click.jd.com/jdc?d=EfwjWU" target="_blank" rel="external">数学之美</a> by 吴军：吴军老师的这本书适合作为入门自然语言处理的科普读物。</li><li><a href="http://union.click.jd.com/jdc?d=PjQvgb" target="_blank" rel="external">统计自然语言处理</a> by 宗成庆：中文版的自然语言处理图书是比较少的，这本书由中科院宗成庆老师所写，推荐初学者先阅读此书。</li><li><a href="http://nlp.stanford.edu/fsnlp/" target="_blank" rel="external">Foundations of Statistical Natural Language Processing</a> by Christopher D. Manning: 本书由Manning大神所写，在1999年出版，最近比较火的Deep Learning for NLP没有涉及，不过可以参考他的学生Socher开的这门课 <a href="http://web.stanford.edu/class/cs224n/" target="_blank" rel="external">CS224n - Natural Language Processing with Deep Learning</a>.</li><li><a href="https://web.stanford.edu/~jurafsky/slp3/" target="_blank" rel="external">Speech and Language Processing</a> by Dan Jurafsky: 这本书第三版已经更新一部分章节了，书中介绍了deep learning for nlp方面的技术，推荐阅读。</li></ul><h2 id="To-be-continued"><a href="#To-be-continued" class="headerlink" title="To be continued."></a>To be continued.</h2><hr>]]></content>
-    
-    <summary type="html">
-    
-      本文介绍了AI方面常用的书籍。
-    
-    </summary>
-    
-      <category term="books" scheme="http://frankchu0229.github.io/categories/books/"/>
-    
-    
-      <category term="Machine Learning" scheme="http://frankchu0229.github.io/tags/Machine-Learning/"/>
-    
-      <category term="Natural Language Processing" scheme="http://frankchu0229.github.io/tags/Natural-Language-Processing/"/>
-    
-      <category term="Artificial Intelligence" scheme="http://frankchu0229.github.io/tags/Artificial-Intelligence/"/>
-    
-      <category term="Data Mining" scheme="http://frankchu0229.github.io/tags/Data-Mining/"/>
-    
-      <category term="Java" scheme="http://frankchu0229.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ensemble Learning</title>
-    <link href="http://frankchu0229.github.io/2016/06/15/ML9/"/>
-    <id>http://frankchu0229.github.io/2016/06/15/ML9/</id>
-    <published>2016-06-15T14:56:05.000Z</published>
-    <updated>2017-10-30T12:28:49.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>集成学习 (ensemble learning) 通过组合多个学习器来完成学习任务。相比于单个学习器，通过集成学习得到的模型往往可以取得更好的performance。因此在天池、kaggle和ImageNet等各大竞赛中，最终的模型往往都是通过集成学习得到的。</p><p>集成学习并不能保证集成后的模型一定比单个的模型效果好。如果各个学习器比较接近，那么集成后的模型不会有太多performance上的提升；如果各个学习器完全相同，那么集成后的模型不会有性能的提升。所以要想获得好的集成效果，需要各个学习器准确性不能太差，同时要有多样性，即“好而不同”。然而准确性和多样性本身就存在冲突。一般来说，准确性很高之后，要增加多样性就要牺牲准确性。所以如何产生并结合“好而不同”的学习器，也是集成学习研究的核心内容。</p><p>那么怎样将各个学习器组合起来呢？对于分类任务来讲，最简单的方法就是投票；对于回归任务来讲，可以通过加权平均的方式来组合各个学习器。那么有没有更好的做法呢？Boosting, bagging 和 random forest是常用的集成学习算法，看完下文对它们的介绍，相信你会有了答案。</p><h2 id="Boosting"><a href="#Boosting" class="headerlink" title="Boosting"></a>Boosting</h2><p>Boosting是一种可将弱学习器提升为强学习器的算法。通常boosting的做法是：首先在原始数据上训练出一个基学习器；用这个基学习器来改变数据的分布，即增大在训练中出错样本的权重，使得出错的样本在后续的训练中受到更大的关注；减小未出错样本的权重；然后在调整分布后的样本训练集上训练新的基学习器；如此重复进行，直到基学习器的数量达到了预先设定的个数\(T\)，最终将这\(T\)个基学习器进行加权组合。</p><p>Boosting中最著名的代表就是adaboost (adaptive boosting)算法了：</p><h3 id="Adaboost"><a href="#Adaboost" class="headerlink" title="Adaboost"></a>Adaboost</h3><p>输入：数据集 \(D = \{(x_i, y_1), (x_2, y_2), …, (x_n, y_n) \} \), 基学习算法 \(L\)，训练轮数\(T\).</p><p>输出：集成后的学习器 \(H(x)\)</p><p>步骤：</p><ol><li>初始化训练数据权值分布：\(W_1 = \{ w_{11}, w_{12}, …, w_{1n} \}\), \(w_{1i} = \frac{1}{n}\), i = 1,2,3…n</li><li>for \(t = 1 : T\) do:</li><li>在分布为\(W_t\)的训练集上训练基学习器 \(h_t = L(D, W_t) \)</li><li>计算基学习器 \(h_t\)在训练数据上的错误率：\(e_t = \sum_{i = 1}^{n} w_{ti}  \ I(h_t(x_i) \neq y_i)\), 其中\(I\) 为 indicator function。</li><li>计算基学习器加权系数：\(\alpha_{t} = \frac{1}{2} \ \ln\frac{1 - e_t}{e_t}\)。 当\(e_t \leq \frac{1}{2} \)时，\(e_t\)越小， 加权系数\(\alpha_t \)越大，在最终的模型中起的作用就越大。</li><li>if \(e_t &gt; 0.5\), then break;</li><li>更新训练数据权值分布： \(W_{t+1} = \frac{W_t \exp{(-\alpha_t f(x) h_t(x))}}{Z_t}\), 其中\(Z_t\)为normalization factor。 展开来看有：若训练正确，则权重减小： \(w_{t+1, i} = \frac{w_{t,i} \exp{(-\alpha_t)}}{Z_t}\)； 若训练错误，权重增大： \(w_{t+1, i} = \frac{w_{t,i} \exp{(\alpha_t)}}{Z_t}\)</li><li>end for</li><li>\(H(x) = sign(\sum_{t = 1}^{T} \alpha_t h_t(x))\), 其中\(sign(x)\) 为符号函数。</li></ol><h4 id="Adaboost-算法解释"><a href="#Adaboost-算法解释" class="headerlink" title="Adaboost 算法解释"></a>Adaboost 算法解释</h4><p>Adaboost算法还有另一种解释，即认为损失函数为指数函数\(E = \sum_{i = 1}^{n} \exp{(-\frac{1}{2} y_i \ F(x_i))}\), 其中 \(F(x) = \sum_{t = 1}^{T} \alpha_t h_t(x)\)， 需要求的参数是\(\alpha_t\)和各个基学习器中的参数。对于第\(m\)个基学习器来说，我们可以认为前\(m-1\)个基学习器是fixed的，所以可以通过优化损失函数来求得\(\alpha_m\)和\(h_m(x)\)中的参数。具体细节可以查看<a href="prml">PRML</a>中的659-663页。</p><h2 id="Bagging"><a href="#Bagging" class="headerlink" title="Bagging"></a>Bagging</h2><h2 id="Random-Forest"><a href="#Random-Forest" class="headerlink" title="Random Forest"></a>Random Forest</h2><h2 id="KNN"><a href="#KNN" class="headerlink" title="KNN"></a>KNN</h2><h2 id="Decision-Tree"><a href="#Decision-Tree" class="headerlink" title="Decision Tree"></a>Decision Tree</h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li>Book: <a href="prml">Pattern Recognition and Machine Learning by Christopher Bishop</a></li><li><a href="http://www.holehouse.org/mlclass" target="_blank" rel="external">Notes of machine learning by Andrew Ng in cousera</a></li><li><a href="http://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/MLbook2016.htm" target="_blank" rel="external">机器学习</a> 周志华</li><li>Slides by <a href="http://sist.shanghaitech.edu.cn/StaffDetail.asp?id=334" target="_blank" rel="external">Prof. Wang</a></li><li><a href="http://www.hangli-hl.com/books.html" target="_blank" rel="external">统计学习方法</a></li><li><a href="(http://yima.csl.illinois.edu/">GPCA by Yi Ma</a>)</li></ul><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script><hr>]]></content>
-    
-    <summary type="html">
-    
-      Ensemble learning 常用来将若干个训练好的模型结合起来，以得到更好的performance。本文介绍了常用的ensemble learning算法： boosting， bagging 和 random forest，也介绍了常用在ensemble learning中的KNN 和 decision tree算法。
-    
-    </summary>
-    
-      <category term="Machine Learning" scheme="http://frankchu0229.github.io/categories/Machine-Learning/"/>
-    
-    
-      <category term="Machine Learning" scheme="http://frankchu0229.github.io/tags/Machine-Learning/"/>
-    
-      <category term="Ensemble Learning" scheme="http://frankchu0229.github.io/tags/Ensemble-Learning/"/>
-    
-      <category term="Boosting" scheme="http://frankchu0229.github.io/tags/Boosting/"/>
-    
-      <category term="Bagging" scheme="http://frankchu0229.github.io/tags/Bagging/"/>
-    
-      <category term="Random Forest" scheme="http://frankchu0229.github.io/tags/Random-Forest/"/>
-    
-      <category term="KNN" scheme="http://frankchu0229.github.io/tags/KNN/"/>
-    
-      <category term="Decision Tree" scheme="http://frankchu0229.github.io/tags/Decision-Tree/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Clustering</title>
-    <link href="http://frankchu0229.github.io/2016/05/15/ML8/"/>
-    <id>http://frankchu0229.github.io/2016/05/15/ML8/</id>
-    <published>2016-05-15T14:56:05.000Z</published>
-    <updated>2018-01-22T09:55:43.521Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Clustering"><a href="#Clustering" class="headerlink" title="Clustering"></a>Clustering</h1><p>聚类 (clustering)是机器学习中经常会涉及到的一个task。通常来讲，它是一种unsupervised task，通过挖掘数据内部的结构等信息，来将数据划分成若干部分，也有利用数据的label信息来做辅助的方法，如Learning Vector Quantization (LVQ)。</p><h2 id="K-means"><a href="#K-means" class="headerlink" title="K-means"></a>K-means</h2><p>提到聚类，最常用的方法就是K-means了。K-means的思想比较简单：对于一组数据，我们希望找到一组中心点，使得整个数据集中所有点到离它最近的中心点的距离之和最小，相应的数学表达式为：</p><p>$$ E = \sum_{i=1}^{k}\sum_{x \in C_i} ||x - \mu_i||_2^2$$</p><p>其中，\(k\)为簇的总数，\(C_i\)为相应的第\(i\)个簇。若直接对\(E\)进行求解很困难(NP-hard)，因为有指数多个可能的簇划分。所以这里采用迭代优化的方法来近似求解。</p><ol><li>K-means首先初始化k个中心点，这里需要提到的是k-means的初始化对最终结果有着很大的影响，不同的初始化会有着不同的聚类效果。</li><li>对数据集中的所有点，找到距离它最近的中心点，这样就得到了新的簇的划分。相应的数学表达式为：\(i = \arg\min_{i=1,2,…,k} ||x - \mu_i||_2^2\)</li><li>在新形成的k个簇中，更新k个相应的中心点。相应的数学表达式为：\(\mu_i = \frac{\sum_{x \in C_i} \ x} {|C_i|}\)。</li><li>重复步骤2和步骤3直到达到迭代次数或者收敛 (E的值变化很小)。</li></ol><h3 id="k-means中存在的两个问题"><a href="#k-means中存在的两个问题" class="headerlink" title="k-means中存在的两个问题"></a>k-means中存在的两个问题</h3><p>k-means中有两个问题需要值得注意：</p><ol><li>k-means中的中心点怎么初始化 </li><li>k-means中的k怎么选取</li></ol><h4 id="k-means中心点初始化"><a href="#k-means中心点初始化" class="headerlink" title="k-means中心点初始化"></a>k-means中心点初始化</h4><p>对于中心点的初始化，我们希望初始化的中心点能在数据点附近，同时中心点尽量分散开。 如果中心点初始化的比较近的话，很有可能就都初始化在同一个簇中，这样就使得原本应该划分为同一个簇的数据点被划分成了两个簇。</p><p>通常的做法有：</p><ol><li>随机初始化中心点到数据集上的k个点上。然后跑若干次，选取其中\(E\)最小的那一组初始化。这种做法的缺点在于，有可能两个中心点离的很近。</li><li>首先随机初始化一个中心点到数据集上的一个点上，第二个中心点初始化为距离第一个中心点最远的那个数据点；对于后面的中心点的初始化，我们每次初始化成所有数据点中距离前面初始化好的中心点最近距离最大的那个点。</li><li>用k-means++方式来初始化。k-means++的初始化方法与第二种方法比较像，不同之处在于k-means+＋引入了概率，即每一个数据点成为下一个中心点的概率正比于该数据点与其最近中心点距离的平方\(D(x)^2\)。</li></ol><h4 id="k-means中的k怎么选取"><a href="#k-means中的k怎么选取" class="headerlink" title="k-means中的k怎么选取"></a>k-means中的k怎么选取</h4><p>当k取值越大时，相应的E会越来越小，如果k取为数据点的总数，那么E会变成0。所以单独的E不能作为k选取的标准。一种解决方法是用\(E+complexity\)来作为衡量的标准，其中complexity与k的大小有关，k越大，相应的complexity越大。常用的衡量标准有 BIC (Bayesian Information Criterion)。还有一个在聚类中经常用到的衡量标准：CH (Calinski-Harabasz) index，有兴趣的读者可以自行google，这里不做具体介绍了。</p><p><strong>Canopy + Kmeans</strong>: 将Canopy和Kmeans结合起来使用，可以不用预先定义K，在hadoop等工具中已经有相关算法实现。</p><h2 id="Mixtures-of-Gaussians"><a href="#Mixtures-of-Gaussians" class="headerlink" title="Mixtures of Gaussians"></a>Mixtures of Gaussians</h2><p>k-means 在某种条件下，可以看作是mixtures of Gaussians的特例。在k-means中，我们认为每一个数据点必须属于某一个簇，这个条件太硬(hard)了， 在mixtures of Gaussians中，我们认为每一个数据点按照某个概率属于某一个簇。</p><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>数据通常满足一定的分布，对于比较简单且满足高斯分布的数据，我们可以用一个高斯分布来对这些数据来建模。然而，现实中数据的分布通常比较复杂，只用一个高斯分布建模效果不好，通常用若干个高斯分布的组合来建模数据的分布，这里我们用K个高斯分布的组合来建模数据的分布：</p><p>$$p(\mathbf{x}) = \sum_{k = 1}^{K} \pi_{k} N(\mathbf{x}|\mu_{k}, \Sigma_{k})$$ 其中\(\pi_{k}\)为高斯分布\(N(\mathbf{x}|\mu_{k}, \Sigma_{k})\)的加权系数。</p><h3 id="Hidden-Variables"><a href="#Hidden-Variables" class="headerlink" title="Hidden Variables"></a>Hidden Variables</h3><p>我们引入一个K维的hidden variable \(\mathbf{z}\)， \(\mathbf{z}\)是一个one-hot的向量，用来建模当前的变量\(\mathbf{x}\)由哪一个高斯分布生成的 (知道这个信息后，模型的表示和参数求解都会变得简单)，相应的， $$p(\mathbf{x}) = \sum_{\mathbf{z}} p(\mathbf{z}, \mathbf{x}) = \sum_{\mathbf{z}} p(\mathbf{z})  p(\mathbf{x}|\mathbf{z}) ＝\sum_{k = 1}^{K} \pi_{k} N(\mathbf{x}|\mu_{k}, \Sigma_{k})$$</p><h3 id="Cost-Function"><a href="#Cost-Function" class="headerlink" title="Cost Function"></a>Cost Function</h3><p>Mixtures of Gaussians是生成模型，我们用maximum likelihood estimation (MLE)来求得我们的优化目标，即：</p><p>$$ \log L(\mathbf{\pi}, \mathbf{\mu}, \mathbf{\Sigma}) = \log(\prod_{i = 1} ^ {N} \sum_{k = 1}^{K} \pi_{k} N(\mathbf{x}_{i}|\mu_{k}, \Sigma_{k})) = \sum_{i = 1}^{N} \log(\sum_{k = 1}^{K} \pi_{k} N(\mathbf{x}_{i}|\mu_{k}, \Sigma_{k})) $$</p><p>模型的参数为\(\mathbf{\pi}, \mathbf{\mu}, \mathbf{\Sigma}\), 我们通过优化目标函数来求得最优的参数值。那么如果有了学好的模型，我们怎么做prediction呢？我们可以通过计算\(p(z_k = 1 | \mathbf{x})\) 的概率，然后将点\(\mathbf{x}\)划分到概率最大的那个簇，相应的：<br>$$ p(z_k = 1 | \mathbf{x}) = \frac{p(z_k = 1) p(\mathbf{x}|z_k = 1)}{p(\mathbf{x})} = \frac{\pi_k N(\mathbf{x}|\mu_{k}, \Sigma_{k})}{\sum_{k = 1}^{K} \pi_k N(\mathbf{x}|\mu_{k}, \Sigma_{k})}$$</p><p>接下来的问题就是怎么优化目标函数来求得最优参数的值了，对于含有隐变量的优化问题，我们通常用Expectation Maximization (EM)来求解。</p><h2 id="Expectation-Maximization-EM"><a href="#Expectation-Maximization-EM" class="headerlink" title="Expectation Maximization (EM)"></a>Expectation Maximization (EM)</h2><p>EM算法是一种常用的优化算法，多用在含有隐变量的优化问题上。通过MLE，我们可以得到相应的优化目标，即：</p><p>$$ \log L(\mathbf{\theta}) = \log \prod_{i = 1}^{N} p(\mathbf{x}) = \sum_{i = 1}^{N} \log p(\mathbf{x}) = \sum_{i = 1}^{N} \log \sum_{\mathbf{z}}p(\mathbf{x}, \mathbf{z}) = \sum_{i = 1}^{N} \log \sum_{\mathbf{z}}p(\mathbf{x}, \mathbf{z}) $$</p><p>由于对数函数为凹函数，则由Jesen不等式，我们可以得到：</p><p>$$\log L(\mathbf{\theta}) = \sum_{i = 1}^{N} \log \sum_{\mathbf{z}_i}p(\mathbf{x}_i, \mathbf{z}_i) = \sum_{i = 1}^{N} \log \sum_{\mathbf{z}_i}Q(\mathbf{z}_i) \frac{p(\mathbf{x}_i, \mathbf{z}_i)}{Q(\mathbf{z}_i)} \geq   \sum_{i = 1}^{N} \sum_{\mathbf{z}_i}Q(\mathbf{z}_i) \log \frac{p(\mathbf{x}_i, \mathbf{z}_i)}{Q(\mathbf{z}_i)} $$</p><p>其中，\(Q(\mathbf{z}_i)\) 为关于隐变量\(\mathbf{z}_i\)的一个分布。经过放缩后，对于任意一个\(Q(\mathbf{z}_i)\)，我们都可以得到目标函数的一个下界，那么怎么选取\(Q(\mathbf{z}_i)\)呢？对于特定的参数\(\mathbf{\theta}\), 我们可以选取\(Q(\mathbf{z}_i)\), 使得上述不等式关系中的相等关系成立。由Jesen不等式可知，当且仅当\(E(f(x)) = f(E(x))\), 等式成立，即 \(\frac{p(\mathbf{x}_i, \mathbf{z}_i)}{Q(\mathbf{z}_i)} = c\), 相应的，\(Q(\mathbf{z}_i) \propto p(\mathbf{x}_i, \mathbf{z}_i)\). 又由\(\sum_{\mathbf{z}_i} Q(\mathbf{z}_i) = 1\), 得到\( Q(\mathbf{z}_i) = p(\mathbf{z}_i | \mathbf{x}_i, \theta)\).</p><p>由此得到EM算法: 首先我们初始化参数\(\theta\), 然后经过E-step 和 M-step若干次迭代，直到收敛。</p><ul><li>E-step: For each i, set</li></ul><p>$$ Q(\mathbf{z}_i) = p(\mathbf{z}_i | \mathbf{x}_i, \theta) $$</p><ul><li>M-step, set:</li></ul><p>$$ \theta = \arg \max_{\theta}  \sum_{i = 1}^{N} \sum_{\mathbf{z}_i}Q(\mathbf{z}_i) \log \frac{p(\mathbf{x}_i, \mathbf{z}_i)}{Q(\mathbf{z}_i)} $$</p><h3 id="Convergence"><a href="#Convergence" class="headerlink" title="Convergence"></a>Convergence</h3><p>EM算法一定会收敛吗？答案是肯定的。因为在E-step中，\(\log L(\theta)\)等于其下界的值；在M-step中，我们最大化下界来获得新一轮的参数\(\theta\). 然后在下一次的E-step中，\(\log L(\theta)\)又等于新的下界的值。所以在EM算法中，优化目标是不断变大的。但是EM算法只能保证局部收敛；如果优化目标是凸函数，则可以得到全局最优解。</p><h3 id="Mixture-of-Gaussians-revisited"><a href="#Mixture-of-Gaussians-revisited" class="headerlink" title="Mixture of Gaussians revisited"></a>Mixture of Gaussians revisited</h3><p>有了上面EM的推倒，相信现在可以轻易的推出Mixture of Gaussians中参数更新的公式了：</p><ul><li>E-step:</li></ul><p>$$ \gamma_{k} = p(z_k = 1 | \mathbf{x}) = \frac{\pi_k N(\mathbf{x}|\mu_{k}, \Sigma_{k})}{\sum_{k = 1}^{K} \pi_k N(\mathbf{x}|\mu_{k}, \Sigma_{k})}$$</p><ul><li>M-step:</li></ul><p>$$\mu_{k} = \frac{\sum_{i=1}^{N}\gamma_k \mathbf{x}_i}{\sum_{i=1}^{N}\gamma_k}$$</p><p>$$ \pi_k = \frac{\sum_{i = 1}^{N} \gamma_k}{N}$$</p><p>\(\Sigma_k\)可以用相似的方法来计算，这里需要注意的是在计算\( \pi_k\)最优值的时候，需要用拉格朗日来解等式约束。</p><h2 id="Spectral-Clustering-amp-amp-N-cut"><a href="#Spectral-Clustering-amp-amp-N-cut" class="headerlink" title="Spectral Clustering &amp;&amp; N-cut"></a>Spectral Clustering &amp;&amp; N-cut</h2><p>In most cases, the distribution of a mixed dataset can be more complicated than simply clustering around a few cluster centers. In this case, the K-means and mixtures of Gaussians may not group the data correctly. The following figure gives an example where the K-means and mixtures of Gaussians may not group the data correctly. </p><div align="center"><br><img src="/img/spectralClustering.jpg" width="500" height="300" align="center"><br></div><p>一种解决上述问题的方法是将数据点经过某个合适的非线性变换 (e.g., Laplacian Eigenmaps) ，转换到合适的形式 (例如上面图中的例子)。 Spectral clustering和 Normalized cut (N-cut)算法就是应用了这种思想。关于这两个算法的细节这里不再详细列出，有兴趣的读者可以去看马毅老师的新书<a href="(http://yima.csl.illinois.edu/">GPCA by Yi Ma</a>)。</p><h2 id="Hierarchical-Clustering-层次聚类"><a href="#Hierarchical-Clustering-层次聚类" class="headerlink" title="Hierarchical Clustering (层次聚类)"></a>Hierarchical Clustering (层次聚类)</h2><p>层次聚类试图在不同层次上来对数据进行划分，进而形成树形的聚类结构。它对数据的划分是一个“自底向上”的过程。该算法的思想也比较简单：</p><ol><li>数据集中的每一个样本为一个初始簇</li><li>将距离最近的两个簇合并</li><li>不断重复步骤2，直到簇的个数达到指定的个数为止。</li></ol><p>距离的衡量方式有以下几种：</p><ol><li>两个簇中所有点间距离的最小值</li><li>两个簇中所有点间距离的最大值</li><li>两个簇的中心点之间的距离</li><li>两个簇中所有点间距离的平均值</li></ol><h2 id="Other-Methods"><a href="#Other-Methods" class="headerlink" title="Other Methods"></a>Other Methods</h2><h3 id="Density-based-Clustering"><a href="#Density-based-Clustering" class="headerlink" title="Density-based Clustering"></a>Density-based Clustering</h3><p>密度聚类是通过样本数据分布的紧密程度来划分数据的，在这里我们主要介绍DBSCAN算法：</p><ol><li>DBSCAN算法先找出数据集中各样本的\(\epsilon\)-邻域, 并确定核心对象集合\(\Omega\)</li><li>从核心对象集合\(\Omega\)中选取一个核心对象作为种子，找出由它密度可达的所有样本，这就构成了一个聚类簇。</li><li>然后从\(\Omega\)集合中去除步骤2中的核心对象</li><li>重复步骤2和3直到\(\Omega\)为空。</li></ol><p>这个算法中涉及到的相关概念可以参考周志华老师<a href="http://union.click.jd.com/jdc?d=sp9Y9L" target="_blank" rel="external">机器学习</a>这本书。</p><h3 id="Learning-Vector-Quantization-LVQ"><a href="#Learning-Vector-Quantization-LVQ" class="headerlink" title="Learning Vector Quantization (LVQ)"></a>Learning Vector Quantization (LVQ)</h3><p>LVQ和其他聚类方法不同，LVQ假设数据有类别标记，并利用样本的类别标记信息来辅助聚类：</p><ol><li>LVQ的目标是学得一组n维原型向量\(\{p_1, p_2,…p_q \} \), 每个原型向量用来代表一个聚类簇，簇标记\(t_i \in \Lambda\)</li><li>初始化原型变量，并为各个原型变量预设标记\(t_i\)</li><li>从数据集中随机选取一样本，并找到和该点距离最近的原型向量。</li><li>如果该样本点和原型向量的类别标记相同，则使该原型向量靠近该样本点一些，否则远离该样本点一些。</li><li>重复步骤3和4直到收敛。</li></ol><p>有了学好的一组原型向量\(\{p_1, p_2,…p_q \} \)，在做inference的时候，我们通过找距离test样本距离最近的原型向量，来得到该test样本点所属的簇。LVQ通常用来改变类别标记的颗粒度大小，例如，如果想使类别标记的更细一些，则可以使原型向量的个数大于原来类别标记种类的数量。</p><p>更多细节可以参考周志华老师新书：<a href="http://union.click.jd.com/jdc?d=sp9Y9L" target="_blank" rel="external">机器学习</a>。</p><h2 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h2><p>聚类有很多的应用场景，例如在图像压缩中，通过存储图像聚类后的中心点来进行图像压缩；聚类也常用来进行异常检测 (离群点检测)，可将远离所有簇中心的样本作为异常点，或将密度极低处的样本作为异常点。</p><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li>Book: <a href="prml">Pattern Recognition and Machine Learning by Christopher Bishop</a></li><li><a href="http://www.holehouse.org/mlclass" target="_blank" rel="external">Notes of machine learning by Andrew Ng in cousera</a></li><li><a href="http://union.click.jd.com/jdc?d=sp9Y9L" target="_blank" rel="external">机器学习</a> 周志华</li><li>Slides by <a href="http://sist.shanghaitech.edu.cn/StaffDetail.asp?id=334" target="_blank" rel="external">Prof. Wang</a></li><li><a href="http://www.hangli-hl.com/books.html" target="_blank" rel="external">统计学习方法</a></li><li><a href="(http://yima.csl.illinois.edu/">GPCA by Yi Ma</a>)</li></ul><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script><hr>]]></content>
-    
-    <summary type="html">
-    
-      聚类 (clustering)是机器学习中经常会涉及到的一个task, 本篇文章从k-means开始讲起，然后到Mixtures of Gaussians和EM算法，最后介绍层次聚类、密度聚类和Learning Vector Quantization (LVQ)。
-    
-    </summary>
-    
-      <category term="Machine Learning" scheme="http://frankchu0229.github.io/categories/Machine-Learning/"/>
-    
-    
-      <category term="Machine Learning" scheme="http://frankchu0229.github.io/tags/Machine-Learning/"/>
-    
-      <category term="Clustering" scheme="http://frankchu0229.github.io/tags/Clustering/"/>
     
   </entry>
   

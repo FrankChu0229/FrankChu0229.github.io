@@ -2,16 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://frankchu0229.github.io/about/index.html</loc>
+    <loc>http://frankchu0229.github.io/2018/03/05/maven-notes/</loc>
     
-    <lastmod>2018-02-28T13:05:29.970Z</lastmod>
+    <lastmod>2018-03-05T04:07:47.517Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu0229.github.io/2018/03/04/transfer-learning-alimi/</loc>
+    
+    <lastmod>2018-03-05T04:02:54.230Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu0229.github.io/2018/03/04/drqa/</loc>
+    
+    <lastmod>2018-03-05T04:02:25.686Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://frankchu0229.github.io/2018/02/27/design-pattern/</loc>
     
-    <lastmod>2018-02-27T09:21:54.056Z</lastmod>
+    <lastmod>2018-03-05T04:02:12.669Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu0229.github.io/about/index.html</loc>
+    
+    <lastmod>2018-02-28T13:05:29.970Z</lastmod>
     
   </url>
   
