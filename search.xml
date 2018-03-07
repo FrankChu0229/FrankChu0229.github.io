@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Maven Summary]]></title>
     <url>%2F2018%2F03%2F05%2Fmaven-notes%2F</url>
-    <content type="text"><![CDATA[Show all dependencies mvn dependency:tree RM dependnecy in pom123456&lt;exclusions&gt; &lt;exclusion&gt; &lt;groupId&gt;com.group&lt;/groupId&gt; &lt;artifactId&gt;name&lt;/artifactId&gt; &lt;/exclusion&gt;&lt;/exclusions&gt;]]></content>
+    <content type="text"><![CDATA[Show all dependencies mvn dependency:tree RM dependnecy in pom123456&lt;exclusions&gt; &lt;exclusion&gt; &lt;groupId&gt;com.group&lt;/groupId&gt; &lt;artifactId&gt;name&lt;/artifactId&gt; &lt;/exclusion&gt;&lt;/exclusions&gt; Reference http://wiki.jikexueyuan.com/project/maven/pom.html]]></content>
       <tags>
         <tag>java</tag>
         <tag>maven</tag>
@@ -126,9 +126,9 @@
         <category>notes</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>notes</tag>
         <tag>summary</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -139,9 +139,9 @@
         <category>python</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>notes</tag>
         <tag>summary</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -152,8 +152,8 @@
         <category>summary</category>
       </categories>
       <tags>
-        <tag>notes</tag>
         <tag>MySQL</tag>
+        <tag>notes</tag>
       </tags>
   </entry>
   <entry>
