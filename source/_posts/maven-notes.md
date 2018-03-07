@@ -18,3 +18,10 @@ tags: [maven, java, package management]
       </exclusions>
 
 ```
+
+## Reference
+
+- http://wiki.jikexueyuan.com/project/maven/pom.html
+
+
+---
