@@ -3,6 +3,10 @@ date: 2018-03-05 12:00:45
 tags: [maven, java, package management]
 ---
 
+## Show Super Pom
+
+- `mvn help:effective-pom`
+
 ## Show all dependencies
 
 - `mvn dependency:tree`
