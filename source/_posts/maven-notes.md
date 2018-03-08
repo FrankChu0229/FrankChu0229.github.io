@@ -2,7 +2,7 @@ title: Maven Summary
 date: 2018-03-05 12:00:45
 tags: [maven, java, package management]
 categories: maven
-description: Summary for maven: a popular java package management tool.
+description: Summary for maven, a popular java package management tool.
 ---
 
 ## Show Super Pom
