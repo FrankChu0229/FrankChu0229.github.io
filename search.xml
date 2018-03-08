@@ -4,9 +4,12 @@
     <title><![CDATA[Maven Summary]]></title>
     <url>%2F2018%2F03%2F05%2Fmaven-notes%2F</url>
     <content type="text"><![CDATA[Show Super Pom mvn help:effective-pom Show all dependencies mvn dependency:tree RM dependnecy in pom123456&lt;exclusions&gt; &lt;exclusion&gt; &lt;groupId&gt;com.group&lt;/groupId&gt; &lt;artifactId&gt;name&lt;/artifactId&gt; &lt;/exclusion&gt;&lt;/exclusions&gt; Reference http://wiki.jikexueyuan.com/project/maven/pom.html]]></content>
+      <categories>
+        <category>maven</category>
+      </categories>
       <tags>
-        <tag>maven</tag>
         <tag>java</tag>
+        <tag>maven</tag>
         <tag>package management</tag>
       </tags>
   </entry>
@@ -23,7 +26,14 @@
   <entry>
     <title><![CDATA[Design Pattern]]></title>
     <url>%2F2018%2F02%2F27%2Fdesign-pattern%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[Singleton Instance123456789101112131415161718public class Test &#123; private static final class SingletonHolder &#123; private static final Test INSTANCE = new Test(); &#125; private Test() &#123; &#125; public static Test getInstance() &#123; return SingletonHolder.INSTSNCE; &#125; public static void main(String[] args) &#123; Test test = Test.getInstance(); &#125;&#125;]]></content>
+      <categories>
+        <category>Design Pattern</category>
+      </categories>
+      <tags>
+        <tag>engineering</tag>
+        <tag>design pattern</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Java中的String, StringBuilder和 StringBuffer]]></title>
@@ -34,8 +44,8 @@
       </categories>
       <tags>
         <tag>notes</tag>
-        <tag>java</tag>
         <tag>engineering</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -98,9 +108,9 @@
       </categories>
       <tags>
         <tag>notes</tag>
+        <tag>vim</tag>
         <tag>tools</tag>
         <tag>chrome</tag>
-        <tag>vim</tag>
       </tags>
   </entry>
   <entry>

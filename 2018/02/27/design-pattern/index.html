@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Framk Chu, Blog" />
+  <meta name="keywords" content="engineering,design pattern," />
 
 
 
@@ -81,17 +81,18 @@
 
 
 
-<meta name="description" content="AI从业者，希望结识更多同道中人。">
+<meta name="description" content="Design pattern, examples implemented in java.">
+<meta name="keywords" content="engineering,design pattern">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Design Pattern">
 <meta property="og:url" content="http://frankchu0229.github.io/2018/02/27/design-pattern/index.html">
 <meta property="og:site_name" content="Frank Chu">
-<meta property="og:description" content="AI从业者，希望结识更多同道中人。">
+<meta property="og:description" content="Design pattern, examples implemented in java.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-05T04:02:12.669Z">
+<meta property="og:updated_time" content="2018-03-08T09:00:10.161Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Design Pattern">
-<meta name="twitter:description" content="AI从业者，希望结识更多同道中人。">
+<meta name="twitter:description" content="Design pattern, examples implemented in java.">
 
 
 
@@ -348,6 +349,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Design-Pattern/" itemprop="url" rel="index">
+                    <span itemprop="name">Design Pattern</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -376,6 +399,10 @@
           
 
           
+              <div class="post-description">
+                  Design pattern, examples implemented in java.
+              </div>
+          
 
         </div>
       </header>
@@ -390,7 +417,9 @@
       
 
       
-        
+        <h2 id="Singleton-Instance"><a href="#Singleton-Instance" class="headerlink" title="Singleton Instance"></a>Singleton Instance</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public class Test &#123;</div><div class="line">	</div><div class="line">	private static final class SingletonHolder &#123;</div><div class="line">		private static final Test INSTANCE = new Test();</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	private Test() &#123;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public static Test getInstance() &#123;</div><div class="line">		return SingletonHolder.INSTSNCE;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		Test test = Test.getInstance();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+
       
     </div>
     
@@ -422,6 +451,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/engineering/" rel="tag"># engineering</a>
+          
+            <a href="/tags/design-pattern/" rel="tag"># design pattern</a>
+          
+        </div>
       
 
       
@@ -500,8 +537,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -531,7 +577,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -542,7 +588,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -574,6 +620,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Singleton-Instance"><span class="nav-number">1.</span> <span class="nav-text">Singleton Instance</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
