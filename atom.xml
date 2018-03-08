@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://frankchu0229.github.io/"/>
-  <updated>2018-03-07T03:41:10.967Z</updated>
+  <updated>2018-03-08T06:23:33.618Z</updated>
   <id>http://frankchu0229.github.io/</id>
   
   <author>
@@ -21,23 +21,24 @@
     <link href="http://frankchu0229.github.io/2018/03/05/maven-notes/"/>
     <id>http://frankchu0229.github.io/2018/03/05/maven-notes/</id>
     <published>2018-03-05T04:00:45.000Z</published>
-    <updated>2018-03-07T03:41:10.967Z</updated>
+    <updated>2018-03-08T06:23:33.618Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Show-all-dependencies"><a href="#Show-all-dependencies" class="headerlink" title="Show all dependencies"></a>Show all dependencies</h2><ul><li><code>mvn dependency:tree</code></li></ul><h2 id="RM-dependnecy-in-pom"><a href="#RM-dependnecy-in-pom" class="headerlink" title="RM dependnecy in pom"></a>RM dependnecy in pom</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;exclusions&gt;</div><div class="line">  &lt;exclusion&gt;</div><div class="line">    &lt;groupId&gt;com.group&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;name&lt;/artifactId&gt;</div><div class="line">  &lt;/exclusion&gt;</div><div class="line">&lt;/exclusions&gt;</div></pre></td></tr></table></figure><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="http://wiki.jikexueyuan.com/project/maven/pom.html" target="_blank" rel="external">http://wiki.jikexueyuan.com/project/maven/pom.html</a></li></ul><hr>]]></content>
+    <content type="html"><![CDATA[<h2 id="Show-Super-Pom"><a href="#Show-Super-Pom" class="headerlink" title="Show Super Pom"></a>Show Super Pom</h2><ul><li><code>mvn help:effective-pom</code></li></ul><h2 id="Show-all-dependencies"><a href="#Show-all-dependencies" class="headerlink" title="Show all dependencies"></a>Show all dependencies</h2><ul><li><code>mvn dependency:tree</code></li></ul><h2 id="RM-dependnecy-in-pom"><a href="#RM-dependnecy-in-pom" class="headerlink" title="RM dependnecy in pom"></a>RM dependnecy in pom</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;exclusions&gt;</div><div class="line">  &lt;exclusion&gt;</div><div class="line">    &lt;groupId&gt;com.group&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;name&lt;/artifactId&gt;</div><div class="line">  &lt;/exclusion&gt;</div><div class="line">&lt;/exclusions&gt;</div></pre></td></tr></table></figure><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="http://wiki.jikexueyuan.com/project/maven/pom.html" target="_blank" rel="external">http://wiki.jikexueyuan.com/project/maven/pom.html</a></li></ul><hr>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;Show-all-dependencies&quot;&gt;&lt;a href=&quot;#Show-all-dependencies&quot; class=&quot;headerlink&quot; title=&quot;Show all dependencies&quot;&gt;&lt;/a&gt;Show all dependencies&lt;/
+        &lt;h2 id=&quot;Show-Super-Pom&quot;&gt;&lt;a href=&quot;#Show-Super-Pom&quot; class=&quot;headerlink&quot; title=&quot;Show Super Pom&quot;&gt;&lt;/a&gt;Show Super Pom&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;mvn help:e
       
     
     </summary>
     
     
-      <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
-    
       <category term="maven" scheme="http://frankchu0229.github.io/tags/maven/"/>
+    
+      <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
     
       <category term="package management" scheme="http://frankchu0229.github.io/tags/package-management/"/>
     
@@ -237,11 +238,11 @@
     
       <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
     
-      <category term="vim" scheme="http://frankchu0229.github.io/tags/vim/"/>
-    
       <category term="tools" scheme="http://frankchu0229.github.io/tags/tools/"/>
     
       <category term="chrome" scheme="http://frankchu0229.github.io/tags/chrome/"/>
+    
+      <category term="vim" scheme="http://frankchu0229.github.io/tags/vim/"/>
     
   </entry>
   
@@ -293,11 +294,11 @@
       <category term="notes" scheme="http://frankchu0229.github.io/categories/python/notes/"/>
     
     
+      <category term="Python" scheme="http://frankchu0229.github.io/tags/Python/"/>
+    
       <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
-    
-      <category term="Python" scheme="http://frankchu0229.github.io/tags/Python/"/>
     
   </entry>
   
@@ -319,11 +320,11 @@
       <category term="python" scheme="http://frankchu0229.github.io/categories/python/"/>
     
     
+      <category term="Python" scheme="http://frankchu0229.github.io/tags/Python/"/>
+    
       <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
-    
-      <category term="Python" scheme="http://frankchu0229.github.io/tags/Python/"/>
     
   </entry>
   
@@ -345,9 +346,9 @@
       <category term="summary" scheme="http://frankchu0229.github.io/categories/summary/"/>
     
     
-      <category term="MySQL" scheme="http://frankchu0229.github.io/tags/MySQL/"/>
-    
       <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
+    
+      <category term="MySQL" scheme="http://frankchu0229.github.io/tags/MySQL/"/>
     
   </entry>
   
