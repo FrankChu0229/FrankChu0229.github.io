@@ -3,7 +3,7 @@ date: 2015-04-10 12:45:39
 ---
 # Home
 
-Currently I’m an AI (full-stack bot) engineer. I am doing some related work in a chatbot system, e.g., KBQA, KB construction, entity linking, link prediction, dialogue manager, LAT detection, NER, POS tagging, Chinese word segmentation, NLU and  NLG. I received my MS degree from [School of Information Science and Technology](http://www.shanghaitech.edu.cn/eng/) [Shanghaitech University](http://www.shanghaitech.edu.cn/eng/). My advisor is Prof. [Kewei Tu](http://sist.shanghaitech.edu.cn/faculty/tukw/). 
+Currently I’m an AI (full-stack bot) engineer. I am doing some related work in a chatbot system, e.g., KBQA, IRQA, KB construction, entity linking, link prediction, dialogue manager, LAT detection, NER, POS tagging, Chinese word segmentation, NLU and  NLG. I received my MS degree from [School of Information Science and Technology](http://www.shanghaitech.edu.cn/eng/) [Shanghaitech University](http://www.shanghaitech.edu.cn/eng/). My advisor is Prof. [Kewei Tu](http://sist.shanghaitech.edu.cn/faculty/tukw/). 
 
 <!--## Email
 chushb@shanghaitech.edu.cn
