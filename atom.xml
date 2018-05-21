@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://frankchu0229.github.io/"/>
-  <updated>2018-03-08T09:02:21.986Z</updated>
+  <updated>2018-05-21T12:54:15.725Z</updated>
   <id>http://frankchu0229.github.io/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Jupyter Notebook Summary</title>
+    <link href="http://frankchu0229.github.io/2018/05/21/jupyter-notes/"/>
+    <id>http://frankchu0229.github.io/2018/05/21/jupyter-notes/</id>
+    <published>2018-05-21T12:47:37.000Z</published>
+    <updated>2018-05-21T12:54:15.725Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Jupyter-Install"><a href="#Jupyter-Install" class="headerlink" title="Jupyter Install"></a>Jupyter Install</h2><ul><li>use <code>conda install jupyter</code></li><li>use <code>pip install jupyter</code></li></ul><h2 id="Use-Jupyter-On-Gpu-Server"><a href="#Use-Jupyter-On-Gpu-Server" class="headerlink" title="Use Jupyter On Gpu Server"></a>Use Jupyter On Gpu Server</h2><ul><li>First, start jupyter-notebook on GPU</li><li>Then, use <code>ssh myserver -L 8888:localhost:8888</code> to link local port <code>8888</code> to gpu server port <code>8888</code></li></ul><h2 id="Use-Conda-Virtual-Environment-On-Jupyter"><a href="#Use-Conda-Virtual-Environment-On-Jupyter" class="headerlink" title="Use Conda Virtual Environment On Jupyter"></a>Use Conda Virtual Environment On Jupyter</h2><ul><li>install plugins on conda <code>conda install nb_conda</code></li></ul><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="https://www.jianshu.com/p/afea092dda1d" target="_blank" rel="external">reference link</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      Jupyter notebook 使用总结.
+    
+    </summary>
+    
+      <category term="python" scheme="http://frankchu0229.github.io/categories/python/"/>
+    
+      <category term="tools" scheme="http://frankchu0229.github.io/categories/python/tools/"/>
+    
+      <category term="conda" scheme="http://frankchu0229.github.io/categories/python/tools/conda/"/>
+    
+      <category term="jupyter" scheme="http://frankchu0229.github.io/categories/python/tools/conda/jupyter/"/>
+    
+    
+      <category term="python" scheme="http://frankchu0229.github.io/tags/python/"/>
+    
+      <category term="conda" scheme="http://frankchu0229.github.io/tags/conda/"/>
+    
+      <category term="jupyter" scheme="http://frankchu0229.github.io/tags/jupyter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Learning To Rank</title>
+    <link href="http://frankchu0229.github.io/2018/03/08/learning-to-rank/"/>
+    <id>http://frankchu0229.github.io/2018/03/08/learning-to-rank/</id>
+    <published>2018-03-08T09:24:36.000Z</published>
+    <updated>2018-03-08T09:25:45.891Z</updated>
+    
+    <content type="html"><![CDATA[<hr>]]></content>
+    
+    <summary type="html">
+    
+      Summary learning to rank.
+    
+    </summary>
+    
+      <category term="maven" scheme="http://frankchu0229.github.io/categories/maven/"/>
+    
+    
+      <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
+    
+      <category term="ML" scheme="http://frankchu0229.github.io/tags/ML/"/>
+    
+  </entry>
   
   <entry>
     <title>Maven Summary</title>
@@ -99,7 +155,7 @@
     <link href="http://frankchu0229.github.io/2018/02/26/java-notes/"/>
     <id>http://frankchu0229.github.io/2018/02/26/java-notes/</id>
     <published>2018-02-26T15:05:41.000Z</published>
-    <updated>2018-02-27T01:56:20.442Z</updated>
+    <updated>2018-05-21T12:54:16.994Z</updated>
     
     <content type="html"><![CDATA[<h2 id="StringBuilder-与-StringBuffer"><a href="#StringBuilder-与-StringBuffer" class="headerlink" title="StringBuilder 与 StringBuffer"></a>StringBuilder 与 StringBuffer</h2><ul><li>StringBuilder 执行速度比StringBuffer要快，但是StringBuilder不是线程安全的</li><li>StringBuffer 是线程安全的，执行速度比StringBuilder要慢</li></ul><h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><p>在java中，String字符串常量是不可改变的对象，每当在String上进行操作时，实际上都是在创建一个新的String对象。以下代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1. String s = &quot;abx&quot;;</div><div class="line">2. String s = s + &quot;ds&quot;;</div></pre></td></tr></table></figure><p>其中，第二行中的<code>s</code>会被重新创建，原来的对象会被GC掉。而StringBuilder和StringBuffer是可变对象，在同一个对象上进行操作。</p><p>值得注意的一点是：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String s = &quot;this &quot; + &quot;is &quot; + &quot;my &quot; + &quot;home&quot;</div></pre></td></tr></table></figure><p>等同于<code>String s = &quot;This is my home&quot;</code>, 在这种情况下String操作要比StringBuilder和StringBuffer要快，是JVM的一个把戏。但是当字符串拼接中有其他的String变量时，JVM就会按照原来的方式来做。</p><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="http://www.cnblogs.com/A_ming/archive/2010/04/13/1711395.html" target="_blank" rel="external">http://www.cnblogs.com/A_ming/archive/2010/04/13/1711395.html</a></li></ul><hr>]]></content>
     
@@ -142,9 +198,9 @@
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
     
-      <category term="coding style" scheme="http://frankchu0229.github.io/tags/coding-style/"/>
-    
       <category term="python" scheme="http://frankchu0229.github.io/tags/python/"/>
+    
+      <category term="coding style" scheme="http://frankchu0229.github.io/tags/coding-style/"/>
     
   </entry>
   
@@ -461,54 +517,6 @@
       <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
     
       <category term="ubuntu" scheme="http://frankchu0229.github.io/tags/ubuntu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vim Notes</title>
-    <link href="http://frankchu0229.github.io/2016/11/21/vim2/"/>
-    <id>http://frankchu0229.github.io/2016/11/21/vim2/</id>
-    <published>2016-11-21T09:00:02.000Z</published>
-    <updated>2017-10-30T12:29:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="多行编辑"><a href="#多行编辑" class="headerlink" title="多行编辑"></a>多行编辑</h1><p>用<code>vim</code>进行多行编辑是十分方便的，只需要以下步骤：</p><ol><li><code>Ctrl-v</code> 进入纵向编辑模式 </li><li>通过<code>Shift-g</code>, <code>gg</code>, <code>j</code>,<code>k</code>等选择要编辑的行</li><li>若要删除多行，则<code>d</code>即可; 若要编辑多行的内容，<code>Shift-i</code>进入INSERT模式</li><li>进行编辑，然后按两次<code>ESC</code>就会发现多行编辑完成。</li></ol><h1 id="分屏"><a href="#分屏" class="headerlink" title="分屏"></a>分屏</h1><p>在使用<code>vim</code>编辑器的时候，结合<code>vim</code>的分屏功能，可以使得编辑更加高效：</p><h2 id="进入分屏的几种方式："><a href="#进入分屏的几种方式：" class="headerlink" title="进入分屏的几种方式："></a>进入分屏的几种方式：</h2><ol><li><code>vim -On file1 file2</code> 将<code>file1</code>和<code>file2</code>进行垂直分屏</li><li><code>vim -on file1 file2</code> 将<code>file1</code> 和<code>file2</code>进行水平分屏</li><li><code>vim file</code> 然后通过：<ul><li><code>Ctrl-w s</code>对当前文件进行水平(上下)分屏</li><li><code>Ctrl-w v</code>对当前文件进行垂直(左右)分屏</li><li><code>:sp newFile</code> 打开新的文件，上下分割 </li><li><code>:vsp newFile</code> 打开新的文件，左右分割</li></ul></li></ol><h2 id="分屏的切换："><a href="#分屏的切换：" class="headerlink" title="分屏的切换："></a>分屏的切换：</h2><ol><li><code>Ctrl-w j</code> 切换到下边的分屏上</li><li><code>Ctrl-w k</code> 切换到上边的分屏上</li><li><code>Ctrl-w h</code> 切换到左边的分屏上</li><li><code>Ctrl-w l</code> 切换到右边的分屏上</li></ol><h2 id="分屏的关闭："><a href="#分屏的关闭：" class="headerlink" title="分屏的关闭："></a>分屏的关闭：</h2><ol><li><code>Ctrl-w c</code> 关闭当前分屏</li><li><code>Ctrl-w q</code> 关闭当前分屏，若为最后一个分屏，则退出<code>vim</code>.</li></ol><p>用分屏是很方便的，当用<code>:sp newFile</code>打开一个新的文件时，可通过<code>y</code>, <code>p</code>的方式进行复制、粘贴，大大提高效率。</p><h2 id="vim-delete-part-of-lines"><a href="#vim-delete-part-of-lines" class="headerlink" title="vim delete part of lines"></a>vim delete part of lines</h2><p><code>:%s/&quot;: {//</code></p><h2 id="delete-the-whole-line-satisfied-with-the-pattern"><a href="#delete-the-whole-line-satisfied-with-the-pattern" class="headerlink" title="delete the whole line satisfied with the pattern:"></a>delete the whole line satisfied with the pattern:</h2><p><code>:g/^9 /d</code></p><hr>]]></content>
-    
-    <summary type="html">
-    
-      vim 进阶
-    
-    </summary>
-    
-      <category term="vim notes" scheme="http://frankchu0229.github.io/categories/vim-notes/"/>
-    
-    
-      <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
-    
-      <category term="vim" scheme="http://frankchu0229.github.io/tags/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vim Notes</title>
-    <link href="http://frankchu0229.github.io/2016/10/21/vimNotes/"/>
-    <id>http://frankchu0229.github.io/2016/10/21/vimNotes/</id>
-    <published>2016-10-21T09:00:02.000Z</published>
-    <updated>2017-10-30T12:29:24.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Lesson-1-SUMMARY"><a href="#Lesson-1-SUMMARY" class="headerlink" title="Lesson 1 SUMMARY:"></a>Lesson 1 SUMMARY:</h2><ol><li><p>The cursor is moved using either the arrow keys or the hjkl keys: </p><p>h(left) , j (down) , k (up) , l (right)</p></li><li><p>To start Vim from the shell prompt type:  <code>vim FILENAME &lt;ENTER&gt;</code></p></li><li><p>To exit Vim type:     <code>&lt;ESC&gt;   :q!     &lt;ENTER&gt;</code> to trash all changes.</p><p>OR type: <code>&lt;ESC&gt;  :wq     &lt;ENTER&gt;</code> to save the changes.</p></li><li><p>To delete the character at the cursor type:  <code>x</code></p></li><li><p>To insert or append text type:</p><p> <code>i</code>   type inserted text   <code>&lt;ESC&gt;</code>   insert before the cursor</p><p> <code>A</code>   type appended text   <code>&lt;ESC&gt;</code>    append after the line</p></li></ol><p><strong>NOTE:</strong> Pressing <esc> will place you in Normal mode or will cancel an unwanted and partially completed command.</esc></p><h2 id="Lesson-2-SUMMARY"><a href="#Lesson-2-SUMMARY" class="headerlink" title="Lesson 2 SUMMARY:"></a>Lesson 2 SUMMARY:</h2><ol><li><p>To delete from the cursor up to the next word type: <code>dw</code></p></li><li><p>To delete from the cursor to the end of a line type: <code>d$</code></p></li><li><p>To delete a whole line type:  <code>dd</code></p></li><li><p>To repeat a motion prepend it with a number: <code>2w</code></p></li><li><p>The format for a change command is: <code>operator   [number]   motion</code>, where: </p><p>1). operator: is what to do, such as  <code>d</code>  for delete</p><p>2). [number]: is an optional count to repeat the motion</p><p>3). motion : moves over the text to operate on, such as  <code>w</code> (word), $ (to the end of line), etc.</p></li><li><p>To move to the start of the line use a zero:  <code>0</code></p></li><li><p>To undo previous actions, type: <code>u</code>  (lowercase u)</p><p>To undo all the changes on a line, type:  <code>U</code>  (capital U)</p><p>To undo the undo’s, type: <code>CTRL-R</code></p></li></ol><h2 id="Lesson-3-SUMMARY"><a href="#Lesson-3-SUMMARY" class="headerlink" title="Lesson 3 SUMMARY:"></a>Lesson 3 SUMMARY:</h2><ol><li><p>To put back text that has just been deleted, type <code>p</code> .  This puts the deleted text AFTER the cursor (if a line was deleted it will go on the line below the cursor).</p></li><li><p>To replace the character under the cursor, type <code>r</code> and then the character you want to have there.</p></li><li><p>The change operator allows you to change from the cursor to where the motion takes you.  e.g., type  ce  to change from the cursor to the end of the word,  <code>c$</code> to change to the end of a line.</p></li><li><p>The format for change is:  <code>c   [number]   motion</code></p></li></ol><h2 id="Lesson-4-SUMMARY"><a href="#Lesson-4-SUMMARY" class="headerlink" title="Lesson 4 SUMMARY:"></a>Lesson 4 SUMMARY:</h2><ol><li><p><code>CTRL-G</code>  displays your location in the file and the file status.</p><p><code>G</code>  moves to the end of the file.</p><p><code>number  G</code>  moves to that line number.</p><p><code>gg</code>  moves to the first line.</p></li><li><p>Typing  <code>/</code>    followed by a phrase searches FORWARD for the phrase.</p><p>Typing  <code>?</code>    followed by a phrase searches BACKWARD for the phrase.</p><p>After a search type  <code>n</code>  to find the next occurrence in the same direction or  <code>N</code>  to search in the opposite direction.</p><p><code>CTRL-O</code> takes you back to older positions, <code>CTRL-I</code> to newer positions.</p></li><li><p>Typing  <code>%</code>    while the cursor is on a ( , ),[ , ],{ , or } goes to its match.</p></li><li><p>To substitute new for the first old in a line type    <code>:s/old/new</code></p><p>To substitute new for all ‘old’s on a line type     <code>:s/old/new/g</code></p><p>To substitute phrases between two line #’s type     <code>:#,#s/old/new/g</code></p><p>To substitute all occurrences in the file type      <code>:%s/old/new/g</code></p><p>To ask for confirmation each time add ‘c’           <code>:%s/old/new/gc</code></p></li></ol><h2 id="Lesson-5-SUMMARY"><a href="#Lesson-5-SUMMARY" class="headerlink" title="Lesson 5 SUMMARY:"></a>Lesson 5 SUMMARY:</h2><p> <code>:!command</code>  executes an external command,  and some useful examples are:</p><table><thead><tr><th>MS-DOS</th><th style="text-align:center">Unix</th><th style="text-align:right">effect</th></tr></thead><tbody><tr><td><code>:!dir</code></td><td style="text-align:center"><code>:!ls</code></td><td style="text-align:right">shows a directory listing.</td></tr><tr><td><code>:!del FILENAME</code></td><td style="text-align:center"><code>:!rm FILENAME</code></td><td style="text-align:right">removes file FILENAME.</td></tr></tbody></table><ol><li><p><code>:w FILENAME</code>  writes the current Vim file to disk with name FILENAME.</p></li><li><p><code>v  motion  :w FILENAME</code>  saves the Visually selected lines in file FILENAME.</p></li><li><p><code>:r FILENAME</code>  retrieves disk file FILENAME and puts it below the cursor position.</p></li><li><p><code>:r !dir</code>  reads the output of the dir command and puts it below the cursor position.</p></li></ol><h2 id="Lesson-6-SUMMARY："><a href="#Lesson-6-SUMMARY：" class="headerlink" title="Lesson 6 SUMMARY："></a>Lesson 6 SUMMARY：</h2><ol><li><p>Type  <code>o</code>  to open a line BELOW the cursor and start Insert mode.</p><p>Type  <code>O</code>  to open a line ABOVE the cursor.</p></li><li><p>Type  <code>a</code>  to insert text AFTER the cursor.</p><p>Type  <code>A</code>  to insert text after the end of the line.</p></li><li><p>The  <code>e</code>  command moves to the end of a word.</p></li><li><p>The  <code>y</code>  operator yanks (copies) text,  <code>p</code>  puts (pastes) it.</p></li><li><p>Typing a capital <code>R</code>  enters Replace mode until  <code>&lt;ESC&gt;</code>  is pressed.</p></li><li><p>Typing “:set xxx” sets the option “xxx”.  Some options are:</p><p>1) ‘ic’ ‘ignorecase’    ignore upper/lower case when searching</p><p>2) ‘is’ ‘incsearch’    show partial matches for a search phrase</p><p>3) ‘hls’ ‘hlsearch’    highlight all matching phrases</p><p>4) You can either use the long or the short option name.</p></li></ol><ol><li>Prepend “no” to switch an option off:   <code>:set noic</code></li></ol><h2 id="Lesson-7-SUMMARY："><a href="#Lesson-7-SUMMARY：" class="headerlink" title="Lesson 7 SUMMARY："></a>Lesson 7 SUMMARY：</h2><ol><li><p>Type  <code>:help</code>  or press <code>&lt;F1&gt;</code> or <code>&lt;Help&gt;</code>  to open a help window.</p></li><li><p>Type  <code>:help</code> cmd  to find help on  cmd .</p></li><li><p>Type  <code>CTRL-W CTRL-W</code>  to jump to another window</p></li><li><p>Type  <code>:q</code>  to close the help window</p></li><li><p>Create a <strong>vimrc</strong> startup script to keep your preferred settings.</p></li><li><p>When typing a  <code>:</code>  command, press <code>CTRL-D</code> to see possible completions. Press <code>&lt;TAB&gt;</code> to use one completion.</p></li></ol><hr>]]></content>
-    
-    <summary type="html">
-    
-      This is the summary from vimtutor, you can find all the basic vim usages here.
-    
-    </summary>
-    
-      <category term="vim notes" scheme="http://frankchu0229.github.io/categories/vim-notes/"/>
-    
-    
-      <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
-    
-      <category term="vim" scheme="http://frankchu0229.github.io/tags/vim/"/>
     
   </entry>
   

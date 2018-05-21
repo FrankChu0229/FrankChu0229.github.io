@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Jupyter Notebook Summary]]></title>
+    <url>%2F2018%2F05%2F21%2Fjupyter-notes%2F</url>
+    <content type="text"><![CDATA[Jupyter Install use conda install jupyter use pip install jupyter Use Jupyter On Gpu Server First, start jupyter-notebook on GPU Then, use ssh myserver -L 8888:localhost:8888 to link local port 8888 to gpu server port 8888 Use Conda Virtual Environment On Jupyter install plugins on conda conda install nb_conda Reference reference link]]></content>
+      <categories>
+        <category>python</category>
+        <category>tools</category>
+        <category>conda</category>
+        <category>jupyter</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>conda</tag>
+        <tag>jupyter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Learning To Rank]]></title>
+    <url>%2F2018%2F03%2F08%2Flearning-to-rank%2F</url>
+    <content type="text"><![CDATA[]]></content>
+      <categories>
+        <category>maven</category>
+      </categories>
+      <tags>
+        <tag>summary</tag>
+        <tag>ML</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Maven Summary]]></title>
     <url>%2F2018%2F03%2F05%2Fmaven-notes%2F</url>
     <content type="text"><![CDATA[Show Super Pom mvn help:effective-pom Show all dependencies mvn dependency:tree RM dependnecy in pom123456&lt;exclusions&gt; &lt;exclusion&gt; &lt;groupId&gt;com.group&lt;/groupId&gt; &lt;artifactId&gt;name&lt;/artifactId&gt; &lt;/exclusion&gt;&lt;/exclusions&gt; Reference http://wiki.jikexueyuan.com/project/maven/pom.html]]></content>
@@ -58,8 +86,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>coding style</tag>
         <tag>python</tag>
+        <tag>coding style</tag>
       </tags>
   </entry>
   <entry>
