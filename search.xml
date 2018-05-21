@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Conda Summary]]></title>
+    <url>%2F2018%2F05%2F21%2Fconda-notes%2F</url>
+    <content type="text"><![CDATA[Conda Environment list all conda envs: conda env list create conda env: conda create --name test python=3.4, if not specify python version, conda will ues the same python version as the python version in conda. conda activate env: source activate env_name conda deactivate env: source deactivate env_name create conda from file: conda env create -f environment.yml conda export environment config: connda env export &gt; environment.yml conda remove an environment: conda remove --name env_name --all Conda Package conda search package: conda search tensorflow conda install package in a specific env: conda install --name env_name tensorflow conda install package in the current env: conda install tensorflow=1.4.0, if not given package version, the latest version will be uesd. conda list all packages in the current env: conda list conda update pacakge: conda update tensorflow conda remove package: conda remove -n env_name tensorflow if cannot find package by conda, you can use pip install package_name. Reference Conda Documentation]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>conda</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Jupyter Notebook Summary]]></title>
     <url>%2F2018%2F05%2F21%2Fjupyter-notes%2F</url>
     <content type="text"><![CDATA[Jupyter Install use conda install jupyter use pip install jupyter Use Jupyter On Gpu Server First, start jupyter-notebook on GPU Then, use ssh myserver -L 8888:localhost:8888 to link local port 8888 to gpu server port 8888 Use Conda Virtual Environment On Jupyter install plugins on conda conda install nb_conda Reference reference link]]></content>
@@ -164,9 +173,9 @@
         <category>notes</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>notes</tag>
         <tag>summary</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -177,9 +186,9 @@
         <category>python</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>notes</tag>
         <tag>summary</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -190,8 +199,8 @@
         <category>summary</category>
       </categories>
       <tags>
-        <tag>notes</tag>
         <tag>MySQL</tag>
+        <tag>notes</tag>
       </tags>
   </entry>
   <entry>
@@ -203,8 +212,8 @@
       </categories>
       <tags>
         <tag>notes</tag>
-        <tag>summary</tag>
         <tag>linux</tag>
+        <tag>summary</tag>
         <tag>tmux</tag>
       </tags>
   </entry>

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Framk Chu, Blog" />
+  <meta name="keywords" content="python,conda," />
 
 
 
@@ -81,16 +81,18 @@
 
 
 
-<meta name="description" content="AI从业者，希望结识更多同道中人。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Frank Chu">
-<meta property="og:url" content="http://frankchu0229.github.io/categories/books/index.html">
+<meta name="description" content="Conda 使用总结.">
+<meta name="keywords" content="python,conda">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Conda Summary">
+<meta property="og:url" content="http://frankchu0229.github.io/2018/05/21/conda-notes/index.html">
 <meta property="og:site_name" content="Frank Chu">
-<meta property="og:description" content="AI从业者，希望结识更多同道中人。">
+<meta property="og:description" content="Conda 使用总结.">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-21T13:29:51.922Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Frank Chu">
-<meta name="twitter:description" content="AI从业者，希望结识更多同道中人。">
+<meta name="twitter:title" content="Conda Summary">
+<meta name="twitter:description" content="Conda 使用总结.">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://frankchu0229.github.io/categories/books/"/>
+  <link rel="canonical" href="http://frankchu0229.github.io/2018/05/21/conda-notes/"/>
 
 
 
 
 
-  <title>分类: books | Frank Chu</title>
+  <title>Conda Summary | Frank Chu</title>
   
 
 
@@ -155,7 +157,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -293,55 +295,206 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>books<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://frankchu0229.github.io/2018/05/21/conda-notes/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frank Chu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/author.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frank Chu">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2016/09/15/books/" itemprop="url">
-              
-                <span itemprop="name">Recommended Books</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Conda Summary</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-15T22:56:05+08:00"
-              content="2016-09-15" >
-          09-15
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-21T20:59:20+08:00">
+                2018-05-21
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/21/conda-notes/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/05/21/conda-notes/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description">
+                  Conda 使用总结.
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Conda-Environment"><a href="#Conda-Environment" class="headerlink" title="Conda Environment"></a>Conda Environment</h2><ul>
+<li>list all conda envs: <code>conda env list</code></li>
+<li>create conda env: <code>conda create --name test python=3.4</code>, if not specify python version, conda will ues the same python version as the python version in conda.</li>
+<li>conda activate env: <code>source activate env_name</code></li>
+<li>conda deactivate env: <code>source deactivate env_name</code></li>
+<li>create conda from file: <code>conda env create -f environment.yml</code></li>
+<li>conda export environment config: <code>connda env export &gt; environment.yml</code></li>
+<li>conda remove an environment: <code>conda remove --name env_name --all</code></li>
+</ul>
+<h2 id="Conda-Package"><a href="#Conda-Package" class="headerlink" title="Conda Package"></a>Conda Package</h2><ul>
+<li>conda search package: <code>conda search tensorflow</code></li>
+<li>conda install package in a specific env: <code>conda install --name env_name tensorflow</code></li>
+<li>conda install package in the current env: <code>conda install tensorflow=1.4.0</code>, if not given package version, the latest version will be uesd.</li>
+<li>conda list all packages in the current env: <code>conda list</code></li>
+<li>conda update pacakge: <code>conda update tensorflow</code></li>
+<li>conda remove package: <code>conda remove -n env_name tensorflow</code></li>
+<li>if cannot find package by conda, you can use <code>pip install package_name</code>.</li>
+</ul>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://conda.io/docs/user-guide/tasks/manage-environments.html#" target="_blank" rel="external">Conda Documentation</a></li>
+</ul>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Frank Chu
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://frankchu0229.github.io/2018/05/21/conda-notes/" title="Conda Summary">http://frankchu0229.github.io/2018/05/21/conda-notes/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/conda/" rel="tag"># conda</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/21/jupyter-notes/" rel="next" title="Jupyter Notebook Summary">
+                <i class="fa fa-chevron-left"></i> Jupyter Notebook Summary
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -349,6 +502,14 @@
 
 
           
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2018/05/21/conda-notes/"
+           data-title="Conda Summary" data-url="http://frankchu0229.github.io/2018/05/21/conda-notes/">
+      </div>
+    </div>
+  
+
 
         </div>
         
@@ -369,8 +530,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -443,6 +613,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Conda-Environment"><span class="nav-number">1.</span> <span class="nav-text">Conda Environment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conda-Package"><span class="nav-number">2.</span> <span class="nav-text">Conda Package</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -589,6 +775,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 

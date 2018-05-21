@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://frankchu0229.github.io/"/>
-  <updated>2018-05-21T12:54:15.725Z</updated>
+  <updated>2018-05-21T13:29:51.922Z</updated>
   <id>http://frankchu0229.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Conda Summary</title>
+    <link href="http://frankchu0229.github.io/2018/05/21/conda-notes/"/>
+    <id>http://frankchu0229.github.io/2018/05/21/conda-notes/</id>
+    <published>2018-05-21T12:59:20.000Z</published>
+    <updated>2018-05-21T13:29:51.922Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Conda-Environment"><a href="#Conda-Environment" class="headerlink" title="Conda Environment"></a>Conda Environment</h2><ul><li>list all conda envs: <code>conda env list</code></li><li>create conda env: <code>conda create --name test python=3.4</code>, if not specify python version, conda will ues the same python version as the python version in conda.</li><li>conda activate env: <code>source activate env_name</code></li><li>conda deactivate env: <code>source deactivate env_name</code></li><li>create conda from file: <code>conda env create -f environment.yml</code></li><li>conda export environment config: <code>connda env export &gt; environment.yml</code></li><li>conda remove an environment: <code>conda remove --name env_name --all</code></li></ul><h2 id="Conda-Package"><a href="#Conda-Package" class="headerlink" title="Conda Package"></a>Conda Package</h2><ul><li>conda search package: <code>conda search tensorflow</code></li><li>conda install package in a specific env: <code>conda install --name env_name tensorflow</code></li><li>conda install package in the current env: <code>conda install tensorflow=1.4.0</code>, if not given package version, the latest version will be uesd.</li><li>conda list all packages in the current env: <code>conda list</code></li><li>conda update pacakge: <code>conda update tensorflow</code></li><li>conda remove package: <code>conda remove -n env_name tensorflow</code></li><li>if cannot find package by conda, you can use <code>pip install package_name</code>.</li></ul><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="https://conda.io/docs/user-guide/tasks/manage-environments.html#" target="_blank" rel="external">Conda Documentation</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      Conda 使用总结.
+    
+    </summary>
+    
+    
+      <category term="python" scheme="http://frankchu0229.github.io/tags/python/"/>
+    
+      <category term="conda" scheme="http://frankchu0229.github.io/tags/conda/"/>
+    
+  </entry>
   
   <entry>
     <title>Jupyter Notebook Summary</title>
@@ -358,11 +380,11 @@
       <category term="notes" scheme="http://frankchu0229.github.io/categories/python/notes/"/>
     
     
-      <category term="Python" scheme="http://frankchu0229.github.io/tags/Python/"/>
-    
       <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
+    
+      <category term="Python" scheme="http://frankchu0229.github.io/tags/Python/"/>
     
   </entry>
   
@@ -384,11 +406,11 @@
       <category term="python" scheme="http://frankchu0229.github.io/categories/python/"/>
     
     
-      <category term="Python" scheme="http://frankchu0229.github.io/tags/Python/"/>
-    
       <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
+    
+      <category term="Python" scheme="http://frankchu0229.github.io/tags/Python/"/>
     
   </entry>
   
@@ -410,9 +432,9 @@
       <category term="summary" scheme="http://frankchu0229.github.io/categories/summary/"/>
     
     
-      <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
-    
       <category term="MySQL" scheme="http://frankchu0229.github.io/tags/MySQL/"/>
+    
+      <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
     
   </entry>
   
@@ -436,9 +458,9 @@
     
       <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
     
-      <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
-    
       <category term="linux" scheme="http://frankchu0229.github.io/tags/linux/"/>
+    
+      <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
     
       <category term="tmux" scheme="http://frankchu0229.github.io/tags/tmux/"/>
     
@@ -493,30 +515,6 @@
       <category term="linux" scheme="http://frankchu0229.github.io/tags/linux/"/>
     
       <category term="git" scheme="http://frankchu0229.github.io/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ubuntu 命令行快捷键</title>
-    <link href="http://frankchu0229.github.io/2016/12/21/linuxCmdNotes/"/>
-    <id>http://frankchu0229.github.io/2016/12/21/linuxCmdNotes/</id>
-    <published>2016-12-21T09:00:02.000Z</published>
-    <updated>2017-10-30T12:27:25.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h1><ul><li><code>Ctrl + a</code> 光标移动到行首</li><li><code>Ctrl + e</code> 光标移动到行尾</li><li><code>Ctrl + l</code> 清屏</li><li><code>Ctrl + Shift + c</code> 复制</li><li><code>Ctrl + Shift + v</code> 粘贴</li><li><code>Ctrl + r</code> 逆向搜索命令历史</li><li><code>Ctrl + c</code> 终止命令</li><li><code>Ctrl + z</code> 挂起命令</li><li><code>Ctrl + u</code> 删除光标左边所有元素</li><li><code>Ctrl + k</code> 删除光标右边所有元素</li></ul><hr>]]></content>
-    
-    <summary type="html">
-    
-      熟悉ubuntu命令行快捷键，可以很好的提高在ubuntu下开发的效率。
-    
-    </summary>
-    
-      <category term="ubuntu notes" scheme="http://frankchu0229.github.io/categories/ubuntu-notes/"/>
-    
-    
-      <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
-    
-      <category term="ubuntu" scheme="http://frankchu0229.github.io/tags/ubuntu/"/>
     
   </entry>
   
