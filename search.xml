@@ -173,9 +173,9 @@
         <category>notes</category>
       </categories>
       <tags>
+        <tag>Python</tag>
         <tag>notes</tag>
         <tag>summary</tag>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -186,9 +186,9 @@
         <category>python</category>
       </categories>
       <tags>
+        <tag>Python</tag>
         <tag>notes</tag>
         <tag>summary</tag>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -199,8 +199,8 @@
         <category>summary</category>
       </categories>
       <tags>
-        <tag>MySQL</tag>
         <tag>notes</tag>
+        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
@@ -212,8 +212,8 @@
       </categories>
       <tags>
         <tag>notes</tag>
-        <tag>linux</tag>
         <tag>summary</tag>
+        <tag>linux</tag>
         <tag>tmux</tag>
       </tags>
   </entry>
