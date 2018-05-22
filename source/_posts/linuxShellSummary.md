@@ -70,5 +70,10 @@ ln -s 源地址 目的地址
 - kill进程
 找到进程的PID,使用kill命令：`kill PID`（进程的PID，如2044），杀死对应的进程
 
+## 查看文件若干行
+
+- `head -n 1 file.txt` 
+
+
 --- 
 　　
