@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Frank Chu">
 <meta property="og:description" content="Tmux Summary。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-30T12:29:06.000Z">
+<meta property="og:updated_time" content="2018-05-22T06:59:16.305Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tmux Summary">
 <meta name="twitter:description" content="Tmux Summary。">
@@ -417,7 +417,55 @@
       
 
       
-        <h1 id="Tmux-Summary"><a href="#Tmux-Summary" class="headerlink" title="Tmux Summary"></a>Tmux Summary</h1><h2 id="翻页"><a href="#翻页" class="headerlink" title="翻页"></a>翻页</h2><p><code>Ctrl + B + [</code></p>
+        <h2 id="Tmux-Basic-Operation"><a href="#Tmux-Basic-Operation" class="headerlink" title="Tmux Basic Operation"></a>Tmux Basic Operation</h2><h3 id="Enter-Session"><a href="#Enter-Session" class="headerlink" title="Enter Session"></a>Enter Session</h3><ul>
+<li><code>tmux</code> to enter tmux and start a unnamed session</li>
+<li><code>tmux new -s demo</code> to enter tmux and start a session named demo</li>
+<li><code>tmux a</code> tmux attach the first session</li>
+<li><code>tmux a -t demo</code> to attach the session named demo</li>
+<li><code>tmux ls</code> to show all sessions.</li>
+</ul>
+<h3 id="Show-Shortcut-Keys-and-Commands"><a href="#Show-Shortcut-Keys-and-Commands" class="headerlink" title="Show Shortcut Keys and Commands"></a>Show Shortcut Keys and Commands</h3><ul>
+<li><code>tmux list-keys</code> to show all shortcut keys</li>
+<li><code>tmux list-commands</code> to show all tmux commands</li>
+<li><code>crtl + b + ?</code> to list all tmux shortcut keys, press <code>q</code> to return</li>
+</ul>
+<h3 id="Exit-Tmux"><a href="#Exit-Tmux" class="headerlink" title="Exit Tmux"></a>Exit Tmux</h3><ul>
+<li><code>crtl + b + d</code>, detach to exit tmux, tmux is still running in background. </li>
+<li><code>tmux kill-session -t demo</code> kill session whose name is demo</li>
+<li><code>tmux kill-server</code> kill all sessions.</li>
+</ul>
+<h3 id="Other-Basic-Operations"><a href="#Other-Basic-Operations" class="headerlink" title="Other Basic Operations"></a>Other Basic Operations</h3><ul>
+<li><code>ctrl + b + t</code>, to show the time.</li>
+<li><code>crtl + b + :</code> to enter command mode.</li>
+<li><code>ctrl + b + [</code> to enter copy mode, enter q to exit.</li>
+</ul>
+<h2 id="Tmux-Session-Operation"><a href="#Tmux-Session-Operation" class="headerlink" title="Tmux Session Operation"></a>Tmux Session Operation</h2><ul>
+<li><code>ctrl + b + : new -s session_name</code> to create new session with name session_name</li>
+<li><code>ctrl + b + s</code> to list all sessions.</li>
+<li><code>ctrl + b + $</code> to rename cuurrent session name.</li>
+</ul>
+<h2 id="Tmux-Window-Operation"><a href="#Tmux-Window-Operation" class="headerlink" title="Tmux Window Operation"></a>Tmux Window Operation</h2><ul>
+<li><code>ctrl + b + c</code> to new a window</li>
+<li><code>ctrl + b + &amp;</code> to close current window, need to input <code>y</code> to confirm</li>
+<li><code>ctrl + b + 0-9</code> to switch window</li>
+<li><code>ctrl + b + w</code> to show all windows in the current session</li>
+</ul>
+<h2 id="Tmux-Pane-Operation"><a href="#Tmux-Pane-Operation" class="headerlink" title="Tmux Pane Operation"></a>Tmux Pane Operation</h2><ul>
+<li><code>ctrl + b + &quot;</code>to add vertical pane.</li>
+<li><code>ctrl + b + %</code> to add horizontal pane</li>
+<li><code>ctrl + b + 方向键</code> 上下左右切换pane</li>
+<li><code>ctrl + b + x</code> close current pane, need to input <code>y</code></li>
+<li><code>ctrl + b + z</code> to maxmize current pane, and return to its original size if try again</li>
+</ul>
+<h2 id="Todo"><a href="#Todo" class="headerlink" title="Todo"></a>Todo</h2><ul>
+<li>Tmate </li>
+<li>tmux config</li>
+</ul>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="http://louiszhai.github.io/2017/09/30/tmux/" target="_blank" rel="external">reference1</a></li>
+<li><a href="http://wdxtub.com/2016/03/30/tmux-guide/" target="_blank" rel="external">reference2</a></li>
+<li><a href="https://gist.github.com/FrankChu0229/7755359af245119586d64adb7b88544d" target="_blank" rel="external">reference3</a></li>
+</ul>
 <hr>
 
       
@@ -634,7 +682,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tmux-Summary"><span class="nav-number">1.</span> <span class="nav-text">Tmux Summary</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#翻页"><span class="nav-number">1.1.</span> <span class="nav-text">翻页</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tmux-Basic-Operation"><span class="nav-number">1.</span> <span class="nav-text">Tmux Basic Operation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Enter-Session"><span class="nav-number">1.1.</span> <span class="nav-text">Enter Session</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Show-Shortcut-Keys-and-Commands"><span class="nav-number">1.2.</span> <span class="nav-text">Show Shortcut Keys and Commands</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exit-Tmux"><span class="nav-number">1.3.</span> <span class="nav-text">Exit Tmux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Other-Basic-Operations"><span class="nav-number">1.4.</span> <span class="nav-text">Other Basic Operations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tmux-Session-Operation"><span class="nav-number">2.</span> <span class="nav-text">Tmux Session Operation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tmux-Window-Operation"><span class="nav-number">3.</span> <span class="nav-text">Tmux Window Operation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tmux-Pane-Operation"><span class="nav-number">4.</span> <span class="nav-text">Tmux Pane Operation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Todo"><span class="nav-number">5.</span> <span class="nav-text">Todo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
