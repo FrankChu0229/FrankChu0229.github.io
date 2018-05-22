@@ -55,6 +55,11 @@ description: Tmux Summary。
 - `ctrl + b + x` close current pane, need to input `y`
 - `ctrl + b + z` to maxmize current pane, and return to its original size if try again
 
+## Todo
+
+- Tmate 
+- tmux config
+
 ## Reference
 
 - [reference1](http://louiszhai.github.io/2017/09/30/tmux/)
