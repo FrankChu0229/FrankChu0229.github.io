@@ -12,7 +12,7 @@
   <entry>
     <title><![CDATA[Jupyter Notebook Summary]]></title>
     <url>%2F2018%2F05%2F21%2Fjupyter-notes%2F</url>
-    <content type="text"><![CDATA[Jupyter Install use conda install jupyter use pip install jupyter Use Jupyter On Gpu Server First, start jupyter-notebook on GPU Then, use ssh myserver -L 8888:localhost:8888 to link local port 8888 to gpu server port 8888 Use Conda Virtual Environment On Jupyter install plugins on conda conda install nb_conda Reference reference link]]></content>
+    <content type="text"><![CDATA[Jupyter Install use conda install jupyter use pip install jupyter Use Jupyter On Gpu Server First, start jupyter-notebook on GPU Then, use ssh myserver -L 8888:localhost:8888 to link local port 8888 to gpu server port 8888 Use Conda Virtual Environment On Jupyter install plugins on conda conda install nb_conda Use Jupyter Extensions, e.g., vim First install IPython-notebook-extensions by 12$ pip install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master$ jupyter contrib nbextension install --user Install Vim Extensions: 12345# 在 ~/.local/share/jupyter/ 建立nbextensions資料夾$ mkdir -p $(jupyter --data-dir)/nbextensions# Clone the repo$ cd $(jupyter --data-dir)/nbextensions$ git clone https://github.com/lambdalisue/jupyter-vim-binding Reference reference link Vim Extensions]]></content>
       <categories>
         <category>python</category>
         <category>tools</category>
