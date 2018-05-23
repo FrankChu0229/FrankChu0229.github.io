@@ -20,7 +20,29 @@ description: Jupyter notebook 使用总结.
 
 - install plugins on conda `conda install nb_conda`
 
+## Use Jupyter Extensions, e.g., vim
+
+- First install `IPython-notebook-extensions` by 
+
+```
+$ pip install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master
+$ jupyter contrib nbextension install --user
+
+```
+
+- Install Vim Extensions:
+
+```
+# 在 ~/.local/share/jupyter/ 建立nbextensions資料夾
+$ mkdir -p $(jupyter --data-dir)/nbextensions
+# Clone the repo
+$ cd $(jupyter --data-dir)/nbextensions
+$ git clone https://github.com/lambdalisue/jupyter-vim-binding
+
+```
 
 ## Reference 
 
 - [reference link](https://www.jianshu.com/p/afea092dda1d)
+
+- [Vim Extensions](http://cyruschiu.github.io/2016/09/05/jupyter-notebook-vim-binding/)
