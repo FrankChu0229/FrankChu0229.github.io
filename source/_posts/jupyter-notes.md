@@ -20,6 +20,34 @@ description: Jupyter notebook 使用总结.
 
 - install plugins on conda `conda install nb_conda`
 
+
+## Jupyter Shortcut Keys:
+
+### Command Mode
+
+- press `esc` to enter command mode
+- `x` cut cell
+- `c` copy cell
+- `v` copy cell to the downside
+- `Shift + v` copy cell to the upside
+- `a` create cell to the downside
+- `b` create cell to the upside
+- `dd` delete cell
+- `ctrl + s` save jupyter file
+- `shift + m` merge cell
+- `m` change cell to markdown
+- `y` change cell to code
+
+### Edit Mode
+
+- press `enter` to enter edit mode
+- `tab` auto-completition
+- `shift + tab` show instructions
+- `ctrl + enter` run current cell
+- `shift + enter` run current cell and go to next cell
+- `alt + enter` run current cell and insert a new cell below
+
+
 ## Use Jupyter Extensions, e.g., vim
 
 - First install `IPython-notebook-extensions` by 
