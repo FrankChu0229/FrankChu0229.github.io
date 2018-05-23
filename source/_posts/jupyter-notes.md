@@ -74,3 +74,5 @@ $ git clone https://github.com/lambdalisue/jupyter-vim-binding
 - [reference link](https://www.jianshu.com/p/afea092dda1d)
 
 - [Vim Extensions](http://cyruschiu.github.io/2016/09/05/jupyter-notebook-vim-binding/)
+
+- [Shortcut Reference](https://blog.csdn.net/lawme/article/details/51034543)
