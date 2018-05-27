@@ -1,4 +1,4 @@
-title: Python Cookbook Notes - Data Structure
+title: Python Cookbook Notes Data Structure
 date: 2018-05-27 20:39:51
 tags: [python, coding, data structure]
 categories: python
@@ -39,3 +39,4 @@ You will get `x=1, y=[2,3,4,5], z=6`.
 - heap.pop(heap, item)
 ```
 
+---
