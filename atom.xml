@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://frankchu0229.github.io/"/>
-  <updated>2018-05-27T14:21:47.101Z</updated>
+  <updated>2018-05-27T14:23:36.806Z</updated>
   <id>http://frankchu0229.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://frankchu0229.github.io/2018/05/27/python-cookbook-notes/"/>
     <id>http://frankchu0229.github.io/2018/05/27/python-cookbook-notes/</id>
     <published>2018-05-27T12:39:51.000Z</published>
-    <updated>2018-05-27T14:21:47.101Z</updated>
+    <updated>2018-05-27T14:23:36.806Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="解压可迭代对象赋予多个值"><a href="#解压可迭代对象赋予多个值" class="headerlink" title="解压可迭代对象赋予多个值"></a>解压可迭代对象赋予多个值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a = [1,2,3,4,5,6]</div><div class="line">x,*y,z = a</div></pre></td></tr></table></figure><p>You will get <code>x=1, y=[2,3,4,5], z=6</code>.</p><h2 id="保留最后n个元素"><a href="#保留最后n个元素" class="headerlink" title="保留最后n个元素"></a>保留最后n个元素</h2><p>可以使用<code>collections.deque</code>双向队列来实现, <code>deque(maxlen=N)</code> 可以定义一个长度为N的队列。</p><p><code>queue = deque(5)</code>,</p><ul><li><code>queue.append()</code> 从队尾append</li><li><code>queue.pop()</code> 从队尾pop</li><li><code>queue.appendleft()</code> 从队首插入</li><li><code>queue.popledt()</code> 从队首pop</li></ul><h2 id="查找最大或者最小的N个元素"><a href="#查找最大或者最小的N个元素" class="headerlink" title="查找最大或者最小的N个元素"></a>查找最大或者最小的N个元素</h2><p>可以使用python中的堆, <code>import heapq</code>, heapq 中提供了<code>nlarest</code> 和<code>nsmallest</code> 方法.</p><p>堆是一种特殊的数据结构，是一个完全二叉树。根据parent节点值不大于(小于)其左右子节点值，堆又可以分为最小堆和最大堆。python 中的heapq 提供了堆的数据结构实现，以及相关的堆算法。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- heapq.nlargest(n, heap, key=None), key 为类似sorted中的key</div><div class="line">- heapq.nsmallest(n, heap, key=None)</div><div class="line">- heapq.heapify(list), to construct a heap given a list</div><div class="line">- heapq.push(heap, item)</div><div class="line">- heap.pop(heap, item)</div></pre></td></tr></table></figure><hr>]]></content>
+    <content type="html"><![CDATA[<h2 id="解压可迭代对象赋予多个值"><a href="#解压可迭代对象赋予多个值" class="headerlink" title="解压可迭代对象赋予多个值"></a>解压可迭代对象赋予多个值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a = [1,2,3,4,5,6]</div><div class="line">x,*y,z = a</div></pre></td></tr></table></figure><p>You will get <code>x=1, y=[2,3,4,5], z=6</code>.</p><h2 id="保留最后n个元素"><a href="#保留最后n个元素" class="headerlink" title="保留最后n个元素"></a>保留最后n个元素</h2><p>可以使用<code>collections.deque</code>双向队列来实现, <code>deque(maxlen=N)</code> 可以定义一个长度为N的队列。</p><p><code>queue = deque(5)</code>,</p><ul><li><code>queue.append()</code> 从队尾append</li><li><code>queue.pop()</code> 从队尾pop</li><li><code>queue.appendleft()</code> 从队首插入</li><li><code>queue.popledt()</code> 从队首pop</li></ul><h2 id="查找最大或者最小的N个元素"><a href="#查找最大或者最小的N个元素" class="headerlink" title="查找最大或者最小的N个元素"></a>查找最大或者最小的N个元素</h2><p>可以使用python中的堆, <code>import heapq</code>, heapq 中提供了<code>nlarest</code> 和<code>nsmallest</code> 方法.</p><p>堆是一种特殊的数据结构，是一个完全二叉树。根据parent节点值不大于(小于)其左右子节点值，堆又可以分为最小堆和最大堆。python 中的heapq 提供了堆的数据结构实现，以及相关的堆算法。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">heapq.nlargest(n, heap, key=None), key 为类似sorted中的key</div><div class="line">heapq.nsmallest(n, heap, key=None)</div><div class="line">heapq.heapify(list), to construct a heap given a list</div><div class="line">heapq.push(heap, item)</div><div class="line">heap.pop(heap, item)</div></pre></td></tr></table></figure><hr>]]></content>
     
     <summary type="html">
     
@@ -406,11 +406,11 @@
       <category term="notes" scheme="http://frankchu0229.github.io/categories/python/notes/"/>
     
     
+      <category term="Python" scheme="http://frankchu0229.github.io/tags/Python/"/>
+    
       <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
-    
-      <category term="Python" scheme="http://frankchu0229.github.io/tags/Python/"/>
     
   </entry>
   
@@ -432,11 +432,11 @@
       <category term="python" scheme="http://frankchu0229.github.io/categories/python/"/>
     
     
+      <category term="Python" scheme="http://frankchu0229.github.io/tags/Python/"/>
+    
       <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
-    
-      <category term="Python" scheme="http://frankchu0229.github.io/tags/Python/"/>
     
   </entry>
   
@@ -458,9 +458,9 @@
       <category term="summary" scheme="http://frankchu0229.github.io/categories/summary/"/>
     
     
-      <category term="MySQL" scheme="http://frankchu0229.github.io/tags/MySQL/"/>
-    
       <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
+    
+      <category term="MySQL" scheme="http://frankchu0229.github.io/tags/MySQL/"/>
     
   </entry>
   

@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Python Cookbook Notes Data Structure]]></title>
     <url>%2F2018%2F05%2F27%2Fpython-cookbook-notes%2F</url>
-    <content type="text"><![CDATA[解压可迭代对象赋予多个值12a = [1,2,3,4,5,6]x,*y,z = a You will get x=1, y=[2,3,4,5], z=6. 保留最后n个元素可以使用collections.deque双向队列来实现, deque(maxlen=N) 可以定义一个长度为N的队列。 queue = deque(5), queue.append() 从队尾append queue.pop() 从队尾pop queue.appendleft() 从队首插入 queue.popledt() 从队首pop 查找最大或者最小的N个元素可以使用python中的堆, import heapq, heapq 中提供了nlarest 和nsmallest 方法. 堆是一种特殊的数据结构，是一个完全二叉树。根据parent节点值不大于(小于)其左右子节点值，堆又可以分为最小堆和最大堆。python 中的heapq 提供了堆的数据结构实现，以及相关的堆算法。 12345- heapq.nlargest(n, heap, key=None), key 为类似sorted中的key- heapq.nsmallest(n, heap, key=None)- heapq.heapify(list), to construct a heap given a list- heapq.push(heap, item)- heap.pop(heap, item)]]></content>
+    <content type="text"><![CDATA[解压可迭代对象赋予多个值12a = [1,2,3,4,5,6]x,*y,z = a You will get x=1, y=[2,3,4,5], z=6. 保留最后n个元素可以使用collections.deque双向队列来实现, deque(maxlen=N) 可以定义一个长度为N的队列。 queue = deque(5), queue.append() 从队尾append queue.pop() 从队尾pop queue.appendleft() 从队首插入 queue.popledt() 从队首pop 查找最大或者最小的N个元素可以使用python中的堆, import heapq, heapq 中提供了nlarest 和nsmallest 方法. 堆是一种特殊的数据结构，是一个完全二叉树。根据parent节点值不大于(小于)其左右子节点值，堆又可以分为最小堆和最大堆。python 中的heapq 提供了堆的数据结构实现，以及相关的堆算法。 12345heapq.nlargest(n, heap, key=None), key 为类似sorted中的keyheapq.nsmallest(n, heap, key=None)heapq.heapify(list), to construct a heap given a listheapq.push(heap, item)heap.pop(heap, item)]]></content>
       <categories>
         <category>python</category>
       </categories>
@@ -186,9 +186,9 @@
         <category>notes</category>
       </categories>
       <tags>
+        <tag>Python</tag>
         <tag>notes</tag>
         <tag>summary</tag>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -199,9 +199,9 @@
         <category>python</category>
       </categories>
       <tags>
+        <tag>Python</tag>
         <tag>notes</tag>
         <tag>summary</tag>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -212,8 +212,8 @@
         <category>summary</category>
       </categories>
       <tags>
-        <tag>MySQL</tag>
         <tag>notes</tag>
+        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
