@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://frankchu0229.github.io/"/>
-  <updated>2018-05-21T13:29:51.922Z</updated>
+  <updated>2018-05-27T14:21:47.101Z</updated>
   <id>http://frankchu0229.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python Cookbook Notes Data Structure</title>
+    <link href="http://frankchu0229.github.io/2018/05/27/python-cookbook-notes/"/>
+    <id>http://frankchu0229.github.io/2018/05/27/python-cookbook-notes/</id>
+    <published>2018-05-27T12:39:51.000Z</published>
+    <updated>2018-05-27T14:21:47.101Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="解压可迭代对象赋予多个值"><a href="#解压可迭代对象赋予多个值" class="headerlink" title="解压可迭代对象赋予多个值"></a>解压可迭代对象赋予多个值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a = [1,2,3,4,5,6]</div><div class="line">x,*y,z = a</div></pre></td></tr></table></figure><p>You will get <code>x=1, y=[2,3,4,5], z=6</code>.</p><h2 id="保留最后n个元素"><a href="#保留最后n个元素" class="headerlink" title="保留最后n个元素"></a>保留最后n个元素</h2><p>可以使用<code>collections.deque</code>双向队列来实现, <code>deque(maxlen=N)</code> 可以定义一个长度为N的队列。</p><p><code>queue = deque(5)</code>,</p><ul><li><code>queue.append()</code> 从队尾append</li><li><code>queue.pop()</code> 从队尾pop</li><li><code>queue.appendleft()</code> 从队首插入</li><li><code>queue.popledt()</code> 从队首pop</li></ul><h2 id="查找最大或者最小的N个元素"><a href="#查找最大或者最小的N个元素" class="headerlink" title="查找最大或者最小的N个元素"></a>查找最大或者最小的N个元素</h2><p>可以使用python中的堆, <code>import heapq</code>, heapq 中提供了<code>nlarest</code> 和<code>nsmallest</code> 方法.</p><p>堆是一种特殊的数据结构，是一个完全二叉树。根据parent节点值不大于(小于)其左右子节点值，堆又可以分为最小堆和最大堆。python 中的heapq 提供了堆的数据结构实现，以及相关的堆算法。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- heapq.nlargest(n, heap, key=None), key 为类似sorted中的key</div><div class="line">- heapq.nsmallest(n, heap, key=None)</div><div class="line">- heapq.heapify(list), to construct a heap given a list</div><div class="line">- heapq.push(heap, item)</div><div class="line">- heap.pop(heap, item)</div></pre></td></tr></table></figure><hr>]]></content>
+    
+    <summary type="html">
+    
+      Python Cookbook Notes Data Structure.
+    
+    </summary>
+    
+      <category term="python" scheme="http://frankchu0229.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="http://frankchu0229.github.io/tags/python/"/>
+    
+      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
+    
+      <category term="data structure" scheme="http://frankchu0229.github.io/tags/data-structure/"/>
+    
+  </entry>
   
   <entry>
     <title>Conda Summary</title>
@@ -489,32 +515,6 @@
       <category term="linux" scheme="http://frankchu0229.github.io/tags/linux/"/>
     
       <category term="shell" scheme="http://frankchu0229.github.io/tags/shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git Summary</title>
-    <link href="http://frankchu0229.github.io/2017/09/03/gitSummary/"/>
-    <id>http://frankchu0229.github.io/2017/09/03/gitSummary/</id>
-    <published>2017-09-03T13:24:57.000Z</published>
-    <updated>2017-10-30T12:27:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Git-summary"><a href="#Git-summary" class="headerlink" title="Git summary"></a>Git summary</h1><h2 id="git-reset-–hard"><a href="#git-reset-–hard" class="headerlink" title="git reset –hard"></a>git reset –hard</h2><p>未commit的chagne会随着branch的切换而移动，因此，当在某一个branch中<code>git reset --hard</code>的时候， changes就会消失。</p><h2 id="git-删除remote-branch"><a href="#git-删除remote-branch" class="headerlink" title="git 删除remote branch"></a>git 删除remote branch</h2><p><code>git push origin --delete branch_name</code></p><h2 id="git-rm-files-in-repo"><a href="#git-rm-files-in-repo" class="headerlink" title="git rm files in repo"></a>git rm files in repo</h2><p><code>git rm --cache files</code></p><h2 id="show-git-track-files"><a href="#show-git-track-files" class="headerlink" title="show git track files"></a>show git track files</h2><p><code>git ls-files</code> </p><h2 id="git-diff-one-file-in-two-different-commit-ids"><a href="#git-diff-one-file-in-two-different-commit-ids" class="headerlink" title="git diff one file in two different commit ids:"></a>git diff one file in two different commit ids:</h2><p><code>git diff HEAD(^^)(two commits before current) commit_id XX.java</code><br><code>git diff HEAD^^ HEAD main.c</code></p><h2 id="Git-RSA-key-fingerprint"><a href="#Git-RSA-key-fingerprint" class="headerlink" title="Git RSA key fingerprint"></a>Git RSA key fingerprint</h2><p>The newer SSH commands will list fingerprints as a SHA256 Key.</p><p>For example</p><p><code>ssh-keygen -lf ~/.ssh/id_rsa.pub</code><br><code>1024 SHA256:19n6fkdz0qqmowiBy6XEaA87EuG/jgWUr44ZSBhJl6Y (DSA)</code></p><p>If you need to compare it against a old fingerprint you also need to specify to use the md5 fingerprint hashing function.</p><p><code>ssh-keygen -E md5 -lf ~/.ssh/id_rsa.pub</code><br><code>2048 MD5:4d:5b:97:19:8c:fe:06:f0:29:e7:f5:96:77:cb:3c:71 (DSA)</code></p><h2 id="Git-submodule"><a href="#Git-submodule" class="headerlink" title="Git submodule:"></a>Git submodule:</h2><h3 id="Git-submodule-delete"><a href="#Git-submodule-delete" class="headerlink" title="Git submodule delete:"></a>Git submodule delete:</h3><ol><li>Delete the relevant section from the .gitmodules file.</li><li>Stage the .gitmodules changes git add .gitmodules</li><li>Delete the relevant section from .git/config.</li><li>Run git rm –cached path_to_submodule (no trailing slash).</li><li>Run rm -rf .git/modules/path_to_submodule</li><li>Commit git commit -m “Removed submodule <name>“</name></li><li>Delete the now untracked submodule files</li><li>rm -rf path_to_submodule</li></ol><hr>]]></content>
-    
-    <summary type="html">
-    
-      Git summary。
-    
-    </summary>
-    
-      <category term="summary" scheme="http://frankchu0229.github.io/categories/summary/"/>
-    
-    
-      <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
-    
-      <category term="linux" scheme="http://frankchu0229.github.io/tags/linux/"/>
-    
-      <category term="git" scheme="http://frankchu0229.github.io/tags/git/"/>
     
   </entry>
   
