@@ -380,11 +380,11 @@
       <category term="notes" scheme="http://frankchu0229.github.io/categories/python/notes/"/>
     
     
-      <category term="Python" scheme="http://frankchu0229.github.io/tags/Python/"/>
-    
       <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
+    
+      <category term="Python" scheme="http://frankchu0229.github.io/tags/Python/"/>
     
   </entry>
   
@@ -406,11 +406,11 @@
       <category term="python" scheme="http://frankchu0229.github.io/categories/python/"/>
     
     
-      <category term="Python" scheme="http://frankchu0229.github.io/tags/Python/"/>
-    
       <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
+    
+      <category term="Python" scheme="http://frankchu0229.github.io/tags/Python/"/>
     
   </entry>
   
@@ -432,9 +432,9 @@
       <category term="summary" scheme="http://frankchu0229.github.io/categories/summary/"/>
     
     
-      <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
-    
       <category term="MySQL" scheme="http://frankchu0229.github.io/tags/MySQL/"/>
+    
+      <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
     
   </entry>
   
