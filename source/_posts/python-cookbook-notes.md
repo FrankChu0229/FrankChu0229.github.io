@@ -32,11 +32,11 @@ You will get `x=1, y=[2,3,4,5], z=6`.
 堆是一种特殊的数据结构，是一个完全二叉树。根据parent节点值不大于(小于)其左右子节点值，堆又可以分为最小堆和最大堆。python 中的heapq 提供了堆的数据结构实现，以及相关的堆算法。
 
 ```
-- heapq.nlargest(n, heap, key=None), key 为类似sorted中的key
-- heapq.nsmallest(n, heap, key=None)
-- heapq.heapify(list), to construct a heap given a list
-- heapq.push(heap, item)
-- heap.pop(heap, item)
+heapq.nlargest(n, heap, key=None), key 为类似sorted中的key
+heapq.nsmallest(n, heap, key=None)
+heapq.heapify(list), to construct a heap given a list
+heapq.push(heap, item)
+heap.pop(heap, item)
 ```
 
 ---
