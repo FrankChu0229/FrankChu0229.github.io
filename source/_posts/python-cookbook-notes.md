@@ -2,7 +2,7 @@ title: Python Cookbook Notes Data Structure
 date: 2018-05-27 20:39:51
 tags: [python, coding, data structure]
 categories: python
-description: Python Cookbook Notes: Data Structure.
+description: Python Cookbook Notes Data Structure.
 ---
 
 ## 解压可迭代对象赋予多个值
