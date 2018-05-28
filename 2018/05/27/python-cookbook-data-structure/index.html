@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Frank Chu">
 <meta property="og:description" content="Python Cookbook Notes Data Structure.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-28T16:16:28.882Z">
+<meta property="og:updated_time" content="2018-05-28T16:29:24.425Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python Cookbook Notes Data Structure">
 <meta name="twitter:description" content="Python Cookbook Notes Data Structure.">
@@ -450,7 +450,15 @@
 <li>在需要查找两个词典的相同处和不同处的时候，可以使用：</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">a = &#123;&apos;a&apos;:1, &apos;b&apos;:2, &apos;c&apos;:3&#125;</div><div class="line">b = &#123;&apos;a&apos;:1, &apos;d&apos;:5, &apos;z&apos;:6&#125;</div><div class="line">print(a.keys() &amp; b.keys())</div><div class="line">print(a.keys() - b.keys())</div><div class="line">print(a.items() &amp; b.items())</div><div class="line">print(a.items() - b.items())</div></pre></td></tr></table></figure>
-<h2 id="dict的items-和keys-返回一个集合，因此可以使用集合的操作来实现。但是dict的values-不能使用这个功能，主要是values-的值不能保证完全unique，可以先将values-转换成set，然后在操作"><a href="#dict的items-和keys-返回一个集合，因此可以使用集合的操作来实现。但是dict的values-不能使用这个功能，主要是values-的值不能保证完全unique，可以先将values-转换成set，然后在操作" class="headerlink" title="dict的items()和keys() 返回一个集合，因此可以使用集合的操作来实现。但是dict的values()不能使用这个功能，主要是values()的值不能保证完全unique，可以先将values()转换成set，然后在操作."></a>dict的items()和keys() 返回一个集合，因此可以使用集合的操作来实现。但是dict的values()不能使用这个功能，主要是values()的值不能保证完全unique，可以先将values()转换成set，然后在操作.</h2>
+<ul>
+<li>dict的items()和keys() 返回一个集合，因此可以使用集合的操作来实现。但是dict的values()不能使用这个功能，主要是values()的值不能保证完全unique，可以先将values()转换成set，然后在操作.</li>
+</ul>
+<h2 id="Counter"><a href="#Counter" class="headerlink" title="Counter"></a>Counter</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">from collections import Counter</div><div class="line">a = [1,2,3,4,5,1,2,4,5,6,7]</div><div class="line">b = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;]</div><div class="line">counter = Counter(a)</div><div class="line">print(counter.most_common(3)) # get top 3 </div><div class="line">print(counter[1]) # 内部本质就是dict</div><div class="line">print(counter[2])</div><div class="line">a + b # Counter支持 集合操作</div><div class="line">a - b</div></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c01/p11_naming_slice.html" target="_blank" rel="external">Python Cookbook</a></li>
+</ul>
+<hr>
+
       
     </div>
     
@@ -663,7 +671,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解压可迭代对象赋予多个值"><span class="nav-number">1.</span> <span class="nav-text">解压可迭代对象赋予多个值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#保留最后n个元素"><span class="nav-number">2.</span> <span class="nav-text">保留最后n个元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找最大或者最小的N个元素"><span class="nav-number">3.</span> <span class="nav-text">查找最大或者最小的N个元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#时间复杂度"><span class="nav-number">3.1.</span> <span class="nav-text">时间复杂度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现一个PriorityQueue"><span class="nav-number">4.</span> <span class="nav-text">实现一个PriorityQueue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DefaultDict-和-OrderedDict"><span class="nav-number">5.</span> <span class="nav-text">DefaultDict 和 OrderedDict</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#词典的运算"><span class="nav-number">6.</span> <span class="nav-text">词典的运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dict的items-和keys-返回一个集合，因此可以使用集合的操作来实现。但是dict的values-不能使用这个功能，主要是values-的值不能保证完全unique，可以先将values-转换成set，然后在操作"><span class="nav-number">7.</span> <span class="nav-text">dict的items()和keys() 返回一个集合，因此可以使用集合的操作来实现。但是dict的values()不能使用这个功能，主要是values()的值不能保证完全unique，可以先将values()转换成set，然后在操作.</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解压可迭代对象赋予多个值"><span class="nav-number">1.</span> <span class="nav-text">解压可迭代对象赋予多个值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#保留最后n个元素"><span class="nav-number">2.</span> <span class="nav-text">保留最后n个元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找最大或者最小的N个元素"><span class="nav-number">3.</span> <span class="nav-text">查找最大或者最小的N个元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#时间复杂度"><span class="nav-number">3.1.</span> <span class="nav-text">时间复杂度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现一个PriorityQueue"><span class="nav-number">4.</span> <span class="nav-text">实现一个PriorityQueue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DefaultDict-和-OrderedDict"><span class="nav-number">5.</span> <span class="nav-text">DefaultDict 和 OrderedDict</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#词典的运算"><span class="nav-number">6.</span> <span class="nav-text">词典的运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Counter"><span class="nav-number">7.</span> <span class="nav-text">Counter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">8.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
