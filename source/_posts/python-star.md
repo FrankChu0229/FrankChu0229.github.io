@@ -4,7 +4,7 @@ tags: [python, coding]
 description: Python 中*的用法。
 ---
 
-## *args 与 **args
+## \*args 与 \*\*kargs
 
 *args 常作为变量用在func中，表示一组(list or tuple)变量
 
