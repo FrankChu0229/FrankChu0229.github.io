@@ -116,5 +116,24 @@ print(a.items() & b.items())
 print(a.items() - b.items())
 
 ```
-dict的items()和keys() 返回一个集合，因此可以使用集合的操作来实现。但是dict的values()不能使用这个功能，主要是values()的值不能保证完全unique，可以先将values()转换成set，然后在操作.
+- dict的items()和keys() 返回一个集合，因此可以使用集合的操作来实现。但是dict的values()不能使用这个功能，主要是values()的值不能保证完全unique，可以先将values()转换成set，然后在操作.
+
+## Counter
+
+```
+from collections import Counter
+a = [1,2,3,4,5,1,2,4,5,6,7]
+b = ['a', 'b', 'c']
+counter = Counter(a)
+print(counter.most_common(3)) # get top 3 
+print(counter[1]) # 内部本质就是dict
+print(counter[2])
+a + b # Counter支持 集合操作
+a - b 
+```
+
+## Reference
+
+- [Python Cookbook](http://python3-cookbook.readthedocs.io/zh_CN/latest/c01/p11_naming_slice.html)
+
 ---
