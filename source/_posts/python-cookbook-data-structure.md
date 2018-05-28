@@ -90,5 +90,31 @@ orderedDict['b'] = 'b'
 print(orderedDict)
 
 ```
+## 词典的运算
 
+- 在需要对词典的值进行排序，取最大最小值的同时，返回该值的键值，可以用下面的方法快速实现：
+
+```
+data = dict()
+data['a'] = 1
+data['b'] = 2
+data['c'] = 10
+print(data)
+print(min(zip(data.values(), data.keys()))) # zip()为只可迭代一次的迭代器
+print(max(zip(data.values(), data.keys())))
+print(sorted(zip(data.values(), data.keys())))
+```
+
+- 在需要查找两个词典的相同处和不同处的时候，可以使用：
+
+```
+a = {'a':1, 'b':2, 'c':3}
+b = {'a':1, 'd':5, 'z':6}
+print(a.keys() & b.keys())
+print(a.keys() - b.keys())
+print(a.items() & b.items())
+print(a.items() - b.items())
+
+```
+dict的items()和keys() 返回一个集合，因此可以使用集合的操作来实现。但是dict的values()不能使用这个功能，主要是values()的值不能保证完全unique，可以先将values()转换成set，然后在操作.
 ---
