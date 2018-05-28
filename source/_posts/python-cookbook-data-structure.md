@@ -23,7 +23,7 @@ You will get `x=1, y=[2,3,4,5], z=6`.
 - `queue.append()` 从队尾append
 - `queue.pop()` 从队尾pop
 - `queue.appendleft()` 从队首插入
-- `queue.popledt()` 从队首pop
+- `queue.popleft()` 从队首pop
 
 ## 查找最大或者最小的N个元素
 
@@ -68,6 +68,27 @@ class Item:
         self.name = name
 
 ```
-这里需要提到的是，如果直接比较`Item('a') < Item('b')`, 是不支持的(需要override __gt__等方法)， 但是`(1, Item('a')) < (2, Item('b')` 元组之间是可以进行比较的。
+这里需要提到的是，如果直接比较`Item('a') < Item('b')`, 是不支持的(需要override \_\_gt\_\_等方法)， 但是`(1, Item('a')) < (2, Item('b')` 元组之间是可以进行比较的。
+
+## DefaultDict 和 OrderedDict
+
+- `defaultdict` 可以为每一个key的值进行初始化，常用在一个key有多个值的情况，即该key对应了list()或者tuple.
+- `OrderedDict` 在构建dict的时候，可以保存将pair put进dict中的顺序，类似于java中的`LinkedHashMap`. Python 中的OrderedDict维护了一个根据键值插入顺序的双向链表， 即每次该键值插入时，会在链表尾部添加该键值, 重复的键值不会影响链表机构。因此， OrderedDict 的内存开销是正常dict开销的两倍，在内存消耗较大的场景需要谨慎考虑是否使用OrderedDict.
+
+```
+from collections import OrderedDict
+from collections import defaultdict
+d = defaultdict(list)
+d['a'].append(1)
+d['a'].append(2)
+print(d['a'])
+
+orderedDict = OrderedDict()
+orderedDict['a'] = 'a'
+orderedDict['b'] = 'b'
+
+print(orderedDict)
+
+```
 
 ---
