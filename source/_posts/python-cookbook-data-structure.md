@@ -35,8 +35,8 @@ You will get `x=1, y=[2,3,4,5], z=6`.
 heapq.nlargest(n, heap, key=None), key 为类似sorted中的key
 heapq.nsmallest(n, heap, key=None)
 heapq.heapify(list), to construct a heap given a list
-heapq.push(heap, item)
-heap.pop(heap, item)
+heapq.heappush(heap, item)
+heap.heappop(heap, item)
 ```
 
 ### 时间复杂度
@@ -46,6 +46,28 @@ heap.pop(heap, item)
 
 ## 实现一个PriorityQueue
 
+实现一个PriorityQueue， 并且在pop的时候，优先级最高的元素先出。可以考虑用heap，python中的heapq是一最小堆， 因此需要将priority取负数，同时添加index，使得当priority相同的时候可以通过index来进行比较。
 
+```
+import heapq
+
+class PriorityQueue:
+    def __init__(self):
+        self._queue = []
+        self._index = 0
+        
+    def push(self, item, priority):
+        heapq.heappush(self._queue, (-priority, self._index, item))
+        self._index += 1
+    
+    def pop(self):
+        return heapq.heappop(self._queue)[-1]
+        
+class Item:
+    def __init__(self, name):
+        self.name = name
+
+```
+这里需要提到的是，如果直接比较`Item('a') < Item('b')`, 是不支持的(需要override __gt__等方法)， 但是`(1, Item('a')) < (2, Item('b')` 元组之间是可以进行比较的。
 
 ---
