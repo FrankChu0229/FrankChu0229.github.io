@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Frank Chu">
 <meta property="og:description" content="Python Cookbook Notes Data Structure.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-28T14:13:03.012Z">
+<meta property="og:updated_time" content="2018-05-28T15:59:03.560Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python Cookbook Notes Data Structure">
 <meta name="twitter:description" content="Python Cookbook Notes Data Structure.">
@@ -425,7 +425,7 @@
 <li><code>queue.append()</code> 从队尾append</li>
 <li><code>queue.pop()</code> 从队尾pop</li>
 <li><code>queue.appendleft()</code> 从队首插入</li>
-<li><code>queue.popledt()</code> 从队首pop</li>
+<li><code>queue.popleft()</code> 从队首pop</li>
 </ul>
 <h2 id="查找最大或者最小的N个元素"><a href="#查找最大或者最小的N个元素" class="headerlink" title="查找最大或者最小的N个元素"></a>查找最大或者最小的N个元素</h2><p>可以使用python中的堆, <code>import heapq</code>, heapq 中提供了<code>nlarest</code> 和<code>nsmallest</code> 方法.</p>
 <p>堆是一种特殊的数据结构，是一个完全二叉树。根据parent节点值不大于(小于)其左右子节点值，堆又可以分为最小堆和最大堆。python 中的heapq 提供了堆的数据结构实现，以及相关的堆算法。</p>
@@ -436,7 +436,12 @@
 </ul>
 <h2 id="实现一个PriorityQueue"><a href="#实现一个PriorityQueue" class="headerlink" title="实现一个PriorityQueue"></a>实现一个PriorityQueue</h2><p>实现一个PriorityQueue， 并且在pop的时候，优先级最高的元素先出。可以考虑用heap，python中的heapq是一最小堆， 因此需要将priority取负数，同时添加index，使得当priority相同的时候可以通过index来进行比较。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">import heapq</div><div class="line"></div><div class="line">class PriorityQueue:</div><div class="line">    def __init__(self):</div><div class="line">        self._queue = []</div><div class="line">        self._index = 0</div><div class="line">        </div><div class="line">    def push(self, item, priority):</div><div class="line">        heapq.heappush(self._queue, (-priority, self._index, item))</div><div class="line">        self._index += 1</div><div class="line">    </div><div class="line">    def pop(self):</div><div class="line">        return heapq.heappop(self._queue)[-1]</div><div class="line">        </div><div class="line">class Item:</div><div class="line">    def __init__(self, name):</div><div class="line">        self.name = name</div></pre></td></tr></table></figure>
-<p>这里需要提到的是，如果直接比较<code>Item(&#39;a&#39;) &lt; Item(&#39;b&#39;)</code>, 是不支持的(需要override <strong>gt</strong>等方法)， 但是<code>(1, Item(&#39;a&#39;)) &lt; (2, Item(&#39;b&#39;)</code> 元组之间是可以进行比较的。</p>
+<p>这里需要提到的是，如果直接比较<code>Item(&#39;a&#39;) &lt; Item(&#39;b&#39;)</code>, 是不支持的(需要override __gt__等方法)， 但是<code>(1, Item(&#39;a&#39;)) &lt; (2, Item(&#39;b&#39;)</code> 元组之间是可以进行比较的。</p>
+<h2 id="DefaultDict-和-OrderedDict"><a href="#DefaultDict-和-OrderedDict" class="headerlink" title="DefaultDict 和 OrderedDict"></a>DefaultDict 和 OrderedDict</h2><ul>
+<li><code>defaultdict</code> 可以为每一个key的值进行初始化，常用在一个key有多个值的情况，即该key对应了list()或者tuple.</li>
+<li><code>OrderedDict</code> 在构建dict的时候，可以保存将pair put进dict中的顺序，类似于java中的<code>LinkedHashMap</code>. Python 中的OrderedDict维护了一个根据键值插入顺序的双向链表， 即每次该键值插入时，会在链表尾部添加该键值, 重复的键值不会影响链表机构。因此， OrderedDict 的内存开销是正常dict开销的两倍，在内存消耗较大的场景需要谨慎考虑是否使用OrderedDict.</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">from collections import OrderedDict</div><div class="line">from collections import defaultdict</div><div class="line">d = defaultdict(list)</div><div class="line">d[&apos;a&apos;].append(1)</div><div class="line">d[&apos;a&apos;].append(2)</div><div class="line">print(d[&apos;a&apos;])</div><div class="line"></div><div class="line">orderedDict = OrderedDict()</div><div class="line">orderedDict[&apos;a&apos;] = &apos;a&apos;</div><div class="line">orderedDict[&apos;b&apos;] = &apos;b&apos;</div><div class="line"></div><div class="line">print(orderedDict)</div></pre></td></tr></table></figure>
 <hr>
 
       
@@ -651,7 +656,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解压可迭代对象赋予多个值"><span class="nav-number">1.</span> <span class="nav-text">解压可迭代对象赋予多个值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#保留最后n个元素"><span class="nav-number">2.</span> <span class="nav-text">保留最后n个元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找最大或者最小的N个元素"><span class="nav-number">3.</span> <span class="nav-text">查找最大或者最小的N个元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#时间复杂度"><span class="nav-number">3.1.</span> <span class="nav-text">时间复杂度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现一个PriorityQueue"><span class="nav-number">4.</span> <span class="nav-text">实现一个PriorityQueue</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解压可迭代对象赋予多个值"><span class="nav-number">1.</span> <span class="nav-text">解压可迭代对象赋予多个值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#保留最后n个元素"><span class="nav-number">2.</span> <span class="nav-text">保留最后n个元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找最大或者最小的N个元素"><span class="nav-number">3.</span> <span class="nav-text">查找最大或者最小的N个元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#时间复杂度"><span class="nav-number">3.1.</span> <span class="nav-text">时间复杂度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现一个PriorityQueue"><span class="nav-number">4.</span> <span class="nav-text">实现一个PriorityQueue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DefaultDict-和-OrderedDict"><span class="nav-number">5.</span> <span class="nav-text">DefaultDict 和 OrderedDict</span></a></li></ol></div>
             
 
           </div>
