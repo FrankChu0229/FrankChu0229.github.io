@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://frankchu0229.github.io/"/>
-  <updated>2018-05-28T03:47:27.050Z</updated>
+  <updated>2018-05-28T06:04:51.077Z</updated>
   <id>http://frankchu0229.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python Underline Usage</title>
+    <link href="http://frankchu0229.github.io/2018/05/28/python-underline/"/>
+    <id>http://frankchu0229.github.io/2018/05/28/python-underline/</id>
+    <published>2018-05-28T04:48:07.000Z</published>
+    <updated>2018-05-28T06:04:51.077Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="用作变量名"><a href="#用作变量名" class="headerlink" title="用作变量名"></a>用作变量名</h2><p><code>_</code>有时会被用作变量名，表示是一个临时变量，后面不会被用到。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">for _ in range(5):</div><div class="line">    print(&apos;hahaha&apos;)</div></pre></td></tr></table></figure><h2 id="放在变量名前"><a href="#放在变量名前" class="headerlink" title="放在变量名前"></a>放在变量名前</h2><h3 id="var-or-func"><a href="#var-or-func" class="headerlink" title="_var or_func"></a><code>_var</code> or<code>_func</code></h3><p>在变量名前加一个<code>_</code>表示这个变量名或者方法是私有的，不对外开放。</p><h3 id="var-or-func-1"><a href="#var-or-func-1" class="headerlink" title="__var or __func"></a><code>__var</code> or <code>__func</code></h3><p>在变量名前加<code>__</code>双下划线，表示该变量或者方法不可被覆盖. 实际上python内部通过在该变量名或者方法名前添加<code>_classname__methodName</code>的方式来防止覆盖。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">class A(object):</div><div class="line">    def __init__(self):</div><div class="line">        pass</div><div class="line">    def __method_show(self):</div><div class="line">        print(&quot;A&quot;)</div><div class="line"></div><div class="line">class B(A):</div><div class="line">    def __init__(self):</div><div class="line">        pass</div><div class="line">    def __method_show(self):</div><div class="line">        print(&quot;B&quot;)</div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    a = A()</div><div class="line">    print(dir(A))</div><div class="line">    print(dir(B))</div><div class="line">[&apos;_A__method_show&apos;, &apos;__class__&apos;, &apos;__delattr__&apos;, &apos;__dict__&apos;, &apos;__dir__&apos;, &apos;__doc__&apos;, &apos;__eq__&apos;, &apos;__format__&apos;, &apos;__ge__&apos;, &apos;__getattribute__&apos;, &apos;__gt__&apos;, &apos;__hash__&apos;, &apos;__init__&apos;, &apos;__init_subclass__&apos;, &apos;__le__&apos;, &apos;__lt__&apos;, &apos;__module__&apos;, &apos;__ne__&apos;, &apos;__new__&apos;, &apos;__reduce__&apos;, &apos;__reduce_ex__&apos;, &apos;__repr__&apos;, &apos;__setattr__&apos;, &apos;__sizeof__&apos;, &apos;__str__&apos;, &apos;__subclasshook__&apos;, &apos;__weakref__&apos;]</div><div class="line">[&apos;_A__method_show&apos;, &apos;_B__method_show&apos;, &apos;__class__&apos;, &apos;__delattr__&apos;, &apos;__dict__&apos;, &apos;__dir__&apos;, &apos;__doc__&apos;, &apos;__eq__&apos;, &apos;__format__&apos;, &apos;__ge__&apos;, &apos;__getattribute__&apos;, &apos;__gt__&apos;, &apos;__hash__&apos;, &apos;__init__&apos;, &apos;__init_subclass__&apos;, &apos;__le__&apos;, &apos;__lt__&apos;, &apos;__module__&apos;, &apos;__ne__&apos;, &apos;__new__&apos;, &apos;__reduce__&apos;, &apos;__reduce_ex__&apos;, &apos;__repr__&apos;, &apos;__setattr__&apos;, &apos;__sizeof__&apos;, &apos;__str__&apos;, &apos;__subclasshook__&apos;, &apos;__weakref__&apos;]</div></pre></td></tr></table></figure><h3 id="var"><a href="#var" class="headerlink" title="__var__"></a><code>__var__</code></h3><p>被用作python中的特殊方法名，保证不会和用户自定义的方法名冲突，如<code>__name__</code>, <code>__init__</code>等。</p><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="http://python.jobbole.com/81129/" target="_blank" rel="external">reference</a></li><li><a href="http://www.cnblogs.com/coder2012/p/4423356.html" target="_blank" rel="external">refercnce</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      Python 中下划线的使用总结。
+    
+    </summary>
+    
+      <category term="python" scheme="http://frankchu0229.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="http://frankchu0229.github.io/tags/python/"/>
+    
+      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
+    
+  </entry>
   
   <entry>
     <title>Python中*的用法</title>
@@ -40,12 +64,12 @@
   
   <entry>
     <title>Python Cookbook Notes Data Structure</title>
-    <link href="http://frankchu0229.github.io/2018/05/27/python-cookbook-notes/"/>
-    <id>http://frankchu0229.github.io/2018/05/27/python-cookbook-notes/</id>
+    <link href="http://frankchu0229.github.io/2018/05/27/python-cookbook-data-structure/"/>
+    <id>http://frankchu0229.github.io/2018/05/27/python-cookbook-data-structure/</id>
     <published>2018-05-27T12:39:51.000Z</published>
-    <updated>2018-05-27T14:30:17.322Z</updated>
+    <updated>2018-05-28T04:47:31.605Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="解压可迭代对象赋予多个值"><a href="#解压可迭代对象赋予多个值" class="headerlink" title="解压可迭代对象赋予多个值"></a>解压可迭代对象赋予多个值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a = [1,2,3,4,5,6]</div><div class="line">x,*y,z = a</div></pre></td></tr></table></figure><p>You will get <code>x=1, y=[2,3,4,5], z=6</code>.</p><h2 id="保留最后n个元素"><a href="#保留最后n个元素" class="headerlink" title="保留最后n个元素"></a>保留最后n个元素</h2><p>可以使用<code>collections.deque</code>双向队列来实现, <code>deque(maxlen=N)</code> 可以定义一个长度为N的队列。</p><p><code>queue = deque(5)</code>,</p><ul><li><code>queue.append()</code> 从队尾append</li><li><code>queue.pop()</code> 从队尾pop</li><li><code>queue.appendleft()</code> 从队首插入</li><li><code>queue.popledt()</code> 从队首pop</li></ul><h2 id="查找最大或者最小的N个元素"><a href="#查找最大或者最小的N个元素" class="headerlink" title="查找最大或者最小的N个元素"></a>查找最大或者最小的N个元素</h2><p>可以使用python中的堆, <code>import heapq</code>, heapq 中提供了<code>nlarest</code> 和<code>nsmallest</code> 方法.</p><p>堆是一种特殊的数据结构，是一个完全二叉树。根据parent节点值不大于(小于)其左右子节点值，堆又可以分为最小堆和最大堆。python 中的heapq 提供了堆的数据结构实现，以及相关的堆算法。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">heapq.nlargest(n, heap, key=None), key 为类似sorted中的key</div><div class="line">heapq.nsmallest(n, heap, key=None)</div><div class="line">heapq.heapify(list), to construct a heap given a list</div><div class="line">heapq.push(heap, item)</div><div class="line">heap.pop(heap, item)</div></pre></td></tr></table></figure><h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><ul><li>堆的插入和删除复杂度 O(logn), 查询O(n).</li><li>对长度为N的list，选出n个最小的元素，复杂度为O(Nlogn), 对N个元素进行遍历，维护一个大小为n的最小堆，每次插入复杂度为O(logn).</li></ul><hr>]]></content>
+    <content type="html"><![CDATA[<h2 id="解压可迭代对象赋予多个值"><a href="#解压可迭代对象赋予多个值" class="headerlink" title="解压可迭代对象赋予多个值"></a>解压可迭代对象赋予多个值</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a = [1,2,3,4,5,6]</div><div class="line">x,*y,z = a</div></pre></td></tr></table></figure><p>You will get <code>x=1, y=[2,3,4,5], z=6</code>.</p><h2 id="保留最后n个元素"><a href="#保留最后n个元素" class="headerlink" title="保留最后n个元素"></a>保留最后n个元素</h2><p>可以使用<code>collections.deque</code>双向队列来实现, <code>deque(maxlen=N)</code> 可以定义一个长度为N的队列。</p><p><code>queue = deque(5)</code>,</p><ul><li><code>queue.append()</code> 从队尾append</li><li><code>queue.pop()</code> 从队尾pop</li><li><code>queue.appendleft()</code> 从队首插入</li><li><code>queue.popledt()</code> 从队首pop</li></ul><h2 id="查找最大或者最小的N个元素"><a href="#查找最大或者最小的N个元素" class="headerlink" title="查找最大或者最小的N个元素"></a>查找最大或者最小的N个元素</h2><p>可以使用python中的堆, <code>import heapq</code>, heapq 中提供了<code>nlarest</code> 和<code>nsmallest</code> 方法.</p><p>堆是一种特殊的数据结构，是一个完全二叉树。根据parent节点值不大于(小于)其左右子节点值，堆又可以分为最小堆和最大堆。python 中的heapq 提供了堆的数据结构实现，以及相关的堆算法。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">heapq.nlargest(n, heap, key=None), key 为类似sorted中的key</div><div class="line">heapq.nsmallest(n, heap, key=None)</div><div class="line">heapq.heapify(list), to construct a heap given a list</div><div class="line">heapq.push(heap, item)</div><div class="line">heap.pop(heap, item)</div></pre></td></tr></table></figure><h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><ul><li>堆的插入和删除复杂度 O(logn), 查询O(n).</li><li>对长度为N的list，选出n个最小的元素，复杂度为O(Nlogn), 对N个元素进行遍历，维护一个大小为n的最小堆，每次插入复杂度为O(logn).</li></ul><h2 id="实现一个PriorityQueue"><a href="#实现一个PriorityQueue" class="headerlink" title="实现一个PriorityQueue"></a>实现一个PriorityQueue</h2><hr>]]></content>
     
     <summary type="html">
     
@@ -483,34 +507,6 @@
       <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
     
       <category term="MySQL" scheme="http://frankchu0229.github.io/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Tmux Summary</title>
-    <link href="http://frankchu0229.github.io/2017/09/23/TmuxNotes/"/>
-    <id>http://frankchu0229.github.io/2017/09/23/TmuxNotes/</id>
-    <published>2017-09-23T13:33:01.000Z</published>
-    <updated>2018-05-22T06:59:16.305Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Tmux-Basic-Operation"><a href="#Tmux-Basic-Operation" class="headerlink" title="Tmux Basic Operation"></a>Tmux Basic Operation</h2><h3 id="Enter-Session"><a href="#Enter-Session" class="headerlink" title="Enter Session"></a>Enter Session</h3><ul><li><code>tmux</code> to enter tmux and start a unnamed session</li><li><code>tmux new -s demo</code> to enter tmux and start a session named demo</li><li><code>tmux a</code> tmux attach the first session</li><li><code>tmux a -t demo</code> to attach the session named demo</li><li><code>tmux ls</code> to show all sessions.</li></ul><h3 id="Show-Shortcut-Keys-and-Commands"><a href="#Show-Shortcut-Keys-and-Commands" class="headerlink" title="Show Shortcut Keys and Commands"></a>Show Shortcut Keys and Commands</h3><ul><li><code>tmux list-keys</code> to show all shortcut keys</li><li><code>tmux list-commands</code> to show all tmux commands</li><li><code>crtl + b + ?</code> to list all tmux shortcut keys, press <code>q</code> to return</li></ul><h3 id="Exit-Tmux"><a href="#Exit-Tmux" class="headerlink" title="Exit Tmux"></a>Exit Tmux</h3><ul><li><code>crtl + b + d</code>, detach to exit tmux, tmux is still running in background. </li><li><code>tmux kill-session -t demo</code> kill session whose name is demo</li><li><code>tmux kill-server</code> kill all sessions.</li></ul><h3 id="Other-Basic-Operations"><a href="#Other-Basic-Operations" class="headerlink" title="Other Basic Operations"></a>Other Basic Operations</h3><ul><li><code>ctrl + b + t</code>, to show the time.</li><li><code>crtl + b + :</code> to enter command mode.</li><li><code>ctrl + b + [</code> to enter copy mode, enter q to exit.</li></ul><h2 id="Tmux-Session-Operation"><a href="#Tmux-Session-Operation" class="headerlink" title="Tmux Session Operation"></a>Tmux Session Operation</h2><ul><li><code>ctrl + b + : new -s session_name</code> to create new session with name session_name</li><li><code>ctrl + b + s</code> to list all sessions.</li><li><code>ctrl + b + $</code> to rename cuurrent session name.</li></ul><h2 id="Tmux-Window-Operation"><a href="#Tmux-Window-Operation" class="headerlink" title="Tmux Window Operation"></a>Tmux Window Operation</h2><ul><li><code>ctrl + b + c</code> to new a window</li><li><code>ctrl + b + &amp;</code> to close current window, need to input <code>y</code> to confirm</li><li><code>ctrl + b + 0-9</code> to switch window</li><li><code>ctrl + b + w</code> to show all windows in the current session</li></ul><h2 id="Tmux-Pane-Operation"><a href="#Tmux-Pane-Operation" class="headerlink" title="Tmux Pane Operation"></a>Tmux Pane Operation</h2><ul><li><code>ctrl + b + &quot;</code>to add vertical pane.</li><li><code>ctrl + b + %</code> to add horizontal pane</li><li><code>ctrl + b + 方向键</code> 上下左右切换pane</li><li><code>ctrl + b + x</code> close current pane, need to input <code>y</code></li><li><code>ctrl + b + z</code> to maxmize current pane, and return to its original size if try again</li></ul><h2 id="Todo"><a href="#Todo" class="headerlink" title="Todo"></a>Todo</h2><ul><li>Tmate </li><li>tmux config</li></ul><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="http://louiszhai.github.io/2017/09/30/tmux/" target="_blank" rel="external">reference1</a></li><li><a href="http://wdxtub.com/2016/03/30/tmux-guide/" target="_blank" rel="external">reference2</a></li><li><a href="https://gist.github.com/FrankChu0229/7755359af245119586d64adb7b88544d" target="_blank" rel="external">reference3</a></li></ul><hr>]]></content>
-    
-    <summary type="html">
-    
-      Tmux Summary。
-    
-    </summary>
-    
-      <category term="summary" scheme="http://frankchu0229.github.io/categories/summary/"/>
-    
-    
-      <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
-    
-      <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
-    
-      <category term="linux" scheme="http://frankchu0229.github.io/tags/linux/"/>
-    
-      <category term="tmux" scheme="http://frankchu0229.github.io/tags/tmux/"/>
     
   </entry>
   
