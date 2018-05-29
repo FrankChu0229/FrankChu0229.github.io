@@ -245,7 +245,7 @@ print(filtered)
 
 ## 从字典中提取子集
 
-从字典中提取子集有一下若干种方式，经试验，字典推倒式更清晰，并且性能最好
+从字典中提取子集有以下若干种方式，经试验，字典推倒式更清晰，并且性能最好
 
 ```
 prices = {
@@ -265,6 +265,30 @@ print(p2)
 
 p3 = {key:prices[key] for key in prices.keys() if key in tech_names}
 print(p3)
+
+```
+
+## `namedtuple`
+
+
+```
+from collections import namedtuple
+
+Stock = namedtuple('Stock', ['name', 'shares', 'price']) ## namedtuple 是标准元组(tuple)子类的一个工厂方法
+s = Stock('alibaba', 8080, 25)
+name, shares, price = s
+print(name)
+print(shares)
+print(price)
+
+def compute_cost(records):
+    total = 0.0
+    for rec in records:
+        total += rec.shares * rec.price
+    return total
+
+records = [Stock('alibaba', 8080, 25), Stock('tencent', 8888, 20)]
+print(compute_cost(records))
 
 ```
 
