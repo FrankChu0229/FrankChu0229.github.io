@@ -45,7 +45,7 @@
     <link href="http://frankchu0229.github.io/2018/05/28/python-star/"/>
     <id>http://frankchu0229.github.io/2018/05/28/python-star/</id>
     <published>2018-05-28T02:18:47.000Z</published>
-    <updated>2018-05-28T03:47:27.050Z</updated>
+    <updated>2018-05-29T18:06:28.941Z</updated>
     
     <content type="html"><![CDATA[<h2 id="args-与-kargs"><a href="#args-与-kargs" class="headerlink" title="*args 与 **kargs"></a>*args 与 **kargs</h2><p>*args 常作为变量用在func中，表示一组(list or tuple)变量</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">def add(*args):</div><div class="line">    sum = 0</div><div class="line">    for num in args:</div><div class="line">        sum += num</div><div class="line">    return sum</div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    print(add(1,2,3,4,5))</div></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">def test(**kargs):</div><div class="line">    for key, value in kargs.items():</div><div class="line">        print(key,value)</div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    test(a=1, b=2)</div></pre></td></tr></table></figure><h2 id="在list或tuple赋值中使用"><a href="#在list或tuple赋值中使用" class="headerlink" title="在list或tuple赋值中使用*"></a>在list或tuple赋值中使用*</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">iterData =  list(range(100))</div><div class="line">begin, *middle, end = iterData</div><div class="line">print(begin, middle, end)</div></pre></td></tr></table></figure><h2 id="在zip-中使用的"><a href="#在zip-中使用的" class="headerlink" title="在zip()中使用的*"></a>在zip()中使用的*</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">def test_zip():</div><div class="line">    a = [1,2,3,4,5]</div><div class="line">    b = [6,7,8,9,10]</div><div class="line">    c = list(zip(a,b)) # 解压</div><div class="line">    print(c)</div><div class="line">    print(list(zip(*c))) # 压缩</div></pre></td></tr></table></figure><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c01/p02_unpack_elements_from_iterables.html" target="_blank" rel="external">python cookbook</a></li><li><a href="http://interactivepython.org/runestone/static/pythonds/index.html" target="_blank" rel="external">problems solving using algorithms and data structures</a></li></ul>]]></content>
     
@@ -54,6 +54,8 @@
       Python 中*的用法。
     
     </summary>
+    
+      <category term="python" scheme="http://frankchu0229.github.io/categories/python/"/>
     
     
       <category term="python" scheme="http://frankchu0229.github.io/tags/python/"/>

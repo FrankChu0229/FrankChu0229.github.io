@@ -16,6 +16,9 @@
     <title><![CDATA[Python中*的用法]]></title>
     <url>%2F2018%2F05%2F28%2Fpython-star%2F</url>
     <content type="text"><![CDATA[*args 与 **kargs*args 常作为变量用在func中，表示一组(list or tuple)变量 1234567def add(*args): sum = 0 for num in args: sum += num return sumif __name__ == &apos;__main__&apos;: print(add(1,2,3,4,5)) 123456def test(**kargs): for key, value in kargs.items(): print(key,value)if __name__ == &apos;__main__&apos;: test(a=1, b=2) 在list或tuple赋值中使用*123iterData = list(range(100))begin, *middle, end = iterDataprint(begin, middle, end) 在zip()中使用的*123456def test_zip(): a = [1,2,3,4,5] b = [6,7,8,9,10] c = list(zip(a,b)) # 解压 print(c) print(list(zip(*c))) # 压缩 Reference python cookbook problems solving using algorithms and data structures]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
       <tags>
         <tag>python</tag>
         <tag>coding</tag>
