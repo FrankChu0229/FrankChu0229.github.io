@@ -291,6 +291,37 @@ records = [Stock('alibaba', 8080, 25), Stock('tencent', 8888, 20)]
 print(compute_cost(records))
 
 ```
+## 使用生成器表达式--转换并同时计算数据
+
+在很多时候，我们会用`any`, `sum`等函数，但是如果我们先计算得到一个临时list， 再通过`any`等函数计算，会多一个步骤。更优雅的方式是使用生成器表达式来转换并同时计算数据。
+
+```
+nums = [1, 2, 3, 4, 5]
+sum_value = sum(num*num for num in nums)
+print(sum_value)
+
+```
+
+## `ChainMap`
+
+现在假设你必须在两个字典中执行查找操作（比如先从 a 中找，如果找不到再在 b 中找）。 一个非常简单的解决方案就是使用 collections 模块中的 ChainMap 类。
+
+一个 ChainMap 接受多个字典并将它们在逻辑上变为一个字典。 然后，这些字典并不是真的合并在一起了， ChainMap 类只是在内部创建了一个容纳这些字典的列表 并重新定义了一些常见的字典操作来遍历这个列表。
+
+```
+from collections import ChainMap
+
+a = {'x': 1, 'z': 3 }
+b = {'y': 2, 'z': 4 }
+
+chain_map = ChainMap(a, b)
+print(chain_map['x'])
+print(chain_map['y'])
+print(chain_map['z']) # 都有的话使用第一个dict中的元素，同理删除和更新也是更新第一个字典中的该字段的值
+
+```
+
+
 
 ## Reference
 
