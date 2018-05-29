@@ -132,8 +132,50 @@ a + b # Counter支持 集合操作
 a - b 
 ```
 
+## `itemgetter()` && `attrgetter()`
+
+在python中，`sorted(iterable, cmp=None, key=None, reverse=False)`、`min()`等函数常有key可以自定义一些行为。当然这里我们可以传入一个function对象，或者用一个lambda表达式来解决。但是其实我们可以使用`operator`中的`itemgetter()`和`attrgetter()`来提高效率。
+
+```
+rows = [
+    {'fname': 'Brian', 'lname': 'Jones', 'uid': 1003},
+    {'fname': 'David', 'lname': 'Beazley', 'uid': 1002},
+    {'fname': 'John', 'lname': 'Cleese', 'uid': 1001},
+    {'fname': 'Big', 'lname': 'Jones', 'uid': 1004}
+]
+from operator import itemgetter
+a = sorted(rows, key=itemgetter('uid'), reverse=True) # itemgetter() 常用在支持原生比较的对象
+a1 = sorted(rows, key=lambda r: r['uid'])
+b = sorted(rows, key=itemgetter('fname'))
+b1 = sorted(rows, key=lambda r: r['fname'])
+print(a)
+print(a1)
+print(b)
+print(b1)
+
+```
+
+```
+from operator import attrgetter
+class User:
+    def __init__(self, user_id):
+        self.user_id = user_id
+    
+    def __repr__(self):
+        return "User({})".format(self.user_id)
+
+users = [User(1), User(5), User(3)] 
+
+a = sorted(users, key=lambda u: u.user_id, reverse=True)
+b = sorted(users, key=attrgetter('user_id')) ## attrgetter() 常用在不支持原生比较的对象
+print(a)
+print(b)
+
+```
+
 ## Reference
 
 - [Python Cookbook](http://python3-cookbook.readthedocs.io/zh_CN/latest/c01/p11_naming_slice.html)
+- [reference for itemgetter()](https://www.cnblogs.com/100thMountain/p/4719503.html)
 
 ---
