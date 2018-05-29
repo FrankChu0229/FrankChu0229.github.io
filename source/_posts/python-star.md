@@ -1,6 +1,7 @@
 title: Python中*的用法
 date: 2018-05-28 10:18:47
 tags: [python, coding]
+categories: python
 description: Python 中*的用法。
 ---
 
