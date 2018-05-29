@@ -201,8 +201,45 @@ for date, items in groupby(sorted_rows, key=itemgetter('date')): ## groupby 返�
 
 ## `filter` 过滤序列中的元素
 
+在python中我们像过滤一个序列中的元素，常用到推到式，例如:
+
+```
+nums = [n for n in range(10) if n > 5]
+print(nums)
+nums = [n if n > 5 else 0 for n in range(10) ]
+print(nums)
+
 ```
 
+但是在输入非常大的时候，由于推到式会将全部结果load进内存，导致内存消耗过大，这个时候我们可以使用生成器表达式来解决：
+
+```
+def print_nums(nums):
+    for n in nums: 
+        print(n)
+        
+nums = (n for n in range(100) if n > 3)
+print_nums(nums)
+
+nums = (n if n > 3 else 0 for n in range(100))
+print_nums(nums)
+
+```
+
+有时会出现过滤条件比较复杂的情况，不能在推到式或者生成器表达式中简单的表达出来，这个时候可以使用python built-in function `filter`.
+
+```
+values = ['1', '2', '-3', '-', '4', 'N/A', '5']
+
+def is_int(val):
+    try:
+        a = int(val)
+        return True
+    except:
+        return False
+    
+filtered = list(filter(is_int, values)) ## filter 返回一个迭代器
+print(filtered)
 
 ```
 
