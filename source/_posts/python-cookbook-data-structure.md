@@ -243,6 +243,31 @@ print(filtered)
 
 ```
 
+## 从字典中提取子集
+
+从字典中提取子集有一下若干种方式，经试验，字典推倒式更清晰，并且性能最好
+
+```
+prices = {
+    'ACME': 45.23,
+    'AAPL': 612.78,
+    'IBM': 205.55,
+    'HPQ': 37.20,
+    'FB': 10.75
+}
+tech_names = {'AAPL', 'IBM', 'HPQ', 'MSFT'}
+
+p1 = {key:value for key, value in prices.items() if key in tech_names} ## 字典推倒式，更清晰，性能更好
+print(p1)
+
+p2 = dict((key,value) for key,value in prices.items() if key in tech_names)
+print(p2)
+
+p3 = {key:prices[key] for key in prices.keys() if key in tech_names}
+print(p3)
+
+```
+
 ## Reference
 
 - [Python Cookbook](http://python3-cookbook.readthedocs.io/zh_CN/latest/c01/p11_naming_slice.html)
