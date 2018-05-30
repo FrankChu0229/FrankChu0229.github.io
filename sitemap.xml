@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/05/28/python-star/</loc>
+    <loc>http://frankchu0229.github.io/2018/05/30/python-dependency-management/</loc>
     
-    <lastmod>2018-05-29T18:06:28.941Z</lastmod>
+    <lastmod>2018-05-30T12:44:42.226Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://frankchu0229.github.io/2018/05/27/python-cookbook-data-structure/</loc>
     
-    <lastmod>2018-05-29T18:02:02.104Z</lastmod>
+    <lastmod>2018-05-30T12:43:41.196Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu0229.github.io/2018/05/28/python-star/</loc>
+    
+    <lastmod>2018-05-29T18:06:28.941Z</lastmod>
     
   </url>
   

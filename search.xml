@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python Dependency Management]]></title>
+    <url>%2F2018%2F05%2F30%2Fpython-dependency-management%2F</url>
+    <content type="text"><![CDATA[Requirements pip install -r requirements.txt to install all dependency in requirements. pip freeze &gt; requirements.txt to export all depenedncies to requirements.txt]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>coding</tag>
+        <tag>dependency</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python Underline Usage]]></title>
     <url>%2F2018%2F05%2F28%2Fpython-underline%2F</url>
     <content type="text"><![CDATA[用作变量名_有时会被用作变量名，表示是一个临时变量，后面不会被用到。 12for _ in range(5): print(&apos;hahaha&apos;) 放在变量名前_var or_func在变量名前加一个_表示这个变量名或者方法是私有的，不对外开放。 __var or __func在变量名前加__双下划线，表示该变量或者方法不可被覆盖. 实际上python内部通过在该变量名或者方法名前添加_classname__methodName的方式来防止覆盖。 123456789101112131415161718class A(object): def __init__(self): pass def __method_show(self): print(&quot;A&quot;)class B(A): def __init__(self): pass def __method_show(self): print(&quot;B&quot;)if __name__ == &apos;__main__&apos;: a = A() print(dir(A)) print(dir(B))[&apos;_A__method_show&apos;, &apos;__class__&apos;, &apos;__delattr__&apos;, &apos;__dict__&apos;, &apos;__dir__&apos;, &apos;__doc__&apos;, &apos;__eq__&apos;, &apos;__format__&apos;, &apos;__ge__&apos;, &apos;__getattribute__&apos;, &apos;__gt__&apos;, &apos;__hash__&apos;, &apos;__init__&apos;, &apos;__init_subclass__&apos;, &apos;__le__&apos;, &apos;__lt__&apos;, &apos;__module__&apos;, &apos;__ne__&apos;, &apos;__new__&apos;, &apos;__reduce__&apos;, &apos;__reduce_ex__&apos;, &apos;__repr__&apos;, &apos;__setattr__&apos;, &apos;__sizeof__&apos;, &apos;__str__&apos;, &apos;__subclasshook__&apos;, &apos;__weakref__&apos;][&apos;_A__method_show&apos;, &apos;_B__method_show&apos;, &apos;__class__&apos;, &apos;__delattr__&apos;, &apos;__dict__&apos;, &apos;__dir__&apos;, &apos;__doc__&apos;, &apos;__eq__&apos;, &apos;__format__&apos;, &apos;__ge__&apos;, &apos;__getattribute__&apos;, &apos;__gt__&apos;, &apos;__hash__&apos;, &apos;__init__&apos;, &apos;__init_subclass__&apos;, &apos;__le__&apos;, &apos;__lt__&apos;, &apos;__module__&apos;, &apos;__ne__&apos;, &apos;__new__&apos;, &apos;__reduce__&apos;, &apos;__reduce_ex__&apos;, &apos;__repr__&apos;, &apos;__setattr__&apos;, &apos;__sizeof__&apos;, &apos;__str__&apos;, &apos;__subclasshook__&apos;, &apos;__weakref__&apos;] __var__被用作python中的特殊方法名，保证不会和用户自定义的方法名冲突，如__name__, __init__等。 Reference reference refercnce]]></content>
