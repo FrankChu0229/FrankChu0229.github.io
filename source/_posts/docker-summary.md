@@ -1,8 +1,8 @@
 title: Docker Summary
 date: 2018-06-04 20:47:02
-tags:[docker, tools]
-categories:docker
-description:Docker Usage Summary
+tags: [docker,tools]
+categories: docker
+description: Docker Usage Summary
 ---
 
 ## Docker build image and push to remote registry
@@ -13,8 +13,6 @@ description:Docker Usage Summary
 - run `docker login docker.XXX.com` to login the docker registry
 - run `docker tag image_name username/repository:tag` to tag the image
 - run `docker push username/repository:tag` to push the image to the remote repository.
-
-
 
 ## Reference
 
