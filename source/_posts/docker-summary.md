@@ -1,7 +1,7 @@
 title: Docker Summary
 date: 2018-06-04 20:47:02
 tags:[docker, tools]
-categories: docker
+categories:docker
 description: Docker Usage Summary
 ---
 
