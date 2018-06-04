@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/05/30/python-dependency-management/</loc>
+    <loc>http://frankchu0229.github.io/2018/06/04/docker-summary/</loc>
     
-    <lastmod>2018-05-30T12:44:42.226Z</lastmod>
+    <lastmod>2018-06-04T13:18:15.956Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu0229.github.io/2018/06/04/python-cookbook-str-text/</loc>
+    
+    <lastmod>2018-06-04T08:15:42.967Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://frankchu0229.github.io/2018/05/27/python-cookbook-data-structure/</loc>
     
-    <lastmod>2018-05-30T12:43:41.196Z</lastmod>
+    <lastmod>2018-06-04T08:15:41.735Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu0229.github.io/2018/05/30/python-dependency-management/</loc>
+    
+    <lastmod>2018-05-30T12:44:42.226Z</lastmod>
     
   </url>
   
@@ -282,14 +296,14 @@
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/categories/index.html</loc>
+    <loc>http://frankchu0229.github.io/tags/index.html</loc>
     
     <lastmod>2017-10-30T01:57:40.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/tags/index.html</loc>
+    <loc>http://frankchu0229.github.io/categories/index.html</loc>
     
     <lastmod>2017-10-30T01:57:40.000Z</lastmod>
     

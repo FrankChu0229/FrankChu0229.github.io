@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Docker Summary]]></title>
+    <url>%2F2018%2F06%2F04%2Fdocker-summary%2F</url>
+    <content type="text"><![CDATA[Docker build image and push to remote registry To add Dockerfile run docker build -t image_name . to build image run docker image ls to list all images run docker login docker.XXX.com to login the docker registry run docker tag image_name username/repository:tag to tag the image run docker push username/repository:tag to push the image to the remote repository. Reference Docker Tutorial]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>tools</tag>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python Cookbook String and Text]]></title>
+    <url>%2F2018%2F06%2F04%2Fpython-cookbook-str-text%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>notes</tag>
+        <tag>python</tag>
+        <tag>coding</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python Dependency Management]]></title>
     <url>%2F2018%2F05%2F30%2Fpython-dependency-management%2F</url>
     <content type="text"><![CDATA[Requirements pip install -r requirements.txt to install all dependency in requirements. pip freeze &gt; requirements.txt to export all depenedncies to requirements.txt]]></content>
@@ -45,6 +70,7 @@
         <category>python</category>
       </categories>
       <tags>
+        <tag>notes</tag>
         <tag>python</tag>
         <tag>coding</tag>
         <tag>data structure</tag>
