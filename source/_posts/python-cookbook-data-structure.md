@@ -1,6 +1,6 @@
 title: Python Cookbook Notes Data Structure
 date: 2018-05-27 20:39:51
-tags: [python, coding, data structure]
+tags: [python, coding, data structure, notes]
 categories: python
 description: Python Cookbook Notes Data Structure.
 ---
