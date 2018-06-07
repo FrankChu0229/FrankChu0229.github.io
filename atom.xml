@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://frankchu0229.github.io/"/>
-  <updated>2018-06-04T13:18:15.956Z</updated>
+  <updated>2018-06-07T12:06:57.952Z</updated>
   <id>http://frankchu0229.github.io/</id>
   
   <author>
@@ -15,6 +15,80 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Scipy Summary</title>
+    <link href="http://frankchu0229.github.io/2018/06/06/scipy-summary/"/>
+    <id>http://frankchu0229.github.io/2018/06/06/scipy-summary/</id>
+    <published>2018-06-06T09:42:45.000Z</published>
+    <updated>2018-06-07T12:06:57.952Z</updated>
+    
+    <summary type="html">
+    
+      Scipy Summary.
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="http://frankchu0229.github.io/categories/Machine-Learning/"/>
+    
+    
+      <category term="python" scheme="http://frankchu0229.github.io/tags/python/"/>
+    
+      <category term="dl" scheme="http://frankchu0229.github.io/tags/dl/"/>
+    
+      <category term="scipy" scheme="http://frankchu0229.github.io/tags/scipy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Numpy Summary</title>
+    <link href="http://frankchu0229.github.io/2018/06/06/numpy-summary/"/>
+    <id>http://frankchu0229.github.io/2018/06/06/numpy-summary/</id>
+    <published>2018-06-06T09:42:23.000Z</published>
+    <updated>2018-06-07T12:06:04.343Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Numpy-Fields-and-Basic-Operations"><a href="#Numpy-Fields-and-Basic-Operations" class="headerlink" title="Numpy Fields and Basic Operations"></a>Numpy Fields and Basic Operations</h2><p>Numpy basic fields: <code>ndim</code>, <code>size</code> and <code>shape</code>.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">## Numpy basics: fields and matrix operation.</div><div class="line"></div><div class="line">import numpy as np</div><div class="line"></div><div class="line">array = np.array([[1,2,3], [4,5,6], [7,8,9]])</div><div class="line">a = np.array([1,2,3])</div><div class="line">print(a.ndim)</div><div class="line">print(array)</div><div class="line">print(array[0][2])</div><div class="line">print(&apos;dim is&apos;, array.ndim)</div><div class="line">print(&apos;shape is&apos;, array.shape)</div><div class="line">print(&apos;size is&apos;, array.size)</div><div class="line"></div><div class="line">## dtype </div><div class="line"></div><div class="line">dtype_array = np.array([1,2,3])</div><div class="line">print(dtype_array.dtype)</div><div class="line">dtype_array1 = np.array([1,2,3,4,5], dtype=np.float)</div><div class="line">print(dtype_array1.dtype)</div><div class="line"></div><div class="line">## matrix operation</div><div class="line"></div><div class="line">matrix_a = np.array([[1,2,3], [4,5,6]])</div><div class="line">print(matrix_a)</div><div class="line">matrix_zeros = np.zeros((2,3))</div><div class="line">print(matrix_zeros)</div><div class="line">matrix_ones = np.ones((2,3), dtype=int)</div><div class="line">print(matrix_ones)</div><div class="line">matrix_empty = np.empty((2,3)) ## create values that are close to zero.</div><div class="line">print(matrix_empty)</div><div class="line">matrix_arange = np.arange(1,50,2)</div><div class="line">print(matrix_arange)</div><div class="line">matrix_reshape = matrix_arange.reshape((5,5))</div><div class="line">print(matrix_reshape)</div><div class="line">## linspace: to create 20 elememts between 1 and 10 </div><div class="line">matrix_linspace = np.linspace(1,10,20)</div><div class="line">print(matrix_linspace)</div></pre></td></tr></table></figure><h2 id="Numpy-Array-Computation"><a href="#Numpy-Array-Computation" class="headerlink" title="Numpy Array Computation"></a>Numpy Array Computation</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">import numpy as np</div><div class="line"></div><div class="line">## numpy calculation:</div><div class="line"></div><div class="line">matrix_a = np.array([[1,2,3], [4,5,6], [7,8,9]])</div><div class="line">matrix_b = np.arange(10, 19).reshape((3,3))</div><div class="line"></div><div class="line">print(matrix_a)</div><div class="line">print(matrix_b)</div><div class="line">print(matrix_a + matrix_b)</div><div class="line">print(matrix_a - matrix_b)</div><div class="line">print(matrix_a * matrix_b) ## point-wise multiply.</div><div class="line">print(&quot;a*b for matrix multiply calculation is:&quot;, np.dot(matrix_a, matrix_b)) ## normal matrix multiply</div><div class="line">print(&quot;a*b for matrix multiply calculation is:&quot;, matrix_a.dot(matrix_b)) ## normal matrix multiply</div><div class="line">print(np.sin(matrix_a))</div><div class="line">print(matrix_b &lt; 15)</div><div class="line">print(matrix_b**2)</div><div class="line"></div><div class="line">matrix_random = np.random.random((3,4))</div><div class="line">print(matrix_random)</div><div class="line"></div><div class="line">## Operation over the whole matrix.</div><div class="line">print(np.sum(matrix_random))</div><div class="line">print(np.min(matrix_random))</div><div class="line">print(np.max(matrix_random))</div><div class="line"></div><div class="line">## Operation over the single row or column， 0 for column, 1 for row.</div><div class="line">print(&apos;row operation results:&apos;, np.max(matrix_random, axis=0))</div><div class="line">print(&apos;column operation results:&apos;, np.max(matrix_random, axis=1))</div><div class="line"></div><div class="line">## numpy mateix operation 2</div><div class="line"></div><div class="line">import numpy as np</div><div class="line"></div><div class="line">matrix = np.arange(12, 0, -1).reshape((3,4))</div><div class="line">print(matrix)</div><div class="line"></div><div class="line">print(matrix.argmax())</div><div class="line">print(matrix.argmin())</div><div class="line">print(np.argmax(matrix))</div><div class="line"></div><div class="line">print(matrix.mean())</div><div class="line">print(matrix.cumsum()) ## cumulutive sum</div><div class="line">print(np.diff(matrix)) ## 后一项减去前一项</div><div class="line"></div><div class="line">print(np.nonzero(matrix))</div><div class="line">print(matrix)</div><div class="line">print(np.sort(matrix, axis=0))</div><div class="line">print(np.sort(matrix, axis=1))</div><div class="line"></div><div class="line">print(matrix.T)</div><div class="line">print(np.transpose(matrix))</div><div class="line"></div><div class="line">print(np.clip(matrix, 5,9))</div></pre></td></tr></table></figure><h2 id="Numpy-索引"><a href="#Numpy-索引" class="headerlink" title="Numpy 索引"></a>Numpy 索引</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">## numpy 索引</div><div class="line"></div><div class="line">import numpy as np</div><div class="line"></div><div class="line">matrix = np.arange(12).reshape((3,4))</div><div class="line">print(matrix)</div><div class="line"></div><div class="line">print(matrix[0][1])</div><div class="line">print(matrix[0,1])</div><div class="line"></div><div class="line">print(matrix[0][1:3])</div><div class="line">print(matrix[0, 1:3])</div><div class="line"></div><div class="line">for row in matrix:</div><div class="line">    print(row)</div><div class="line">    </div><div class="line">for column in matrix.T:</div><div class="line">    print(column)</div><div class="line"></div><div class="line">print(matrix.flatten()) ## list</div><div class="line"></div><div class="line">print(list(matrix.flat)) ## 迭代器</div></pre></td></tr></table></figure><h2 id="Numpy-Array-合并-amp-amp-分割"><a href="#Numpy-Array-合并-amp-amp-分割" class="headerlink" title="Numpy Array 合并 &amp;&amp; 分割"></a>Numpy Array 合并 &amp;&amp; 分割</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">## Numpy array 合并</div><div class="line"></div><div class="line">a = np.array([[1,2,3],[4,5,6]])</div><div class="line">b = np.array([[4,5,6],[1,2,3]])</div><div class="line"></div><div class="line">c = np.vstack((a,b))</div><div class="line">print(c)</div><div class="line"></div><div class="line">d = np.hstack((a, b))</div><div class="line">print(d)</div><div class="line"></div><div class="line">tmp = np.array([1,2,3])</div><div class="line">print(tmp.shape)</div><div class="line">print(tmp[:, np.newaxis].shape)</div><div class="line">print(tmp[np.newaxis, :].shape)</div><div class="line"></div><div class="line"></div><div class="line">print(np.hstack((a,b)))</div><div class="line">print(np.concatenate((a, b), axis=1))</div><div class="line">print(np.vstack((a,b)))</div><div class="line">print(np.concatenate((a,b), axis=0))</div><div class="line"></div><div class="line">## numpy array 分割</div><div class="line"></div><div class="line">## 等分分割</div><div class="line">print(c)</div><div class="line">c_split = np.split(c, 2, axis=0)</div><div class="line">print(np.vsplit(c, 2))</div><div class="line">print(c_split)</div><div class="line"></div><div class="line">print(d)</div><div class="line">d_split = np.split(d, 2, axis=1)</div><div class="line">print(np.hsplit(d, 2))</div><div class="line">print(d_split)</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">## 不等分分割</div><div class="line"></div><div class="line">not_split = np.array_split(c, 3, axis=0)</div><div class="line">print(not_split)</div></pre></td></tr></table></figure><h2 id="Numpy-Copy-and-Deep-Copy"><a href="#Numpy-Copy-and-Deep-Copy" class="headerlink" title="Numpy Copy and Deep Copy"></a>Numpy Copy and Deep Copy</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">## numpy copy and deep copy</div><div class="line">a = np.array([[1,2,3]])</div><div class="line">print(a)</div><div class="line">b = a</div><div class="line">print(b is a)</div><div class="line">a[0][1] = 5</div><div class="line">print(a)</div><div class="line">print(b)</div><div class="line"></div><div class="line">## deep copy</div><div class="line">c = a.copy()</div><div class="line">print(a)</div><div class="line">print(c)</div><div class="line"></div><div class="line">a[0][1] = 8</div><div class="line">print(a)</div><div class="line">print(c)</div></pre></td></tr></table></figure><hr><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="https://morvanzhou.github.io/tutorials/data-manipulation/np-pd/" target="_blank" rel="external">reference-mofan-numpy-tutorial</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      Numpy Summary.
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="http://frankchu0229.github.io/categories/Machine-Learning/"/>
+    
+    
+      <category term="python" scheme="http://frankchu0229.github.io/tags/python/"/>
+    
+      <category term="dl" scheme="http://frankchu0229.github.io/tags/dl/"/>
+    
+      <category term="numpy" scheme="http://frankchu0229.github.io/tags/numpy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Keras Summary</title>
+    <link href="http://frankchu0229.github.io/2018/06/06/keras-summary/"/>
+    <id>http://frankchu0229.github.io/2018/06/06/keras-summary/</id>
+    <published>2018-06-06T06:36:41.000Z</published>
+    <updated>2018-06-07T12:06:03.204Z</updated>
+    
+    <summary type="html">
+    
+      Keras Summary.
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="http://frankchu0229.github.io/categories/Machine-Learning/"/>
+    
+    
+      <category term="python" scheme="http://frankchu0229.github.io/tags/python/"/>
+    
+      <category term="keras" scheme="http://frankchu0229.github.io/tags/keras/"/>
+    
+      <category term="dl" scheme="http://frankchu0229.github.io/tags/dl/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker Summary</title>
@@ -34,9 +108,9 @@
       <category term="docker" scheme="http://frankchu0229.github.io/categories/docker/"/>
     
     
-      <category term="tools" scheme="http://frankchu0229.github.io/tags/tools/"/>
-    
       <category term="docker" scheme="http://frankchu0229.github.io/tags/docker/"/>
+    
+      <category term="tools" scheme="http://frankchu0229.github.io/tags/tools/"/>
     
   </entry>
   
@@ -193,9 +267,9 @@
     <link href="http://frankchu0229.github.io/2018/05/21/jupyter-notes/"/>
     <id>http://frankchu0229.github.io/2018/05/21/jupyter-notes/</id>
     <published>2018-05-21T12:47:37.000Z</published>
-    <updated>2018-05-23T05:31:01.139Z</updated>
+    <updated>2018-06-07T08:01:10.138Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Jupyter-Install"><a href="#Jupyter-Install" class="headerlink" title="Jupyter Install"></a>Jupyter Install</h2><ul><li>use <code>conda install jupyter</code></li><li>use <code>pip install jupyter</code></li></ul><h2 id="Use-Jupyter-On-Gpu-Server"><a href="#Use-Jupyter-On-Gpu-Server" class="headerlink" title="Use Jupyter On Gpu Server"></a>Use Jupyter On Gpu Server</h2><ul><li>First, start jupyter-notebook on GPU</li><li>Then, use <code>ssh myserver -L 8888:localhost:8888</code> to link local port <code>8888</code> to gpu server port <code>8888</code></li></ul><h2 id="Use-Conda-Virtual-Environment-On-Jupyter"><a href="#Use-Conda-Virtual-Environment-On-Jupyter" class="headerlink" title="Use Conda Virtual Environment On Jupyter"></a>Use Conda Virtual Environment On Jupyter</h2><ul><li>install plugins on conda <code>conda install nb_conda</code></li></ul><h2 id="Jupyter-Shortcut-Keys"><a href="#Jupyter-Shortcut-Keys" class="headerlink" title="Jupyter Shortcut Keys:"></a>Jupyter Shortcut Keys:</h2><h3 id="Command-Mode"><a href="#Command-Mode" class="headerlink" title="Command Mode"></a>Command Mode</h3><ul><li>press <code>esc</code> to enter command mode</li><li><code>x</code> cut cell</li><li><code>c</code> copy cell</li><li><code>v</code> copy cell to the downside</li><li><code>Shift + v</code> copy cell to the upside</li><li><code>a</code> create cell to the downside</li><li><code>b</code> create cell to the upside</li><li><code>dd</code> delete cell</li><li><code>ctrl + s</code> save jupyter file</li><li><code>shift + m</code> merge cell</li><li><code>m</code> change cell to markdown</li><li><code>y</code> change cell to code</li></ul><h3 id="Edit-Mode"><a href="#Edit-Mode" class="headerlink" title="Edit Mode"></a>Edit Mode</h3><ul><li>press <code>enter</code> to enter edit mode</li><li><code>tab</code> auto-completition</li><li><code>shift + tab</code> show instructions</li><li><code>ctrl + enter</code> run current cell</li><li><code>shift + enter</code> run current cell and go to next cell</li><li><code>alt + enter</code> run current cell and insert a new cell below</li></ul><h2 id="Use-Jupyter-Extensions-e-g-vim"><a href="#Use-Jupyter-Extensions-e-g-vim" class="headerlink" title="Use Jupyter Extensions, e.g., vim"></a>Use Jupyter Extensions, e.g., vim</h2><ul><li>First install <code>IPython-notebook-extensions</code> by </li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ pip install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master</div><div class="line">$ jupyter contrib nbextension install --user</div></pre></td></tr></table></figure><ul><li>Install Vim Extensions:</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 在 ~/.local/share/jupyter/ 建立nbextensions資料夾</div><div class="line">$ mkdir -p $(jupyter --data-dir)/nbextensions</div><div class="line"># Clone the repo</div><div class="line">$ cd $(jupyter --data-dir)/nbextensions</div><div class="line">$ git clone https://github.com/lambdalisue/jupyter-vim-binding</div></pre></td></tr></table></figure><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><p><a href="https://www.jianshu.com/p/afea092dda1d" target="_blank" rel="external">reference link</a></p></li><li><p><a href="http://cyruschiu.github.io/2016/09/05/jupyter-notebook-vim-binding/" target="_blank" rel="external">Vim Extensions</a></p></li><li><p><a href="https://blog.csdn.net/lawme/article/details/51034543" target="_blank" rel="external">Shortcut Reference</a></p></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="Jupyter-Install"><a href="#Jupyter-Install" class="headerlink" title="Jupyter Install"></a>Jupyter Install</h2><ul><li>use <code>conda install jupyter</code></li><li>use <code>pip install jupyter</code></li></ul><h2 id="Use-Jupyter-On-Gpu-Server"><a href="#Use-Jupyter-On-Gpu-Server" class="headerlink" title="Use Jupyter On Gpu Server"></a>Use Jupyter On Gpu Server</h2><ul><li>First, start jupyter-notebook on GPU</li><li>Then, use <code>ssh myserver -L 8888:localhost:8888</code> to link local port <code>8888</code> to gpu server port <code>8888</code></li></ul><h2 id="Use-Conda-Virtual-Environment-On-Jupyter"><a href="#Use-Conda-Virtual-Environment-On-Jupyter" class="headerlink" title="Use Conda Virtual Environment On Jupyter"></a>Use Conda Virtual Environment On Jupyter</h2><ul><li>install plugins on conda <code>conda install nb_conda</code></li><li>Every time you switch to a new environment, you need to run <code>conda install nb_conda</code> to enable the environment choice in jupyter notebook.</li></ul><h2 id="Jupyter-Shortcut-Keys"><a href="#Jupyter-Shortcut-Keys" class="headerlink" title="Jupyter Shortcut Keys:"></a>Jupyter Shortcut Keys:</h2><h3 id="Command-Mode"><a href="#Command-Mode" class="headerlink" title="Command Mode"></a>Command Mode</h3><ul><li>press <code>esc</code> to enter command mode</li><li><code>x</code> cut cell</li><li><code>c</code> copy cell</li><li><code>v</code> copy cell to the downside</li><li><code>Shift + v</code> copy cell to the upside</li><li><code>a</code> create cell to the downside</li><li><code>b</code> create cell to the upside</li><li><code>dd</code> delete cell</li><li><code>ctrl + s</code> save jupyter file</li><li><code>shift + m</code> merge cell</li><li><code>m</code> change cell to markdown</li><li><code>y</code> change cell to code</li></ul><h3 id="Edit-Mode"><a href="#Edit-Mode" class="headerlink" title="Edit Mode"></a>Edit Mode</h3><ul><li>press <code>enter</code> to enter edit mode</li><li><code>tab</code> auto-completition</li><li><code>shift + tab</code> show instructions</li><li><code>ctrl + enter</code> run current cell</li><li><code>shift + enter</code> run current cell and go to next cell</li><li><code>alt + enter</code> run current cell and insert a new cell below</li></ul><h2 id="Use-Jupyter-Extensions-e-g-vim"><a href="#Use-Jupyter-Extensions-e-g-vim" class="headerlink" title="Use Jupyter Extensions, e.g., vim"></a>Use Jupyter Extensions, e.g., vim</h2><ul><li>First install <code>IPython-notebook-extensions</code> by </li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ pip install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master</div><div class="line">$ jupyter contrib nbextension install --user</div></pre></td></tr></table></figure><ul><li>Install Vim Extensions:</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 在 ~/.local/share/jupyter/ 建立nbextensions資料夾</div><div class="line">$ mkdir -p $(jupyter --data-dir)/nbextensions</div><div class="line"># Clone the repo</div><div class="line">$ cd $(jupyter --data-dir)/nbextensions</div><div class="line">$ git clone https://github.com/lambdalisue/jupyter-vim-binding</div></pre></td></tr></table></figure><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><p><a href="https://www.jianshu.com/p/afea092dda1d" target="_blank" rel="external">reference link</a></p></li><li><p><a href="http://cyruschiu.github.io/2016/09/05/jupyter-notebook-vim-binding/" target="_blank" rel="external">Vim Extensions</a></p></li><li><p><a href="https://blog.csdn.net/lawme/article/details/51034543" target="_blank" rel="external">Shortcut Reference</a></p></li></ul>]]></content>
     
     <summary type="html">
     
@@ -427,86 +501,6 @@
       <category term="cassandra" scheme="http://frankchu0229.github.io/tags/cassandra/"/>
     
       <category term="shell" scheme="http://frankchu0229.github.io/tags/shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>NoSQL Summary</title>
-    <link href="http://frankchu0229.github.io/2017/12/18/NoSQL/"/>
-    <id>http://frankchu0229.github.io/2017/12/18/NoSQL/</id>
-    <published>2017-12-18T07:25:39.000Z</published>
-    <updated>2018-05-28T02:25:32.997Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="NoSQL-Summary"><a href="#NoSQL-Summary" class="headerlink" title="NoSQL Summary"></a>NoSQL Summary</h1><p>NoSQL指 not only SQL, 主要包括：</p><h3 id="Key-value-Redis-分布式：Codis"><a href="#Key-value-Redis-分布式：Codis" class="headerlink" title="Key-value: Redis, 分布式：Codis"></a><strong>Key-value: Redis, 分布式：Codis</strong></h3><p>以键值对的方式进行存储，其内部通常用哈希表的结构来对数据进行存储。在使用时，用户只需要根据key来访问即可。优点：对单条数据的增删改查非常迅速；缺点：数据库不知道对于数据本身的任何信息，往往需要对数据库中的数据进行遍历，<strong>不支持索引</strong>。<strong>Key-value型数据库通常在服务中作为缓存端使用</strong>，例如可作为MYSQL的缓存端使用，可使得服务性能提高10+倍。</p><h3 id="Document-based-mongoDB"><a href="#Document-based-mongoDB" class="headerlink" title="Document-based: mongoDB"></a><strong>Document-based: mongoDB</strong></h3><p>与Key-value数据库不同，Document-based 数据库中存储的不再是字符串，而是像JSON, XML等具有特定格式的文档。这些文档可以记录键值对，数组，或者是内嵌的文档。<strong>Document-based</strong>数据库常常支持索引，因此<strong>Document-based</strong>数据库既保留了key-value型数据库的便利，又在查询上借助索引可以达到不错的性能。</p><h3 id="Column-based-cassandra-Hbase"><a href="#Column-based-cassandra-Hbase" class="headerlink" title="Column-based: cassandra, Hbase"></a><strong>Column-based: cassandra, Hbase</strong></h3><p>按照列来在数据文件中记录数据，以便获得更好的遍历和请求效率，但并不是所有的数据都用列来存储，一般只有需要请求的数据会用列来存储。</p><h3 id="Graph-based-neo4j-janus-graph-dgraph"><a href="#Graph-based-neo4j-janus-graph-dgraph" class="headerlink" title="Graph-based: neo4j, janus graph, dgraph"></a><strong>Graph-based: neo4j, janus graph, dgraph</strong></h3><p>图数据库存储的时候是以图的形式保存的，对应底层数据结构是邻接表。</p><ul><li>图数据库查关系的时候速度很快；传统关系型数据库在查关系的时候需要join很多张表，速度比较慢。</li><li>传统关系型数据库存储的数据是结构化的，表的字段是固定的，数据规整，省空间，但是需要提前设计好表的结构，改动表结构代价比较大。图数据库的字段是不固定的，不用提前设计表的结构，改schema的代价很小。</li></ul><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="https://www.cnblogs.com/loveis715/p/5299495.html" target="_blank" rel="external">https://www.cnblogs.com/loveis715/p/5299495.html</a></li><li><a href="https://www.cnblogs.com/aspwebchh/p/6652855.html" target="_blank" rel="external">https://www.cnblogs.com/aspwebchh/p/6652855.html</a></li></ul><hr>]]></content>
-    
-    <summary type="html">
-    
-      NoSQL Summary。
-    
-    </summary>
-    
-    
-      <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
-    
-      <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
-    
-      <category term="NoSQL" scheme="http://frankchu0229.github.io/tags/NoSQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vimium Notes</title>
-    <link href="http://frankchu0229.github.io/2017/12/04/vimium-notes/"/>
-    <id>http://frankchu0229.github.io/2017/12/04/vimium-notes/</id>
-    <published>2017-12-04T12:30:24.000Z</published>
-    <updated>2017-12-04T12:46:35.919Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Vimium-Introduction"><a href="#Vimium-Introduction" class="headerlink" title="Vimium Introduction"></a>Vimium Introduction</h2><p>Vimium 是chrome浏览器中的一款非常好用的插件，通过vimium，你将告别鼠标和触摸板，开始各种神操作。</p><h2 id="Vimium-Summary-Picture"><a href="#Vimium-Summary-Picture" class="headerlink" title="Vimium Summary Picture"></a>Vimium Summary Picture</h2><p><img src="/img/vimium.png" alt="Vimium Summary"></p><h2 id="Vimium-Summary"><a href="#Vimium-Summary" class="headerlink" title="Vimium Summary"></a>Vimium Summary</h2><p>同vim使用比较相似，常用的vimium操作有</p><ul><li><code>j</code> 向下翻， <code>d</code>向下翻页</li><li><code>k</code> 向上翻， <code>u</code>向上翻页</li><li><code>h</code> 向左翻， <code>l</code> 向右翻</li><li><code>x</code> 关闭当前页面， <code>X</code>回复关闭页面</li><li><code>t</code> 新建网页标签</li><li><code>yy</code> 粘贴当前网页链接</li><li><code>gg</code> 到网页顶端，<code>G</code>到网页底端</li><li><code>T</code> 查看当前浏览器所有网页</li><li><code>o</code> 打开浏览历史、标签；<code>O</code> 在新的标签页中打开</li><li><code>r</code> 重新加载标签页</li><li><code>f</code> 打开当前网页中的链接</li><li><code>/</code> 进入搜索模式， <code>n</code> 向下搜， <code>N</code>往回搜</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      Vimium 是chrome浏览器中的一款非常好用的插件，通过vimium，你将告别鼠标和触摸板，开始各种神操作
-    
-    </summary>
-    
-      <category term="vimium" scheme="http://frankchu0229.github.io/categories/vimium/"/>
-    
-    
-      <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
-    
-      <category term="vim" scheme="http://frankchu0229.github.io/tags/vim/"/>
-    
-      <category term="tools" scheme="http://frankchu0229.github.io/tags/tools/"/>
-    
-      <category term="chrome" scheme="http://frankchu0229.github.io/tags/chrome/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TF Symposium 1.4.0 Summary</title>
-    <link href="http://frankchu0229.github.io/2017/10/25/tf_symposium/"/>
-    <id>http://frankchu0229.github.io/2017/10/25/tf_symposium/</id>
-    <published>2017-10-25T08:15:23.000Z</published>
-    <updated>2017-10-30T12:28:58.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="TF-Symposium-Summary"><a href="#TF-Symposium-Summary" class="headerlink" title="TF Symposium Summary"></a>TF Symposium Summary</h1><h2 id="L2L-with-进化算法-by-YiFei-Feng"><a href="#L2L-with-进化算法-by-YiFei-Feng" class="headerlink" title="L2L with 进化算法 by YiFei Feng"></a>L2L with 进化算法 by YiFei Feng</h2><ul><li>循环网络： 控制器； </li><li>evolution algo： 淘汰 -&gt; 变异</li><li>用简单的模型初始化</li><li>重复进化步骤</li></ul><h2 id="TF-与-生物学"><a href="#TF-与-生物学" class="headerlink" title="TF 与 生物学"></a>TF 与 生物学</h2><ul><li>生物大数据</li><li>机器学习问题： regression，classification</li><li>Deep Variant: inception-v3,将在第四季或明年开源</li></ul><h2 id="TF-性能-by-Frank-Chen"><a href="#TF-性能-by-Frank-Chen" class="headerlink" title="TF 性能 by Frank Chen"></a>TF 性能 by Frank Chen</h2><ul><li>出现性能问题： 了解问题， 用分析器：</li><li>Timeline TF自带分析器, 用chrome打开profile文件， 查看瓶颈</li><li>复制内存：复制越多， tf运算图越慢</li><li>如何改进： 1. 优化输入管道， 使用流水线； 2. 优化模型计算， 使用fuzed batch-norm, 使得在GPU上更快；3. 数据格式， CPU，GPU数据格式； 4. 运算图， matcol； 5. 单GPU变量：变量放到一个GPU即可； 单机多GPU， 可以尝试使用GPU来作为变量ser ver；变量过大或者过多， 多GPU共享变量； 多机多GPU， 通过网络赋值内存，比单机慢；可以使用local CPU做cache； 高级分布式培训模式：在每一个GPU集群内部，使用一个GPU作为parameter server，在外部用cpu做cache。</li></ul><h2 id="TF-机器人应用-by-Pi-Chuan-Chang"><a href="#TF-机器人应用-by-Pi-Chuan-Chang" class="headerlink" title="TF 机器人应用 by Pi-Chuan Chang"></a>TF 机器人应用 by Pi-Chuan Chang</h2><ul><li>Challenges: safety, control, transfer</li><li>Minitaur: -&gt; robot platform</li><li>openAI Gym environemt interface -&gt; environment</li><li>agnet: 树莓派； 微控制器计算能力不足</li><li>ARChirecture: signal generator (sin() function -&gt; 周期性) + balanbce controller(Fully connected layers) -&gt; actions </li><li>transfer to real robot: system identification, env randomization</li></ul><h2 id="TF-高层API-by-Yifei-Feng"><a href="#TF-高层API-by-Yifei-Feng" class="headerlink" title="TF 高层API by Yifei Feng"></a>TF 高层API by Yifei Feng</h2><ul><li>Keras： 高层神经网络API， 默认使用tf作为后端</li><li>tf.keras: 自定义的tf后端，change: from keras -&gt; from tensorflow.keras</li><li><p>tf.layers and tf.keras.layers, 共享实现方式，基本上相同</p></li><li><p>Estimators: canned estimators, 实现好的模型</p></li><li>keras 模型 -&gt; model_to_estimator -&gt; estimator model</li></ul><h3 id="Distributed-TF"><a href="#Distributed-TF" class="headerlink" title="Distributed TF"></a>Distributed TF</h3><ul><li>tf的一个很大优势， dev summit 2017</li><li>estimators 可进行分布式执行</li><li>1.4 版本中找到</li></ul><h3 id="Advice"><a href="#Advice" class="headerlink" title="Advice"></a>Advice</h3><ul><li>使用可以使用的最高层的API</li><li>用tf.layers and tf.keras 编写自定义模型</li><li>分布式训练 Estimators， 大部分情况下最好的选择</li></ul><h3 id="TF-Serving"><a href="#TF-Serving" class="headerlink" title="TF Serving"></a>TF Serving</h3><ul><li>github.com/tensorflow/serving</li><li>c++ libraries ： tf模型保存/输出格式； 通用核心模式</li><li>tf serving binariesL开箱急用的最佳实践， Docker容器， K8s教程</li></ul><h3 id="get-it"><a href="#get-it" class="headerlink" title="get it"></a>get it</h3><ul><li>pip apt-get 安装</li><li>www.tf.org/serving</li></ul><h2 id="TF-Lite（On-Smart-Devices）"><a href="#TF-Lite（On-Smart-Devices）" class="headerlink" title="TF Lite（On Smart Devices）"></a>TF Lite（On Smart Devices）</h2><ul><li>offline running on small devices</li><li>low-bandwidth, latency, power</li><li>Chanllenges: bandwith memory computation cpus</li><li>Tf works well on large services, tf-lite works on small devices</li><li>small binary size, low-overhead, optimized set of kernels</li><li>four parts: intepreter (optimized for all devices: few dependencies, small library less than 300k, fast load time, static memory plan, but no control flow), OPs/ kernels (NEON on ARM, Float &amp; quantized, many kernels for mobile apps), model file format (flatbuffers) mmap, more efficient than protocol buffer ; Hardware Acceleration (e.g., Android: Neural Network API; IOS: Core ML); Neural Network API: Part of Android Framework, tries to use as much hardware as possible. </li></ul><h3 id="Release"><a href="#Release" class="headerlink" title="Release"></a>Release</h3><ul><li>Developer preview: C++ and JAVA API</li><li>TOCO Converter</li><li>A set of builtin ops</li><li>Demo applications</li><li>Example models</li><li>MobileNet(Float)</li></ul><h2 id="Teaching-Machines-to-Draw"><a href="#Teaching-Machines-to-Draw" class="headerlink" title="Teaching Machines to Draw"></a>Teaching Machines to Draw</h2><ul><li>sketch-RNN: K encoder -&gt; Z (Latent Space Vectors)-&gt; Decoder </li></ul><hr>]]></content>
-    
-    <summary type="html">
-    
-      TF Symposium Summary
-    
-    </summary>
-    
-      <category term="tensorflow" scheme="http://frankchu0229.github.io/categories/tensorflow/"/>
-    
-      <category term="notes" scheme="http://frankchu0229.github.io/categories/tensorflow/notes/"/>
-    
-    
-      <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
-    
-      <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
-    
-      <category term="tensorflow" scheme="http://frankchu0229.github.io/tags/tensorflow/"/>
     
   </entry>
   

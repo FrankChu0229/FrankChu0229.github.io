@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://frankchu0229.github.io/2018/06/06/scipy-summary/</loc>
+    
+    <lastmod>2018-06-07T12:06:57.952Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu0229.github.io/2018/06/06/numpy-summary/</loc>
+    
+    <lastmod>2018-06-07T12:06:04.343Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu0229.github.io/2018/06/06/keras-summary/</loc>
+    
+    <lastmod>2018-06-07T12:06:03.204Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu0229.github.io/2016/03/19/ML1/</loc>
+    
+    <lastmod>2018-06-07T12:03:23.204Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu0229.github.io/2018/05/21/jupyter-notes/</loc>
+    
+    <lastmod>2018-06-07T08:01:10.138Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://frankchu0229.github.io/2018/06/04/docker-summary/</loc>
     
     <lastmod>2018-06-04T13:18:15.956Z</lastmod>
@@ -47,20 +82,6 @@
     <loc>http://frankchu0229.github.io/2017/12/18/NoSQL/</loc>
     
     <lastmod>2018-05-28T02:25:32.997Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://frankchu0229.github.io/2016/03/19/ML1/</loc>
-    
-    <lastmod>2018-05-27T14:17:40.055Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://frankchu0229.github.io/2018/05/21/jupyter-notes/</loc>
-    
-    <lastmod>2018-05-23T05:31:01.139Z</lastmod>
     
   </url>
   
@@ -296,14 +317,14 @@
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/tags/index.html</loc>
+    <loc>http://frankchu0229.github.io/categories/index.html</loc>
     
     <lastmod>2017-10-30T01:57:40.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/categories/index.html</loc>
+    <loc>http://frankchu0229.github.io/tags/index.html</loc>
     
     <lastmod>2017-10-30T01:57:40.000Z</lastmod>
     

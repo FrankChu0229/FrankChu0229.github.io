@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Scipy Summary]]></title>
+    <url>%2F2018%2F06%2F06%2Fscipy-summary%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>dl</tag>
+        <tag>scipy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Numpy Summary]]></title>
+    <url>%2F2018%2F06%2F06%2Fnumpy-summary%2F</url>
+    <content type="text"><![CDATA[Numpy Fields and Basic OperationsNumpy basic fields: ndim, size and shape. 12345678910111213141516171819202122232425262728293031323334353637## Numpy basics: fields and matrix operation.import numpy as nparray = np.array([[1,2,3], [4,5,6], [7,8,9]])a = np.array([1,2,3])print(a.ndim)print(array)print(array[0][2])print(&apos;dim is&apos;, array.ndim)print(&apos;shape is&apos;, array.shape)print(&apos;size is&apos;, array.size)## dtype dtype_array = np.array([1,2,3])print(dtype_array.dtype)dtype_array1 = np.array([1,2,3,4,5], dtype=np.float)print(dtype_array1.dtype)## matrix operationmatrix_a = np.array([[1,2,3], [4,5,6]])print(matrix_a)matrix_zeros = np.zeros((2,3))print(matrix_zeros)matrix_ones = np.ones((2,3), dtype=int)print(matrix_ones)matrix_empty = np.empty((2,3)) ## create values that are close to zero.print(matrix_empty)matrix_arange = np.arange(1,50,2)print(matrix_arange)matrix_reshape = matrix_arange.reshape((5,5))print(matrix_reshape)## linspace: to create 20 elememts between 1 and 10 matrix_linspace = np.linspace(1,10,20)print(matrix_linspace) Numpy Array Computation123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354import numpy as np## numpy calculation:matrix_a = np.array([[1,2,3], [4,5,6], [7,8,9]])matrix_b = np.arange(10, 19).reshape((3,3))print(matrix_a)print(matrix_b)print(matrix_a + matrix_b)print(matrix_a - matrix_b)print(matrix_a * matrix_b) ## point-wise multiply.print(&quot;a*b for matrix multiply calculation is:&quot;, np.dot(matrix_a, matrix_b)) ## normal matrix multiplyprint(&quot;a*b for matrix multiply calculation is:&quot;, matrix_a.dot(matrix_b)) ## normal matrix multiplyprint(np.sin(matrix_a))print(matrix_b &lt; 15)print(matrix_b**2)matrix_random = np.random.random((3,4))print(matrix_random)## Operation over the whole matrix.print(np.sum(matrix_random))print(np.min(matrix_random))print(np.max(matrix_random))## Operation over the single row or column， 0 for column, 1 for row.print(&apos;row operation results:&apos;, np.max(matrix_random, axis=0))print(&apos;column operation results:&apos;, np.max(matrix_random, axis=1))## numpy mateix operation 2import numpy as npmatrix = np.arange(12, 0, -1).reshape((3,4))print(matrix)print(matrix.argmax())print(matrix.argmin())print(np.argmax(matrix))print(matrix.mean())print(matrix.cumsum()) ## cumulutive sumprint(np.diff(matrix)) ## 后一项减去前一项print(np.nonzero(matrix))print(matrix)print(np.sort(matrix, axis=0))print(np.sort(matrix, axis=1))print(matrix.T)print(np.transpose(matrix))print(np.clip(matrix, 5,9)) Numpy 索引12345678910111213141516171819202122## numpy 索引import numpy as npmatrix = np.arange(12).reshape((3,4))print(matrix)print(matrix[0][1])print(matrix[0,1])print(matrix[0][1:3])print(matrix[0, 1:3])for row in matrix: print(row) for column in matrix.T: print(column)print(matrix.flatten()) ## listprint(list(matrix.flat)) ## 迭代器 Numpy Array 合并 &amp;&amp; 分割1234567891011121314151617181920212223242526272829303132333435363738394041## Numpy array 合并a = np.array([[1,2,3],[4,5,6]])b = np.array([[4,5,6],[1,2,3]])c = np.vstack((a,b))print(c)d = np.hstack((a, b))print(d)tmp = np.array([1,2,3])print(tmp.shape)print(tmp[:, np.newaxis].shape)print(tmp[np.newaxis, :].shape)print(np.hstack((a,b)))print(np.concatenate((a, b), axis=1))print(np.vstack((a,b)))print(np.concatenate((a,b), axis=0))## numpy array 分割## 等分分割print(c)c_split = np.split(c, 2, axis=0)print(np.vsplit(c, 2))print(c_split)print(d)d_split = np.split(d, 2, axis=1)print(np.hsplit(d, 2))print(d_split)## 不等分分割not_split = np.array_split(c, 3, axis=0)print(not_split) Numpy Copy and Deep Copy1234567891011121314151617## numpy copy and deep copya = np.array([[1,2,3]])print(a)b = aprint(b is a)a[0][1] = 5print(a)print(b)## deep copyc = a.copy()print(a)print(c)a[0][1] = 8print(a)print(c) Reference reference-mofan-numpy-tutorial]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>dl</tag>
+        <tag>numpy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Keras Summary]]></title>
+    <url>%2F2018%2F06%2F06%2Fkeras-summary%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>keras</tag>
+        <tag>dl</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Docker Summary]]></title>
     <url>%2F2018%2F06%2F04%2Fdocker-summary%2F</url>
     <content type="text"><![CDATA[Docker build image and push to remote registry To add Dockerfile run docker build -t image_name . to build image run docker image ls to list all images run docker login docker.XXX.com to login the docker registry run docker tag image_name username/repository:tag to tag the image run docker push username/repository:tag to push the image to the remote repository. Reference Docker Tutorial]]></content>
@@ -8,8 +47,8 @@
         <category>docker</category>
       </categories>
       <tags>
-        <tag>tools</tag>
         <tag>docker</tag>
+        <tag>tools</tag>
       </tags>
   </entry>
   <entry>
@@ -88,7 +127,7 @@
   <entry>
     <title><![CDATA[Jupyter Notebook Summary]]></title>
     <url>%2F2018%2F05%2F21%2Fjupyter-notes%2F</url>
-    <content type="text"><![CDATA[Jupyter Install use conda install jupyter use pip install jupyter Use Jupyter On Gpu Server First, start jupyter-notebook on GPU Then, use ssh myserver -L 8888:localhost:8888 to link local port 8888 to gpu server port 8888 Use Conda Virtual Environment On Jupyter install plugins on conda conda install nb_conda Jupyter Shortcut Keys:Command Mode press esc to enter command mode x cut cell c copy cell v copy cell to the downside Shift + v copy cell to the upside a create cell to the downside b create cell to the upside dd delete cell ctrl + s save jupyter file shift + m merge cell m change cell to markdown y change cell to code Edit Mode press enter to enter edit mode tab auto-completition shift + tab show instructions ctrl + enter run current cell shift + enter run current cell and go to next cell alt + enter run current cell and insert a new cell below Use Jupyter Extensions, e.g., vim First install IPython-notebook-extensions by 12$ pip install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master$ jupyter contrib nbextension install --user Install Vim Extensions: 12345# 在 ~/.local/share/jupyter/ 建立nbextensions資料夾$ mkdir -p $(jupyter --data-dir)/nbextensions# Clone the repo$ cd $(jupyter --data-dir)/nbextensions$ git clone https://github.com/lambdalisue/jupyter-vim-binding Reference reference link Vim Extensions Shortcut Reference]]></content>
+    <content type="text"><![CDATA[Jupyter Install use conda install jupyter use pip install jupyter Use Jupyter On Gpu Server First, start jupyter-notebook on GPU Then, use ssh myserver -L 8888:localhost:8888 to link local port 8888 to gpu server port 8888 Use Conda Virtual Environment On Jupyter install plugins on conda conda install nb_conda Every time you switch to a new environment, you need to run conda install nb_conda to enable the environment choice in jupyter notebook. Jupyter Shortcut Keys:Command Mode press esc to enter command mode x cut cell c copy cell v copy cell to the downside Shift + v copy cell to the upside a create cell to the downside b create cell to the upside dd delete cell ctrl + s save jupyter file shift + m merge cell m change cell to markdown y change cell to code Edit Mode press enter to enter edit mode tab auto-completition shift + tab show instructions ctrl + enter run current cell shift + enter run current cell and go to next cell alt + enter run current cell and insert a new cell below Use Jupyter Extensions, e.g., vim First install IPython-notebook-extensions by 12$ pip install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master$ jupyter contrib nbextension install --user Install Vim Extensions: 12345# 在 ~/.local/share/jupyter/ 建立nbextensions資料夾$ mkdir -p $(jupyter --data-dir)/nbextensions# Clone the repo$ cd $(jupyter --data-dir)/nbextensions$ git clone https://github.com/lambdalisue/jupyter-vim-binding Reference reference link Vim Extensions Shortcut Reference]]></content>
       <categories>
         <category>python</category>
         <category>tools</category>
@@ -221,8 +260,8 @@
       </categories>
       <tags>
         <tag>notes</tag>
-        <tag>vim</tag>
         <tag>tools</tag>
+        <tag>vim</tag>
         <tag>chrome</tag>
       </tags>
   </entry>
