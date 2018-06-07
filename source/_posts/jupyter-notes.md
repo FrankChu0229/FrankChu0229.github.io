@@ -19,6 +19,7 @@ description: Jupyter notebook 使用总结.
 ## Use Conda Virtual Environment On Jupyter
 
 - install plugins on conda `conda install nb_conda`
+- Every time you switch to a new environment, you need to run `conda install nb_conda` to enable the environment choice in jupyter notebook.
 
 
 ## Jupyter Shortcut Keys:
