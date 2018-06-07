@@ -5,6 +5,8 @@ categories: Machine Learning
 description: Numpy Summary.
 ---
 
+Numpy 是一个高性能的多维数组计算库，常被用在科学计算中。
+
 ## Numpy Fields and Basic Operations
 
 Numpy basic fields: `ndim`, `size` and `shape`.
