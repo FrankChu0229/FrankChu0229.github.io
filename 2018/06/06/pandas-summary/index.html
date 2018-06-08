@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Frank Chu">
 <meta property="og:description" content="Pandas Summary.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-08T13:34:34.336Z">
+<meta property="og:updated_time" content="2018-06-08T13:41:20.881Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pandas Summary">
 <meta name="twitter:description" content="Pandas Summary.">
@@ -425,7 +425,9 @@
 <h2 id="Pandas-Concat"><a href="#Pandas-Concat" class="headerlink" title="Pandas Concat"></a>Pandas Concat</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">import pandas as pd</div><div class="line">import numpy as np</div><div class="line"></div><div class="line">df1 = pd.DataFrame(np.ones((3,4))*0, columns=[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;])</div><div class="line">df2 = pd.DataFrame(np.ones((3,4))*1, columns=[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;])</div><div class="line">df3 = pd.DataFrame(np.ones((3,4))*2, columns=[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;])</div><div class="line"></div><div class="line">print(pd.concat([df1, df2, df3], axis=0)) # 0 在row上concat</div><div class="line">print(pd.concat([df1, df2, df3], axis=1)) # 1 在column上concat</div><div class="line">print(pd.concat([df1, df2, df3], axis=0, ignore_index=True)) # ignore index: reindex</div><div class="line"></div><div class="line">df4 = pd.DataFrame(np.ones((3,4))*2, columns=[ &apos;b&apos;, &apos;c&apos;, &apos;d&apos;, &apos;e&apos;])</div><div class="line"></div><div class="line">print(pd.concat([df1, df4], axis=0, join=&apos;outer&apos;))</div><div class="line">print(pd.concat([df1, df4], axis=0, join=&apos;inner&apos;))</div><div class="line"></div><div class="line">df5 = pd.DataFrame(np.ones((3,4))*2, columns=[ &apos;b&apos;, &apos;c&apos;, &apos;d&apos;, &apos;e&apos;], index=[2,3,4])</div><div class="line"></div><div class="line">print(pd.concat([df1, df5], axis=1))</div><div class="line"></div><div class="line">print(pd.concat([df1, df5], axis=1, join_axes=[df1.index]))</div><div class="line">print(pd.concat([df1, df5], axis=1, join_axes=[df5.index]))</div><div class="line"></div><div class="line">## append 只能在行级别增加，即纵向增加</div><div class="line"></div><div class="line">print(df1.append(df2))</div><div class="line">print(df1.append([df2, df3]))</div><div class="line">print(df1.append([df2, df3], ignore_index=True))</div></pre></td></tr></table></figure>
 <h2 id="pandas-merge-合并有相同column的pandas-dataframe等"><a href="#pandas-merge-合并有相同column的pandas-dataframe等" class="headerlink" title="pandas merge: 合并有相同column的pandas dataframe等"></a>pandas merge: 合并有相同column的pandas dataframe等</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">import pandas as pd</div><div class="line">import numpy as np</div><div class="line"></div><div class="line">a = pd.DataFrame(&#123;</div><div class="line">    &apos;a&apos;: [&apos;a0&apos;, &apos;a1&apos;, &apos;a2&apos;],</div><div class="line">    &apos;b&apos;: [&apos;b0&apos;, &apos;b1&apos;, &apos;b2&apos;]</div><div class="line">&#125;)</div><div class="line"></div><div class="line"></div><div class="line">b = pd.DataFrame(&#123;</div><div class="line">    &apos;b&apos; : [&apos;b0&apos;, &apos;b1&apos;, &apos;b3&apos;]</div><div class="line">&#125;)</div><div class="line"></div><div class="line">print(pd.merge(a, b, on=&apos;b&apos;))</div><div class="line">print(pd.merge(a, b, on=&apos;b&apos;, how=&apos;outer&apos;))</div></pre></td></tr></table></figure>
 <h2 id="Pandas-Plot"><a href="#Pandas-Plot" class="headerlink" title="Pandas Plot"></a>Pandas Plot</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">%matplotlib inline</div><div class="line"></div><div class="line">import pandas as pd</div><div class="line">import numpy as np</div><div class="line">import matplotlib.pyplot as plt</div><div class="line"></div><div class="line"></div><div class="line">series = pd.Series(np.random.randn(1000))</div><div class="line">print(series)</div><div class="line">print(series.cumsum())</div><div class="line">series.plot()</div><div class="line">plt.show()</div><div class="line"></div><div class="line">df = pd.DataFrame(np.random.randn(1000,4), columns=[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;])</div><div class="line">df.plot()</div><div class="line">plt.show()</div></pre></td></tr></table></figure>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>-<a href="https://morvanzhou.github.io/tutorials/data-manipulation/np-pd/" target="_blank" rel="external">mofan-python-pandas-tutorial</a></p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://morvanzhou.github.io/tutorials/data-manipulation/np-pd/" target="_blank" rel="external">mofan-python-pandas-tutorial</a></li>
+</ul>
 
       
     </div>
@@ -586,7 +588,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -597,7 +599,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-count">68</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
