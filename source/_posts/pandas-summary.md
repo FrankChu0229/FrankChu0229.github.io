@@ -214,4 +214,4 @@ plt.show()
 
 ## Reference
 
--[mofan-python-pandas-tutorial](https://morvanzhou.github.io/tutorials/data-manipulation/np-pd/)
+-  [mofan-python-pandas-tutorial](https://morvanzhou.github.io/tutorials/data-manipulation/np-pd/)
