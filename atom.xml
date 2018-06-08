@@ -41,16 +41,26 @@
   </entry>
   
   <entry>
-    <title>beautifulsoup-summary</title>
+    <title>Bbeautiful Soup Summary</title>
     <link href="http://frankchu0229.github.io/2018/06/08/beautifulsoup-summary/"/>
     <id>http://frankchu0229.github.io/2018/06/08/beautifulsoup-summary/</id>
     <published>2018-06-08T06:52:12.000Z</published>
-    <updated>2018-06-08T06:52:12.960Z</updated>
+    <updated>2018-06-08T13:54:01.647Z</updated>
     
     <summary type="html">
     
+      Beautiful Soup Summary.
+    
     </summary>
     
+      <category term="spider" scheme="http://frankchu0229.github.io/categories/spider/"/>
+    
+    
+      <category term="python" scheme="http://frankchu0229.github.io/tags/python/"/>
+    
+      <category term="spider" scheme="http://frankchu0229.github.io/tags/spider/"/>
+    
+      <category term="beautiful-soup" scheme="http://frankchu0229.github.io/tags/beautiful-soup/"/>
     
   </entry>
   

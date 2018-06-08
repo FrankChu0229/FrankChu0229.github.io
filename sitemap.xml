@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://frankchu0229.github.io/2018/06/08/beautifulsoup-summary/</loc>
+    
+    <lastmod>2018-06-08T13:54:01.647Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://frankchu0229.github.io/2018/06/08/scrapy-summary/</loc>
     
     <lastmod>2018-06-08T13:42:03.776Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://frankchu0229.github.io/2018/06/06/pandas-summary/</loc>
     
     <lastmod>2018-06-08T13:41:20.881Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://frankchu0229.github.io/2018/06/08/beautifulsoup-summary/</loc>
-    
-    <lastmod>2018-06-08T06:52:12.960Z</lastmod>
     
   </url>
   

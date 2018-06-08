@@ -14,9 +14,17 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[beautifulsoup-summary]]></title>
+    <title><![CDATA[Bbeautiful Soup Summary]]></title>
     <url>%2F2018%2F06%2F08%2Fbeautifulsoup-summary%2F</url>
     <content type="text"></content>
+      <categories>
+        <category>spider</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>spider</tag>
+        <tag>beautiful-soup</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Pandas Summary]]></title>
