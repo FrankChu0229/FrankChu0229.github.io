@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://frankchu0229.github.io/"/>
-  <updated>2018-06-07T12:06:57.952Z</updated>
+  <updated>2018-06-08T06:52:20.904Z</updated>
   <id>http://frankchu0229.github.io/</id>
   
   <author>
@@ -17,15 +17,45 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Scipy Summary</title>
-    <link href="http://frankchu0229.github.io/2018/06/06/scipy-summary/"/>
-    <id>http://frankchu0229.github.io/2018/06/06/scipy-summary/</id>
-    <published>2018-06-06T09:42:45.000Z</published>
-    <updated>2018-06-07T12:06:57.952Z</updated>
+    <title>scrapy-summary</title>
+    <link href="http://frankchu0229.github.io/2018/06/08/scrapy-summary/"/>
+    <id>http://frankchu0229.github.io/2018/06/08/scrapy-summary/</id>
+    <published>2018-06-08T06:52:20.000Z</published>
+    <updated>2018-06-08T06:52:20.904Z</updated>
     
     <summary type="html">
     
-      Scipy Summary.
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>beautifulsoup-summary</title>
+    <link href="http://frankchu0229.github.io/2018/06/08/beautifulsoup-summary/"/>
+    <id>http://frankchu0229.github.io/2018/06/08/beautifulsoup-summary/</id>
+    <published>2018-06-08T06:52:12.000Z</published>
+    <updated>2018-06-08T06:52:12.960Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Pandas Summary</title>
+    <link href="http://frankchu0229.github.io/2018/06/06/pandas-summary/"/>
+    <id>http://frankchu0229.github.io/2018/06/06/pandas-summary/</id>
+    <published>2018-06-06T09:42:45.000Z</published>
+    <updated>2018-06-08T13:34:34.336Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Pandas-Demo"><a href="#Pandas-Demo" class="headerlink" title="Pandas Demo"></a>Pandas Demo</h2><p>Pandas 是基于numpy构建的，如果用python中的list和dict来做比较，numpy可以看作是list， pandas为dict。</p><h2 id="Pandas-Basic"><a href="#Pandas-Basic" class="headerlink" title="Pandas Basic"></a>Pandas Basic</h2><h3 id="Series-and-DataFrame"><a href="#Series-and-DataFrame" class="headerlink" title="Series and DataFrame"></a>Series and DataFrame</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">import pandas as pd</div><div class="line">import numpy as np</div><div class="line"></div><div class="line">series = pd.Series([0,1,2,3,4,np.nan], index=[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;, &apos;e&apos;, &apos;f&apos;])</div><div class="line">print(s)</div><div class="line">print(s[0])</div><div class="line"></div><div class="line">dates = pd.date_range(&apos;20180101&apos;, periods=6)</div><div class="line">print(dates)</div><div class="line">data_frame = pd.DataFrame(np.random.randn(6,4), index=dates, columns=[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;])</div><div class="line">print(data_frame)</div><div class="line">print(data_frame[&apos;b&apos;])</div><div class="line"></div><div class="line">df = pd.DataFrame(np.random.random((6,4)))</div><div class="line">print(df)</div><div class="line">print(df.dtypes)</div><div class="line"></div><div class="line"></div><div class="line">df1 = pd.DataFrame(</div><div class="line">    &#123;</div><div class="line">        &apos;a&apos;: 1.,</div><div class="line">        &apos;b&apos;: pd.Categorical([&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;]),</div><div class="line">        &apos;c&apos;: pd.Series(1, index=list(range(4))),</div><div class="line">        &apos;d&apos;: pd.Timestamp(&apos;20180101&apos;),</div><div class="line">        &apos;e&apos;: np.array([4]*4)</div><div class="line"></div><div class="line">    &#125;</div><div class="line">)</div><div class="line">print(df1)</div><div class="line">print(df1.index)</div><div class="line">print(df1.columns)</div><div class="line">print(df1.values)</div><div class="line">print(df1.transpose)</div><div class="line"></div><div class="line">print(df1.sort_index(axis=1, ascending=False))</div><div class="line">print(df1.sort_values(by=&apos;b&apos;))</div></pre></td></tr></table></figure><h2 id="pandas-choose-data"><a href="#pandas-choose-data" class="headerlink" title="pandas choose data:"></a>pandas choose data:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">import pandas as pd</div><div class="line">import numpy as np</div><div class="line"></div><div class="line">dates = pd.date_range(&apos;20180101&apos;, periods=6)</div><div class="line">df = pd.DataFrame(np.random.random((6,4)), index=dates, columns=[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;])</div><div class="line">print(df)</div><div class="line"></div><div class="line">## 多行多列</div><div class="line">print(df[&apos;a&apos;])</div><div class="line">print(df.a)</div><div class="line"></div><div class="line">print(df[0:2])</div><div class="line">print(df[&apos;2018-01-02&apos;: &apos;2018-01-03&apos;])</div><div class="line"></div><div class="line">## 使用loc iloc 和ix</div><div class="line">## loc use index name</div><div class="line">print(&apos;df loc values&apos;, df.loc[&apos;2018-01-02&apos;])</div><div class="line">print(&apos;df loc values&apos;, df.loc[&apos;2018-01-02&apos;, &apos;a&apos;])</div><div class="line">print(&apos;df loc values&apos;, df.loc[:,[&apos;a&apos;,&apos;b&apos;]])</div><div class="line"></div><div class="line">## iloc use index:0,1,2,3</div><div class="line">print(&apos;df iloc values&apos;, df.iloc[0,1])</div><div class="line">print(&apos;df iloc values&apos;, df.iloc[0])</div><div class="line">print(&apos;df iloc values&apos;, df.iloc[0, 1:3])</div><div class="line">print(&apos;df iloc values&apos;, df.iloc[0:2, 1])</div><div class="line">print(&apos;df iloc values&apos;, df.iloc[0:2, 1:3])</div><div class="line">print(&apos;df iloc values&apos;, df.iloc[[1,2,3], 1:3])</div><div class="line"></div><div class="line">print(&apos;df ix values:&apos;, df.ix[0:1, [&apos;a&apos;, &apos;d&apos;]])</div><div class="line"></div><div class="line">print(&apos;df comparision values are:&apos;, df[df.a &gt; df.b])</div></pre></td></tr></table></figure><h2 id="pandas-set-value"><a href="#pandas-set-value" class="headerlink" title="pandas set value"></a>pandas set value</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">import pandas as pd</div><div class="line">import numpy as np</div><div class="line"></div><div class="line">dates = pd.date_range(&apos;20180101&apos;, periods=6)</div><div class="line">df = pd.DataFrame(np.random.random((6,4)), index=dates, columns=[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;])</div><div class="line"></div><div class="line">## 行列 loc iloc and</div><div class="line">print(df)</div><div class="line">df[&apos;a&apos;] = 0</div><div class="line">print(df)</div><div class="line"></div><div class="line">df.b = 0</div><div class="line">print(df)</div><div class="line"></div><div class="line">## 有: 时 才是对行操作</div><div class="line">df[&apos;2018-01-01&apos;: &apos;2018-01-02&apos;] = np.nan</div><div class="line">print(df)</div><div class="line"></div><div class="line">df.iloc[0,1] = np.nan</div><div class="line">print(df)</div><div class="line"></div><div class="line">df[&apos;e&apos;] = np.nan</div><div class="line">print(df)</div><div class="line"></div><div class="line">df.b[df.b &gt; -0.2] = 88</div><div class="line">print(df)</div><div class="line"></div><div class="line">## pandas nan process</div><div class="line">print(df.dropna(axis=0, how=&apos;any&apos;)) ## axis=0 row, axis = 1 column</div><div class="line">print(df.fillna(value=0))</div><div class="line">print(df.isnull())</div></pre></td></tr></table></figure><h2 id="pandas-read-and-write-file"><a href="#pandas-read-and-write-file" class="headerlink" title="pandas read and write file:"></a>pandas read and write file:</h2><p>pandas can read and write csv, json, excel, html, pickle etc.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">import pandas as pd</div><div class="line"></div><div class="line">pd.read_csv(&apos;student.csv&apos;)</div><div class="line">pd.read_excel(&apos;a.excel&apos;)</div><div class="line"></div><div class="line">##</div><div class="line">pd.to_pickle(&apos;student.pickle&apos;)</div></pre></td></tr></table></figure></p><h2 id="Pandas-Concat"><a href="#Pandas-Concat" class="headerlink" title="Pandas Concat"></a>Pandas Concat</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">import pandas as pd</div><div class="line">import numpy as np</div><div class="line"></div><div class="line">df1 = pd.DataFrame(np.ones((3,4))*0, columns=[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;])</div><div class="line">df2 = pd.DataFrame(np.ones((3,4))*1, columns=[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;])</div><div class="line">df3 = pd.DataFrame(np.ones((3,4))*2, columns=[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;])</div><div class="line"></div><div class="line">print(pd.concat([df1, df2, df3], axis=0)) # 0 在row上concat</div><div class="line">print(pd.concat([df1, df2, df3], axis=1)) # 1 在column上concat</div><div class="line">print(pd.concat([df1, df2, df3], axis=0, ignore_index=True)) # ignore index: reindex</div><div class="line"></div><div class="line">df4 = pd.DataFrame(np.ones((3,4))*2, columns=[ &apos;b&apos;, &apos;c&apos;, &apos;d&apos;, &apos;e&apos;])</div><div class="line"></div><div class="line">print(pd.concat([df1, df4], axis=0, join=&apos;outer&apos;))</div><div class="line">print(pd.concat([df1, df4], axis=0, join=&apos;inner&apos;))</div><div class="line"></div><div class="line">df5 = pd.DataFrame(np.ones((3,4))*2, columns=[ &apos;b&apos;, &apos;c&apos;, &apos;d&apos;, &apos;e&apos;], index=[2,3,4])</div><div class="line"></div><div class="line">print(pd.concat([df1, df5], axis=1))</div><div class="line"></div><div class="line">print(pd.concat([df1, df5], axis=1, join_axes=[df1.index]))</div><div class="line">print(pd.concat([df1, df5], axis=1, join_axes=[df5.index]))</div><div class="line"></div><div class="line">## append 只能在行级别增加，即纵向增加</div><div class="line"></div><div class="line">print(df1.append(df2))</div><div class="line">print(df1.append([df2, df3]))</div><div class="line">print(df1.append([df2, df3], ignore_index=True))</div></pre></td></tr></table></figure><h2 id="pandas-merge-合并有相同column的pandas-dataframe等"><a href="#pandas-merge-合并有相同column的pandas-dataframe等" class="headerlink" title="pandas merge: 合并有相同column的pandas dataframe等"></a>pandas merge: 合并有相同column的pandas dataframe等</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">import pandas as pd</div><div class="line">import numpy as np</div><div class="line"></div><div class="line">a = pd.DataFrame(&#123;</div><div class="line">    &apos;a&apos;: [&apos;a0&apos;, &apos;a1&apos;, &apos;a2&apos;],</div><div class="line">    &apos;b&apos;: [&apos;b0&apos;, &apos;b1&apos;, &apos;b2&apos;]</div><div class="line">&#125;)</div><div class="line"></div><div class="line"></div><div class="line">b = pd.DataFrame(&#123;</div><div class="line">    &apos;b&apos; : [&apos;b0&apos;, &apos;b1&apos;, &apos;b3&apos;]</div><div class="line">&#125;)</div><div class="line"></div><div class="line">print(pd.merge(a, b, on=&apos;b&apos;))</div><div class="line">print(pd.merge(a, b, on=&apos;b&apos;, how=&apos;outer&apos;))</div></pre></td></tr></table></figure><h2 id="Pandas-Plot"><a href="#Pandas-Plot" class="headerlink" title="Pandas Plot"></a>Pandas Plot</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">%matplotlib inline</div><div class="line"></div><div class="line">import pandas as pd</div><div class="line">import numpy as np</div><div class="line">import matplotlib.pyplot as plt</div><div class="line"></div><div class="line"></div><div class="line">series = pd.Series(np.random.randn(1000))</div><div class="line">print(series)</div><div class="line">print(series.cumsum())</div><div class="line">series.plot()</div><div class="line">plt.show()</div><div class="line"></div><div class="line">df = pd.DataFrame(np.random.randn(1000,4), columns=[&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;])</div><div class="line">df.plot()</div><div class="line">plt.show()</div></pre></td></tr></table></figure><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>-<a href="https://morvanzhou.github.io/tutorials/data-manipulation/np-pd/" target="_blank" rel="external">mofan-python-pandas-tutorial</a></p>]]></content>
+    
+    <summary type="html">
+    
+      Pandas Summary.
     
     </summary>
     
@@ -36,7 +66,7 @@
     
       <category term="dl" scheme="http://frankchu0229.github.io/tags/dl/"/>
     
-      <category term="scipy" scheme="http://frankchu0229.github.io/tags/scipy/"/>
+      <category term="pandas" scheme="http://frankchu0229.github.io/tags/pandas/"/>
     
   </entry>
   
@@ -447,60 +477,6 @@
       <category term="python" scheme="http://frankchu0229.github.io/tags/python/"/>
     
       <category term="coding style" scheme="http://frankchu0229.github.io/tags/coding-style/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Cuda Notes</title>
-    <link href="http://frankchu0229.github.io/2018/02/08/cuda-notes/"/>
-    <id>http://frankchu0229.github.io/2018/02/08/cuda-notes/</id>
-    <published>2018-02-08T07:32:14.000Z</published>
-    <updated>2018-02-11T08:23:48.294Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Nvidia-CUDA-9-1-Install"><a href="#Nvidia-CUDA-9-1-Install" class="headerlink" title="Nvidia CUDA 9.1 Install"></a>Nvidia CUDA 9.1 Install</h2><ul><li>download <strong>runfile</strong> from <a href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;target_distro=Ubuntu&amp;target_version=1604&amp;target_type=runfilelocal" target="_blank" rel="external">here</a></li><li>install according to the <a href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;target_distro=Ubuntu&amp;target_version=1604&amp;target_type=runfilelocal" target="_blank" rel="external">instructions</a></li><li>add the path, i.e. PATH and LD_LIBRARY_PATH, to your <code>~/.bashrc</code> like this:</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export PATH=$PATH:/usr/local/cuda-9.1/bin/</div><div class="line">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-9.1/lib64</div></pre></td></tr></table></figure><h2 id="NVCC-Usage"><a href="#NVCC-Usage" class="headerlink" title="NVCC Usage"></a>NVCC Usage</h2><ul><li>show version: <code>nvcc --version</code></li><li>show help: <code>nvcc --help</code></li></ul><h2 id="查看nvidia-gpu-使用情况"><a href="#查看nvidia-gpu-使用情况" class="headerlink" title="查看nvidia gpu 使用情况"></a>查看nvidia gpu 使用情况</h2><ul><li><code>nvidia-smi</code></li></ul><hr>]]></content>
-    
-    <summary type="html">
-    
-      CUDA Notes
-    
-    </summary>
-    
-      <category term="notes" scheme="http://frankchu0229.github.io/categories/notes/"/>
-    
-    
-      <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
-    
-      <category term="ubuntu" scheme="http://frankchu0229.github.io/tags/ubuntu/"/>
-    
-      <category term="cuda" scheme="http://frankchu0229.github.io/tags/cuda/"/>
-    
-      <category term="DL" scheme="http://frankchu0229.github.io/tags/DL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Mac Cassandra Notes</title>
-    <link href="http://frankchu0229.github.io/2018/01/04/cassandra-note/"/>
-    <id>http://frankchu0229.github.io/2018/01/04/cassandra-note/</id>
-    <published>2018-01-04T12:57:32.000Z</published>
-    <updated>2018-01-04T13:00:26.089Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Mac-cassandra-install"><a href="#Mac-cassandra-install" class="headerlink" title="Mac cassandra install"></a>Mac cassandra install</h2><p><a href="https://gist.github.com/hkhamm/a9a2b45dd749e5d3b3ae" target="_blank" rel="external">Install Instructions</a></p><h2 id="Mac-Cassandra-start-and-stop"><a href="#Mac-Cassandra-start-and-stop" class="headerlink" title="Mac Cassandra start and stop"></a>Mac Cassandra start and stop</h2><ul><li>start: <code>brew services start cassandra</code></li><li>stop: <code>brew services stop cassandra</code></li></ul><hr>]]></content>
-    
-    <summary type="html">
-    
-      Mac cassandra summary。
-    
-    </summary>
-    
-      <category term="notes" scheme="http://frankchu0229.github.io/categories/notes/"/>
-    
-    
-      <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
-    
-      <category term="cassandra" scheme="http://frankchu0229.github.io/tags/cassandra/"/>
-    
-      <category term="shell" scheme="http://frankchu0229.github.io/tags/shell/"/>
     
   </entry>
   
