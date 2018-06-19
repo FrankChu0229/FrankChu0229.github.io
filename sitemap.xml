@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://frankchu0229.github.io/2018/06/04/python-cookbook-str-text/</loc>
+    
+    <lastmod>2018-06-19T04:04:43.986Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://frankchu0229.github.io/2018/06/08/beautifulsoup-summary/</loc>
     
     <lastmod>2018-06-08T13:56:31.788Z</lastmod>
@@ -54,13 +61,6 @@
     <loc>http://frankchu0229.github.io/2018/06/04/docker-summary/</loc>
     
     <lastmod>2018-06-04T13:18:15.956Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://frankchu0229.github.io/2018/06/04/python-cookbook-str-text/</loc>
-    
-    <lastmod>2018-06-04T08:15:42.967Z</lastmod>
     
   </url>
   
