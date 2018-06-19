@@ -79,3 +79,80 @@ print(m.group(3))
 print(m.groups())
 
 ```
+
+## String 查找和替换
+
+str中的replace只能进行字面的查找替换，更复杂的可以使用re.sub(), re.sub()支持正则
+```
+import re
+text = 'yeah, but no, but yeah, but no, but yeah'
+print(text.replace('yeah', 'yep'))
+
+print(re.sub(r'y.*h', 'hello', text))
+
+text = 'Today is 11/27/2012. PyCon starts 3/13/2013.'
+pattern = re.compile(r'(\d+)/(\d+)/(\d+)')
+sub_text = pattern.sub(r'\3-\1-\2', text) ## subn 执行sub，同时返回替换次数n
+print(sub_text)
+
+## sub(pattern, repl, string), repl 可以是string和callable， 当是callable的时候，传入参数为match object，例如：
+from calendar import month_abbr
+def change_date(m):
+    mon_name = month_abbr[int(m.group(1))]
+    return '{} {} {}'.format(m.group(2), mon_name, m.group(3))
+
+pattern.sub(change_date, text)
+
+```
+
+## Re 匹配模式
+
+### 匹配时忽略大小写
+```
+text = 'UPPER PYTHON, lower python, Mixed Python'
+print(re.findall('python', text, flags=re.IGNORECASE))
+print(re.subn('python', 'snake', text, flags=re.IGNORECASE))
+
+def matchcase(word):
+    def replace(m):
+        text = m.group()
+        if text.isupper():
+            return word.upper()
+        elif text.islower():
+            return word.lower()
+        elif text[0].isupper():
+            return word.capitalize()
+        else:
+            return word
+    return replace
+
+print(re.subn('python', matchcase('snake'), text, flags=re.IGNORECASE))
+
+```
+
+### 最短匹配模式
+
+默认情况下，正则匹配都是最长匹配，通过修改* 为*?, 可以将贪婪模式改编成非贪婪模式，即最短匹配。
+```
+
+text = 'Computer says "no." Phone says "yes."'
+print(re.findall(r'".*"', text))
+print(re.findall(r'"(.*)"', text)) ## 捕获分组
+print(re.findall(r'"(?:.*)"', text)) ## 非捕获分组
+print(re.findall(r'"(.*?)"', text)) ## 最短匹配
+
+
+```
+
+### 多行匹配
+
+在正则表达式中， `.` 不能匹配包含"\n"的换行符，所以要想进行多行匹配，又以下两种方式：
+```
+text = 'hello\nhshsh'
+print(re.match(r'.*', text))
+print(re.match(r'(?:.|\n)*', text))
+
+pattern = re.compile('.*', re.DOTALL)
+print(pattern.match(text))
+
+```
