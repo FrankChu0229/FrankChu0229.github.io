@@ -147,6 +147,7 @@ print(re.findall(r'"(.*?)"', text)) ## 最短匹配
 ### 多行匹配
 
 在正则表达式中， `.` 不能匹配包含"\n"的换行符，所以要想进行多行匹配，又以下两种方式：
+
 ```
 text = 'hello\nhshsh'
 print(re.match(r'.*', text))
@@ -156,3 +157,50 @@ pattern = re.compile('.*', re.DOTALL)
 print(pattern.match(text))
 
 ```
+
+## String 删除不需要的字符 strip() && translate()
+
+```
+### strip() 会默认删除开始和结束的空格和"\n"
+text = '  hello \n'
+print(text.strip())
+print(text.lstrip())
+print(text.rstrip())
+
+text = '----hello++++'
+print(text.lstrip('-'))
+print(text.rstrip('+'))
+
+### strip常用来在读取文件的时候 结合生成式 进行预处理：
+# with open('path', 'rt') as file:
+#    lines = (line.strip() for line in file)
+#    for line in lines:
+#        print(line)
+
+text = '  hello++++ \n'
+remap = {
+    ord('\n'): " "
+}
+text.translate(remap)
+print(text)
+```
+
+## Summary
+
+### re related
+
+- re.findall()
+- re.split()
+- re.search()
+- re.match()
+- re.compile()
+- re.sub()
+
+### str related
+
+- str.split()
+- str.startswith() str.endswith()
+- str.find()
+- str.strip() str.lstrip() str.rstrip()
+- str.ljust() str.rjust() str.center() 对齐
+- str.join() 拼接
