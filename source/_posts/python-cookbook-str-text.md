@@ -204,3 +204,12 @@ print(text)
 - str.strip() str.lstrip() str.rstrip()
 - str.ljust() str.rjust() str.center() 对齐
 - str.join() 拼接
+
+## TODO
+
+- unicode str operation
+- binary str operation
+
+## Reference
+
+- [python cookbook](http://python3-cookbook.readthedocs.io/zh_CN/latest/chapters/p02_strings_and_text.html)
