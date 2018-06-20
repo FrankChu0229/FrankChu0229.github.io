@@ -71,5 +71,5 @@ if __name__ == '__main__':
 ```
 
 ## Reference 
-- [mofan python tutorial](https://morvanzhou.github.io/tutorials/machine-learning/keras/2-1-regressor/)
+- [mofan keras tutorial](https://morvanzhou.github.io/tutorials/machine-learning/keras/2-1-regressor/)
 - [keras](https://keras.io/zh/)
