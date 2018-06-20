@@ -66,9 +66,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Keras Summary]]></title>
-    <url>%2F2018%2F06%2F06%2Fkeras-summary%2F</url>
-    <content type="text"></content>
+    <title><![CDATA[Keras Demo Linear Regression]]></title>
+    <url>%2F2018%2F06%2F06%2Fkeras-demo%2F</url>
+    <content type="text"><![CDATA[Code1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859import numpy as npnp.random.seed(9999)import matplotlib.pyplot as pltfrom keras.models import Sequential, load_modelfrom keras.layers import Dense, Activationdef build_model(): model = Sequential() model.add(Dense(1, input_shape=(1,))) model.compile(loss=&apos;mse&apos;, optimizer=&apos;sgd&apos;) return modeldef create_data(): X = np.linspace(-1, 1, 200) np.random.shuffle(X) noise = np.random.normal(0, 0.5, (200,)) Y = 0.5 * X + 2 + noise # plt.scatter(X, Y) # plt.show(block=False) # print(&apos;finished.&apos;) return X, Ydef create_train_test(): X, Y = create_data() train_X, train_Y = X[:int(len(X) * 0.8)], Y[:int(len(Y) * 0.8)] test_X, test_Y = X[int(len(X) * 0.8):], Y[int(len(Y) * 0.8):] return train_X, train_Y, test_X, test_Ydef train_test(): model = build_model() train_X, train_Y, test_X, test_Y = create_train_test() model.fit(train_X, train_Y, epochs=50, batch_size=16) loss = model.evaluate(test_X, test_Y, batch_size=16) print(&apos;Loss is &#123;&#125;&apos;.format(loss)) W, b = model.layers[0].get_weights() print(&quot;Weight &#123;&#125;, bias &#123;&#125;&quot;.format(W, b)) model.save(&apos;./linear_regression&apos;)def predict(): train_X, train_Y, test_X, test_Y = create_train_test() model = load_model(&apos;./linear_regression&apos;) y_pred = model.predict(test_X, batch_size=16) print(y_pred) plt.scatter(test_X, test_Y) plt.plot(test_X, y_pred) plt.xlabel(&quot;X axis&quot;) plt.ylabel(&quot;Y axis&quot;) plt.show()if __name__ == &apos;__main__&apos;: # train_test() predict() Reference mofan python tutorial keras]]></content>
       <categories>
         <category>Machine Learning</category>
       </categories>

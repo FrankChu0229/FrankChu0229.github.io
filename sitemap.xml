@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://frankchu0229.github.io/2018/06/06/keras-demo/</loc>
+    
+    <lastmod>2018-06-20T09:06:22.511Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://frankchu0229.github.io/2018/06/20/matplotlib/</loc>
     
     <lastmod>2018-06-20T03:23:06.080Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>http://frankchu0229.github.io/2018/06/06/numpy-summary/</loc>
     
     <lastmod>2018-06-07T12:24:07.965Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://frankchu0229.github.io/2018/06/06/keras-summary/</loc>
-    
-    <lastmod>2018-06-07T12:06:03.204Z</lastmod>
     
   </url>
   

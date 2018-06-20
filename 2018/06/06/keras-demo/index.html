@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Keras Summary.">
+<meta name="description" content="Keras Linear Regression.">
 <meta name="keywords" content="python,keras,dl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Keras Summary">
-<meta property="og:url" content="http://frankchu0229.github.io/2018/06/06/keras-summary/index.html">
+<meta property="og:title" content="Keras Demo Linear Regression">
+<meta property="og:url" content="http://frankchu0229.github.io/2018/06/06/keras-demo/index.html">
 <meta property="og:site_name" content="Frank Chu">
-<meta property="og:description" content="Keras Summary.">
+<meta property="og:description" content="Keras Linear Regression.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-07T12:06:03.204Z">
+<meta property="og:updated_time" content="2018-06-20T09:06:22.511Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Keras Summary">
-<meta name="twitter:description" content="Keras Summary.">
+<meta name="twitter:title" content="Keras Demo Linear Regression">
+<meta name="twitter:description" content="Keras Linear Regression.">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://frankchu0229.github.io/2018/06/06/keras-summary/"/>
+  <link rel="canonical" href="http://frankchu0229.github.io/2018/06/06/keras-demo/"/>
 
 
 
 
 
-  <title>Keras Summary | Frank Chu</title>
+  <title>Keras Demo Linear Regression | Frank Chu</title>
   
 
 
@@ -309,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://frankchu0229.github.io/2018/06/06/keras-summary/">
+    <link itemprop="mainEntityOfPage" href="http://frankchu0229.github.io/2018/06/06/keras-demo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Frank Chu">
@@ -326,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Keras Summary</h1>
+          <h1 class="post-title" itemprop="name headline">Keras Demo Linear Regression</h1>
         
 
         <div class="post-meta">
@@ -379,8 +379,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/06/keras-summary/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/06/06/keras-summary/" itemprop="commentCount"></span>
+                <a href="/2018/06/06/keras-demo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/06/06/keras-demo/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -400,7 +400,7 @@
 
           
               <div class="post-description">
-                  Keras Summary.
+                  Keras Linear Regression.
               </div>
           
 
@@ -417,7 +417,12 @@
       
 
       
-        
+        <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line">import numpy as np</div><div class="line"></div><div class="line">np.random.seed(9999)</div><div class="line">import matplotlib.pyplot as plt</div><div class="line">from keras.models import Sequential, load_model</div><div class="line">from keras.layers import Dense, Activation</div><div class="line"></div><div class="line"></div><div class="line">def build_model():</div><div class="line">    model = Sequential()</div><div class="line">    model.add(Dense(1, input_shape=(1,)))</div><div class="line">    model.compile(loss=&apos;mse&apos;, optimizer=&apos;sgd&apos;)</div><div class="line">    return model</div><div class="line"></div><div class="line"></div><div class="line">def create_data():</div><div class="line">    X = np.linspace(-1, 1, 200)</div><div class="line">    np.random.shuffle(X)</div><div class="line">    noise = np.random.normal(0, 0.5, (200,))</div><div class="line">    Y = 0.5 * X + 2 + noise</div><div class="line">    # plt.scatter(X, Y)</div><div class="line">    # plt.show(block=False)</div><div class="line">    # print(&apos;finished.&apos;)</div><div class="line">    return X, Y</div><div class="line"></div><div class="line"></div><div class="line">def create_train_test():</div><div class="line">    X, Y = create_data()</div><div class="line">    train_X, train_Y = X[:int(len(X) * 0.8)], Y[:int(len(Y) * 0.8)]</div><div class="line">    test_X, test_Y = X[int(len(X) * 0.8):], Y[int(len(Y) * 0.8):]</div><div class="line">    return train_X, train_Y, test_X, test_Y</div><div class="line"></div><div class="line"></div><div class="line">def train_test():</div><div class="line">    model = build_model()</div><div class="line">    train_X, train_Y, test_X, test_Y = create_train_test()</div><div class="line">    model.fit(train_X, train_Y, epochs=50, batch_size=16)</div><div class="line">    loss = model.evaluate(test_X, test_Y, batch_size=16)</div><div class="line">    print(&apos;Loss is &#123;&#125;&apos;.format(loss))</div><div class="line">    W, b = model.layers[0].get_weights()</div><div class="line">    print(&quot;Weight &#123;&#125;, bias &#123;&#125;&quot;.format(W, b))</div><div class="line">    model.save(&apos;./linear_regression&apos;)</div><div class="line"></div><div class="line"></div><div class="line">def predict():</div><div class="line">    train_X, train_Y, test_X, test_Y = create_train_test()</div><div class="line">    model = load_model(&apos;./linear_regression&apos;)</div><div class="line">    y_pred = model.predict(test_X, batch_size=16)</div><div class="line">    print(y_pred)</div><div class="line">    plt.scatter(test_X, test_Y)</div><div class="line">    plt.plot(test_X, y_pred)</div><div class="line">    plt.xlabel(&quot;X axis&quot;)</div><div class="line">    plt.ylabel(&quot;Y axis&quot;)</div><div class="line">    plt.show()</div><div class="line"></div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    # train_test()</div><div class="line">    predict()</div></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://morvanzhou.github.io/tutorials/machine-learning/keras/2-1-regressor/" target="_blank" rel="external">mofan python tutorial</a></li>
+<li><a href="https://keras.io/zh/" target="_blank" rel="external">keras</a></li>
+</ul>
+
       
     </div>
     
@@ -437,7 +442,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://frankchu0229.github.io/2018/06/06/keras-summary/" title="Keras Summary">http://frankchu0229.github.io/2018/06/06/keras-summary/</a>
+    <a href="http://frankchu0229.github.io/2018/06/06/keras-demo/" title="Keras Demo Linear Regression">http://frankchu0229.github.io/2018/06/06/keras-demo/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -511,8 +516,8 @@
           
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2018/06/06/keras-summary/"
-           data-title="Keras Summary" data-url="http://frankchu0229.github.io/2018/06/06/keras-summary/">
+      <div class="ds-thread" data-thread-key="2018/06/06/keras-demo/"
+           data-title="Keras Demo Linear Regression" data-url="http://frankchu0229.github.io/2018/06/06/keras-demo/">
       </div>
     </div>
   
@@ -537,8 +542,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -611,6 +625,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Code"><span class="nav-number">1.</span> <span class="nav-text">Code</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">2.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
