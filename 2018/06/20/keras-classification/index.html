@@ -84,14 +84,14 @@
 <meta name="description" content="Keras Classification.">
 <meta name="keywords" content="python,keras,dl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="keras_classification">
+<meta property="og:title" content="Keras Classification">
 <meta property="og:url" content="http://frankchu0229.github.io/2018/06/20/keras-classification/index.html">
 <meta property="og:site_name" content="Frank Chu">
 <meta property="og:description" content="Keras Classification.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-20T13:34:29.268Z">
+<meta property="og:updated_time" content="2018-06-20T13:38:41.378Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="keras_classification">
+<meta name="twitter:title" content="Keras Classification">
 <meta name="twitter:description" content="Keras Classification.">
 
 
@@ -128,7 +128,7 @@
 
 
 
-  <title>keras_classification | Frank Chu</title>
+  <title>Keras Classification | Frank Chu</title>
   
 
 
@@ -326,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">keras_classification</h1>
+          <h1 class="post-title" itemprop="name headline">Keras Classification</h1>
         
 
         <div class="post-meta">
@@ -420,7 +420,7 @@
         <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">import numpy as np</div><div class="line"></div><div class="line">from keras.datasets import mnist</div><div class="line">from keras.utils import np_utils</div><div class="line">from keras.models import Sequential</div><div class="line">from keras.optimizers import RMSprop</div><div class="line">from keras.layers import Dense, Activation</div><div class="line">from keras.models import load_model</div><div class="line"></div><div class="line"></div><div class="line">def create_dataset():</div><div class="line">    (train_X, train_Y), (test_X, test_Y) = mnist.load_data()</div><div class="line">    train_X = train_X.reshape(train_X.shape[0], -1) / 255  ## -1: 自动推断出维度</div><div class="line">    test_X = test_X.reshape(test_X.shape[0], -1) / 255</div><div class="line">    train_Y = np_utils.to_categorical(train_Y, num_classes=10)</div><div class="line">    test_Y = np_utils.to_categorical(test_Y, num_classes=10)</div><div class="line">    print(train_X[0].shape)</div><div class="line">    print(train_Y[:3])</div><div class="line">    return train_X, train_Y, test_X, test_Y</div><div class="line"></div><div class="line"></div><div class="line">def build_model():</div><div class="line">    model = Sequential()</div><div class="line">    model.add(Dense(32, input_shape=(784,)))</div><div class="line">    model.add(Activation(&apos;relu&apos;))</div><div class="line">    model.add(Dense(10))</div><div class="line">    model.add(Activation(&apos;softmax&apos;))</div><div class="line">    rmsprop = RMSprop()  # can set learning rate 等参数值</div><div class="line">    model.compile(optimizer=rmsprop, loss=&apos;categorical_crossentropy&apos;,</div><div class="line">                  metrics=[&apos;accuracy&apos;])</div><div class="line">    return model</div><div class="line"></div><div class="line"></div><div class="line">def train_test():</div><div class="line">    print(&quot;------Training------&quot;)</div><div class="line">    model = build_model()</div><div class="line">    train_X, train_Y, test_X, test_Y = create_dataset()</div><div class="line">    model.fit(train_X, train_Y, epochs=10, batch_size=32)</div><div class="line">    loss, acc = model.evaluate(test_X, test_Y, batch_size=32)</div><div class="line">    print(&quot;Test loss &#123;&#125; and acc &#123;&#125;&quot;.format(loss, acc))</div><div class="line">    model.save(&apos;./classification.model&apos;)</div><div class="line"></div><div class="line"></div><div class="line">def predict():</div><div class="line">    model = load_model(&apos;./classification.model&apos;)</div><div class="line">    train_X, train_Y, test_X, test_Y = create_dataset()</div><div class="line">    pred_y = model.predict(test_X)</div><div class="line">    print(pred_y)</div><div class="line"></div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    predict()</div></pre></td></tr></table></figure>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
 <li><a href="https://keras.io/zh/getting-started/sequential-model-guide/" target="_blank" rel="external">keras manual</a></li>
-<li>[mofan keras tutorial]</li>
+<li><a href="https://morvanzhou.github.io/tutorials/machine-learning/keras/2-2-classifier/" target="_blank" rel="external">mofan keras tutorial</a></li>
 </ul>
 
       
@@ -442,7 +442,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://frankchu0229.github.io/2018/06/20/keras-classification/" title="keras_classification">http://frankchu0229.github.io/2018/06/20/keras-classification/</a>
+    <a href="http://frankchu0229.github.io/2018/06/20/keras-classification/" title="Keras Classification">http://frankchu0229.github.io/2018/06/20/keras-classification/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -513,7 +513,7 @@
   
     <div class="comments" id="comments">
       <div class="ds-thread" data-thread-key="2018/06/20/keras-classification/"
-           data-title="keras_classification" data-url="http://frankchu0229.github.io/2018/06/20/keras-classification/">
+           data-title="Keras Classification" data-url="http://frankchu0229.github.io/2018/06/20/keras-classification/">
       </div>
     </div>
   
