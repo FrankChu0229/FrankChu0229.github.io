@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Matplotlib Summary]]></title>
+    <url>%2F2018%2F06%2F20%2Fmatplotlib%2F</url>
+    <content type="text"><![CDATA[Matplotlib Basic Operations in Jupyter12345678import matplotlib.pyplot as plt%matplotlib inlineimport numpy as npx = np.linspace(-1, 1, 50)y = 2 * x + 1plt.plot(x, y)plt.show() 12345678x = np.linspace(-1, 1, 50)y1 = 2 * x + 1y2 = 2 ** x + 1plt.plot(x, y1)plt.plot(x, y2, color=&apos;red&apos;, linestyle=&apos;--&apos;)plt.xlabel(&apos;X axis&apos;)plt.ylabel(&apos;Y axis&apos;)plt.show() Reference reference]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>tools</tag>
+        <tag>matplotlib</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Scrapy Summary]]></title>
     <url>%2F2018%2F06%2F08%2Fscrapy-summary%2F</url>
     <content type="text"></content>
@@ -9,8 +22,8 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>scrapy</tag>
         <tag>spider</tag>
+        <tag>scrapy</tag>
       </tags>
   </entry>
   <entry>
@@ -22,8 +35,8 @@
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>spider</tag>
         <tag>beautiful-soup</tag>
+        <tag>spider</tag>
       </tags>
   </entry>
   <entry>
