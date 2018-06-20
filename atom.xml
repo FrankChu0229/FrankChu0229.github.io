@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://frankchu0229.github.io/"/>
-  <updated>2018-06-20T03:23:06.080Z</updated>
+  <updated>2018-06-20T13:34:29.268Z</updated>
   <id>http://frankchu0229.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>keras_classification</title>
+    <link href="http://frankchu0229.github.io/2018/06/20/keras-classification/"/>
+    <id>http://frankchu0229.github.io/2018/06/20/keras-classification/</id>
+    <published>2018-06-20T11:27:18.000Z</published>
+    <updated>2018-06-20T13:34:29.268Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">import numpy as np</div><div class="line"></div><div class="line">from keras.datasets import mnist</div><div class="line">from keras.utils import np_utils</div><div class="line">from keras.models import Sequential</div><div class="line">from keras.optimizers import RMSprop</div><div class="line">from keras.layers import Dense, Activation</div><div class="line">from keras.models import load_model</div><div class="line"></div><div class="line"></div><div class="line">def create_dataset():</div><div class="line">    (train_X, train_Y), (test_X, test_Y) = mnist.load_data()</div><div class="line">    train_X = train_X.reshape(train_X.shape[0], -1) / 255  ## -1: 自动推断出维度</div><div class="line">    test_X = test_X.reshape(test_X.shape[0], -1) / 255</div><div class="line">    train_Y = np_utils.to_categorical(train_Y, num_classes=10)</div><div class="line">    test_Y = np_utils.to_categorical(test_Y, num_classes=10)</div><div class="line">    print(train_X[0].shape)</div><div class="line">    print(train_Y[:3])</div><div class="line">    return train_X, train_Y, test_X, test_Y</div><div class="line"></div><div class="line"></div><div class="line">def build_model():</div><div class="line">    model = Sequential()</div><div class="line">    model.add(Dense(32, input_shape=(784,)))</div><div class="line">    model.add(Activation(&apos;relu&apos;))</div><div class="line">    model.add(Dense(10))</div><div class="line">    model.add(Activation(&apos;softmax&apos;))</div><div class="line">    rmsprop = RMSprop()  # can set learning rate 等参数值</div><div class="line">    model.compile(optimizer=rmsprop, loss=&apos;categorical_crossentropy&apos;,</div><div class="line">                  metrics=[&apos;accuracy&apos;])</div><div class="line">    return model</div><div class="line"></div><div class="line"></div><div class="line">def train_test():</div><div class="line">    print(&quot;------Training------&quot;)</div><div class="line">    model = build_model()</div><div class="line">    train_X, train_Y, test_X, test_Y = create_dataset()</div><div class="line">    model.fit(train_X, train_Y, epochs=10, batch_size=32)</div><div class="line">    loss, acc = model.evaluate(test_X, test_Y, batch_size=32)</div><div class="line">    print(&quot;Test loss &#123;&#125; and acc &#123;&#125;&quot;.format(loss, acc))</div><div class="line">    model.save(&apos;./classification.model&apos;)</div><div class="line"></div><div class="line"></div><div class="line">def predict():</div><div class="line">    model = load_model(&apos;./classification.model&apos;)</div><div class="line">    train_X, train_Y, test_X, test_Y = create_dataset()</div><div class="line">    pred_y = model.predict(test_X)</div><div class="line">    print(pred_y)</div><div class="line"></div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    predict()</div></pre></td></tr></table></figure><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="https://keras.io/zh/getting-started/sequential-model-guide/" target="_blank" rel="external">keras manual</a></li><li>[mofan keras tutorial]</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      Keras Classification.
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="http://frankchu0229.github.io/categories/Machine-Learning/"/>
+    
+    
+      <category term="python" scheme="http://frankchu0229.github.io/tags/python/"/>
+    
+      <category term="keras" scheme="http://frankchu0229.github.io/tags/keras/"/>
+    
+      <category term="dl" scheme="http://frankchu0229.github.io/tags/dl/"/>
+    
+  </entry>
   
   <entry>
     <title>Matplotlib Summary</title>
@@ -473,32 +499,6 @@
       <category term="engineering" scheme="http://frankchu0229.github.io/tags/engineering/"/>
     
       <category term="design pattern" scheme="http://frankchu0229.github.io/tags/design-pattern/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java中的String, StringBuilder和 StringBuffer</title>
-    <link href="http://frankchu0229.github.io/2018/02/26/java-notes/"/>
-    <id>http://frankchu0229.github.io/2018/02/26/java-notes/</id>
-    <published>2018-02-26T15:05:41.000Z</published>
-    <updated>2018-05-21T12:54:16.994Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="StringBuilder-与-StringBuffer"><a href="#StringBuilder-与-StringBuffer" class="headerlink" title="StringBuilder 与 StringBuffer"></a>StringBuilder 与 StringBuffer</h2><ul><li>StringBuilder 执行速度比StringBuffer要快，但是StringBuilder不是线程安全的</li><li>StringBuffer 是线程安全的，执行速度比StringBuilder要慢</li></ul><h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><p>在java中，String字符串常量是不可改变的对象，每当在String上进行操作时，实际上都是在创建一个新的String对象。以下代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1. String s = &quot;abx&quot;;</div><div class="line">2. String s = s + &quot;ds&quot;;</div></pre></td></tr></table></figure><p>其中，第二行中的<code>s</code>会被重新创建，原来的对象会被GC掉。而StringBuilder和StringBuffer是可变对象，在同一个对象上进行操作。</p><p>值得注意的一点是：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String s = &quot;this &quot; + &quot;is &quot; + &quot;my &quot; + &quot;home&quot;</div></pre></td></tr></table></figure><p>等同于<code>String s = &quot;This is my home&quot;</code>, 在这种情况下String操作要比StringBuilder和StringBuffer要快，是JVM的一个把戏。但是当字符串拼接中有其他的String变量时，JVM就会按照原来的方式来做。</p><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="http://www.cnblogs.com/A_ming/archive/2010/04/13/1711395.html" target="_blank" rel="external">http://www.cnblogs.com/A_ming/archive/2010/04/13/1711395.html</a></li></ul><hr>]]></content>
-    
-    <summary type="html">
-    
-      Java 中的String, StringBuilder和 StringBuffer
-    
-    </summary>
-    
-      <category term="java" scheme="http://frankchu0229.github.io/categories/java/"/>
-    
-    
-      <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
-    
-      <category term="engineering" scheme="http://frankchu0229.github.io/tags/engineering/"/>
-    
-      <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
     
   </entry>
   
