@@ -1,4 +1,4 @@
-title: keras_classification
+title: Keras Classification
 date: 2018-06-20 19:27:18
 tags: [python, keras, dl]
 categories: Machine Learning
@@ -68,4 +68,4 @@ if __name__ == '__main__':
 ## Reference
 
 - [keras manual](https://keras.io/zh/getting-started/sequential-model-guide/)
-- [mofan keras tutorial]
+- [mofan keras tutorial](https://morvanzhou.github.io/tutorials/machine-learning/keras/2-2-classifier/)
