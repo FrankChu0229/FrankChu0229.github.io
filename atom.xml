@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://frankchu0229.github.io/"/>
-  <updated>2018-06-28T08:57:34.650Z</updated>
+  <updated>2018-06-28T11:08:51.076Z</updated>
   <id>http://frankchu0229.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>keras_embedding</title>
+    <title>Keras Embedding Summary</title>
     <link href="http://frankchu0229.github.io/2018/06/28/keras-embedding/"/>
     <id>http://frankchu0229.github.io/2018/06/28/keras-embedding/</id>
     <published>2018-06-28T08:42:08.000Z</published>
-    <updated>2018-06-28T08:57:34.650Z</updated>
+    <updated>2018-06-28T11:08:51.076Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">import re</div><div class="line">from keras.preprocessing.text import text_to_word_sequence, hashing_trick</div><div class="line">query = &apos;W17378 W09158 W03746 W03390&apos;</div><div class="line">print(text_to_word_sequence(query))</div><div class="line">## [&apos;w17378&apos;, &apos;w09158&apos;, &apos;w03746&apos;, &apos;w03390&apos;]</div><div class="line"></div><div class="line">print(hashing_trick(query, 50))</div><div class="line">## [23, 19, 32, 12]</div><div class="line">print(hashing_trick(query, 20891, hash_function=lambda x: int(re.sub(&apos;W|w&apos;, &apos;&apos;, x))))</div><div class="line">## [17379, 9159, 3747, 3391]</div></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">from numpy import array</div><div class="line">from keras.preprocessing.text import one_hot</div><div class="line">from keras.preprocessing.sequence import pad_sequences</div><div class="line"># define documents</div><div class="line">docs = [&apos;Well done!&apos;,</div><div class="line">&apos;Good work&apos;,</div><div class="line">&apos;Great effort&apos;,</div><div class="line">&apos;nice work&apos;,</div><div class="line">&apos;Excellent!&apos;,</div><div class="line">&apos;Weak&apos;,</div><div class="line">&apos;Poor effort!&apos;,</div><div class="line">&apos;not good&apos;,</div><div class="line">&apos;poor work&apos;,</div><div class="line">&apos;Could have done better.&apos;]</div><div class="line"># define class labels</div><div class="line">labels = array([1,1,1,1,1,0,0,0,0,0])</div><div class="line"></div><div class="line">vocab_size = 50</div><div class="line">encoded_docs = [one_hot(d, vocab_size) for d in docs]</div><div class="line">print(encoded_docs)</div><div class="line">## [[7, 6], [8, 5], [36, 17], [10, 5], [5], [7], [39, 17], [11, 8], [39, 5], [20, 37, 6, 22]]</div><div class="line"></div><div class="line">max_length = 4</div><div class="line">padded_docs = pad_sequences(encoded_docs, maxlen=max_length, padding=&apos;post&apos;)</div><div class="line">print(padded_docs)</div><div class="line"></div><div class="line">## [[ 7  6  0  0]</div><div class="line">##  [ 8  5  0  0]</div><div class="line">##  [36 17  0  0]</div><div class="line">##  [10  5  0  0]</div><div class="line">##  [ 5  0  0  0]</div><div class="line">##  [ 7  0  0  0]</div><div class="line">##  [39 17  0  0]</div><div class="line">##  [11  8  0  0]</div><div class="line">##  [39  5  0  0]</div><div class="line">##  [20 37  6 22]]</div></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">## Use pre-trained embeddings</div><div class="line">from numpy import asarray, zeros</div><div class="line">from keras.preprocessing.text import Tokenizer</div><div class="line">from keras.preprocessing.sequence import pad_sequences</div><div class="line"># define documents</div><div class="line">docs = [&apos;Well done!&apos;,</div><div class="line">&apos;Good work&apos;,</div><div class="line">&apos;Great effort&apos;,</div><div class="line">&apos;nice work&apos;,</div><div class="line">&apos;Excellent!&apos;,</div><div class="line">&apos;Weak&apos;,</div><div class="line">&apos;Poor effort!&apos;,</div><div class="line">&apos;not good&apos;,</div><div class="line">&apos;poor work&apos;,</div><div class="line">&apos;Could have done better.&apos;]</div><div class="line"># define class labels</div><div class="line">labels = array([1,1,1,1,1,0,0,0,0,0])</div><div class="line">t = Tokenizer()</div><div class="line">t.fit_on_texts(docs)</div><div class="line">print(t)</div><div class="line">vocab_size = len(t.word_index) + 1</div><div class="line">encoded_docs = t.texts_to_sequences(docs)</div><div class="line">print(encoded_docs)</div><div class="line">max_length = 4</div><div class="line">padded_docs = pad_sequences(encoded_docs, maxlen=max_length, padding=&apos;post&apos;)</div><div class="line">print(padded_docs)</div><div class="line">print(t.word_index)</div><div class="line"></div><div class="line">## loading the whold embedding into matrix</div><div class="line">embeddings_index = dict()</div><div class="line">embeddings_index[&apos;Well&apos;] = asarray([1.04661322, -0.86488587, -0.32734334], dtype=&apos;float32&apos;)</div><div class="line">embeddings_index[&apos;done&apos;] = asarray([1.04661322, -0.86488587, 0.32734334], dtype=&apos;float32&apos;)</div><div class="line">print(embeddings_index)</div><div class="line">## embedding matrix:</div><div class="line"></div><div class="line">embedding_matrix = zeros((vocab_size, 3))</div><div class="line">for word, i in t.word_index.items():</div><div class="line">    embeddings_vector = embeddings_index.get(word)</div><div class="line">    if embeddings_vector is not None:</div><div class="line">        embedding_matrix[i] = embeddings_vector</div><div class="line">print(embedding_matrix)</div></pre></td></tr></table></figure><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="https://blog.keras.io/using-pre-trained-word-embeddings-in-a-keras-model.html" target="_blank" rel="external">keras blog</a></li><li><a href="https://machinelearningmastery.com/use-word-embedding-layers-deep-learning-keras/" target="_blank" rel="external">https://machinelearningmastery.com/use-word-embedding-layers-deep-learning-keras/</a></li></ul>]]></content>
     
@@ -45,24 +45,28 @@
   </entry>
   
   <entry>
-    <title>rl</title>
+    <title>Representation in NLP</title>
     <link href="http://frankchu0229.github.io/2018/06/23/rl/"/>
     <id>http://frankchu0229.github.io/2018/06/23/rl/</id>
     <published>2018-06-23T03:10:49.000Z</published>
-    <updated>2018-06-23T03:12:35.342Z</updated>
+    <updated>2018-06-28T11:11:01.390Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="https://www.cnblogs.com/pinard/p/7243513.html#!comments" target="_blank" rel="external">刘建平Pinard</a></li><li><a href="https://mp.weixin.qq.com/s/B_hnpOp_AVsIoL8gbkL4Hw" target="_blank" rel="external">美团技术博客</a></li></ul>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h2 id=&quot;Reference&quot;&gt;&lt;a href=&quot;#Reference&quot; class=&quot;headerlink&quot; title=&quot;Reference&quot;&gt;&lt;/a&gt;Reference&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.cnblogs.com/pin
-      
+      Representation in NLP Summary.
     
     </summary>
     
+      <category term="Machine Learning" scheme="http://frankchu0229.github.io/categories/Machine-Learning/"/>
+    
+    
+      <category term="python" scheme="http://frankchu0229.github.io/tags/python/"/>
+    
+      <category term="keras" scheme="http://frankchu0229.github.io/tags/keras/"/>
+    
+      <category term="dl" scheme="http://frankchu0229.github.io/tags/dl/"/>
     
   </entry>
   

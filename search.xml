@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[keras_embedding]]></title>
+    <title><![CDATA[Keras Embedding Summary]]></title>
     <url>%2F2018%2F06%2F28%2Fkeras-embedding%2F</url>
     <content type="text"><![CDATA[Summary12345678910import refrom keras.preprocessing.text import text_to_word_sequence, hashing_trickquery = &apos;W17378 W09158 W03746 W03390&apos;print(text_to_word_sequence(query))## [&apos;w17378&apos;, &apos;w09158&apos;, &apos;w03746&apos;, &apos;w03390&apos;]print(hashing_trick(query, 50))## [23, 19, 32, 12]print(hashing_trick(query, 20891, hash_function=lambda x: int(re.sub(&apos;W|w&apos;, &apos;&apos;, x))))## [17379, 9159, 3747, 3391] 123456789101112131415161718192021222324252627282930313233343536from numpy import arrayfrom keras.preprocessing.text import one_hotfrom keras.preprocessing.sequence import pad_sequences# define documentsdocs = [&apos;Well done!&apos;, &apos;Good work&apos;, &apos;Great effort&apos;, &apos;nice work&apos;, &apos;Excellent!&apos;, &apos;Weak&apos;, &apos;Poor effort!&apos;, &apos;not good&apos;, &apos;poor work&apos;, &apos;Could have done better.&apos;]# define class labelslabels = array([1,1,1,1,1,0,0,0,0,0])vocab_size = 50encoded_docs = [one_hot(d, vocab_size) for d in docs]print(encoded_docs)## [[7, 6], [8, 5], [36, 17], [10, 5], [5], [7], [39, 17], [11, 8], [39, 5], [20, 37, 6, 22]]max_length = 4padded_docs = pad_sequences(encoded_docs, maxlen=max_length, padding=&apos;post&apos;)print(padded_docs)## [[ 7 6 0 0]## [ 8 5 0 0]## [36 17 0 0]## [10 5 0 0]## [ 5 0 0 0]## [ 7 0 0 0]## [39 17 0 0]## [11 8 0 0]## [39 5 0 0]## [20 37 6 22]] 1234567891011121314151617181920212223242526272829303132333435363738394041## Use pre-trained embeddingsfrom numpy import asarray, zerosfrom keras.preprocessing.text import Tokenizerfrom keras.preprocessing.sequence import pad_sequences# define documentsdocs = [&apos;Well done!&apos;, &apos;Good work&apos;, &apos;Great effort&apos;, &apos;nice work&apos;, &apos;Excellent!&apos;, &apos;Weak&apos;, &apos;Poor effort!&apos;, &apos;not good&apos;, &apos;poor work&apos;, &apos;Could have done better.&apos;]# define class labelslabels = array([1,1,1,1,1,0,0,0,0,0])t = Tokenizer()t.fit_on_texts(docs)print(t)vocab_size = len(t.word_index) + 1encoded_docs = t.texts_to_sequences(docs)print(encoded_docs)max_length = 4padded_docs = pad_sequences(encoded_docs, maxlen=max_length, padding=&apos;post&apos;)print(padded_docs)print(t.word_index)## loading the whold embedding into matrixembeddings_index = dict()embeddings_index[&apos;Well&apos;] = asarray([1.04661322, -0.86488587, -0.32734334], dtype=&apos;float32&apos;)embeddings_index[&apos;done&apos;] = asarray([1.04661322, -0.86488587, 0.32734334], dtype=&apos;float32&apos;)print(embeddings_index)## embedding matrix:embedding_matrix = zeros((vocab_size, 3))for word, i in t.word_index.items(): embeddings_vector = embeddings_index.get(word) if embeddings_vector is not None: embedding_matrix[i] = embeddings_vectorprint(embedding_matrix) Reference keras blog https://machinelearningmastery.com/use-word-embedding-layers-deep-learning-keras/]]></content>
       <categories>
@@ -15,9 +15,17 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[rl]]></title>
+    <title><![CDATA[Representation in NLP]]></title>
     <url>%2F2018%2F06%2F23%2Frl%2F</url>
     <content type="text"><![CDATA[Reference 刘建平Pinard 美团技术博客]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>keras</tag>
+        <tag>dl</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Keras Classification]]></title>

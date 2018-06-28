@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://frankchu0229.github.io/2018/06/23/rl/</loc>
+    
+    <lastmod>2018-06-28T11:11:01.390Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://frankchu0229.github.io/2018/06/28/keras-embedding/</loc>
     
-    <lastmod>2018-06-28T08:57:34.650Z</lastmod>
+    <lastmod>2018-06-28T11:08:51.076Z</lastmod>
     
   </url>
   
@@ -12,13 +19,6 @@
     <loc>http://frankchu0229.github.io/2016/03/19/ML1/</loc>
     
     <lastmod>2018-06-28T08:43:36.280Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://frankchu0229.github.io/2018/06/23/rl/</loc>
-    
-    <lastmod>2018-06-23T03:12:35.342Z</lastmod>
     
   </url>
   
