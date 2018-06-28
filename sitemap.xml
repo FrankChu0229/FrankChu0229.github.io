@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://frankchu0229.github.io/2018/06/28/keras-embedding/</loc>
+    
+    <lastmod>2018-06-28T08:57:34.650Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu0229.github.io/2016/03/19/ML1/</loc>
+    
+    <lastmod>2018-06-28T08:43:36.280Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu0229.github.io/2018/06/23/rl/</loc>
+    
+    <lastmod>2018-06-23T03:12:35.342Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://frankchu0229.github.io/2018/06/20/keras-classification/</loc>
     
     <lastmod>2018-06-20T13:38:41.378Z</lastmod>
@@ -54,13 +75,6 @@
     <loc>http://frankchu0229.github.io/2018/06/06/numpy-summary/</loc>
     
     <lastmod>2018-06-07T12:24:07.965Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://frankchu0229.github.io/2016/03/19/ML1/</loc>
-    
-    <lastmod>2018-06-07T12:03:23.204Z</lastmod>
     
   </url>
   
