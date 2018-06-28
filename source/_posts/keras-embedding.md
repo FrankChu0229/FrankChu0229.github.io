@@ -1,4 +1,4 @@
-title: keras_embedding
+title: Keras Embedding Summary
 date: 2018-06-28 16:42:08
 tags: [Machine Learning, nlp, keras, dl]
 categories: Machine Learning

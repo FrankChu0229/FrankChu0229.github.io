@@ -1,6 +1,8 @@
-title: rl
+title: Representation in NLP
 date: 2018-06-23 11:10:49
-tags:
+tags: [python, keras, dl]
+categories: Machine Learning
+description: Representation in NLP Summary.
 ---
 
 ## Reference
