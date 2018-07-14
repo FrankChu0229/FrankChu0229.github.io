@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://frankchu0229.github.io/2018/05/27/python-cookbook-data-structure/</loc>
+    
+    <lastmod>2018-07-14T10:08:28.118Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu0229.github.io/2018/07/14/python-cookbook-number/</loc>
+    
+    <lastmod>2018-07-14T10:08:27.077Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu0229.github.io/2018/06/04/python-cookbook-str-text/</loc>
+    
+    <lastmod>2018-07-14T09:00:13.217Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu0229.github.io/2018/07/02/sequence-prediction-summary/</loc>
+    
+    <lastmod>2018-07-02T05:17:19.186Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu0229.github.io/2018/07/02/tf-demo/</loc>
+    
+    <lastmod>2018-07-02T05:16:43.247Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://frankchu0229.github.io/2018/06/23/rl/</loc>
     
     <lastmod>2018-06-28T11:11:01.390Z</lastmod>
@@ -44,13 +79,6 @@
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/06/04/python-cookbook-str-text/</loc>
-    
-    <lastmod>2018-06-19T06:12:17.344Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://frankchu0229.github.io/2018/06/08/beautifulsoup-summary/</loc>
     
     <lastmod>2018-06-08T13:56:31.788Z</lastmod>
@@ -89,13 +117,6 @@
     <loc>http://frankchu0229.github.io/2018/06/04/docker-summary/</loc>
     
     <lastmod>2018-06-04T13:18:15.956Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://frankchu0229.github.io/2018/05/27/python-cookbook-data-structure/</loc>
-    
-    <lastmod>2018-06-04T08:15:41.735Z</lastmod>
     
   </url>
   
