@@ -84,14 +84,14 @@
 <meta name="description" content="Java8 Lambdas Functional Programming Summary.">
 <meta name="keywords" content="summary,java,coding,functional programming">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java8 Functional Programming">
+<meta property="og:title" content="Java8 Functional Programming-1">
 <meta property="og:url" content="http://frankchu0229.github.io/2018/09/02/java8-functional-programming/index.html">
 <meta property="og:site_name" content="Frank Chu">
 <meta property="og:description" content="Java8 Lambdas Functional Programming Summary.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-02T12:48:46.962Z">
+<meta property="og:updated_time" content="2018-09-02T12:51:55.337Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java8 Functional Programming">
+<meta name="twitter:title" content="Java8 Functional Programming-1">
 <meta name="twitter:description" content="Java8 Lambdas Functional Programming Summary.">
 
 
@@ -128,7 +128,7 @@
 
 
 
-  <title>Java8 Functional Programming | Frank Chu</title>
+  <title>Java8 Functional Programming-1 | Frank Chu</title>
   
 
 
@@ -326,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java8 Functional Programming</h1>
+          <h1 class="post-title" itemprop="name headline">Java8 Functional Programming-1</h1>
         
 
         <div class="post-meta">
@@ -428,10 +428,8 @@
 <h3 id="Lambda-表达式的几种表达方式"><a href="#Lambda-表达式的几种表达方式" class="headerlink" title="Lambda 表达式的几种表达方式"></a>Lambda 表达式的几种表达方式</h3><ul>
 <li><code>Runnable noArgmants = () -&gt; System.out.println(&quot;Hello World&quot;);</code></li>
 <li><code>ActionListener oneArgument = event -&gt; System.out.println(&quot;button clicked&quot;)</code></li>
-<li><figure class="highlight plain"><figcaption><span>multiStatement </span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">    System.out.println(&quot;Hello&quot;);</div><div class="line">    System.out.println(&quot;World&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p><code>BinaryOperator&lt;Long&gt; add = (x, y) -&gt; x + y</code> // 参数类型由编译器推断出来</p>
-</li>
+<li><code>Runnable multiStatement = () -&gt; { System.out.println(&quot;Hello&quot;); System.out.println(&quot;World&quot;); }</code></li>
+<li><code>BinaryOperator&lt;Long&gt; add = (x, y) -&gt; x + y</code> // 参数类型由编译器推断出来</li>
 <li><code>BinaryOperator&lt;Long&gt; add = (Long x, Long y) -&gt; x + y</code> // 显示指定参数类型</li>
 </ul>
 <h3 id="Lambda-表达式引用的是值，而不是变量"><a href="#Lambda-表达式引用的是值，而不是变量" class="headerlink" title="Lambda 表达式引用的是值，而不是变量"></a>Lambda 表达式引用的是值，而不是变量</h3><p>Lambda 表达式引用的是值，而不是变量，即该变量是既成事实上的final，<code>可以不声明为final，但是该变量只能被赋值一次</code>。</p>
@@ -471,7 +469,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://frankchu0229.github.io/2018/09/02/java8-functional-programming/" title="Java8 Functional Programming">http://frankchu0229.github.io/2018/09/02/java8-functional-programming/</a>
+    <a href="http://frankchu0229.github.io/2018/09/02/java8-functional-programming/" title="Java8 Functional Programming-1">http://frankchu0229.github.io/2018/09/02/java8-functional-programming/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -544,7 +542,7 @@
   
     <div class="comments" id="comments">
       <div class="ds-thread" data-thread-key="2018/09/02/java8-functional-programming/"
-           data-title="Java8 Functional Programming" data-url="http://frankchu0229.github.io/2018/09/02/java8-functional-programming/">
+           data-title="Java8 Functional Programming-1" data-url="http://frankchu0229.github.io/2018/09/02/java8-functional-programming/">
       </div>
     </div>
   
