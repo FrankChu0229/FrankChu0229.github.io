@@ -29,7 +29,7 @@ description: Semi-supervised Learning And Active Learning Summary.
 
 Semi-supervised learning 包含的内容比较多，for more info，可以看周志华老师的西瓜书，这里只介绍常用到的自学习和协同学习。
 
-## Self Learning 自学习 (Self Training)
+### Self Learning 自学习 (Self Training)
 
 `步骤`
 
@@ -41,7 +41,7 @@ Semi-supervised learning 包含的内容比较多，for more info，可以看周
     - 模型性能达标
     - 数据集不再变化
 
-## Co-Training 协同训练
+### Co-Training 协同训练
 
 Co-training 和self-learning的步骤类似，以下以二分类任务为例：
 
