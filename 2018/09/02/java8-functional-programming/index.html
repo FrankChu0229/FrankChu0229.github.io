@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Frank Chu">
 <meta property="og:description" content="Java8 Lambdas Functional Programming Summary.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-02T12:51:55.337Z">
+<meta property="og:updated_time" content="2018-09-02T12:54:04.886Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java8 Functional Programming-1">
 <meta name="twitter:description" content="Java8 Lambdas Functional Programming Summary.">
@@ -436,12 +436,12 @@
 <h3 id="函数式接口"><a href="#函数式接口" class="headerlink" title="函数式接口"></a>函数式接口</h3><p>函数式接口是指只含有一个抽象方法的接口，用作lambda表达式的类型，用来表示行为。为了表示该接口作为函数式接口来用，最好标识 <code>@FunctionalInterface</code>.</p>
 <p>常用的jdk中提供的函数式接口：</p>
 <ul>
-<li>Predict<t> 参数T， 返回boolean</t></li>
-<li>Consumer<t> 参数T， 返回void</t></li>
-<li>Supplier<t> 参数 None， 返回T</t></li>
-<li>Function<t, r=""> 参数T，返回R</t,></li>
-<li>UnaryOperator<t> 参数T， 返回T</t></li>
-<li>BinaryOperator<t, t=""> 参数T，T 返回T</t,></li>
+<li><code>Predict&lt;T&gt;</code> 参数T， 返回boolean</li>
+<li><code>Consumer&lt;T&gt;</code> 参数T， 返回void</li>
+<li><code>Supplier&lt;T&gt;</code> 参数 None， 返回T</li>
+<li><code>Function&lt;T, R&gt;</code> 参数T，返回R</li>
+<li><code>UnaryOperator&lt;T&gt;</code> 参数T， 返回T</li>
+<li><code>BinaryOperator&lt;T, T&gt;</code> 参数T，T 返回T</li>
 </ul>
 <h3 id="类型推断"><a href="#类型推断" class="headerlink" title="类型推断"></a>类型推断</h3><p>在java7中，就有了用菱形操作符来使得javac编译器自动推断类型， 例如</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Map&lt;String, String&gt; map = new HashMap&lt;&gt;(); // 变量类型推断</div><div class="line">Map&lt;String, String&gt; map1 = new HashMap&lt;String, String&gt;()</div></pre></td></tr></table></figure>
