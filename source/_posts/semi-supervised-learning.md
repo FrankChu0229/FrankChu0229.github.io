@@ -6,7 +6,7 @@ description: Semi-supervised Learning And Active Learning Summary.
 ---
 
 ## Introduction
-在很多场景下(e.g., 业务冷启动)，labelled data是很少的，这时候会去尝试用无监督或者半监督的方式来解决实际中的问题。所谓半监督，就是即用了有标注的数据，又用了未标注的数据。
+在很多场景下(e.g., 业务冷启动)，labelled data是很少的，这时候会去尝试用无监督或者半监督的方式来解决实际中的问题。所谓半监督，就是既用了有标注的数据，又用了未标注的数据。
 半监督学习和主动学习都是在标注数据少的情况下的一种解决方式。但是我们常说的半监督学习的方式偏向于不需要人工干涉，自动的对未标注数据进行利用。而主动学习(Active Learning)需要外在的相关领域人员进行数据标注，是一个人际协调交互的过程。
 
 ## Active Learning
