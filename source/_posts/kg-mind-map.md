@@ -1,4 +1,4 @@
-title: Kg Mind Map
+title: Kg 2018 Mind Map
 date: 2018-08-12 11:24:37
 tags: [kg, summary]
 categories: Knowledge Graph
