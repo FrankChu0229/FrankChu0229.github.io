@@ -181,7 +181,6 @@ if __name__ == '__main__':
     model = SiameseMatcher()
     # model.process_train()
     # model.process_test()
-    # model.predict('/Users/frank/self/paipaiai/first-model-epoch-100')
 
     config = tf.ConfigProto()
     config.gpu_options.allow_growth = True  # 不全部占满显存, 按需分配
