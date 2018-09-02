@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://frankchu0229.github.io/2018/08/12/kg-mind-map/</loc>
+    
+    <lastmod>2018-09-02T03:36:51.140Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu0229.github.io/2018/06/06/keras-demo/</loc>
+    
+    <lastmod>2018-09-02T03:32:32.621Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu0229.github.io/2018/09/02/semi-supervised-learning/</loc>
+    
+    <lastmod>2018-09-02T03:24:06.107Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://frankchu0229.github.io/2018/08/02/tf-python-train-java-serve/</loc>
     
     <lastmod>2018-09-02T03:03:08.963Z</lastmod>
@@ -12,13 +33,6 @@
     <loc>http://frankchu0229.github.io/2018/09/02/keras-siamese-network/</loc>
     
     <lastmod>2018-09-02T02:25:26.838Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://frankchu0229.github.io/2018/06/06/keras-demo/</loc>
-    
-    <lastmod>2018-09-02T02:19:51.957Z</lastmod>
     
   </url>
   
