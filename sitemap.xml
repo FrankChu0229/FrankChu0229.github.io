@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://frankchu0229.github.io/2018/09/02/keras-siamese-network/</loc>
+    
+    <lastmod>2018-09-02T02:22:58.277Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu0229.github.io/2018/06/06/keras-demo/</loc>
+    
+    <lastmod>2018-09-02T02:19:51.957Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://frankchu0229.github.io/2018/06/08/beautifulsoup-summary/</loc>
     
     <lastmod>2018-07-18T03:33:02.320Z</lastmod>
@@ -68,13 +82,6 @@
     <loc>http://frankchu0229.github.io/2018/06/20/keras-classification/</loc>
     
     <lastmod>2018-06-20T13:38:41.378Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://frankchu0229.github.io/2018/06/06/keras-demo/</loc>
-    
-    <lastmod>2018-06-20T09:09:19.619Z</lastmod>
     
   </url>
   

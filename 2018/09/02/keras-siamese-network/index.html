@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="python,keras,dl," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Frank Chu" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Keras Siamese Network.">
+<meta name="keywords" content="python,keras,dl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Keras Siamese Network">
+<meta property="og:url" content="http://frankchu0229.github.io/2018/09/02/keras-siamese-network/index.html">
+<meta property="og:site_name" content="Frank Chu">
+<meta property="og:description" content="Keras Siamese Network.">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-02T02:22:58.277Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Keras Siamese Network">
+<meta name="twitter:description" content="Keras Siamese Network.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://frankchu0229.github.io/2018/09/02/keras-siamese-network/"/>
+
+
+
+
+
+  <title>Keras Siamese Network | Frank Chu</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?afc1ff6ca3a0ed413bece7a8c28ea24b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Frank Chu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">The world need dreamers who do.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://frankchu0229.github.io/2018/09/02/keras-siamese-network/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Frank Chu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/author.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frank Chu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Keras Siamese Network</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-02T10:11:21+08:00">
+                2018-09-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/02/keras-siamese-network/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/09/02/keras-siamese-network/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description">
+                  Keras Siamese Network.
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>孪生网络 (Siamese Network) 常用在matching等任务上，所谓孪生，是指左右两侧共用同一套网络。</p>
+<h2 id="Implementation-by-Keras"><a href="#Implementation-by-Keras" class="headerlink" title="Implementation by Keras"></a>Implementation by Keras</h2><p>Model Implementation:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div></pre></td><td class="code"><pre><div class="line"># -*- coding: utf-8 -*-</div><div class="line"># @Author: Frank Chu</div><div class="line"># @Date: 2018-06-28</div><div class="line"></div><div class="line">from __future__ import print_function</div><div class="line">import numpy as np</div><div class="line">from keras.preprocessing.sequence import pad_sequences</div><div class="line">from keras.models import Model, load_model</div><div class="line">from keras.layers import Dense, Input, Dropout, Embedding, GRU, Bidirectional, \</div><div class="line">    Subtract, Multiply, concatenate, BatchNormalization, Add</div><div class="line">from utils import preprocess, process_embedding_table</div><div class="line">from keras.callbacks import CSVLogger</div><div class="line">import tensorflow as tf</div><div class="line">import keras.backend.tensorflow_backend as KTF</div><div class="line"></div><div class="line"></div><div class="line">class SiameseMatcher:</div><div class="line">    def __init__(self):</div><div class="line">        self._word_vocab_size = 20892</div><div class="line">        self._word_embed_size = 300</div><div class="line">        self._word_sequence_max_length = 15</div><div class="line">        self._char_vocab_size = 3048</div><div class="line">        self._char_embed_size = 300</div><div class="line">        self._char_sequence_max_length = 30</div><div class="line"></div><div class="line">        self._word_embed_path = &apos;../../dataset/word_embed.txt&apos;</div><div class="line">        self._char_embed_path = &apos;../../dataset/char_embed.txt&apos;</div><div class="line">        self._word_corpus_path = &apos;./data/word_corpus.txt&apos;</div><div class="line">        self._char_corpus_path = &apos;./data/char_corpus.txt&apos;</div><div class="line">        self._train_word_data_path = &apos;./data/train_word_data.txt&apos;</div><div class="line">        self._test_word_data_path = &apos;./data/test_word_data.txt&apos;</div><div class="line">        self._train_char_data_path = &apos;./data/train_char_data.txt&apos;</div><div class="line">        self._test_char_data_path = &apos;./data/test_char_data.txt&apos;</div><div class="line">        self._train_word_query = None</div><div class="line">        self._train_word_answer = None</div><div class="line">        self._train_word_label = None</div><div class="line">        self._test_word_query = None</div><div class="line">        self._test_word_answer = None</div><div class="line"></div><div class="line">        self._word_embed_table = None</div><div class="line">        self._char_embed_table = None</div><div class="line">        self._word_index = None</div><div class="line">        self._char_index = None</div><div class="line"></div><div class="line">        self._batch_size = 256</div><div class="line">        self._epoch = 1</div><div class="line">        self._validation_split = 0.15</div><div class="line">        self._lstm_dim = 256</div><div class="line"></div><div class="line">    def process_train(self):</div><div class="line">        self._word_index, self._train_word_query, \</div><div class="line">        self._train_word_answer, self._train_word_label = preprocess(</div><div class="line">            self._word_corpus_path, self._train_word_data_path,</div><div class="line">            self._word_sequence_max_length, mode=&apos;train&apos;</div><div class="line">        )</div><div class="line">        self._word_embed_table = process_embedding_table(self._word_embed_path,</div><div class="line">                                                         self._word_index)</div><div class="line">        np.save(&apos;./data/word_index&apos;, self._word_index)</div><div class="line">        np.save(&apos;./data/train_word_query&apos;, self._train_word_query)</div><div class="line">        np.save(&apos;./data/train_word_answer&apos;, self._train_word_answer)</div><div class="line">        np.save(&apos;./data/train_word_label&apos;, self._train_word_label)</div><div class="line">        np.save(&apos;./data/word_embed_table&apos;, self._word_embed_table)</div><div class="line">        print(&quot;Preprocess Finished.&quot;)</div><div class="line"></div><div class="line">    def process_test(self):</div><div class="line">        _index, self._test_word_query, \</div><div class="line">        self._test_word_answer, _label = preprocess(</div><div class="line">            self._word_corpus_path, self._test_word_data_path,</div><div class="line">            self._word_sequence_max_length, mode=&apos;test&apos;</div><div class="line">        )</div><div class="line">        np.save(&apos;./data/test_word_query&apos;, self._test_word_query)</div><div class="line">        np.save(&apos;./data/test_word_answer&apos;, self._test_word_answer)</div><div class="line"></div><div class="line">        print(&quot;Test Preprocess Finished.&quot;)</div><div class="line"></div><div class="line">    def build_model(self):</div><div class="line">        query_word_sequence_input = Input(</div><div class="line">            shape=(self._word_sequence_max_length,))</div><div class="line">        answer_word_sequence_input = Input(</div><div class="line">            shape=(self._word_sequence_max_length,))</div><div class="line"></div><div class="line">        word_embedding_layer = Embedding(self._word_vocab_size,</div><div class="line">                                         self._word_embed_size,</div><div class="line">                                         weights=[self._word_embed_table],</div><div class="line">                                         input_length=self._word_sequence_max_length)</div><div class="line">        bi_lstm_layer = Bidirectional(</div><div class="line">            GRU(self._lstm_dim, dropout=0.4, recurrent_dropout=0.2,</div><div class="line">                return_sequences=True))</div><div class="line">        second_lstm_layer = Bidirectional(</div><div class="line">            GRU(self._lstm_dim, dropout=0.4, recurrent_dropout=0.2))</div><div class="line"></div><div class="line">        droupour_layer = Dropout(0.5)</div><div class="line"></div><div class="line">        q1 = word_embedding_layer(query_word_sequence_input)</div><div class="line">        q1 = droupour_layer(q1)</div><div class="line">        q1 = bi_lstm_layer(q1)</div><div class="line">        q1 = second_lstm_layer(q1)</div><div class="line">        q2 = word_embedding_layer(answer_word_sequence_input)</div><div class="line">        q2 = droupour_layer(q2)</div><div class="line">        q2 = bi_lstm_layer(q2)</div><div class="line">        q2 = second_lstm_layer(q2)</div><div class="line">        q_diff = Subtract()([q1, q2])</div><div class="line">        q_mul = Multiply()([q1, q2])</div><div class="line">        q_add = Add()([q1, q2])</div><div class="line">        merged = concatenate([q1, q2, q_add, q_diff, q_mul])</div><div class="line"></div><div class="line">        merged = Dense(256, activation=&apos;relu&apos;)(merged)</div><div class="line">        merged = BatchNormalization()(merged)</div><div class="line">        merged = Dense(256, activation=&apos;relu&apos;)(merged)</div><div class="line">        merged = BatchNormalization()(merged)</div><div class="line">        merged = Dense(128, activation=&apos;relu&apos;)(merged)</div><div class="line">        merged = BatchNormalization()(merged)</div><div class="line">        prediction = Dense(2, activation=&apos;softmax&apos;)(merged)</div><div class="line"></div><div class="line">        model = Model(</div><div class="line">            inputs=[query_word_sequence_input, answer_word_sequence_input],</div><div class="line">            outputs=prediction)</div><div class="line">        model.compile(loss=&apos;categorical_crossentropy&apos;, optimizer=&apos;adam&apos;,</div><div class="line">                      metrics=[&apos;accuracy&apos;])</div><div class="line">        return model</div><div class="line"></div><div class="line">    def train(self):</div><div class="line">        self._word_index = np.load(&apos;./data/word_index.npy&apos;)</div><div class="line">        self._train_word_query = np.load(&apos;./data/train_word_query.npy&apos;)</div><div class="line">        self._train_word_answer = np.load(&apos;./data/train_word_answer.npy&apos;)</div><div class="line">        self._train_word_label = np.load(&apos;./data/train_word_label.npy&apos;)</div><div class="line">        self._word_embed_table = np.load(&apos;./data/word_embed_table.npy&apos;)</div><div class="line">        model = self.build_model()</div><div class="line">        csv_logger = CSVLogger(&apos;log.csv&apos;, append=True, separator=&apos;;&apos;)</div><div class="line">        model.fit([self._train_word_query, self._train_word_answer],</div><div class="line">                  self._train_word_label,</div><div class="line">                  batch_size=self._batch_size, epochs=self._epoch,</div><div class="line">                  validation_split=self._validation_split,</div><div class="line">                  callbacks=[csv_logger])</div><div class="line">        model.save(&apos;./model&apos;)</div><div class="line"></div><div class="line">    def train_all(self, model_path):</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        train the final model using train and dev data.</div><div class="line">        :return:</div><div class="line">        &quot;&quot;&quot;</div><div class="line">        self._word_index = np.load(&apos;./data/word_index.npy&apos;)</div><div class="line">        self._train_word_query = np.load(&apos;./data/train_word_query.npy&apos;)</div><div class="line">        self._train_word_answer = np.load(&apos;./data/train_word_answer.npy&apos;)</div><div class="line">        self._train_word_label = np.load(&apos;./data/train_word_label.npy&apos;)</div><div class="line">        self._word_embed_table = np.load(&apos;./data/word_embed_table.npy&apos;)</div><div class="line">        model = load_model(model_path)</div><div class="line">        model.fit([self._train_word_query, self._train_word_answer],</div><div class="line">                  self._train_word_label,</div><div class="line">                  batch_size=self._batch_size, epochs=self._epoch + 2)</div><div class="line">        model.save(&apos;./final-model&apos;)</div><div class="line"></div><div class="line">    def predict(self, model_path):</div><div class="line">        self._test_word_query = np.load(&apos;./data/test_word_query.npy&apos;)</div><div class="line">        self._test_word_answer = np.load(&apos;./data/test_word_answer.npy&apos;)</div><div class="line">        model = load_model(model_path)</div><div class="line">        prediction = model.predict(</div><div class="line">            [self._test_word_query, self._test_word_answer],</div><div class="line">            batch_size=512)</div><div class="line">        print(prediction)</div><div class="line">        np.save(&apos;./predictions&apos;, prediction)</div><div class="line"></div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    model = SiameseMatcher()</div><div class="line">    # model.process_train()</div><div class="line">    # model.process_test()</div><div class="line">    # model.predict(&apos;/Users/frank/self/paipaiai/first-model-epoch-100&apos;)</div><div class="line"></div><div class="line">    config = tf.ConfigProto()</div><div class="line">    config.gpu_options.allow_growth = True  # 不全部占满显存, 按需分配</div><div class="line">    session = tf.Session(config=config)</div><div class="line">    # 设置session</div><div class="line">    KTF.set_session(session)</div><div class="line"></div><div class="line">    model.train()</div></pre></td></tr></table></figure>
+<p>Data Process Implementation:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div></pre></td><td class="code"><pre><div class="line"># -*- coding: utf-8 -*-</div><div class="line"># @Author: Frank Chu</div><div class="line"># @Date: 2018-06-28</div><div class="line"></div><div class="line">from keras.preprocessing.text import Tokenizer</div><div class="line">from keras.preprocessing.sequence import pad_sequences</div><div class="line">from keras.utils import to_categorical</div><div class="line">from numpy import asarray, zeros</div><div class="line">import numpy as np</div><div class="line"></div><div class="line"></div><div class="line">def load_file(path):</div><div class="line">    data = list()</div><div class="line">    with open(path, &apos;rt&apos;, encoding=&apos;utf-8&apos;) as fo:</div><div class="line">        for line in fo:</div><div class="line">            data.append(line.strip())</div><div class="line">    return data</div><div class="line"></div><div class="line"></div><div class="line">def preprocess(corpus_path, data_path, max_length, mode=&apos;train&apos;):</div><div class="line">    corpus = load_file(corpus_path)</div><div class="line">    tokenizer = Tokenizer(lower=False)</div><div class="line">    tokenizer.fit_on_texts(corpus)</div><div class="line">    print(tokenizer.word_index)</div><div class="line">    data = load_file(data_path)</div><div class="line">    label, query, answer = process_data_set(data, mode)</div><div class="line">    encoded_query = tokenizer.texts_to_sequences(query)</div><div class="line">    padded_query = pad_sequences(encoded_query, maxlen=max_length,</div><div class="line">                                 padding=&apos;post&apos;)</div><div class="line">    encoded_answer = tokenizer.texts_to_sequences(answer)</div><div class="line">    padded_answer = pad_sequences(encoded_answer, maxlen=max_length,</div><div class="line">                                  padding=&apos;post&apos;)</div><div class="line">    if mode == &apos;train&apos;:</div><div class="line">        label = to_categorical(asarray(label))</div><div class="line"></div><div class="line">    return tokenizer.word_index, padded_query, padded_answer, label</div><div class="line"></div><div class="line"></div><div class="line">def process_data_set(data, mode=&apos;train&apos;):</div><div class="line">    label = []</div><div class="line">    query = []</div><div class="line">    answer = []</div><div class="line">    if mode == &apos;train&apos;:</div><div class="line">        for line in data:</div><div class="line">            splits = line.split(&quot;\t&quot;)</div><div class="line">            label.append(splits[0])</div><div class="line">            query.append(splits[1])</div><div class="line">            answer.append(splits[2])</div><div class="line">    else:</div><div class="line">        for line in data:</div><div class="line">            splits = line.split(&quot;\t&quot;)</div><div class="line">            query.append(splits[0])</div><div class="line">            answer.append(splits[1])</div><div class="line">    return label, query, answer</div><div class="line"></div><div class="line"></div><div class="line">def process_embedding_table(embedding_path, word_index):</div><div class="line">    embedding_data = load_file(embedding_path)</div><div class="line">    splits = embedding_data[0].split(&apos; &apos;)</div><div class="line">    vocab, dim = splits[0], splits[1]</div><div class="line">    print(&quot;vacab size &#123;&#125; and len of embedding data is &#123;&#125;&quot;.format(vocab,</div><div class="line">                                                                 len(</div><div class="line">                                                                     embedding_data)))</div><div class="line">    print(&apos;word index dict size is &#123;&#125;&apos;.format(len(word_index)))</div><div class="line">    # assert vocab == len(word_index)</div><div class="line">    embedding_index = dict()</div><div class="line">    for line in embedding_data:</div><div class="line">        values = line.split(&apos; &apos;)</div><div class="line">        if len(values) == 2:</div><div class="line">            continue</div><div class="line">        word = values[0]</div><div class="line">        vector = asarray(values[1:], dtype=&apos;float32&apos;)</div><div class="line">        embedding_index[word] = vector</div><div class="line"></div><div class="line">    embedding_matrix = zeros((int(vocab) + 1, int(dim)))</div><div class="line">    for word, i in word_index.items():</div><div class="line">        embedding_vector = embedding_index.get(word)</div><div class="line">        if embedding_vector is not None:</div><div class="line">            embedding_matrix[i] = embedding_vector</div><div class="line">        else:</div><div class="line">            print(&apos;word is &#123;&#125; and i is &#123;&#125;&apos;.format(word, i))</div><div class="line">    return embedding_matrix</div></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://keras.io/zh/" target="_blank" rel="external">keras</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Frank Chu
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://frankchu0229.github.io/2018/09/02/keras-siamese-network/" title="Keras Siamese Network">http://frankchu0229.github.io/2018/09/02/keras-siamese-network/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/keras/" rel="tag"># keras</a>
+          
+            <a href="/tags/dl/" rel="tag"># dl</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/14/python-cookbook-number/" rel="next" title="Python Cookbook Number Summary">
+                <i class="fa fa-chevron-left"></i> Python Cookbook Number Summary
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div class="ds-thread" data-thread-key="2018/09/02/keras-siamese-network/"
+           data-title="Keras Siamese Network" data-url="http://frankchu0229.github.io/2018/09/02/keras-siamese-network/">
+      </div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/img/author.jpg"
+                alt="Frank Chu" />
+            
+              <p class="site-author-name" itemprop="name">Frank Chu</p>
+              <p class="site-description motion-element" itemprop="description">AI从业者，希望结识更多同道中人。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Implementation-by-Keras"><span class="nav-number">2.</span> <span class="nav-text">Implementation by Keras</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Frank Chu</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"frankchu0229"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
