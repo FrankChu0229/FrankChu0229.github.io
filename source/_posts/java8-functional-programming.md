@@ -35,12 +35,12 @@ Lambda 表达式引用的是值，而不是变量，即该变量是既成事实�
 
 常用的jdk中提供的函数式接口：
 
-- Predict<T> 参数T， 返回boolean
-- Consumer<T> 参数T， 返回void
-- Supplier<T> 参数 None， 返回T
-- Function<T, R> 参数T，返回R
-- UnaryOperator<T> 参数T， 返回T
-- BinaryOperator<T, T> 参数T，T 返回T
+- `Predict<T>` 参数T， 返回boolean
+- `Consumer<T>` 参数T， 返回void
+- `Supplier<T>` 参数 None， 返回T
+- `Function<T, R>` 参数T，返回R
+- `UnaryOperator<T>` 参数T， 返回T
+- `BinaryOperator<T, T>` 参数T，T 返回T
 
 ### 类型推断
 
