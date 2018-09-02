@@ -1,4 +1,4 @@
-title: TF Python Train Java Serve
+title: TF Python Train And Java Serve
 date: 2018-08-02 10:30:59
 tags: [python, keras, dl, tensorflow]
 categories: Machine Learning
@@ -41,7 +41,7 @@ builder.add_meta_graph_and_variables(sess, ['baidu-model'], {'signature': signat
 builder.save()
 ```
 
-### Choose the best model and convert it to frozen graph.
+### 3. Choose the best model and convert it to frozen graph.
 
 ```
 def convert_to_frozen_graph(path, tags, output_node_names, frozen_path='./',
@@ -89,7 +89,7 @@ def load_frozen_graph(path='./model.pb'):
 
 ```
 
-### Test the frozen graph
+### 4. Test the frozen graph
 
 ```
 if __name__ == '__main__':
