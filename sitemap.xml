@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://frankchu0229.github.io/2018/09/02/java8-functional-programming/</loc>
+    
+    <lastmod>2018-09-02T07:02:32.845Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://frankchu0229.github.io/2018/08/20/semi-supervised-learning/</loc>
     
     <lastmod>2018-09-02T05:14:15.019Z</lastmod>
@@ -9,16 +16,16 @@
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/08/12/kg-mind-map/</loc>
+    <loc>http://frankchu0229.github.io/2018/06/06/keras-demo/</loc>
     
-    <lastmod>2018-09-02T03:36:51.140Z</lastmod>
+    <lastmod>2018-09-02T04:38:32.463Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/06/06/keras-demo/</loc>
+    <loc>http://frankchu0229.github.io/2018/08/12/kg-mind-map/</loc>
     
-    <lastmod>2018-09-02T03:32:32.621Z</lastmod>
+    <lastmod>2018-09-02T03:36:51.140Z</lastmod>
     
   </url>
   
