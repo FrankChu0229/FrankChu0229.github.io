@@ -1,4 +1,4 @@
-title: Java8 Functional Programming
+title: Java8 Functional Programming-1
 date: 2018-09-02 14:54:53
 tags: [coding,summary, java, functional programming]
 categories:  Java 
@@ -21,10 +21,7 @@ Java8 最大的变化就是引入了lambda表达式，一种紧凑的、传递�
 
 - `Runnable noArgmants = () -> System.out.println("Hello World");`
 - `ActionListener oneArgument = event -> System.out.println("button clicked")`
-- ``` Runnable multiStatement = () -> {
-    System.out.println("Hello");
-    System.out.println("World");
-}```
+- ` Runnable multiStatement = () -> { System.out.println("Hello"); System.out.println("World"); }`
 - `BinaryOperator<Long> add = (x, y) -> x + y` // 参数类型由编译器推断出来
 - `BinaryOperator<Long> add = (Long x, Long y) -> x + y` // 显示指定参数类型
 
