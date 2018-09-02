@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://frankchu0229.github.io/2018/08/02/tf-python-train-java-serve/</loc>
+    
+    <lastmod>2018-09-02T02:59:58.008Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://frankchu0229.github.io/2018/09/02/keras-siamese-network/</loc>
     
     <lastmod>2018-09-02T02:25:26.838Z</lastmod>
