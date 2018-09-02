@@ -2,7 +2,7 @@ title: Java8 Functional Programming
 date: 2018-09-02 14:54:53
 tags: [coding,summary, java, functional programming]
 categories:  Java 
-description: Java8 Lambda: Functional Programming Summary.
+description: Java8 Lambdas Functional Programming Summary.
 ---
 
 ## Introduction
