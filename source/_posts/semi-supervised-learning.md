@@ -29,7 +29,7 @@ description: Semi-supervised Learning And Active Learning Summary.
 
 Semi-supervised learning 包含的内容比较多，for more info，可以看周志华老师的西瓜书，这里只介绍常用到的自学习和协同学习。
 
-## Self Learning 自学习
+## Self Learning 自学习 (Self Training)
 
 `步骤`
 
@@ -43,10 +43,28 @@ Semi-supervised learning 包含的内容比较多，for more info，可以看周
 
 ## Co-Training 协同训练
 
+Co-training 和self-learning的步骤类似，以下以二分类任务为例：
+
+`步骤`
+
+该算法假设数据属性拥有两个充分冗余（sufficient and redundant）的视图，称之为 view1 和 view2; view1, view2 一种对用的例子是特征的划分。
+
+算法基本流程是：
+1. 首先在标记数据集 L 的 view1 和 view2分别上训练出两个分类器 C1 和 C2；
+2. 然后从未标记数据集 U 上随机的选取 u 个示例放入集合 U’中；分别用 C1 和 C2 对 U’中的所有元素进行标记；
+3. 接着从两个分类器标记结果中各取可信度最高的 p 个正标记和 n 个负标记放入 L 中；
+4. 最后从 U 中选取 2p+2n 个数据补充到 U’中；
+5. 重复上述过程直到满足截止条件。
+
+值得注意的是这两个视图应该是相互独立的。考虑一个极端的情况如果 view1 和 view2 是全相关的，那
+么由 view1 的到分类器和由 view2 训练得到的分类器对相同待标记示例的标记是完全一样的，这样以来
+Co-Training 算法就退化成了 self-training 算法。
 
 
 ## Reference
+- http://lamda.nju.edu.cn/huangsj/dm11/files/gaoy.pdf
 - https://blog.csdn.net/u014520745/article/details/45054481
 - https://www.zhihu.com/question/265479171
 - https://zhuanlan.zhihu.com/p/29583536
+- https://blog.csdn.net/qq_35994754/article/details/73457817
 
