@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Frank Chu">
 <meta property="og:description" content="Semi-supervised Learning And Active Learning Summary.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-02T05:08:55.246Z">
+<meta property="og:updated_time" content="2018-09-02T05:12:25.620Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Semi-supervised Learning And Active Learning Summary">
 <meta name="twitter:description" content="Semi-supervised Learning And Active Learning Summary.">
@@ -417,7 +417,7 @@
       
 
       
-        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>在很多场景下(e.g., 业务冷启动)，labelled data是很少的，这时候会去尝试用无监督或者半监督的方式来解决实际中的问题。所谓半监督，就是即用了有标注的数据，又用了未标注的数据。<br>半监督学习和主动学习都是在标注数据少的情况下的一种解决方式。但是我们常说的半监督学习的方式偏向于不需要人工干涉，自动的对未标注数据进行利用。而主动学习(Active Learning)需要外在的相关领域人员进行数据标注，是一个人际协调交互的过程。</p>
+        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>在很多场景下(e.g., 业务冷启动)，labelled data是很少的，这时候会去尝试用无监督或者半监督的方式来解决实际中的问题。所谓半监督，就是既用了有标注的数据，又用了未标注的数据。<br>半监督学习和主动学习都是在标注数据少的情况下的一种解决方式。但是我们常说的半监督学习的方式偏向于不需要人工干涉，自动的对未标注数据进行利用。而主动学习(Active Learning)需要外在的相关领域人员进行数据标注，是一个人际协调交互的过程。</p>
 <h2 id="Active-Learning"><a href="#Active-Learning" class="headerlink" title="Active Learning"></a>Active Learning</h2><p>原始数据量是很大的，但是怎么进行标注呢？对所有数据都标注一遍的成本是巨大的。一种方式可以使用<code>主动学习</code>的方式进行标注，减少标注成本。</p>
 <p><code>核心思想</code>：主动学习会选择那些比较难分类的样本，然后由人工进行标注。</p>
 <p><code>步骤</code>:</p>
@@ -456,7 +456,7 @@
 <li>最后从 U 中选取 2p+2n 个数据补充到 U’中；</li>
 <li>重复上述过程直到满足截止条件。</li>
 </ol>
-<p>值得注意的是这两个视图应该是相互独立的。考虑一个极端的情况如果 view1 和 view2 是全相关的，那<br>么由 view1 的到分类器和由 view2 训练得到的分类器对相同待标记示例的标记是完全一样的，这样以来<br>Co-Training 算法就退化成了 self-training 算法。</p>
+<p>值得注意的是这两个视图应该是相互独立的。考虑一个极端的情况如果 view1 和 view2 是全相关的，那么由 view1 的到分类器和由 view2 训练得到的分类器对相同待标记示例的标记是完全一样的，这样以来Co-Training 算法就退化成了 self-training 算法。</p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
 <li><a href="http://lamda.nju.edu.cn/huangsj/dm11/files/gaoy.pdf" target="_blank" rel="external">http://lamda.nju.edu.cn/huangsj/dm11/files/gaoy.pdf</a></li>
 <li><a href="https://blog.csdn.net/u014520745/article/details/45054481" target="_blank" rel="external">https://blog.csdn.net/u014520745/article/details/45054481</a></li>
