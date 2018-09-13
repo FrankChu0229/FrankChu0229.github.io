@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Frank Chu">
 <meta property="og:description" content="Design pattern, examples implemented in java.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-08T09:00:10.161Z">
+<meta property="og:updated_time" content="2018-09-13T06:25:30.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Design Pattern">
 <meta name="twitter:description" content="Design pattern, examples implemented in java.">
@@ -418,6 +418,7 @@
 
       
         <h2 id="Singleton-Instance"><a href="#Singleton-Instance" class="headerlink" title="Singleton Instance"></a>Singleton Instance</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public class Test &#123;</div><div class="line">	</div><div class="line">	private static final class SingletonHolder &#123;</div><div class="line">		private static final Test INSTANCE = new Test();</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	private Test() &#123;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public static Test getInstance() &#123;</div><div class="line">		return SingletonHolder.INSTSNCE;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	public static void main(String[] args) &#123;</div><div class="line">		Test test = Test.getInstance();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>说明: 静态内部类在使用时才加载，所以静态内部类的写法可以做到延迟加载.同时又是线程安全的。</p>
 <hr>
 
       

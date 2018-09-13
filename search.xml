@@ -347,7 +347,7 @@
   <entry>
     <title><![CDATA[Design Pattern]]></title>
     <url>%2F2018%2F02%2F27%2Fdesign-pattern%2F</url>
-    <content type="text"><![CDATA[Singleton Instance123456789101112131415161718public class Test &#123; private static final class SingletonHolder &#123; private static final Test INSTANCE = new Test(); &#125; private Test() &#123; &#125; public static Test getInstance() &#123; return SingletonHolder.INSTSNCE; &#125; public static void main(String[] args) &#123; Test test = Test.getInstance(); &#125;&#125;]]></content>
+    <content type="text"><![CDATA[Singleton Instance123456789101112131415161718public class Test &#123; private static final class SingletonHolder &#123; private static final Test INSTANCE = new Test(); &#125; private Test() &#123; &#125; public static Test getInstance() &#123; return SingletonHolder.INSTSNCE; &#125; public static void main(String[] args) &#123; Test test = Test.getInstance(); &#125;&#125; 说明: 静态内部类在使用时才加载，所以静态内部类的写法可以做到延迟加载.同时又是线程安全的。]]></content>
       <categories>
         <category>Design Pattern</category>
       </categories>
