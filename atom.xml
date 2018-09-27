@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://frankchu0229.github.io/"/>
-  <updated>2018-09-27T07:06:35.592Z</updated>
+  <updated>2018-09-27T07:08:52.098Z</updated>
   <id>http://frankchu0229.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://frankchu0229.github.io/2018/09/27/virtualenv-summary/"/>
     <id>http://frankchu0229.github.io/2018/09/27/virtualenv-summary/</id>
     <published>2018-09-27T06:59:03.000Z</published>
-    <updated>2018-09-27T07:06:35.592Z</updated>
+    <updated>2018-09-27T07:08:52.098Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Conda 在使用时还是稍微有些重，virtualenv可以对每一个项目创建一个虚拟环境，然后对每一个项目的python环境进行隔离。</p><h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><ul><li><code>pip install virtualenv</code> to install</li><li><code>virtualenv ENV</code> to create virtual env in the directory <code>ENV</code>, which will create <code>bin</code>, <code>lib</code>, <code>include</code>.</li><li><code>source bin/activate</code> to activate the current env.</li><li><code>deactivate</code> to deactivate the current env.</li><li><code>rm -rf ENV</code> to rm the current virtual env.</li></ul><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>-<a href="https://virtualenv.pypa.io/en/stable/" target="_blank" rel="external">User Guide</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Conda 在使用时还是稍微有些重，virtualenv可以对每一个项目创建一个虚拟环境，然后对每一个项目的python环境进行隔离。</p><h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><ul><li><code>pip install virtualenv</code> to install</li><li><code>virtualenv ENV</code> to create virtual env in the directory <code>ENV</code>, which will create <code>bin</code>, <code>lib</code>, <code>include</code>.</li><li><code>source bin/activate</code> to activate the current env.</li><li><code>deactivate</code> to deactivate the current env.</li><li><code>rm -rf ENV</code> to rm the current virtual env.</li></ul><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="https://virtualenv.pypa.io/en/stable/" target="_blank" rel="external">User Guide</a></li></ul>]]></content>
     
     <summary type="html">
     

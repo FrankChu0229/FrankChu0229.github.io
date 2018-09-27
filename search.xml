@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Virtualenv Summary]]></title>
     <url>%2F2018%2F09%2F27%2Fvirtualenv-summary%2F</url>
-    <content type="text"><![CDATA[IntroductionConda 在使用时还是稍微有些重，virtualenv可以对每一个项目创建一个虚拟环境，然后对每一个项目的python环境进行隔离。 Usage pip install virtualenv to install virtualenv ENV to create virtual env in the directory ENV, which will create bin, lib, include. source bin/activate to activate the current env. deactivate to deactivate the current env. rm -rf ENV to rm the current virtual env. Reference-User Guide]]></content>
+    <content type="text"><![CDATA[IntroductionConda 在使用时还是稍微有些重，virtualenv可以对每一个项目创建一个虚拟环境，然后对每一个项目的python环境进行隔离。 Usage pip install virtualenv to install virtualenv ENV to create virtual env in the directory ENV, which will create bin, lib, include. source bin/activate to activate the current env. deactivate to deactivate the current env. rm -rf ENV to rm the current virtual env. Reference User Guide]]></content>
       <categories>
         <category>Python Env Management.</category>
       </categories>
