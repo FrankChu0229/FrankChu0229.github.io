@@ -18,4 +18,4 @@ Conda 在使用时还是稍微有些重，virtualenv可以对每一个项目创�
 
 ## Reference
 
--[User Guide](https://virtualenv.pypa.io/en/stable/)
+- [User Guide](https://virtualenv.pypa.io/en/stable/)
