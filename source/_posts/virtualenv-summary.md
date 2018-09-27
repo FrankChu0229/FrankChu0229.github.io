@@ -1,4 +1,4 @@
-title: virtualenv_summary
+title: Virtualenv Summary
 date: 2018-09-27 14:59:03
 tags: [python, virtualenv, tools]
 categories: Python Env Management.
