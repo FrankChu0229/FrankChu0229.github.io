@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://frankchu0229.github.io/"/>
-  <updated>2018-09-02T12:54:04.886Z</updated>
+  <updated>2018-09-27T07:06:35.592Z</updated>
   <id>http://frankchu0229.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Virtualenv Summary</title>
+    <link href="http://frankchu0229.github.io/2018/09/27/virtualenv-summary/"/>
+    <id>http://frankchu0229.github.io/2018/09/27/virtualenv-summary/</id>
+    <published>2018-09-27T06:59:03.000Z</published>
+    <updated>2018-09-27T07:06:35.592Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Conda 在使用时还是稍微有些重，virtualenv可以对每一个项目创建一个虚拟环境，然后对每一个项目的python环境进行隔离。</p><h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><ul><li><code>pip install virtualenv</code> to install</li><li><code>virtualenv ENV</code> to create virtual env in the directory <code>ENV</code>, which will create <code>bin</code>, <code>lib</code>, <code>include</code>.</li><li><code>source bin/activate</code> to activate the current env.</li><li><code>deactivate</code> to deactivate the current env.</li><li><code>rm -rf ENV</code> to rm the current virtual env.</li></ul><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>-<a href="https://virtualenv.pypa.io/en/stable/" target="_blank" rel="external">User Guide</a></p>]]></content>
+    
+    <summary type="html">
+    
+      Virtualenv Summary.
+    
+    </summary>
+    
+      <category term="Python Env Management." scheme="http://frankchu0229.github.io/categories/Python-Env-Management/"/>
+    
+    
+      <category term="python" scheme="http://frankchu0229.github.io/tags/python/"/>
+    
+      <category term="tools" scheme="http://frankchu0229.github.io/tags/tools/"/>
+    
+      <category term="virtualenv" scheme="http://frankchu0229.github.io/tags/virtualenv/"/>
+    
+  </entry>
   
   <entry>
     <title>Java8 Functional Programming-1</title>
@@ -36,9 +62,9 @@
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
     
-      <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
-    
       <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
+    
+      <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
     
       <category term="functional programming" scheme="http://frankchu0229.github.io/tags/functional-programming/"/>
     
@@ -289,7 +315,7 @@
     <link href="http://frankchu0229.github.io/2018/06/20/matplotlib/"/>
     <id>http://frankchu0229.github.io/2018/06/20/matplotlib/</id>
     <published>2018-06-20T02:27:36.000Z</published>
-    <updated>2018-06-20T03:23:06.080Z</updated>
+    <updated>2018-09-27T07:01:18.833Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Matplotlib-Basic-Operations-in-Jupyter"><a href="#Matplotlib-Basic-Operations-in-Jupyter" class="headerlink" title="Matplotlib Basic Operations in Jupyter"></a>Matplotlib Basic Operations in Jupyter</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">import matplotlib.pyplot as plt</div><div class="line">%matplotlib inline</div><div class="line">import numpy as np</div><div class="line"></div><div class="line">x = np.linspace(-1, 1, 50)</div><div class="line">y = 2 * x + 1</div><div class="line">plt.plot(x, y)</div><div class="line">plt.show()</div></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">x = np.linspace(-1, 1, 50)</div><div class="line">y1 = 2 * x + 1</div><div class="line">y2 = 2 ** x + 1</div><div class="line">plt.plot(x, y1)</div><div class="line">plt.plot(x, y2, color=&apos;red&apos;, linestyle=&apos;--&apos;)</div><div class="line">plt.xlabel(&apos;X axis&apos;)</div><div class="line">plt.ylabel(&apos;Y axis&apos;)</div><div class="line">plt.show()</div></pre></td></tr></table></figure><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="https://blog.csdn.net/Notzuonotdied/article/details/77876080" target="_blank" rel="external">reference</a></li></ul>]]></content>
     
@@ -485,32 +511,6 @@
       <category term="python" scheme="http://frankchu0229.github.io/tags/python/"/>
     
       <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python Dependency Management</title>
-    <link href="http://frankchu0229.github.io/2018/05/30/python-dependency-management/"/>
-    <id>http://frankchu0229.github.io/2018/05/30/python-dependency-management/</id>
-    <published>2018-05-30T12:40:37.000Z</published>
-    <updated>2018-05-30T12:44:42.226Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h2><ul><li><code>pip install -r requirements.txt</code> to install all dependency in requirements.</li><li><code>pip freeze &gt; requirements.txt</code> to export all depenedncies to requirements.txt</li></ul><hr>]]></content>
-    
-    <summary type="html">
-    
-      Python Dependency Management.
-    
-    </summary>
-    
-      <category term="python" scheme="http://frankchu0229.github.io/categories/python/"/>
-    
-    
-      <category term="python" scheme="http://frankchu0229.github.io/tags/python/"/>
-    
-      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
-    
-      <category term="dependency" scheme="http://frankchu0229.github.io/tags/dependency/"/>
     
   </entry>
   

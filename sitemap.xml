@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://frankchu0229.github.io/2018/09/27/virtualenv-summary/</loc>
+    
+    <lastmod>2018-09-27T07:06:35.592Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu0229.github.io/2018/06/20/matplotlib/</loc>
+    
+    <lastmod>2018-09-27T07:01:18.833Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://frankchu0229.github.io/2018/02/27/design-pattern/</loc>
     
     <lastmod>2018-09-13T06:25:30.114Z</lastmod>
@@ -117,13 +131,6 @@
     <loc>http://frankchu0229.github.io/2018/06/20/keras-classification/</loc>
     
     <lastmod>2018-06-20T13:38:41.378Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://frankchu0229.github.io/2018/06/20/matplotlib/</loc>
-    
-    <lastmod>2018-06-20T03:23:06.080Z</lastmod>
     
   </url>
   
