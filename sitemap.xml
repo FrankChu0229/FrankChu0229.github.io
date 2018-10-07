@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://frankchu0229.github.io/2016/11/21/vim2/</loc>
+    
+    <lastmod>2018-10-07T03:02:10.276Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://frankchu0229.github.io/2018/09/27/virtualenv-summary/</loc>
     
     <lastmod>2018-09-27T07:08:52.098Z</lastmod>
@@ -327,13 +334,6 @@
     <loc>http://frankchu0229.github.io/2016/10/21/vimNotes/</loc>
     
     <lastmod>2017-10-30T12:29:24.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://frankchu0229.github.io/2016/11/21/vim2/</loc>
-    
-    <lastmod>2017-10-30T12:29:13.000Z</lastmod>
     
   </url>
   
