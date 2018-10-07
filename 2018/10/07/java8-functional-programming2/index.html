@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Frank Chu">
 <meta property="og:description" content="Java8 Lambdas Functional Programming Summary.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-07T04:10:01.489Z">
+<meta property="og:updated_time" content="2018-10-07T06:42:35.717Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java8 Functional Programming-2">
 <meta name="twitter:description" content="Java8 Lambdas Functional Programming Summary.">
@@ -434,7 +434,42 @@
 <h3 id="实现机制"><a href="#实现机制" class="headerlink" title="实现机制"></a>实现机制</h3><p>在上面的操作中，我们分为过滤和计数两个步骤来进行实现，那么上面基于Stream的方式是怎么实现的呢，是不是比for循环的方式复杂度要高呢？</p>
 <p>在Stream中，操作主要分为：<code>惰性求值</code>和<code>及早求值</code>两种方式。惰性求值返回值仍是stream，而及早求值返回另一个值或者null。Stream中的多个惰性求值操作形成一个惰性求值链，最后由一个及早求值操作返回想要的结果。这也意味着可以有多个级连操作，但是只迭代一次。</p>
 <p>例如，在上面的的例子中，filter就是惰性求值操作，count是及早求值操作。</p>
-<h3 id="常见Stream操作"><a href="#常见Stream操作" class="headerlink" title="常见Stream操作"></a>常见Stream操作</h3><h2 id="类库"><a href="#类库" class="headerlink" title="类库"></a>类库</h2><h2 id="高级集合类和收集器"><a href="#高级集合类和收集器" class="headerlink" title="高级集合类和收集器"></a>高级集合类和收集器</h2><h2 id="数据并行化"><a href="#数据并行化" class="headerlink" title="数据并行化"></a>数据并行化</h2><h2 id="测试、调试和重构"><a href="#测试、调试和重构" class="headerlink" title="测试、调试和重构"></a>测试、调试和重构</h2><h2 id="设计和架构的原则"><a href="#设计和架构的原则" class="headerlink" title="设计和架构的原则"></a>设计和架构的原则</h2><h2 id="使用Lambda表达式编写并发程序"><a href="#使用Lambda表达式编写并发程序" class="headerlink" title="使用Lambda表达式编写并发程序"></a>使用Lambda表达式编写并发程序</h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<h3 id="常见Stream操作"><a href="#常见Stream操作" class="headerlink" title="常见Stream操作"></a>常见Stream操作</h3><h4 id="惰性求值操作"><a href="#惰性求值操作" class="headerlink" title="惰性求值操作"></a>惰性求值操作</h4><ul>
+<li><p>map 将一种类型的值转变为另一种值, 即接受一个Function<t, r="">的函数式接口</t,></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">List&lt;String&gt; collected = Stream.of(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;).map(String::toUpperCase()).collect(Collectors.toList());</div></pre></td></tr></table></figure>
+</li>
+<li><p>filter 接收一个Predicate<t>, 即输入为T，返回boolean型变量</t></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">int count = Artists.stream().filter(Artist::isFrom(&quot;London&quot;)).count();</div></pre></td></tr></table></figure>
+</li>
+<li><p>flatMap flattern Stream of stream and then map, map接收T类型参数，返回Stream，即Function<t, stream=""></t,></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">List&lt;String&gt; collected = Stream.of(asList(&quot;a&quot;, &quot;b&quot;), asList(&quot;c&quot;, &quot;d&quot;)).flatMap(List::stream).collect(Collectors.toList());</div></pre></td></tr></table></figure>
+</li>
+<li><p>distinct </p>
+</li>
+<li>limit</li>
+</ul>
+<h4 id="及早求值操作-终止型操作"><a href="#及早求值操作-终止型操作" class="headerlink" title="及早求值操作/终止型操作"></a>及早求值操作/终止型操作</h4><ul>
+<li><p>collect </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">List&lt;String&gt; collected = Stream.of(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;) // Stream 的of方法使用一组初始值来生成新的Stream</div><div class="line">.collect(Collectoris.toList());</div></pre></td></tr></table></figure>
+</li>
+<li><p>max 传入Comparator T对象, 返回Optional<t></t></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">List&lt;Track&gt; tracks = Arrays.asList(new Track(&quot;a&quot;, 524), new Track(&quot;b&quot;, 378, new Track(&quot;c&quot;, 451)));</div><div class="line">Track maxTrack = tracks.stream().max(Comparator.comparing(Track::getLength())).get(); // java8 中，comparing作为工厂方法可以接收一个函数表达式，返回一个Comparator。</div></pre></td></tr></table></figure>
+</li>
+<li><p>min</p>
+</li>
+<li>count</li>
+<li><p>reduce 更通用的方式, reduce 可以从一组值中生成一个值，像min，max，count等都属于reduce操作. 对于一组值的迭代，通常可以用以下方式来进行：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Object accumulator = initValue;</div><div class="line">for (Object element : collections) &#123;</div><div class="line">  accumulator = combine(accumulator, element)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>在这个计算中，只有initValue和combine是不确定的，因此只需要指定这两个就可以实现一个reduce操作。即reduce操作接收一个初始值和一个BinaryOperator操作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">int count = Stream.of(1,2,3).reduce(0, (acc, element)-&gt; acc + element );</div></pre></td></tr></table></figure>
+<p>以上例子用reduce实现了一个sum的操作。</p>
+<ul>
+<li>findAny, findFirst, anyMatch, allMatch, forEach</li>
+<li>collect</li>
+</ul>
+<h2 id="类库"><a href="#类库" class="headerlink" title="类库"></a>类库</h2><h2 id="高级集合类和收集器"><a href="#高级集合类和收集器" class="headerlink" title="高级集合类和收集器"></a>高级集合类和收集器</h2><h2 id="数据并行化"><a href="#数据并行化" class="headerlink" title="数据并行化"></a>数据并行化</h2><h2 id="测试、调试和重构"><a href="#测试、调试和重构" class="headerlink" title="测试、调试和重构"></a>测试、调试和重构</h2><h2 id="设计和架构的原则"><a href="#设计和架构的原则" class="headerlink" title="设计和架构的原则"></a>设计和架构的原则</h2><h2 id="使用Lambda表达式编写并发程序"><a href="#使用Lambda表达式编写并发程序" class="headerlink" title="使用Lambda表达式编写并发程序"></a>使用Lambda表达式编写并发程序</h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
 <li><a href="https://www.amazon.com/Java-Lambdas-Functional-Programming-Masses/dp/1449370772" target="_blank" rel="external">Java 8 Lambdas: Functional Programming for the Masses</a></li>
 </ul>
 
@@ -648,7 +683,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Stream"><span class="nav-number">1.</span> <span class="nav-text">Stream</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现机制"><span class="nav-number">1.1.</span> <span class="nav-text">实现机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见Stream操作"><span class="nav-number">1.2.</span> <span class="nav-text">常见Stream操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类库"><span class="nav-number">2.</span> <span class="nav-text">类库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高级集合类和收集器"><span class="nav-number">3.</span> <span class="nav-text">高级集合类和收集器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据并行化"><span class="nav-number">4.</span> <span class="nav-text">数据并行化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试、调试和重构"><span class="nav-number">5.</span> <span class="nav-text">测试、调试和重构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计和架构的原则"><span class="nav-number">6.</span> <span class="nav-text">设计和架构的原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Lambda表达式编写并发程序"><span class="nav-number">7.</span> <span class="nav-text">使用Lambda表达式编写并发程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">8.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Stream"><span class="nav-number">1.</span> <span class="nav-text">Stream</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现机制"><span class="nav-number">1.1.</span> <span class="nav-text">实现机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见Stream操作"><span class="nav-number">1.2.</span> <span class="nav-text">常见Stream操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#惰性求值操作"><span class="nav-number">1.2.1.</span> <span class="nav-text">惰性求值操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#及早求值操作-终止型操作"><span class="nav-number">1.2.2.</span> <span class="nav-text">及早求值操作/终止型操作</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类库"><span class="nav-number">2.</span> <span class="nav-text">类库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高级集合类和收集器"><span class="nav-number">3.</span> <span class="nav-text">高级集合类和收集器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据并行化"><span class="nav-number">4.</span> <span class="nav-text">数据并行化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试、调试和重构"><span class="nav-number">5.</span> <span class="nav-text">测试、调试和重构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计和架构的原则"><span class="nav-number">6.</span> <span class="nav-text">设计和架构的原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Lambda表达式编写并发程序"><span class="nav-number">7.</span> <span class="nav-text">使用Lambda表达式编写并发程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">8.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
