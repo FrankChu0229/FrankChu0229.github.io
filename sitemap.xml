@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/10/07/java8-functional-programming2/</loc>
+    <loc>http://frankchu0229.github.io/2018/10/05/java8-functional-programming2/</loc>
     
-    <lastmod>2018-10-07T06:58:04.606Z</lastmod>
+    <lastmod>2018-10-07T07:51:42.212Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu0229.github.io/2018/10/07/java8-functional-programming3/</loc>
+    
+    <lastmod>2018-10-07T07:51:41.540Z</lastmod>
     
   </url>
   
