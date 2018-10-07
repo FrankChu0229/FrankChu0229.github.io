@@ -49,4 +49,11 @@ description: vim 进阶
 ## delete the whole line satisfied with the pattern:
 `:g/^9 /d`
 
+## 展开和折叠
+
+- `zc` 对当前折叠
+- `zC` 对当前所在区域折叠
+- `zo` 对当前展开折叠
+- `zO` 对当前所在区域展开折叠
+
 --- 
