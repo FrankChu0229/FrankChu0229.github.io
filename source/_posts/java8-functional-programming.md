@@ -53,19 +53,6 @@ Map<String, String> map1 = new HashMap<String, String>()
 同样在java7中，将构造函数直接传递给一个方法，编译器可以通过方法签名来做推断，使得泛型可以被省略。
 java8 更进一步，lambda表达式可以省略所有参数类型。
 
-## Stream
-
-## 类库
-
-## 高级集合类和收集器
-
-## 数据并行化
-
-## 测试、调试和重构
-
-## 设计和架构的原则
-
-## 使用Lambda表达式编写并发程序
 
 ## Reference
 - [Java 8 Lambdas: Functional Programming for the Masses](https://www.amazon.com/Java-Lambdas-Functional-Programming-Masses/dp/1449370772)
