@@ -60,6 +60,56 @@ int count = Artists.stream().filter(Artist::isFrom("London")).count();
 ### 常见Stream操作
 
 
+#### 惰性求值操作
+
+- map 将一种类型的值转变为另一种值, 即接受一个Function<T, R>的函数式接口
+    ```
+     List<String> collected = Stream.of("a", "b", "c").map(String::toUpperCase()).collect(Collectors.toList());   
+    ```
+- filter 接收一个Predicate<T>, 即输入为T，返回boolean型变量
+    ``` 
+    int count = Artists.stream().filter(Artist::isFrom("London")).count();
+    ```
+- flatMap flattern Stream of stream and then map, map接收T类型参数，返回Stream，即Function<T, Stream>
+    ```
+    List<String> collected = Stream.of(asList("a", "b"), asList("c", "d")).flatMap(List::stream).collect(Collectors.toList());
+    ```
+- distinct 
+- limit
+
+#### 及早求值操作/终止型操作
+
+- collect 
+
+ ```
+    List<String> collected = Stream.of("a", "b", "c") // Stream 的of方法使用一组初始值来生成新的Stream
+    .collect(Collectoris.toList());
+ ```
+- max 传入Comparator T对象, 返回Optional<T>
+    ```
+      List<Track> tracks = Arrays.asList(new Track("a", 524), new Track("b", 378, new Track("c", 451)));
+      Track maxTrack = tracks.stream().max(Comparator.comparing(Track::getLength())).get(); // java8 中，comparing作为工厂方法可以接收一个函数表达式，返回一个Comparator。
+    ```
+- min
+- count
+- reduce 更通用的方式, reduce 可以从一组值中生成一个值，像min，max，count等都属于reduce操作. 对于一组值的迭代，通常可以用以下方式来进行：
+    
+    ```
+    Object accumulator = initValue;
+    for (Object element : collections) {
+      accumulator = combine(accumulator, element)
+    }
+    ```
+在这个计算中，只有initValue和combine是不确定的，因此只需要指定这两个就可以实现一个reduce操作。即reduce操作接收一个初始值和一个BinaryOperator操作。
+
+```
+int count = Stream.of(1,2,3).reduce(0, (acc, element)-> acc + element );
+```
+以上例子用reduce实现了一个sum的操作。
+
+- findAny, findFirst, anyMatch, allMatch, forEach
+- collect
+
 ## 类库
 
 ## 高级集合类和收集器
