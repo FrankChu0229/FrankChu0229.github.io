@@ -88,7 +88,7 @@ int count = Artists.stream().filter(Artist::isFrom("London")).count();
 - max 传入Comparator T对象, 返回Optional<T>
     ```
       List<Track> tracks = Arrays.asList(new Track("a", 524), new Track("b", 378, new Track("c", 451)));
-      Track maxTrack = tracks.stream().max(Comparator.comparing(Track::getLength())).get(); // java8 中，comparing作为工厂方法可以接收一个函数表达式，返回一个Comparator。
+      Track maxTrack = tracks.stream().max(Comparator.comparing(Track::getLength())).get(); // java8 中，comparing作为工厂方法可以接收一个函数表达式，返回一个Comparator, Comparator有且仅有一个抽象接口，因此为函数式接口。
     ```
 - min
 - count
@@ -109,6 +109,13 @@ int count = Stream.of(1,2,3).reduce(0, (acc, element)-> acc + element );
 
 - findAny, findFirst, anyMatch, allMatch, forEach
 - collect
+
+### 正确使用lambda表达式
+
+lambda表达式的使用应该是`无副作用`的，即`只通过函数返回值就能充分理解函数的作用`。
+
+- 在lambda表达式内部使用局部变量，该变量应该是`既成事实上必须是final的`
+- forEach 方法是一个终结方法，可以有副作用。
 
 ## 类库
 
