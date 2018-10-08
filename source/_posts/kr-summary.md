@@ -31,7 +31,12 @@ Examples:
 :hasName           rdfs:subPropertyOf :hasCharacteristic ;
                    rdfs:domain xsd:string .
 ```
+
+Property、subProperty在ontology层出现。
+
 ### OWL 词汇
+
+OWL 在RDFS基础上，在ontology层面增加了更多的关系种类，如
 
 ```
 exp:运动员 owl:equivalentClass exp:体育选手 
@@ -100,6 +105,7 @@ The content of Freebase has been partially imported from various sources such as
 - 通用领域知识图谱
 
 [Zhishi.me](http://zhishi.me/) 通过从开放的百科数据中抽取结构化数据，首次尝试构建中文通用知识图谱。目前，已融合了三大中文百科，百度百科，互动百科以及维基百科中的数据。
+
 #### WikiData
 
 WikiData的目标是构建一个免费开放、多语言、任何人或机器都可以编辑修改的大规模链接知识库。WikiData由维基百科于2012年启动，早期得到微软联合创始人Paul Allen、Gordon Betty Moore基金会以及Google的联合资助。WikiData继承了Wikipedia的众包协作的机制，但与Wikipedia不同，WikiData支持的是以三元组为基础的知识条目（Items）的自由编辑。一个三元组代表一个关于该条目的陈述（Statements）。例如可以给“地球”的条目增加“”的三元组陈述。截止2016年，WikiData已经包含超过2470多万个知识条目。
