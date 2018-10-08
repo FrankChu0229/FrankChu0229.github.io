@@ -61,11 +61,10 @@ JsonLD 是一 种基于JSON表示和传输互联数据 (Linked Data)的方法, �
 - linguistic 图谱
 - 词之间语言学关系 (同义词、反义词、上位词、下位词)
 
-```
 中文词汇网路 (Chinese Wordnet, 以下简称中文词网) 计画，目的是在提供完整的中文词义 (sense) 区分与词汇语意关系知识库。相信词义的区分与表达，必须建立在完善的词汇语意学 (lexical semantics) 理论与知识本体 (ontology) 架构基础上。在词义理论与认知研究方面，这个详细分析的词汇知识库系统，将成為语言学研究的基本参考资料。在实际的应用上，这个资料库可望成為中文语言处理与知识工程不可或缺的基底架构。
 
 本计划自 2003 年起，迄今累积了近十年的研究成果，对词义区分定义，与词义知识表达方式，渐次做了修正。建构过程中，也曾发表於国内外相关研究机关与数个国际研讨会议，得到了许多有价值的建议。中文词网的网路搜寻介面，在 2006 年於中央研究院语言学研究所正式啟用，提供给各界检索使用。到 2010 计画执行结束前，网站资料与技术报告内容皆作同步更新。为了永续经营此项珍贵的中文词汇资源，目前计画网站转由国立台湾大学语言学研究所维护。
-```
+
 #### DbPedia && CN-Depedia
 
 百科知识图谱
@@ -75,9 +74,8 @@ CN-Depedia 整合了如百度百科、互动百科、中文维基百科等百科
 
  多语言知识库，包含中文。
 
-```
 YAGO是由德国马普研究所研制的链接数据库。YAGO主要集成了Wikipedia、WordNet和GeoNames三个来源的数据。YAGO将WordNet的词汇定义与Wikipedia的分类体系进行了融合集成，使得YAGO具有更加丰富的实体分类体系。YAGO还考虑了时间和空间知识，为很多知识条目增加了时间和空间维度的属性描述。目前，YAGO包含1.2亿条三元组知识。YAGO是IBM Watson的后端知识库之一。
-```
+
 #### Probase && CN-Probase
 
 - 通用概念知识图谱	
@@ -88,13 +86,13 @@ YAGO是由德国马普研究所研制的链接数据库。YAGO主要集成了Wik
 
 类似于wikidata，由社区等众包而成，
 
-```
+
 Freebase is built on the notions of objects, facts, types, and properties. Each Freebase object has a stable identifier called a “mid” (for Machine ID), one or more types, and uses properties from these types in order to provide facts. For example, the Freebase object for Barack Obama has the mid /m/02mjmr and the type /government/us_president (among others) that allows the entity to have a fact with the property /government/us_president/presidency_number and the literal integer “44” as the value. 
 
 Freebase uses Compound Value Types (CVTs) to represent n-ary relations with n > 2, e.g., values like geographic coordinates, political positions held with a start and an end date (see Figure 1 for an example), or actors playing a character in a movie. CVT values are just objects, i.e., they have a mid and can have types (although they usually only have the compound value type itself). Most non-CVT objects are called topics in order to discern them from CVTs.
 
 The content of Freebase has been partially imported from various sources such as Wikipedia [1] or the license-compatible part of MusicBrainz [30]. Over the years, the Freebase community and Google have maintained the knowledge base. When Freebase was turned read-only on March 31, 2015, it counted more than 3 billion facts about almost 50 million entities. Freebase data is published as an N-Triples dump in RDF [6] under the Creative Commons CC-BY license.
-```
+
 
 #### zhishi.me 
 
