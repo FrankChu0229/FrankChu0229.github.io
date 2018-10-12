@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Frank Chu">
 <meta property="og:description" content="Java8 Lambdas Functional Programming Summary.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-07T07:51:41.540Z">
+<meta property="og:updated_time" content="2018-10-12T06:28:08.688Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java8 Functional Programming-3">
 <meta name="twitter:description" content="Java8 Lambdas Functional Programming Summary.">
@@ -417,7 +417,15 @@
       
 
       
-        <h2 id="类库"><a href="#类库" class="headerlink" title="类库"></a>类库</h2><h2 id="高级集合类和收集器"><a href="#高级集合类和收集器" class="headerlink" title="高级集合类和收集器"></a>高级集合类和收集器</h2><h2 id="数据并行化"><a href="#数据并行化" class="headerlink" title="数据并行化"></a>数据并行化</h2><h2 id="测试、调试和重构"><a href="#测试、调试和重构" class="headerlink" title="测试、调试和重构"></a>测试、调试和重构</h2><h2 id="设计和架构的原则"><a href="#设计和架构的原则" class="headerlink" title="设计和架构的原则"></a>设计和架构的原则</h2><h2 id="使用Lambda表达式编写并发程序"><a href="#使用Lambda表达式编写并发程序" class="headerlink" title="使用Lambda表达式编写并发程序"></a>使用Lambda表达式编写并发程序</h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+        <h2 id="类库"><a href="#类库" class="headerlink" title="类库"></a>类库</h2><p>Java8 中另一个变化是引入了接口的默认方法和接口的静态方法，使得接口中也可以包含代码体了。</p>
+<h3 id="对基本类型进行优化的Stream"><a href="#对基本类型进行优化的Stream" class="headerlink" title="对基本类型进行优化的Stream"></a>对基本类型进行优化的Stream</h3><p>在java中，类型可以分为基本类型和装箱类型，例如，int为基本类型，Integer为装箱类型。基本类型内建在语言和运行环境中，是程序构建的基本模块；装箱类型属于普通的java类，为对基本类型的一种封装。Java中范型可以看作是对范型参数类型的擦除，即假设他是Object的实例，因此只有装箱类型才能作为范型参数。这就解释了为什么声明一个<code>List&lt;int&gt;</code>的列表，得到的却是<code>List&lt;Integer&gt;</code>的列表，即包含了整型对象的列表。 将基本类型转换为装箱类型为<code>装箱</code>操作，将装箱类型转换为基本类型为<code>拆箱</code>操作。</p>
+<p>装箱类型是普通的java class对象，装箱类型在存储和计算上有着相关的缺陷：</p>
+<ul>
+<li>在存储上，由于装箱类型是对象，因此相比基本类型存在更大的内存开销 (指向对象的指针等存储开销)</li>
+<li>基本类型和装箱类型之间的装箱和拆箱操作会引入额外的计算开销</li>
+</ul>
+<p>对于会涉及到大量数值运算的算法来说，装箱、拆箱操作以及装箱类型引入的额外内存存储，都会对程序运行性能造成一定的影响。</p>
+<h2 id="高级集合类和收集器"><a href="#高级集合类和收集器" class="headerlink" title="高级集合类和收集器"></a>高级集合类和收集器</h2><h2 id="数据并行化"><a href="#数据并行化" class="headerlink" title="数据并行化"></a>数据并行化</h2><h2 id="测试、调试和重构"><a href="#测试、调试和重构" class="headerlink" title="测试、调试和重构"></a>测试、调试和重构</h2><h2 id="设计和架构的原则"><a href="#设计和架构的原则" class="headerlink" title="设计和架构的原则"></a>设计和架构的原则</h2><h2 id="使用Lambda表达式编写并发程序"><a href="#使用Lambda表达式编写并发程序" class="headerlink" title="使用Lambda表达式编写并发程序"></a>使用Lambda表达式编写并发程序</h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
 <li><a href="https://www.amazon.com/Java-Lambdas-Functional-Programming-Masses/dp/1449370772" target="_blank" rel="external">Java 8 Lambdas: Functional Programming for the Masses</a></li>
 </ul>
 
@@ -571,7 +579,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-count">65</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -582,7 +590,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -635,7 +643,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#类库"><span class="nav-number">1.</span> <span class="nav-text">类库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高级集合类和收集器"><span class="nav-number">2.</span> <span class="nav-text">高级集合类和收集器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据并行化"><span class="nav-number">3.</span> <span class="nav-text">数据并行化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试、调试和重构"><span class="nav-number">4.</span> <span class="nav-text">测试、调试和重构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计和架构的原则"><span class="nav-number">5.</span> <span class="nav-text">设计和架构的原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Lambda表达式编写并发程序"><span class="nav-number">6.</span> <span class="nav-text">使用Lambda表达式编写并发程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#类库"><span class="nav-number">1.</span> <span class="nav-text">类库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对基本类型进行优化的Stream"><span class="nav-number">1.1.</span> <span class="nav-text">对基本类型进行优化的Stream</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高级集合类和收集器"><span class="nav-number">2.</span> <span class="nav-text">高级集合类和收集器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据并行化"><span class="nav-number">3.</span> <span class="nav-text">数据并行化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试、调试和重构"><span class="nav-number">4.</span> <span class="nav-text">测试、调试和重构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计和架构的原则"><span class="nav-number">5.</span> <span class="nav-text">设计和架构的原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Lambda表达式编写并发程序"><span class="nav-number">6.</span> <span class="nav-text">使用Lambda表达式编写并发程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>

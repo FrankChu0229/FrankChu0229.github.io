@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Vim Config Summary]]></title>
+    <url>%2F2018%2F10%2F11%2Fvim-config%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>vim</category>
+      </categories>
+      <tags>
+        <tag>notes</tag>
+        <tag>vim</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Machine Learning Metrics]]></title>
+    <url>%2F2018%2F10%2F11%2Fml-metrics%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Machine Learning</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[QA Summary]]></title>
     <url>%2F2018%2F10%2F11%2Fqa-summary%2F</url>
     <content type="text"><![CDATA[Reference 知识图谱 From HaoFen Wang]]></content>
@@ -29,7 +52,7 @@
   <entry>
     <title><![CDATA[Java8 Functional Programming-3]]></title>
     <url>%2F2018%2F10%2F07%2Fjava8-functional-programming3%2F</url>
-    <content type="text"><![CDATA[类库高级集合类和收集器数据并行化测试、调试和重构设计和架构的原则使用Lambda表达式编写并发程序Reference Java 8 Lambdas: Functional Programming for the Masses]]></content>
+    <content type="text"><![CDATA[类库Java8 中另一个变化是引入了接口的默认方法和接口的静态方法，使得接口中也可以包含代码体了。 对基本类型进行优化的Stream在java中，类型可以分为基本类型和装箱类型，例如，int为基本类型，Integer为装箱类型。基本类型内建在语言和运行环境中，是程序构建的基本模块；装箱类型属于普通的java类，为对基本类型的一种封装。Java中范型可以看作是对范型参数类型的擦除，即假设他是Object的实例，因此只有装箱类型才能作为范型参数。这就解释了为什么声明一个List&lt;int&gt;的列表，得到的却是List&lt;Integer&gt;的列表，即包含了整型对象的列表。 将基本类型转换为装箱类型为装箱操作，将装箱类型转换为基本类型为拆箱操作。 装箱类型是普通的java class对象，装箱类型在存储和计算上有着相关的缺陷： 在存储上，由于装箱类型是对象，因此相比基本类型存在更大的内存开销 (指向对象的指针等存储开销) 基本类型和装箱类型之间的装箱和拆箱操作会引入额外的计算开销 对于会涉及到大量数值运算的算法来说，装箱、拆箱操作以及装箱类型引入的额外内存存储，都会对程序运行性能造成一定的影响。 高级集合类和收集器数据并行化测试、调试和重构设计和架构的原则使用Lambda表达式编写并发程序Reference Java 8 Lambdas: Functional Programming for the Masses]]></content>
       <categories>
         <category>Java</category>
       </categories>
