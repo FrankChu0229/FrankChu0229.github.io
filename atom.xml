@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://frankchu0229.github.io/"/>
-  <updated>2018-10-12T06:32:58.547Z</updated>
+  <updated>2018-10-12T06:51:28.510Z</updated>
   <id>http://frankchu0229.github.io/</id>
   
   <author>
@@ -21,7 +21,9 @@
     <link href="http://frankchu0229.github.io/2018/10/11/vim-config/"/>
     <id>http://frankchu0229.github.io/2018/10/11/vim-config/</id>
     <published>2018-10-11T09:04:44.000Z</published>
-    <updated>2018-10-12T06:32:58.547Z</updated>
+    <updated>2018-10-12T06:51:28.510Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Follow the instructions from <a href="https://github.com/amix/vimrc" target="_blank" rel="external">https://github.com/amix/vimrc</a> to config your vim, you can use basic or awesome config setup.</p><h2 id="Command-Shortcut"><a href="#Command-Shortcut" class="headerlink" title="Command Shortcut"></a>Command Shortcut</h2><p>The leader key mapping is <code>,</code></p><h3 id="NERD-Key-Mappings"><a href="#NERD-Key-Mappings" class="headerlink" title="NERD Key Mappings"></a>NERD Key Mappings</h3><ul><li>map <leader>nn :NERDTreeToggle<cr>, to show the files in the directory. </cr></leader></li></ul><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="https://github.com/amix/vimrc" target="_blank" rel="external">Vim Config</a></li></ul>]]></content>
     
     <summary type="html">
     

@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Vim Config Summary]]></title>
     <url>%2F2018%2F10%2F11%2Fvim-config%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[IntroductionFollow the instructions from https://github.com/amix/vimrc to config your vim, you can use basic or awesome config setup. Command ShortcutThe leader key mapping is , NERD Key Mappings map nn :NERDTreeToggle, to show the files in the directory. Reference Vim Config]]></content>
       <categories>
         <category>vim</category>
       </categories>
