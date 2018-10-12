@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://frankchu0229.github.io/2018/10/07/java8-functional-programming3/</loc>
+    
+    <lastmod>2018-10-12T08:16:28.750Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://frankchu0229.github.io/2018/10/11/vim-config/</loc>
     
     <lastmod>2018-10-12T06:51:28.510Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>http://frankchu0229.github.io/2018/10/11/ml-metrics/</loc>
     
     <lastmod>2018-10-12T06:30:09.279Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://frankchu0229.github.io/2018/10/07/java8-functional-programming3/</loc>
-    
-    <lastmod>2018-10-12T06:28:08.688Z</lastmod>
     
   </url>
   
