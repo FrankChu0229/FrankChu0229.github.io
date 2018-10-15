@@ -160,6 +160,24 @@ public class Demo implements Hello, World{
 
 ### Optional
 
+Optional 作为对null的代替，是java8中引入的一种新的数据类型。null会引起`NullPointerException`，会导致程序崩溃，这引起了很多人的抱怨。Optional引入的目的主要为鼓励程序员适时检查代码是否为空，以避免代码缺陷。
+
+#### Optional使用
+
+```
+## Optional Factory
+
+Optional.of()
+Optional.ofNullable()
+Optional.empty()
+
+## Optional Uasge
+
+optional.get() // 需要提前用isPresent判断
+optional.orElse(value) // getOrElse, return the value if present, or return the other value.
+optional.orElseGet(Supplier) // similar to orElse, but suitable for more complicated case.
+
+```
 
 ## 高级集合类和收集器
 
