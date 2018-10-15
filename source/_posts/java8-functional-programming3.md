@@ -121,6 +121,9 @@ public class Demo {
 
 ### 多重继承
 
+在java8之前，java不支持“实现多继承”，但是支持“声明多继承”，即`不允许类继承多个父类，只允许继承一个父类`；但是允许`实现多个接口，同时一个接口可以继承多个父接口`。在java8之前，接口中只有方法的定义，没有方法的实现，但是在java8中引入默认方法之后，进而提供了某种程度上“实现多继承”的实现方式。但是通过接口的默认方法实现的多重继承，只能实现代码的多重继承，不能实现状态的多重继承(没有成员变量等的继承)；抽象类的继承可以有状态继承，但只能继承一个父类。
+
+
 相应的，我们来看下多重继承。我们知道，接口允许多重继承，当两个接口中都有相同的默认方法时，需要相关的类进行相关的方法实现，不然编译器会报错。
 
 ```
@@ -147,7 +150,15 @@ public class Demo implements Hello, World{
 }
 ```
 
-### 静态方法
+#### 三定律
+
+对于默认方法的工作原理，以及在多重继承下的行为，我们可以通过以下三定律来进行思考：
+
+- `类胜于接口`
+- `子类胜于父类` 
+- 如果用了以上方法，但是继承行为仍有冲突或不明，则需要在子类中实现该方法，或者将该方法定义为抽象方法。
+
+### Optional
 
 
 ## 高级集合类和收集器
@@ -162,3 +173,4 @@ public class Demo implements Hello, World{
 
 ## Reference
 - [Java 8 Lambdas: Functional Programming for the Masses](https://www.amazon.com/Java-Lambdas-Functional-Programming-Masses/dp/1449370772)
+- [java多重继承](https://www.zhihu.com/question/24317891)
