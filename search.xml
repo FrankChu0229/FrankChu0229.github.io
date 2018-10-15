@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Relation Extraction Summary]]></title>
+    <url>%2F2018%2F10%2F15%2Frelation-extraction-summary%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Machine Learning</tag>
+        <tag>Information Extraction</tag>
+        <tag>relation extraction</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Java8 Functional Programming-4]]></title>
     <url>%2F2018%2F10%2F15%2Fjava8-functional-programming4%2F</url>
     <content type="text"><![CDATA[高级集合类和收集器数据并行化测试、调试和重构设计和架构的原则使用Lambda表达式编写并发程序Reference Java 8 Lambdas: Functional Programming for the Masses]]></content>

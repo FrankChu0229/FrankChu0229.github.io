@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://frankchu0229.github.io/"/>
-  <updated>2018-10-15T07:42:49.501Z</updated>
+  <updated>2018-10-15T08:51:11.220Z</updated>
   <id>http://frankchu0229.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Relation Extraction Summary</title>
+    <link href="http://frankchu0229.github.io/2018/10/15/relation-extraction-summary/"/>
+    <id>http://frankchu0229.github.io/2018/10/15/relation-extraction-summary/</id>
+    <published>2018-10-15T08:49:13.000Z</published>
+    <updated>2018-10-15T08:51:11.220Z</updated>
+    
+    <summary type="html">
+    
+      Relation Extraction Summary.
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="http://frankchu0229.github.io/categories/Machine-Learning/"/>
+    
+    
+      <category term="Machine Learning" scheme="http://frankchu0229.github.io/tags/Machine-Learning/"/>
+    
+      <category term="Information Extraction" scheme="http://frankchu0229.github.io/tags/Information-Extraction/"/>
+    
+      <category term="relation extraction" scheme="http://frankchu0229.github.io/tags/relation-extraction/"/>
+    
+  </entry>
   
   <entry>
     <title>Java8 Functional Programming-4</title>
@@ -491,32 +515,6 @@
       <category term="keras" scheme="http://frankchu0229.github.io/tags/keras/"/>
     
       <category term="dl" scheme="http://frankchu0229.github.io/tags/dl/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Matplotlib Summary</title>
-    <link href="http://frankchu0229.github.io/2018/06/20/matplotlib/"/>
-    <id>http://frankchu0229.github.io/2018/06/20/matplotlib/</id>
-    <published>2018-06-20T02:27:36.000Z</published>
-    <updated>2018-09-27T07:01:18.833Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Matplotlib-Basic-Operations-in-Jupyter"><a href="#Matplotlib-Basic-Operations-in-Jupyter" class="headerlink" title="Matplotlib Basic Operations in Jupyter"></a>Matplotlib Basic Operations in Jupyter</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">import matplotlib.pyplot as plt</div><div class="line">%matplotlib inline</div><div class="line">import numpy as np</div><div class="line"></div><div class="line">x = np.linspace(-1, 1, 50)</div><div class="line">y = 2 * x + 1</div><div class="line">plt.plot(x, y)</div><div class="line">plt.show()</div></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">x = np.linspace(-1, 1, 50)</div><div class="line">y1 = 2 * x + 1</div><div class="line">y2 = 2 ** x + 1</div><div class="line">plt.plot(x, y1)</div><div class="line">plt.plot(x, y2, color=&apos;red&apos;, linestyle=&apos;--&apos;)</div><div class="line">plt.xlabel(&apos;X axis&apos;)</div><div class="line">plt.ylabel(&apos;Y axis&apos;)</div><div class="line">plt.show()</div></pre></td></tr></table></figure><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="https://blog.csdn.net/Notzuonotdied/article/details/77876080" target="_blank" rel="external">reference</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      Matplotlib Summary.
-    
-    </summary>
-    
-      <category term="Machine Learning" scheme="http://frankchu0229.github.io/categories/Machine-Learning/"/>
-    
-    
-      <category term="python" scheme="http://frankchu0229.github.io/tags/python/"/>
-    
-      <category term="tools" scheme="http://frankchu0229.github.io/tags/tools/"/>
-    
-      <category term="matplotlib" scheme="http://frankchu0229.github.io/tags/matplotlib/"/>
     
   </entry>
   
