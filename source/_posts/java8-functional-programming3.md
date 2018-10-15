@@ -117,6 +117,37 @@ public class Demo {
 
 **接口是一种约定方式，接口中的成员变量都是静态的，即默认修饰符public static final的；成员方法都是抽象的，即默认此时符 public abstract**
 
+默认方法不对子类进行假设，用子类的实现来覆盖默认方法的实现方式。当类中实现方法和接口中的默认方法冲突时，`类中重写方法胜出`，这是由默认接口的提出主要是为了解决向后兼容的问题导致的。
+
+### 多重继承
+
+相应的，我们来看下多重继承。我们知道，接口允许多重继承，当两个接口中都有相同的默认方法时，需要相关的类进行相关的方法实现，不然编译器会报错。
+
+```
+interface World {
+
+  default void test() {
+    System.out.println("World");
+  }
+}
+
+interface Hello {
+  default void test() {
+    System.out.println("Hello");
+  }
+}
+
+public class Demo implements Hello, World{
+
+  @Override
+  public void test() {
+    Hello.super.test(); // 增强的super写法
+  }
+
+}
+```
+
+### 静态方法
 
 
 ## 高级集合类和收集器
