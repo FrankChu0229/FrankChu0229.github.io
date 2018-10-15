@@ -105,6 +105,11 @@ public class Demo {
 - 如果有多个方法，则javac会选出`最具体的`那种类型
 - 如果推断出多个类型，javac会报错，此时需要人为制定类型。
 
+### @FunctionalInterface
+
+在定义函数式接口的时候，最好在前面加上`@FunctionalInterface`注解，这样方便使用方清楚它是一个函数式接口，在重构的时候，如果改成多个方法，javac就会报错。值得一提的是，在java中只有一个方法的接口，并不一定是想使用lambda表达式来实现的，比如`Closable`和`Comoparable`接口都只有一个方法，这种属于纯属巧合。
+
+
 ## 高级集合类和收集器
 
 ## 数据并行化
