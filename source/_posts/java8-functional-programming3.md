@@ -32,6 +32,78 @@ Java8 中另一个变化是引入了接口的默认方法和接口的静态方�
 - `ToLongFunction`, R -> long, 如果为int、long、double，则可以使用相应的`LongToIntFunction`, `LongToDoubleFunction`
 - `mapToLong` 接收`ToLongFunction`, 相应的，在IntStream中, `mapToLong`方法接收`IntToLongFunction`函数式接口。
 
+### 重载解析
+
+在java中，相同方法名，不同参数类型的方法可以被重载。但重载可能会对类型推断造成影响，因为可能会有多种类型被推断出来，javac会选择`最具体的`那种类型作为推断结果；然而有的时候推断`最具体的`类型可能会有问题，这时javac会报错。例子如下：
+
+```
+public class Demo {
+
+  interface TestPredicate extends Predicate {
+
+  }
+
+  public void overLoad(Predicate predicate) {
+    System.out.println("Predicate");
+  }
+
+  public void overLoad(TestPredicate predicate) {
+    System.out.println("TestPredicate");
+  }
+
+  public void test(Object object) {
+    System.out.println("Object");
+  }
+
+  public void test(String string) {
+    System.out.println("string");
+  }
+
+  public static void main(String[] args) {
+    Demo demo = new Demo();
+    demo.test("ss");
+    demo.overLoad(x -> false);
+  }
+}
+
+```
+但是当TestPredicate 不是Predicate的子类时，javac会找到多个类型推断的结果，进而报错：
+
+```
+public class Demo {
+
+  interface TestPredicate<T> {
+    boolean test(T t);
+  }
+
+  public void overLoad(Predicate predicate) {
+    System.out.println("Predicate");
+  }
+
+  public void overLoad(TestPredicate predicate) {
+    System.out.println("TestPredicate");
+  }
+
+  public void test(Object object) {
+    System.out.println("Object");
+  }
+
+  public void test(String string) {
+    System.out.println("string");
+  }
+
+  public static void main(String[] args) {
+    Demo demo = new Demo();
+    demo.test("ss");
+    demo.overLoad(x -> false); // ambiguous method call. 
+  }
+}
+```
+
+因此，在方法重载和类型推断中，
+- 如果只有一种方法，则javac会推断出相关类型
+- 如果有多个方法，则javac会选出`最具体的`那种类型
+- 如果推断出多个类型，javac会报错，此时需要人为制定类型。
 
 ## 高级集合类和收集器
 
