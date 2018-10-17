@@ -94,13 +94,6 @@ Map<String, Integer> map = new HashMap(String, Integer);
 map.compute(key, (key, value) -> (value == null) ? 1 : value + 1 );
 ```
 
-## 数据并行化
-
-## 测试、调试和重构
-
-## 设计和架构的原则
-
-## 使用Lambda表达式编写并发程序
 
 ## Reference
 - [Java 8 Lambdas: Functional Programming for the Masses](https://www.amazon.com/Java-Lambdas-Functional-Programming-Masses/dp/1449370772)
