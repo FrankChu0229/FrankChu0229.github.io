@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://frankchu0229.github.io/"/>
-  <updated>2018-10-17T06:53:15.621Z</updated>
+  <updated>2018-10-17T15:19:02.231Z</updated>
   <id>http://frankchu0229.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java8 Functional Programming-5</title>
+    <link href="http://frankchu0229.github.io/2018/10/17/java8-functional-programming5/"/>
+    <id>http://frankchu0229.github.io/2018/10/17/java8-functional-programming5/</id>
+    <published>2018-10-17T15:17:37.000Z</published>
+    <updated>2018-10-17T15:19:02.231Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="https://www.amazon.com/Java-Lambdas-Functional-Programming-Masses/dp/1449370772" target="_blank" rel="external">Java 8 Lambdas: Functional Programming for the Masses</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      Java8 Lambdas Functional Programming Summary.
+    
+    </summary>
+    
+      <category term="Java" scheme="http://frankchu0229.github.io/categories/Java/"/>
+    
+    
+      <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
+    
+      <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
+    
+      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
+    
+      <category term="functional programming" scheme="http://frankchu0229.github.io/tags/functional-programming/"/>
+    
+  </entry>
   
   <entry>
     <title>Junit Summary</title>
@@ -86,9 +114,9 @@
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
     
-      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
-    
       <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
+    
+      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
     
       <category term="functional programming" scheme="http://frankchu0229.github.io/tags/functional-programming/"/>
     
@@ -216,9 +244,9 @@
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
     
-      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
-    
       <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
+    
+      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
     
       <category term="functional programming" scheme="http://frankchu0229.github.io/tags/functional-programming/"/>
     
@@ -244,9 +272,9 @@
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
     
-      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
-    
       <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
+    
+      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
     
       <category term="functional programming" scheme="http://frankchu0229.github.io/tags/functional-programming/"/>
     
@@ -298,9 +326,9 @@
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
     
-      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
-    
       <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
+    
+      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
     
       <category term="functional programming" scheme="http://frankchu0229.github.io/tags/functional-programming/"/>
     
@@ -491,32 +519,6 @@
       <category term="dl" scheme="http://frankchu0229.github.io/tags/dl/"/>
     
       <category term="nlp" scheme="http://frankchu0229.github.io/tags/nlp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Representation in NLP</title>
-    <link href="http://frankchu0229.github.io/2018/06/23/rl/"/>
-    <id>http://frankchu0229.github.io/2018/06/23/rl/</id>
-    <published>2018-06-23T03:10:49.000Z</published>
-    <updated>2018-06-28T11:11:01.390Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="https://www.cnblogs.com/pinard/p/7243513.html#!comments" target="_blank" rel="external">刘建平Pinard</a></li><li><a href="https://mp.weixin.qq.com/s/B_hnpOp_AVsIoL8gbkL4Hw" target="_blank" rel="external">美团技术博客</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      Representation in NLP Summary.
-    
-    </summary>
-    
-      <category term="Machine Learning" scheme="http://frankchu0229.github.io/categories/Machine-Learning/"/>
-    
-    
-      <category term="python" scheme="http://frankchu0229.github.io/tags/python/"/>
-    
-      <category term="keras" scheme="http://frankchu0229.github.io/tags/keras/"/>
-    
-      <category term="dl" scheme="http://frankchu0229.github.io/tags/dl/"/>
     
   </entry>
   

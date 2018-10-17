@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Machine Learning,Linear Regression,Gradient Descent,Newton Method,Ridge Regression,Lasso," />
+  <meta name="keywords" content="summary,java,coding,functional programming," />
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="本文介绍了Linear Regression 和常用的正则化方法以及常用的优化方法。">
-<meta name="keywords" content="Machine Learning,Linear Regression,Gradient Descent,Newton Method,Ridge Regression,Lasso">
+<meta name="description" content="Java8 Lambdas Functional Programming Summary.">
+<meta name="keywords" content="summary,java,coding,functional programming">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linear Models for Regression">
-<meta property="og:url" content="http://frankchu0229.github.io/2016/04/12/ML4/index.html">
+<meta property="og:title" content="Java8 Functional Programming-5">
+<meta property="og:url" content="http://frankchu0229.github.io/2018/10/17/java8-functional-programming5/index.html">
 <meta property="og:site_name" content="Frank Chu">
-<meta property="og:description" content="本文介绍了Linear Regression 和常用的正则化方法以及常用的优化方法。">
+<meta property="og:description" content="Java8 Lambdas Functional Programming Summary.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-30T12:28:09.000Z">
+<meta property="og:updated_time" content="2018-10-17T15:19:02.231Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linear Models for Regression">
-<meta name="twitter:description" content="本文介绍了Linear Regression 和常用的正则化方法以及常用的优化方法。">
+<meta name="twitter:title" content="Java8 Functional Programming-5">
+<meta name="twitter:description" content="Java8 Lambdas Functional Programming Summary.">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://frankchu0229.github.io/2016/04/12/ML4/"/>
+  <link rel="canonical" href="http://frankchu0229.github.io/2018/10/17/java8-functional-programming5/"/>
 
 
 
 
 
-  <title>Linear Models for Regression | Frank Chu</title>
+  <title>Java8 Functional Programming-5 | Frank Chu</title>
   
 
 
@@ -309,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://frankchu0229.github.io/2016/04/12/ML4/">
+    <link itemprop="mainEntityOfPage" href="http://frankchu0229.github.io/2018/10/17/java8-functional-programming5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Frank Chu">
@@ -326,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linear Models for Regression</h1>
+          <h1 class="post-title" itemprop="name headline">Java8 Functional Programming-5</h1>
         
 
         <div class="post-meta">
@@ -338,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-12T21:17:18+08:00">
-                2016-04-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-17T23:17:37+08:00">
+                2018-10-17
               </time>
             
 
@@ -361,8 +361,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -379,8 +379,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/04/12/ML4/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/12/ML4/" itemprop="commentCount"></span>
+                <a href="/2018/10/17/java8-functional-programming5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/10/17/java8-functional-programming5/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -400,7 +400,7 @@
 
           
               <div class="post-description">
-                  本文介绍了Linear Regression 和常用的正则化方法以及常用的优化方法。
+                  Java8 Lambdas Functional Programming Summary.
               </div>
           
 
@@ -417,58 +417,9 @@
       
 
       
-        <p>线性模型：模型输出对模型参数成线性。线性模型可以看作是一组输入变量非线性映射的线性组合。线性模型比较简单，通常在介绍一些较复杂的模型之前，先介绍线性模型作为基础；线性模型也常用作解释机器学习中一些现象的例子 (e.g., curse of dimensionality)。</p>
-<p>令 \( D = \{(\mathbf{x_1},y_1),(\mathbf{x_2},y_2)…,(\mathbf{x_m},y_m)\}\) 为数据集，其中 \(\mathbf{x} = [x_1;x_2;…;x_n]\) 为n维列向量。当 \(y_i\) 为连续变量时，通过输入 \(\mathbf{x_i}\) 预测 \(y_i\) 为回归(regression)问题; 当 \(y_i\) 为离散变量时，通过输入 \(\mathbf{x_i}\) 预测 \(y_i\) 为分类 (classification) 问题。</p>
-<h1 id="Linear-Regression"><a href="#Linear-Regression" class="headerlink" title="Linear Regression"></a>Linear Regression</h1><p>线性回归(linear regression) 试图学到：<br>$$ f(\mathbf{x}) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + … + \theta_n x_n$$<br>用矩阵的形式表示为：<br>$$f(\mathbf{x}) = \mathbf{x}^T \mathbf{\theta} $$<br>其中，\(\mathbf{\theta} = [\theta_0;\theta_1;\theta_2;…;\theta_n]\); \(\mathbf{x} = [1,\mathbf{x}^T]\);  \(f(\mathbf{x})\)为\(\mathbf{x}\)的预测值。</p>
-<p>线性回归的cost function为均方误差MSE：<br>$$J(\theta) = \frac{1}{2} (\mathbf{X} \mathbf{\theta}  - \mathbf{y})^T( \mathbf{X} \mathbf{\theta} - \mathbf{y}) = \frac{1}{2}||\mathbf{X} \mathbf{\theta}  - \mathbf{y}||_2^2$$<br>其中，\(\mathbf{X} = [\mathbf{x_1}; \mathbf{x_2};… \mathbf{x_m}]\), \(\mathbf{x_i} 为加入1之后的向量\)。</p>
-<p>我们将基于均方误差最小化来求解模型的方法称为“最小二乘法” (least square method).</p>
-<p>线性回归的cost function为凸函数，我们可以直接对其求导来得到最优的\(\theta\)。<br>$$ \frac{\partial J(\theta)}{\partial \theta} = \mathbf{X}^T(\mathbf{X}\theta - \mathbf{y})$$<br>从而得到 \(\theta^* = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}\), 其中 \((\mathbf{X}^T\mathbf{X})^{-1}\) 为矩阵\(\mathbf{X}^T\mathbf{X}\)的逆矩阵。</p>
-<p>然而，当数据\(\mathbf{x}\) 的维度很高时，\((\mathbf{X}^T\mathbf{X})^{-1}\) 求解需要很长时间。更常用的方法是梯度下降法 (gradient descent).</p>
-<h1 id="Gradient-Descent"><a href="#Gradient-Descent" class="headerlink" title="Gradient Descent"></a>Gradient Descent</h1><p>函数值沿着负梯度方向下降最快，梯度下降法就是基于这一点的：</p>
-<p>$$\theta := \theta - \alpha \nabla J(\theta)$$</p>
-<p>其中\(\alpha\)为学习率(learning rate)，用来控制每一步沿着负梯度方向走的步伐的大小。\(\alpha\)既不可太大，也不可太小。当\(\alpha\)太小时，要迭代很多次，运行时间过长；当\(\alpha\)太大时，可能会发生震荡，找不到(局部)最优值。梯度下降法是常用的一阶优化方法，但是需要对学习率进行调参。</p>
-<p>根据计算梯度时所用的数据数量，gradient descent有三种变化：</p>
-<ul>
-<li><strong>Batch Gradient Descent</strong>: $$\theta := \theta - \alpha \nabla J(\theta)$$ Batch gradient descent使用全部数据计算梯度, 所以更新一次参数\(\theta\)需要很长的时间。并且，batch gradient descent不能进行online learning。Batch gradient descent 能够保证收敛到全局最小值(目标函数为凸函数)或者局部最小值(目标函数为非凸函数)。</li>
-<li><strong>Stachastic Gradient Descent (SGD):</strong><br>$$\theta := \theta - \alpha \nabla J(\theta;\mathbf{x}_i,y_i)$$<br>Stachastic gradient descent 每次使用一个数据去更新参数，使得参数更新很快，并且SGD可用作online learning。由于SGD更新的太过频繁，引入了过高的variance，使得目标函数\(J(\theta)\)波动较大 (<a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent" target="_blank" rel="external">见图</a>)。</li>
-<li><strong>Mini-batch Gradient Descent:</strong> $$\theta := \theta - \alpha \nabla J(\theta;\mathbf{x}_{i:i+n},y_{i+n})$$<br>Mini-batch gradient descent 使用n个数据更新参数，减小了SGD更新参数时的variance，达到更稳定的收敛。Mini-batch gradient descent是训练神经网络的一个最常用选择。</li>
+        <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://www.amazon.com/Java-Lambdas-Functional-Programming-Masses/dp/1449370772" target="_blank" rel="external">Java 8 Lambdas: Functional Programming for the Masses</a></li>
 </ul>
-<p>关于更多的gradient descent optimization algorithm (momenterm,Adagrad…) 暂时不在这篇博客里写了，感兴趣的可以先看下这一篇 <a href="http://sebastianruder.com/optimizing-gradient-descent/" target="_blank" rel="external">An overview of gradient descent optimization algorithms </a>.</p>
-<h1 id="Newton-Method"><a href="#Newton-Method" class="headerlink" title="Newton Method"></a>Newton Method</h1><p>当目标函数二阶连续可微时，可以使用牛顿法。牛顿法的迭代次数远小于梯度下降法。</p>
-<p>在高数中，牛顿法是求解方程的一种近似迭代解法。例如在求解方程 \(f(x) = 0\) 时，当用求根公式求不出的时候，可以用牛顿法。对 \(f(x)\) 在 \(x_0\) 处泰勒展开得到： \(f(x) = f(x_0) + (x - x_0) \nabla f(x_0)\), 进而有 \(x = x_0 - \frac{f(x_0)}{\nabla f(x_0)}\)。 我们可以根据  \(x = x_0 - \frac{f(x_0)}{\nabla f(x_0)}\) 进行迭代来求出方程的解。</p>
-<p>在优化问题中，我们想知道的是方程 \(\nabla f(x) = 0\) 的解。当函数二阶连续可微时，我们可以得到方程 \(\nabla f(x) = 0\) 的迭代公式： \(x = x_0 - \frac{\nabla f(x_0)}{\nabla^2 f(x_0)}\)。应用在线性回归问题上即为：<br>$$ \theta := \theta - \frac{\nabla J(\theta)}{\nabla^2 J(\theta)} := \theta - H(J(\theta))^{-1}\nabla J(\theta)$$</p>
-<p>其中，\(H(J(\theta))^{-1}\)为海森矩阵的逆矩阵，计算复杂度相当高，在高维问题中几乎不可行。拟牛顿法用较低的计算代价来寻找海森矩阵逆矩阵的近似矩阵，从而可显著性的降低计算开销。比较常用的拟牛顿法是l-bfgs算法。<a href="https://www.cs.ubc.ca/~schmidtm/Software/minFunc.html" target="_blank" rel="external">minFunc</a> 是机器学习中一个常用的matlab优化包, 只需要自己实现cost和梯度，用minFunc实现线性回归的代码如下：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">addpath minFunc_2012/minFunc/</div><div class="line">x = <span class="number">1</span>:<span class="number">1</span>:<span class="number">12</span>;</div><div class="line">x = x';</div><div class="line">y = [<span class="number">0.74</span> <span class="number">1.41</span> <span class="number">1.45</span> <span class="number">1.49</span> <span class="number">1.21</span> <span class="number">1.31</span> <span class="number">1.68</span> <span class="number">2.04</span> <span class="number">1.58</span> <span class="number">1.23</span> <span class="number">1.50</span> <span class="number">1.67</span> ]*<span class="number">0.01</span>;</div><div class="line">y = y';</div><div class="line"></div><div class="line"><span class="comment">%% using minFunc :</span></div><div class="line">options = struct;</div><div class="line">options.maxIter = <span class="number">400</span>;</div><div class="line">options.Method  = <span class="string">'lbfgs'</span>;</div><div class="line">options.useMex = <span class="number">0</span>;</div><div class="line">minFuncOptions.display = <span class="string">'on'</span>;</div><div class="line">theta0 = [<span class="number">0</span>; <span class="number">0</span>];</div><div class="line">X = [ones(size(x)) x];</div><div class="line">[paraTheta, cost] = minFunc(@(p) linear_regression(p,X,y),theta0,options);</div><div class="line">yNew = X*paraTheta;</div></pre></td></tr></table></figure>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="params">[cost, gradient]</span> = <span class="title">linear_regression</span><span class="params">(theta,X,y)</span></span></div><div class="line"> cost = <span class="number">0.5</span>*norm(X*theta-y,<span class="number">2</span>);</div><div class="line"> gradient = X'*(X*theta - y);</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
-<h1 id="Linear-Basis-Function-Models"><a href="#Linear-Basis-Function-Models" class="headerlink" title="Linear Basis Function Models"></a>Linear Basis Function Models</h1><p>对于一般的线性模型有：<br>$$ f(\mathbf{x}) = \theta_0 + \sum_{j = 1}^{M-1} \theta_j \phi_j(\mathbf{x}) = \phi(\mathbf{x})\theta $$</p>
-<p>其中，\(\phi(\mathbf{x})\) 为基函数，常用的基函数有：多项式函数、高斯函数、sigmoid函数。相应的cost function为：</p>
-<p>$$J(\theta) = \frac{1}{2} ||\Phi \theta - \mathbf{y}||_2^2$$</p>
-<p>相应的最优解 \(\theta^{*} = (\Phi^T \Phi)^{-1} \Phi^T \mathbf{y}\).</p>
-<h1 id="Ridge-Regression"><a href="#Ridge-Regression" class="headerlink" title="Ridge Regression"></a>Ridge Regression</h1><p>以多项式回归为例，当模型变得更复杂 (所用的\(x^{j}\)阶数越高)时，会出现overfitting的情况，可以发现此时相应的参数\(\theta_i\)会非常大。通常用来控制这种overfitting的做法是，对参数加一个限制：\(\theta^T\theta \leq C\).</p>
-<p>这样就得到了如下的 ridge regression:</p>
-<p>$$ \min_{\theta} \ J(\theta) = \frac{1}{2} ||\Phi \theta - \mathbf{y}||_2^2 \\ s.t. \ \theta^T\theta \leq C$$.</p>
-<p>上式等价于：<br>$$ \min_{\theta} \ J(\theta) = \frac{1}{2} ||\Phi \theta - \mathbf{y}||_2^2 ＋\frac{\lambda}{2} \theta^T\theta $$.</p>
-<p>Ridge regression 是一个典型的凸优化问题，可以通过凸优化包来解决。</p>
-<h1 id="Lasso"><a href="#Lasso" class="headerlink" title="Lasso"></a>Lasso</h1><p>当我们用1-范数对参数\(\theta\)进行约束时，就得到了LASSO：</p>
-<p>$$ \min_{\theta} \ J(\theta) = \frac{1}{2} ||\Phi \theta - \mathbf{y}||_2^2 \\ s.t. \ ||\theta||_1 \leq C$$.</p>
-<p>上式等价于：<br>$$ \min_{\theta} \ J(\theta) = \frac{1}{2} ||\Phi \theta - \mathbf{y}||_2^2 ＋\lambda ||\theta||_1 $$.</p>
-<h2 id="Optimality-Condition-for-LASSO"><a href="#Optimality-Condition-for-LASSO" class="headerlink" title="Optimality Condition for LASSO:"></a>Optimality Condition for LASSO:</h2><p>对 \(J(\theta) = \frac{1}{2} ||\Phi \theta - \mathbf{y}||_2^2 ＋\lambda ||\theta||_1 \) 求导时，我们发现第一项是可导的，但是第二项在\(\theta_i\)为0时，不可导。这里需要引入次微分和次梯度来解决。次微分和次梯度是对导数的一个推广(不可导的情况)，通常用在凸优化中。</p>
-<p>对一个凸函数\(f\)有 \(f(y) \geq f(x) + \nabla f(x)^T(y-x)\), 则 \(g\) is a subgradient of a convex function \(f\) at \(x \in D(f)\) if :<br>$$ f(y) \geq f(x) + g^T (y-x)$$</p>
-<p>次微分(subderivative)是所有满足 \(f(y) \geq f(x) + g^T (y-x)\) 的\(g\) 形成的集合\(\partial f(x)\)。对于非光滑凸函数，一阶最优性条件为：\(0 \in \partial f(x)\) 或者  \(\exists g \in \partial f(x), \ s.t. \ g = 0\)。(即对于光滑可导函数，我们将导数为零作为一阶最优条件；对于非光滑凸函数，我们将0是否在次微分集合作为一阶最优条件)。</p>
-<p>回到LASSO这个问题上，我们可以得到其一阶最优化条件：<br>$$0 \in \Phi^T(\Phi\mathbf{X} - \mathbf{y}) + \lambda \partial ||\theta||_1$$</p>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
-<li>Book: <a href="prml">Pattern Recognition and Machine Learning by Christopher Bishop</a></li>
-<li><a href="http://www.holehouse.org/mlclass" target="_blank" rel="external">Notes of machine learning by Andrew Ng in cousera</a></li>
-<li><a href="http://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/MLbook2016.htm" target="_blank" rel="external">机器学习</a> 周志华</li>
-<li>Slides by <a href="http://sist.shanghaitech.edu.cn/StaffDetail.asp?id=334" target="_blank" rel="external">Prof. Wang</a></li>
-<li><a href="http://sebastianruder.com/optimizing-gradient-descent/" target="_blank" rel="external">Sebastian Ruder’s blog - An overview of gradient descent optimization algorithms </a></li>
-<li><a href="http://www.hangli-hl.com/books.html" target="_blank" rel="external">统计学习方法</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Subderivative" target="_blank" rel="external">subderative</a></li>
-<li><a href="https://see.stanford.edu/materials/lsocoee364b/01-subgradients_notes.pdf" target="_blank" rel="external">subgradients by Stephen Boyd</a></li>
-</ul>
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
-
-<hr>
 
       
     </div>
@@ -489,7 +440,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://frankchu0229.github.io/2016/04/12/ML4/" title="Linear Models for Regression">http://frankchu0229.github.io/2016/04/12/ML4/</a>
+    <a href="http://frankchu0229.github.io/2018/10/17/java8-functional-programming5/" title="Java8 Functional Programming-5">http://frankchu0229.github.io/2018/10/17/java8-functional-programming5/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -504,17 +455,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
+            <a href="/tags/summary/" rel="tag"># summary</a>
           
-            <a href="/tags/Linear-Regression/" rel="tag"># Linear Regression</a>
+            <a href="/tags/java/" rel="tag"># java</a>
           
-            <a href="/tags/Gradient-Descent/" rel="tag"># Gradient Descent</a>
+            <a href="/tags/coding/" rel="tag"># coding</a>
           
-            <a href="/tags/Newton-Method/" rel="tag"># Newton Method</a>
-          
-            <a href="/tags/Ridge-Regression/" rel="tag"># Ridge Regression</a>
-          
-            <a href="/tags/Lasso/" rel="tag"># Lasso</a>
+            <a href="/tags/functional-programming/" rel="tag"># functional programming</a>
           
         </div>
       
@@ -527,8 +474,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/07/ML3/" rel="next" title="Model Selection and Evaluation">
-                <i class="fa fa-chevron-left"></i> Model Selection and Evaluation
+              <a href="/2018/10/17/junit-summary/" rel="next" title="Junit Summary">
+                <i class="fa fa-chevron-left"></i> Junit Summary
               </a>
             
           </div>
@@ -536,10 +483,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/24/ML5/" rel="prev" title="Linear Models for Classification">
-                Linear Models for Classification <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -569,8 +512,8 @@
           
   
     <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2016/04/12/ML4/"
-           data-title="Linear Models for Regression" data-url="http://frankchu0229.github.io/2016/04/12/ML4/">
+      <div class="ds-thread" data-thread-key="2018/10/17/java8-functional-programming5/"
+           data-title="Java8 Functional Programming-5" data-url="http://frankchu0229.github.io/2018/10/17/java8-functional-programming5/">
       </div>
     </div>
   
@@ -688,7 +631,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linear-Regression"><span class="nav-number">1.</span> <span class="nav-text">Linear Regression</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Gradient-Descent"><span class="nav-number">2.</span> <span class="nav-text">Gradient Descent</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Newton-Method"><span class="nav-number">3.</span> <span class="nav-text">Newton Method</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Linear-Basis-Function-Models"><span class="nav-number">4.</span> <span class="nav-text">Linear Basis Function Models</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ridge-Regression"><span class="nav-number">5.</span> <span class="nav-text">Ridge Regression</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lasso"><span class="nav-number">6.</span> <span class="nav-text">Lasso</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Optimality-Condition-for-LASSO"><span class="nav-number">6.1.</span> <span class="nav-text">Optimality Condition for LASSO:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">1.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>

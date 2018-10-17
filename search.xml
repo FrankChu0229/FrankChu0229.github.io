@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Java8 Functional Programming-5]]></title>
+    <url>%2F2018%2F10%2F17%2Fjava8-functional-programming5%2F</url>
+    <content type="text"><![CDATA[Reference Java 8 Lambdas: Functional Programming for the Masses]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>summary</tag>
+        <tag>java</tag>
+        <tag>coding</tag>
+        <tag>functional programming</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Junit Summary]]></title>
     <url>%2F2018%2F10%2F17%2Fjunit-summary%2F</url>
     <content type="text"><![CDATA[AssertThat最近发现了junit中，可以使用AssertThat, 使得测试更加方便了。 Reference Jnuit AssertThat]]></content>
@@ -35,8 +49,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>coding</tag>
         <tag>java</tag>
+        <tag>coding</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -98,8 +112,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>coding</tag>
         <tag>java</tag>
+        <tag>coding</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -112,8 +126,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>coding</tag>
         <tag>java</tag>
+        <tag>coding</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -139,8 +153,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>coding</tag>
         <tag>java</tag>
+        <tag>coding</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
