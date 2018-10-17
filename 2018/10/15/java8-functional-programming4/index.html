@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Frank Chu">
 <meta property="og:description" content="Java8 Lambdas Functional Programming Summary.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-17T15:08:00.638Z">
+<meta property="og:updated_time" content="2018-10-17T15:12:02.049Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java8 Functional Programming-4">
 <meta name="twitter:description" content="Java8 Lambdas Functional Programming Summary.">
@@ -445,7 +445,7 @@
 <li><code>compute(key, BiFunction)</code>  // 不判断该key是否存在，可以通过Bifunction对map中的值进行修改等,可以看作是前两者的综合</li>
 </ul>
 <p>我们在对map进行操作的时候，经常会实现这样的逻辑：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Map&lt;String, Integer&gt; map = new HashMap&lt;String, Integer&gt;();</div><div class="line"></div><div class="line">if (map.contains(key)) &#123;</div><div class="line">    String value = map.get(key);</div><div class="line">    Integer newValue = value + 1;</div><div class="line">    map.put(key, newValue)</div><div class="line">&#125; else &#123;</div><div class="line">    map.put(key, 1);   </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Map&lt;String, Integer&gt; map = new HashMap&lt;String, Integer&gt;();</div><div class="line"></div><div class="line">if (map.contains(key)) &#123;</div><div class="line">    String value = map.get(key);</div><div class="line">    Integer newValue = value + 1;</div><div class="line">    map.put(key, newValue)</div><div class="line">&#125; else &#123;</div><div class="line">    map.put(key, 1);   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>现在我们可以这样实现：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Map&lt;String, Integer&gt; map = new HashMap&lt;String, Integer&gt;();</div><div class="line"></div><div class="line">map.computeIfPresent(key, (key, value) -&gt; value + 1);</div><div class="line">map.computeIfAbsent(key, key -&gt; 1); // OR map.putIfAbsent(key, 1);</div></pre></td></tr></table></figure>
 <p>或者可以通过compute</p>
