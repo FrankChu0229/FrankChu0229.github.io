@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Junit Summary]]></title>
     <url>%2F2018%2F10%2F17%2Fjunit-summary%2F</url>
-    <content type="text"><![CDATA[AssertThat最近发现了junit中，可以使用AssertThat, 是的测试更加方便了。 Reference Jnuit AssertThat]]></content>
+    <content type="text"><![CDATA[AssertThat最近发现了junit中，可以使用AssertThat, 使得测试更加方便了。 Reference Jnuit AssertThat]]></content>
       <categories>
         <category>junit</category>
       </categories>
