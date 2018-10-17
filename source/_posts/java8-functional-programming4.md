@@ -5,6 +5,8 @@ categories:  Java
 description: Java8 Lambdas Functional Programming Summary.
 ---
 
+
+
 ## 高级集合类和收集器
 
 ## 数据并行化
