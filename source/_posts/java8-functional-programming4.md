@@ -73,7 +73,7 @@ if (map.contains(key)) {
     map.put(key, newValue)
 } else {
     map.put(key, 1);   
-    }
+}
 
 ```
 
