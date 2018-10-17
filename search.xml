@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Junit Summary]]></title>
+    <url>%2F2018%2F10%2F17%2Fjunit-summary%2F</url>
+    <content type="text"><![CDATA[AssertThat最近发现了junit中，可以使用AssertThat, 是的测试更加方便了。 Reference Jnuit AssertThat]]></content>
+      <categories>
+        <category>junit</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>test</tag>
+        <tag>junit</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Relation Extraction Summary]]></title>
     <url>%2F2018%2F10%2F15%2Frelation-extraction-summary%2F</url>
     <content type="text"></content>
@@ -22,8 +35,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>java</tag>
         <tag>coding</tag>
+        <tag>java</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -42,7 +55,7 @@
   <entry>
     <title><![CDATA[Machine Learning Metrics]]></title>
     <url>%2F2018%2F10%2F11%2Fml-metrics%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[Introduction这里对机器学习中常见任务评价指标的计算方式以及他们代表的以含义。]]></content>
       <categories>
         <category>Machine Learning</category>
       </categories>
@@ -85,8 +98,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>java</tag>
         <tag>coding</tag>
+        <tag>java</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -99,8 +112,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>java</tag>
         <tag>coding</tag>
+        <tag>java</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -126,8 +139,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>java</tag>
         <tag>coding</tag>
+        <tag>java</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
