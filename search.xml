@@ -29,7 +29,7 @@
   <entry>
     <title><![CDATA[Java8 Functional Programming-4]]></title>
     <url>%2F2018%2F10%2F15%2Fjava8-functional-programming4%2F</url>
-    <content type="text"><![CDATA[高级集合类和收集器数据并行化测试、调试和重构设计和架构的原则使用Lambda表达式编写并发程序Reference Java 8 Lambdas: Functional Programming for the Masses]]></content>
+    <content type="text"><![CDATA[高级集合类和收集器 (Collector)Java8 除了对Collection类改进之外(增加stream等)，还增加了Collector(收集器)以及Collectors(Collector各种实现的工厂)；方法引用等。 方法引用方法引用可以看作是对lambda表达式的重写，方便对已有方法的重用。方法引用的标准语法为ClassName::methodName, 这里方法后面没有参数，因为不是对方法进行调用。例如对lambda表达式1artist -&gt; artist.getName() 等同于1Artist::getName 1name -&gt; new Artist(name) 等同于 1Artist::new 元素顺序Stream 中的元素以何种顺序进行排列，取决于数据源和对流的操作。 例如，数据源是List，则流中的出现顺序和list中元素顺序是一致的；如果数据源是HashSet，则流中的元素也是无序的。 对流的操作，也会对流中元素顺序产生影响 12List&lt;Integer&gt; list = Stream.of(1,2,3,6,5).sorted().collect(Collectors.toList());assertThat(list, hasItem(2)); // assertThat 收集器 Collector &amp;&amp; Collectors数据并行化测试、调试和重构设计和架构的原则使用Lambda表达式编写并发程序Reference Java 8 Lambdas: Functional Programming for the Masses]]></content>
       <categories>
         <category>Java</category>
       </categories>
