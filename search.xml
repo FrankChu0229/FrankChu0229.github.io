@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Java8 Functional Programming-5]]></title>
     <url>%2F2018%2F10%2F17%2Fjava8-functional-programming5%2F</url>
-    <content type="text"><![CDATA[Reference Java 8 Lambdas: Functional Programming for the Masses]]></content>
+    <content type="text"><![CDATA[数据并行化测试、调试和重构设计和架构的原则使用Lambda表达式编写并发程序Reference Java 8 Lambdas: Functional Programming for the Masses]]></content>
       <categories>
         <category>Java</category>
       </categories>

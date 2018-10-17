@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Frank Chu">
 <meta property="og:description" content="Java8 Lambdas Functional Programming Summary.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-17T15:12:02.049Z">
+<meta property="og:updated_time" content="2018-10-17T15:22:24.998Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java8 Functional Programming-4">
 <meta name="twitter:description" content="Java8 Lambdas Functional Programming Summary.">
@@ -450,7 +450,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Map&lt;String, Integer&gt; map = new HashMap&lt;String, Integer&gt;();</div><div class="line"></div><div class="line">map.computeIfPresent(key, (key, value) -&gt; value + 1);</div><div class="line">map.computeIfAbsent(key, key -&gt; 1); // OR map.putIfAbsent(key, 1);</div></pre></td></tr></table></figure>
 <p>或者可以通过compute</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Map&lt;String, Integer&gt; map = new HashMap(String, Integer);</div><div class="line">map.compute(key, (key, value) -&gt; (value == null) ? 1 : value + 1 );</div></pre></td></tr></table></figure>
-<h2 id="数据并行化"><a href="#数据并行化" class="headerlink" title="数据并行化"></a>数据并行化</h2><h2 id="测试、调试和重构"><a href="#测试、调试和重构" class="headerlink" title="测试、调试和重构"></a>测试、调试和重构</h2><h2 id="设计和架构的原则"><a href="#设计和架构的原则" class="headerlink" title="设计和架构的原则"></a>设计和架构的原则</h2><h2 id="使用Lambda表达式编写并发程序"><a href="#使用Lambda表达式编写并发程序" class="headerlink" title="使用Lambda表达式编写并发程序"></a>使用Lambda表达式编写并发程序</h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
 <li><a href="https://www.amazon.com/Java-Lambdas-Functional-Programming-Masses/dp/1449370772" target="_blank" rel="external">Java 8 Lambdas: Functional Programming for the Masses</a></li>
 <li><a href="http://blog.tanpeng.net/2017/07/13/map-compute/" target="_blank" rel="external">java8 Map compute</a></li>
 </ul>
@@ -669,7 +669,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#高级集合类和收集器-Collector"><span class="nav-number">1.</span> <span class="nav-text">高级集合类和收集器 (Collector)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法引用"><span class="nav-number">1.1.</span> <span class="nav-text">方法引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元素顺序"><span class="nav-number">1.2.</span> <span class="nav-text">元素顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#收集器-Collector-amp-amp-Collectors"><span class="nav-number">1.3.</span> <span class="nav-text">收集器 Collector && Collectors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些细节"><span class="nav-number">1.4.</span> <span class="nav-text">一些细节</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据并行化"><span class="nav-number">2.</span> <span class="nav-text">数据并行化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试、调试和重构"><span class="nav-number">3.</span> <span class="nav-text">测试、调试和重构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计和架构的原则"><span class="nav-number">4.</span> <span class="nav-text">设计和架构的原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Lambda表达式编写并发程序"><span class="nav-number">5.</span> <span class="nav-text">使用Lambda表达式编写并发程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#高级集合类和收集器-Collector"><span class="nav-number">1.</span> <span class="nav-text">高级集合类和收集器 (Collector)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法引用"><span class="nav-number">1.1.</span> <span class="nav-text">方法引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元素顺序"><span class="nav-number">1.2.</span> <span class="nav-text">元素顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#收集器-Collector-amp-amp-Collectors"><span class="nav-number">1.3.</span> <span class="nav-text">收集器 Collector && Collectors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些细节"><span class="nav-number">1.4.</span> <span class="nav-text">一些细节</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">2.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
