@@ -7,7 +7,7 @@ description: Junit Test Summary.
 
 ## AssertThat
 
-最近发现了junit中，可以使用`AssertThat`, 是的测试更加方便了。
+最近发现了junit中，可以使用`AssertThat`, 使得测试更加方便了。
 
 ## Reference
 
