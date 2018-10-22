@@ -11,7 +11,7 @@ description: Machine Learning Metrics Summary.
 
 ## 分类指标
 
-在[Model Selection and Evaluation](http://frankchu.tech/2016/04/07/ML3/)中，我们介绍了Accuracy, Precision，Recall，F1，\\( F\_{\beta}\\)，confusion matrix(混淆矩阵)，这里我们补充下 `ROC`, `AOC`， `PR Curve`.
+在[Model Selection and Evaluation](http://frankchu.tech/2016/04/07/ML3/)中，我们介绍了Accuracy, Precision，Recall，F1，\\( F\_{\beta}\\)，confusion matrix(混淆矩阵)，这里我们补充下 `ROC`, `AOC`， `PR Curve`, `Macro Precision`, `Micro Precision`
 
 
 ### PR Curve
@@ -40,6 +40,16 @@ $$ logloss = - \frac{1}{N} \sum\_{i=1}^{N} (y\log p\_i + (1-y) \log(1-p\_i))$$
 
 $$ logloss = - \frac{1}{N} \frac{1}{C} \sum\_{i=1}^{N} \sum\_{j=1}^{C} y\_{ij} \log p\_{ij}$$
 
+### Micro Precison 与 Macro Precision
+
+对于多分类的Precision的计算有两种方式，一种是Macro Precision， 一种是Micro Precision
+
+Macro-Precision 对每一类计算Precision， 然后将这些类的Precision计算平均值，得到macro-precision 
+
+Micro-Precision将每一类的(TP), (TP + FP)添加到相应的分子，分母中，然后用总的
+$$ Micro-Precision = \frac{TP\_A}{TP\_A + FP\_A} $$
+
+[Ref](https://datascience.stackexchange.com/questions/15989/micro-average-vs-macro-average-performance-in-a-multiclass-classification-settin)
 
 ## 回归指标
 
