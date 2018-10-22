@@ -11,7 +11,7 @@ description: Machine Learning Metrics Summary.
 
 ## 分类指标
 
-在[Model Selection and Evaluation](http://frankchu.tech/2016/04/07/ML3/)中，我们介绍了Accuracy,Precision， Recall， F1，\\( F\_{\beta}\\)，confusion matrix(混淆矩阵)，这里我们补充下 `ROC`, `AOC`， `PR Curve`.
+在[Model Selection and Evaluation](http://frankchu.tech/2016/04/07/ML3/)中，我们介绍了Accuracy, Precision，Recall，F1，\\( F\_{\beta}\\)，confusion matrix(混淆矩阵)，这里我们补充下 `ROC`, `AOC`， `PR Curve`.
 
 
 ### PR Curve
@@ -36,9 +36,9 @@ ROC 曲线越靠近左上角表示模型性能越好，最好情况为(0, 1)点�
 
 在[Linear Models for Classification](Linear Models for Classification)中，我们介绍二分类和多分类的对数损失即
 
-$$ logloss = - \frac{1}{N} \sum_{i=1}^{N} (y\log p\_i + (1-y) \log(1-p\_i))$$
+$$ logloss = - \frac{1}{N} \sum\_{i=1}^{N} (y\log p\_i + (1-y) \log(1-p\_i))$$
 
-$$ logloss = - \frac{1}{N} \frac{1}{C} \sum_{i=1}^{N} \sum\_{j=1}^{C} y\_{ij} \log p\_{ij}$$
+$$ logloss = - \frac{1}{N} \frac{1}{C} \sum\_{i=1}^{N} \sum\_{j=1}^{C} y\_{ij} \log p\_{ij}$$
 
 
 ## 回归指标
@@ -61,7 +61,7 @@ Precision@N 的计算方式很简单，即对rank 出来的topN计算Precision�
 
 Mean Average Precision(平均准确率), 的公式分为两部分组成，先计算个体的平均准确率(Average Precision), 然后计算整体的平均准确率.
 
-$$ AP@K = \frac{\sum\_{k=1}^{\min\_{M, K} P(k) Rel(k)}}{\min_{M, K}} $$
+$$ AP@K = \frac{\sum\_{k=1}^{\min\_{(M, K)} P(k) Rel(k)}}{\min_{(M, K)}} $$
 
 $$MAP@K = \sum_{q=1}^{Q} \frac{AP@K}{Q} $$
 
@@ -82,6 +82,8 @@ $$ CG@K = \sum_{k=1}^{K} rel\_k$$
 $$ DCG@K = \sum\_{k=1}^{K} \frac{2^{rel\_k}-1}{\log\_{2}^{k+1}}$$ DCG@K在CG@K的基础上引入了rank顺序惩罚
 $$ IDCG@K = \sum\_{k=1}^{|REL|} \frac{2^{rel\_k} - 1}{\log\_{2}^{k + 1}} $$ IDCG@K 方便query之间进行比较，引入的normalization项，I(Ideal)指的是按照relevance从大到小的顺序进行排序，计算相应的DCG@K的值。
 $$ NDCG@K = \frac{DCG@K}{IDCG@K}$$
+
+NDCG@K中的相关性可以有多个值，比如{1,2,3,4,5}等。
 
 ---
 
