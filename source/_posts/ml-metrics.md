@@ -49,6 +49,8 @@ Macro-Precision 对每一类计算Precision， 然后将这些类的Precision计
 Micro-Precision将每一类的(TP), (TP + FP)添加到相应的分子，分母中，然后用总的
 $$ Micro-Precision = \frac{TP\_A}{TP\_A + FP\_A} $$
 
+相应的macro-recall， micro-recall 也通过类似的方式进行计算。
+
 [Ref](https://datascience.stackexchange.com/questions/15989/micro-average-vs-macro-average-performance-in-a-multiclass-classification-settin)
 
 ## 回归指标
