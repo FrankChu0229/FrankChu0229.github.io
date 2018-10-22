@@ -83,7 +83,6 @@ $$ DCG@K = \sum\_{k=1}^{K} \frac{2^{rel\_k}-1}{\log\_{2}^{k+1}}$$ DCG@K在CG@K�
 $$ IDCG@K = \sum\_{k=1}^{|REL|} \frac{2^{rel\_k} - 1}{\log\_{2}^{k + 1}} $$ IDCG@K 方便query之间进行比较，引入的normalization项，I(Ideal)指的是按照relevance从大到小的顺序进行排序，计算相应的DCG@K的值。
 $$ NDCG@K = \frac{DCG@K}{IDCG@K}$$
 
-
 ---
 
 ## Reference
