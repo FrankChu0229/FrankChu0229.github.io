@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Frank Chu">
 <meta property="og:description" content="本文介绍了模型评估和选择中用到的一些方法。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-30T12:28:02.000Z">
+<meta property="og:updated_time" content="2018-10-22T13:54:58.391Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Model Selection and Evaluation">
 <meta name="twitter:description" content="本文介绍了模型评估和选择中用到的一些方法。">
@@ -430,7 +430,7 @@
 <h2 id="均方误差-Mean-Square-Error"><a href="#均方误差-Mean-Square-Error" class="headerlink" title="均方误差 (Mean Square Error):"></a>均方误差 (Mean Square Error):</h2><p>回归问题常用的性能度量是均方误差(MSE):<br>$$E(f,D) = \frac{1}{m} \sum_{i = i}^{m} (f(\mathbf{x_i}) - y_i)^2$$</p>
 <p>其中，\(D = \{(\mathbf{x_1},y_1),(\mathbf{x_2},y_2),…(\mathbf{x_m},y_m)\}\) 为训练集，\(y_i\)为样例\(\mathbf{x_i}\)的label。\(f\) 为我们学到的模型(预测函数)。 均方误差评估的是学习器 \(f\) 的预测结果和真实结果差异。</p>
 <p>下面介绍分类任务中常用的性能度量。</p>
-<h2 id="错误率与精度："><a href="#错误率与精度：" class="headerlink" title="错误率与精度："></a>错误率与精度：</h2><p>错误率和精度是分类任务中经常用到的性能度量标准，即可用在二分类任务上，也可用在多分类任务上。<br>错误率是分类错误的样本占总样本数的比例，精度是分类正确的样本占样本数的比例，错误率＝ 1 - 精度。用公式表示就是：<br>$$E(f;D) = \sum_{i=1}^{m} \mathbb{1}(f(x_i) \neq y_i)$$<br>$$acc(f;D) = \sum_{i=1}^{m} \mathbb{1}(f(x_i) = y_i)$$</p>
+<h2 id="错误率与精度："><a href="#错误率与精度：" class="headerlink" title="错误率与精度："></a>错误率与精度：</h2><p>错误率和精度是分类任务中经常用到的性能度量标准，即可用在二分类任务上，也可用在多分类任务上。<br>错误率是分类错误的样本占总样本数的比例，精度是分类正确的样本占样本数的比例，错误率＝ 1 - 精度。用公式表示就是：<br>$$E(f;D) = \frac{1}{m}\sum_{i=1}^{m} \mathbb{1}(f(x_i) \neq y_i)$$<br>$$acc(f;D) = \frac{1}{m}\sum_{i=1}^{m} \mathbb{1}(f(x_i) = y_i)$$</p>
 <h2 id="准确率-Precision-、召回率-Recall-与-F1："><a href="#准确率-Precision-、召回率-Recall-与-F1：" class="headerlink" title="准确率 (Precision)、召回率 (Recall) 与 F1："></a>准确率 (Precision)、召回率 (Recall) 与 F1：</h2><p>错误率和精度虽然很常用，但是并不能满足所有的任务需求。比如在信息检索，web搜索应用中，我们想知道“检索出的信息中有多少比例是用户感兴趣的”(准确率)，或者“在用户感兴趣的信息中，有多少被检索出来”(召回率)。</p>
 <p>下面以一个例子说明，precision 和 recall 的具体计算公式。对应检索信息和用户兴趣这个例子，有如下混淆矩阵：</p>
 <table>
@@ -645,7 +645,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">83</span>
+                  <span class="site-state-item-count">84</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

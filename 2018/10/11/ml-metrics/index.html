@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Machine Learning," />
+  <meta name="keywords" content="Machine Learning,metrics," />
 
 
 
@@ -82,14 +82,14 @@
 
 
 <meta name="description" content="Machine Learning Metrics Summary.">
-<meta name="keywords" content="Machine Learning">
+<meta name="keywords" content="Machine Learning,metrics">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Machine Learning Metrics">
 <meta property="og:url" content="http://frankchu0229.github.io/2018/10/11/ml-metrics/index.html">
 <meta property="og:site_name" content="Frank Chu">
 <meta property="og:description" content="Machine Learning Metrics Summary.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-17T02:28:33.413Z">
+<meta property="og:updated_time" content="2018-10-22T14:54:59.951Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine Learning Metrics">
 <meta name="twitter:description" content="Machine Learning Metrics Summary.">
@@ -417,7 +417,43 @@
       
 
       
-        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>这里对机器学习中常见任务评价指标的计算方式以及他们代表的以含义。</p>
+        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>这里总结下机器学习中常见任务评价指标的计算方式以及他们代表的含义。通常线上使用的是业务指标，如点击率(CTR),转化率(CVR)等，线下使用机器学习指标，根据机器学习任务类型，可以分为分类指标，回归指标，聚类指标，排序指标等。</p>
+<h2 id="分类指标"><a href="#分类指标" class="headerlink" title="分类指标"></a>分类指标</h2><p>在<a href="http://frankchu.tech/2016/04/07/ML3/" target="_blank" rel="external">Model Selection and Evaluation</a>中，我们介绍了Accuracy,Precision， Recall， F1，\( F_{\beta}\)，confusion matrix(混淆矩阵)，这里我们补充下 <code>ROC</code>, <code>AOC</code>， <code>PR Curve</code>.</p>
+<h3 id="PR-Curve"><a href="#PR-Curve" class="headerlink" title="PR Curve"></a>PR Curve</h3><p>以Precision为纵轴，Recall为横轴，根据分类threshold不同取值，绘制PR曲线，PR曲线越靠右上代表模型性能越好。</p>
+<h3 id="ROC-与-AUC"><a href="#ROC-与-AUC" class="headerlink" title="ROC 与 AUC"></a>ROC 与 AUC</h3><p>在介绍ROC(Receiver Operating Characteristic)之前，我们先介绍TPR(真正率)和FPR(假正率).</p>
+<p>$$ TPR = \frac{TP}{TP+FN} $$<br>$$ FPR = \frac{FP}{TN+FP} $$</p>
+<p>ROC曲线就是以 TPR为纵坐标，FPR为横坐标，根据分类threshold的不同而做的曲线，而曲线下的面积即为AOC<br>(Area Under ROC Curve). </p>
+<p>ROC 曲线越靠近左上角表示模型性能越好，最好情况为(0, 1)点，即TPR = 1, FPR = 0, 进而推算出FN = 0， FP=0, 即全部预测正确。</p>
+<h3 id="对数损失-Logistic-Loss"><a href="#对数损失-Logistic-Loss" class="headerlink" title="对数损失 (Logistic Loss)"></a>对数损失 (Logistic Loss)</h3><p>在<a href="Linear Models for Classification">Linear Models for Classification</a>中，我们介绍二分类和多分类的对数损失即</p>
+<p>$$ logloss = - \frac{1}{N} \sum_{i=1}^{N} (y\log p_i + (1-y) \log(1-p_i))$$</p>
+<p>$$ logloss = - \frac{1}{N} \frac{1}{C} \sum<em>{i=1}^{N} \sum\</em>{j=1}^{C} y_{ij} \log p_{ij}$$</p>
+<h2 id="回归指标"><a href="#回归指标" class="headerlink" title="回归指标"></a>回归指标</h2><p>在<a href="http://frankchu.tech/2016/04/07/ML3/" target="_blank" rel="external">Model Selection and Evaluation</a>, 我们介绍了<code>MSE</code>, 常用的回归指标还有 </p>
+<ul>
+<li><code>RMSE</code>  \( RMSE = \sqrt(MSE) \)</li>
+<li><code>MAE</code>   \( MAE = \frac{1}{N} \sum_{i=1}^{N} |f(x_i) - y_i|\)</li>
+</ul>
+<h2 id="排序指标"><a href="#排序指标" class="headerlink" title="排序指标"></a>排序指标</h2><p>在排序中，Precision， Recall， Accuracy， F1等指标也可以使用，但是这些指标没有考虑rank的顺序，在排序中常用的指标还有<code>MAP</code>, <code>MRR</code>, <code>NDCG</code>, <code>P@N</code>等</p>
+<h3 id="P-N"><a href="#P-N" class="headerlink" title="P@N"></a>P@N</h3><p>Precision@N 的计算方式很简单，即对rank 出来的topN计算Precision。</p>
+<h3 id="MAP"><a href="#MAP" class="headerlink" title="MAP"></a>MAP</h3><p>Mean Average Precision(平均准确率), 的公式分为两部分组成，先计算个体的平均准确率(Average Precision), 然后计算整体的平均准确率.</p>
+<p>$$ AP@K = \frac{\sum_{k=1}^{\min_{M, K} P(k) Rel(k)}}{\min_{M, K}} $$</p>
+<p>$$MAP@K = \sum_{q=1}^{Q} \frac{AP@K}{Q} $$</p>
+<p>其中，M为IR返回的文档个数，K为要计算指标的文档个数， P(k)表示前k文档中的precision， rel(k)表示第k个文档和用户query是否相关。<code>MAP中的相关性只能用0，1表示</code>。</p>
+<h3 id="MRR"><a href="#MRR" class="headerlink" title="MRR"></a>MRR</h3><p>Mean Reciprocal Rank(MRR)是常被用在QA和IR系统中的指标，它只关心正确的答案在rank出文档列表中的位置，不关心其他文档的出现位置，相应的， </p>
+<p>$$ MRR = \frac{1}{Q} \sum_{i=1}^{Q} \frac{1}{rank_i}$$</p>
+<h3 id="NDCG"><a href="#NDCG" class="headerlink" title="NDCG"></a>NDCG</h3><p>Normalized Discounted Cumulative Gain(NDCG)是排序中经常用到的指标之一， 可以通过以下公式来计算：</p>
+<p>$$ CG@K = \sum_{k=1}^{K} rel_k$$<br>$$ DCG@K = \sum_{k=1}^{K} \frac{2^{rel_k}-1}{\log_{2}^{k+1}}$$ DCG@K在CG@K的基础上引入了rank顺序惩罚<br>$$ IDCG@K = \sum_{k=1}^{|REL|} \frac{2^{rel_k} - 1}{\log_{2}^{k + 1}} $$ IDCG@K 方便query之间进行比较，引入的normalization项，I(Ideal)指的是按照relevance从大到小的顺序进行排序，计算相应的DCG@K的值。<br>$$ NDCG@K = \frac{DCG@K}{IDCG@K}$$</p>
+<hr>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://en.wikipedia.org/wiki/Evaluation_measures_(information_retrieval" target="_blank" rel="external">IR Evaluation Metrics</a>)</li>
+<li><a href="https://en.wikipedia.org/wiki/Discounted_cumulative_gain" target="_blank" rel="external">NDCG</a></li>
+<li><a href="http://www.ituring.com.cn/book/2573" target="_blank" rel="external">美团机器学习实践</a></li>
+<li><a href="https://blog.csdn.net/shenxiaoming77/article/details/72627882" target="_blank" rel="external">CSDN Blog</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Mean_reciprocal_rank" target="_blank" rel="external">MRR</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/38850753" target="_blank" rel="external">From zhihu</a></li>
+<li><a href="http://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/MLbook2016.htm" target="_blank" rel="external">机器学习</a></li>
+</ul>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
 
       
     </div>
@@ -454,6 +490,8 @@
         <div class="post-tags">
           
             <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
+          
+            <a href="/tags/metrics/" rel="tag"># metrics</a>
           
         </div>
       
@@ -585,7 +623,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">83</span>
+                  <span class="site-state-item-count">84</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -627,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类指标"><span class="nav-number">2.</span> <span class="nav-text">分类指标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PR-Curve"><span class="nav-number">2.1.</span> <span class="nav-text">PR Curve</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ROC-与-AUC"><span class="nav-number">2.2.</span> <span class="nav-text">ROC 与 AUC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对数损失-Logistic-Loss"><span class="nav-number">2.3.</span> <span class="nav-text">对数损失 (Logistic Loss)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回归指标"><span class="nav-number">3.</span> <span class="nav-text">回归指标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排序指标"><span class="nav-number">4.</span> <span class="nav-text">排序指标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#P-N"><span class="nav-number">4.1.</span> <span class="nav-text">P@N</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MAP"><span class="nav-number">4.2.</span> <span class="nav-text">MAP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MRR"><span class="nav-number">4.3.</span> <span class="nav-text">MRR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NDCG"><span class="nav-number">4.4.</span> <span class="nav-text">NDCG</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
