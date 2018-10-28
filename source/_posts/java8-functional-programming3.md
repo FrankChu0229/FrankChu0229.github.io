@@ -113,6 +113,10 @@ public class Demo {
 
 二进制兼容是java的一大特性，Java8中最大的修改是在Collection接口增加了stream等方法，这意味者所有实现了Collection的接口都要实现stream()等的方法。java核心库可以做相关的实现，但是在核心库之外的实现了Collection接口的类就不能二进制兼容了，为了解决这个问题，java8中引入了`default`接口。 
 
+```
+所谓“二进制兼容性”指的就是在升级（也可能是 bug fix）库文件的时候，不必重新编译使用这个库的可执行文件或使用这个库的其他库文件，程序的功能不被破坏
+```
+
 相应的在Java8中，Iterable中也增加了foreach的default接口。
 
 **接口是一种约定方式，接口中的成员变量都是静态的，即默认修饰符public static final的；成员方法都是抽象的，即默认此时符 public abstract**
