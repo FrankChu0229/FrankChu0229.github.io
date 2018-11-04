@@ -150,13 +150,17 @@ public void test() {
 
 ```
 
-### lambda表达式的调试
+### Stream的调试
 
+我们在前几篇blog中提到过，stream是`内部迭代`, 而且像`filter`, `map`等操作都是惰性求值，对我们`调试`，`打断点`，`打log`都带来了一定挑战。幸运的是我们可以使用`peek`方法查看stream中的每一个值，同时还能继续操作流，同时我们还能在`peek`处加断点。
 
-## 设计和架构的原则
+```
+    List<String> list = Stream.of("a", "b", "c")
+        .map(s -> s.toUpperCase())
+        .peek(s -> System.out.println(s))
+        .collect(Collectors.toList());
 
-
-## 使用Lambda表达式编写并发程序
+```
 
 
 ## Reference
