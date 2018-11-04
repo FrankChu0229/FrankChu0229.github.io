@@ -109,15 +109,56 @@ ThreadLocal<Album> thisAlbum = ThreadLocal.withInitial(() -> database.lookupCurr
 
 在[这里](http://frankchu.tech/2018/10/15/java8-functional-programming4/)我们提到了用java8中的`computeIfPresent()`, `computeIfAbsent()`, `compute()`, `putIfAbsent()`等简化对map的操作。
 
-## 设计和架构的原则
 
+### lambda表达式的单元测试
+
+通常在单元测试中，我们调用一个方法，构造可能的输入参数，看输出是否符合我们预期的情况。但是lambda表达式没有名字，无法进行直接的测试，有几种解决方式：
+
+- 将lambda表达式代码copy到单元测试中：这种不是对真正实现的测试，有可能真正实现的代码改变了，但是单元测试还是通过的。
+- 对lamnda表达式所在方法进行测试，但是这样测试的是该方法，不是对lambda表达式的直接测试。
+
+正确的做法是使用`方法引用`，任何lambda表达式都能被表示称普通方法，例如， 在一个将首字母变为大写的代码中，我们可以看到：
+
+```
+public static List<String> elementFirstToUpperCase(List<String> words) {
+return words.stream().map(word -> {
+  char firstChar = Character.toUpperCase(word.charAt(0));
+  return firstChar + word.substring(1);
+}).collect(Collectors.toList());
+}
+
+public static String firstToUpperCase(String word) {
+  char firstChar = Character.toUpperCase(word.charAt(0));
+  return firstChar + word.substring(1);
+}
+
+public static List<String> elementFirstToUpperCase(List<String> words) {
+  return words.stream().map(Testing::firstToUpperCase).collect(Collectors.toList());
+}
+
+public static String firstToUpperCase(String word) {
+  char firstChar = Character.toUpperCase(word.charAt(0));
+  return firstChar + word.substring(1);
+}
+
+@Test
+public void test() {
+    String word = "ab";
+    String result = Testing.firstToUpperCase(word);
+    assertEquals(word, "Ab");
+}
+
+```
+
+### lambda表达式的调试
+
+
+## 设计和架构的原则
 
 
 ## 使用Lambda表达式编写并发程序
 
 
-
 ## Reference
 - [Java 8 Lambdas: Functional Programming for the Masses](https://www.amazon.com/Java-Lambdas-Functional-Programming-Masses/dp/1449370772)
-    
 
