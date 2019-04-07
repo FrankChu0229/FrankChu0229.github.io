@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://frankchu0229.github.io/2019/01/07/java8-functional-programming8/</loc>
+    
+    <lastmod>2019-04-07T12:08:58.737Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://frankchu0229.github.io/2018/11/04/java8-functional-programming7/</loc>
     
-    <lastmod>2018-11-04T09:43:26.767Z</lastmod>
+    <lastmod>2019-04-07T12:08:57.736Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu0229.github.io/2018/10/11/ml-metrics/</loc>
+    
+    <lastmod>2019-04-06T11:47:07.697Z</lastmod>
     
   </url>
   
@@ -33,13 +47,6 @@
     <loc>http://frankchu0229.github.io/about/index.html</loc>
     
     <lastmod>2018-10-28T13:22:50.050Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://frankchu0229.github.io/2018/10/11/ml-metrics/</loc>
-    
-    <lastmod>2018-10-22T15:38:29.899Z</lastmod>
     
   </url>
   

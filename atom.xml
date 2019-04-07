@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://frankchu0229.github.io/"/>
-  <updated>2018-11-04T09:43:26.767Z</updated>
+  <updated>2019-04-07T12:08:58.737Z</updated>
   <id>http://frankchu0229.github.io/</id>
   
   <author>
@@ -17,13 +17,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Java8 Functional Programming-8</title>
+    <link href="http://frankchu0229.github.io/2019/01/07/java8-functional-programming8/"/>
+    <id>http://frankchu0229.github.io/2019/01/07/java8-functional-programming8/</id>
+    <published>2019-01-07T12:05:37.000Z</published>
+    <updated>2019-04-07T12:08:58.737Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="使用Lambda表达式编写并发程序"><a href="#使用Lambda表达式编写并发程序" class="headerlink" title="使用Lambda表达式编写并发程序"></a>使用Lambda表达式编写并发程序</h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="https://www.amazon.com/Java-Lambdas-Functional-Programming-Masses/dp/1449370772" target="_blank" rel="external">Java 8 Lambdas: Functional Programming for the Masses</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      Java8 Lambdas Functional Programming Summary.
+    
+    </summary>
+    
+      <category term="Java" scheme="http://frankchu0229.github.io/categories/Java/"/>
+    
+    
+      <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
+    
+      <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
+    
+      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
+    
+      <category term="functional programming" scheme="http://frankchu0229.github.io/tags/functional-programming/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java8 Functional Programming-7</title>
     <link href="http://frankchu0229.github.io/2018/11/04/java8-functional-programming7/"/>
     <id>http://frankchu0229.github.io/2018/11/04/java8-functional-programming7/</id>
     <published>2018-11-04T09:41:44.000Z</published>
-    <updated>2018-11-04T09:43:26.767Z</updated>
+    <updated>2019-04-07T12:08:57.736Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="设计和架构的原则"><a href="#设计和架构的原则" class="headerlink" title="设计和架构的原则"></a>设计和架构的原则</h2><h2 id="使用Lambda表达式编写并发程序"><a href="#使用Lambda表达式编写并发程序" class="headerlink" title="使用Lambda表达式编写并发程序"></a>使用Lambda表达式编写并发程序</h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="https://www.amazon.com/Java-Lambdas-Functional-Programming-Masses/dp/1449370772" target="_blank" rel="external">Java 8 Lambdas: Functional Programming for the Masses</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="设计和架构的原则"><a href="#设计和架构的原则" class="headerlink" title="设计和架构的原则"></a>设计和架构的原则</h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="https://www.amazon.com/Java-Lambdas-Functional-Programming-Masses/dp/1449370772" target="_blank" rel="external">Java 8 Lambdas: Functional Programming for the Masses</a></li></ul>]]></content>
     
     <summary type="html">
     
@@ -207,7 +235,7 @@
     <link href="http://frankchu0229.github.io/2018/10/11/ml-metrics/"/>
     <id>http://frankchu0229.github.io/2018/10/11/ml-metrics/</id>
     <published>2018-10-11T09:03:20.000Z</published>
-    <updated>2018-10-22T15:38:29.899Z</updated>
+    <updated>2019-04-06T11:47:07.697Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>这里总结下机器学习中常见任务评价指标的计算方式以及他们代表的含义。通常线上使用的是业务指标，如点击率(CTR),转化率(CVR)等，线下使用机器学习指标，根据机器学习任务类型，可以分为分类指标，回归指标，聚类指标，排序指标等。</p><h2 id="分类指标"><a href="#分类指标" class="headerlink" title="分类指标"></a>分类指标</h2><p>在<a href="http://frankchu.tech/2016/04/07/ML3/" target="_blank" rel="external">Model Selection and Evaluation</a>中，我们介绍了Accuracy, Precision，Recall，F1，\( F_{\beta}\)，confusion matrix(混淆矩阵)，这里我们补充下 <code>ROC</code>, <code>AOC</code>， <code>PR Curve</code>, <code>Macro Precision</code>, <code>Micro Precision</code></p><h3 id="PR-Curve"><a href="#PR-Curve" class="headerlink" title="PR Curve"></a>PR Curve</h3><p>以Precision为纵轴，Recall为横轴，根据分类threshold不同取值，绘制PR曲线，PR曲线越靠右上代表模型性能越好。</p><h3 id="ROC-与-AUC"><a href="#ROC-与-AUC" class="headerlink" title="ROC 与 AUC"></a>ROC 与 AUC</h3><p>在介绍ROC(Receiver Operating Characteristic)之前，我们先介绍TPR(真正率)和FPR(假正率).</p><p>$$ TPR = \frac{TP}{TP+FN} $$<br>$$ FPR = \frac{FP}{TN+FP} $$</p><p>ROC曲线就是以 TPR为纵坐标，FPR为横坐标，根据分类threshold的不同而做的曲线，而曲线下的面积即为AOC<br>(Area Under ROC Curve). </p><p>ROC 曲线越靠近左上角表示模型性能越好，最好情况为(0, 1)点，即TPR = 1, FPR = 0, 进而推算出FN = 0， FP=0, 即全部预测正确。</p><h3 id="对数损失-Logistic-Loss"><a href="#对数损失-Logistic-Loss" class="headerlink" title="对数损失 (Logistic Loss)"></a>对数损失 (Logistic Loss)</h3><p>在<a href="Linear Models for Classification">Linear Models for Classification</a>中，我们介绍二分类和多分类的对数损失即</p><p>$$ logloss = - \frac{1}{N} \sum_{i=1}^{N} (y\log p_i + (1-y) \log(1-p_i))$$</p><p>$$ logloss = - \frac{1}{N} \frac{1}{C} \sum_{i=1}^{N} \sum_{j=1}^{C} y_{ij} \log p_{ij}$$</p><h3 id="Micro-Precison-与-Macro-Precision"><a href="#Micro-Precison-与-Macro-Precision" class="headerlink" title="Micro Precison 与 Macro Precision"></a>Micro Precison 与 Macro Precision</h3><p>对于多分类的Precision的计算有两种方式，一种是Macro Precision， 一种是Micro Precision</p><p>Macro-Precision 对每一类计算Precision， 然后将这些类的Precision计算平均值，得到macro-precision </p><p>Micro-Precision将每一类的(TP), (TP + FP)添加到相应的分子，分母中，然后用总的<br>$$ Micro-Precision = \frac{TP_A}{TP_A + FP_A} $$</p><p>相应的macro-recall， micro-recall 也通过类似的方式进行计算。</p><p><a href="https://datascience.stackexchange.com/questions/15989/micro-average-vs-macro-average-performance-in-a-multiclass-classification-settin" target="_blank" rel="external">Ref</a></p><h2 id="回归指标"><a href="#回归指标" class="headerlink" title="回归指标"></a>回归指标</h2><p>在<a href="http://frankchu.tech/2016/04/07/ML3/" target="_blank" rel="external">Model Selection and Evaluation</a>, 我们介绍了<code>MSE</code>, 常用的回归指标还有 </p><ul><li><code>RMSE</code>  \( RMSE = \sqrt(MSE) \)</li><li><code>MAE</code>   \( MAE = \frac{1}{N} \sum_{i=1}^{N} |f(x_i) - y_i|\)</li></ul><h2 id="排序指标"><a href="#排序指标" class="headerlink" title="排序指标"></a>排序指标</h2><p>在排序中，Precision， Recall， Accuracy， F1等指标也可以使用，但是这些指标没有考虑rank的顺序，在排序中常用的指标还有<code>MAP</code>, <code>MRR</code>, <code>NDCG</code>, <code>P@N</code>等</p><h3 id="P-N"><a href="#P-N" class="headerlink" title="P@N"></a>P@N</h3><p>Precision@N 的计算方式很简单，即对rank 出来的topN计算Precision。</p><h3 id="MAP"><a href="#MAP" class="headerlink" title="MAP"></a>MAP</h3><p>Mean Average Precision(平均准确率), 的公式分为两部分组成，先计算个体的平均准确率(Average Precision), 然后计算整体的平均准确率.</p><p>$$ AP@K = \frac{\sum_{k=1}^{\min_{(M, K)} P(k) Rel(k)}}{\min_{(M, K)}} $$</p><p>$$MAP@K = \sum_{q=1}^{Q} \frac{AP@K}{Q} $$</p><p>其中，M为IR返回的文档个数，K为要计算指标的文档个数， P(k)表示前k文档中的precision， rel(k)表示第k个文档和用户query是否相关。<code>MAP中的相关性只能用0，1表示</code>。</p><h3 id="MRR"><a href="#MRR" class="headerlink" title="MRR"></a>MRR</h3><p>Mean Reciprocal Rank(MRR)是常被用在QA和IR系统中的指标，它只关心正确的答案在rank出文档列表中的位置，不关心其他文档的出现位置，相应的， </p><p>$$ MRR = \frac{1}{Q} \sum_{i=1}^{Q} \frac{1}{rank_i}$$</p><h3 id="NDCG"><a href="#NDCG" class="headerlink" title="NDCG"></a>NDCG</h3><p>Normalized Discounted Cumulative Gain(NDCG)是排序中经常用到的指标之一， 可以通过以下公式来计算：</p><p>$$ CG@K = \sum_{k=1}^{K} rel_k$$<br>$$ DCG@K = \sum_{k=1}^{K} \frac{2^{rel_k}-1}{\log_{2}^{k+1}}$$ DCG@K在CG@K的基础上引入了rank顺序惩罚<br>$$ IDCG@K = \sum_{k=1}^{|REL|} \frac{2^{rel_k} - 1}{\log_{2}^{k + 1}} $$ IDCG@K 方便query之间进行比较，引入的normalization项，I(Ideal)指的是按照relevance从大到小的顺序进行排序，计算相应的DCG@K的值。<br>$$ NDCG@K = \frac{DCG@K}{IDCG@K}$$</p><p>NDCG@K中的相关性可以有多个值，比如{1,2,3,4,5}等。</p><hr><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="https://en.wikipedia.org/wiki/Evaluation_measures_(information_retrieval" target="_blank" rel="external">IR Evaluation Metrics</a>)</li><li><a href="https://en.wikipedia.org/wiki/Discounted_cumulative_gain" target="_blank" rel="external">NDCG</a></li><li><a href="http://www.ituring.com.cn/book/2573" target="_blank" rel="external">美团机器学习实践</a></li><li><a href="https://blog.csdn.net/shenxiaoming77/article/details/72627882" target="_blank" rel="external">CSDN Blog</a></li><li><a href="https://en.wikipedia.org/wiki/Mean_reciprocal_rank" target="_blank" rel="external">MRR</a></li><li><a href="https://zhuanlan.zhihu.com/p/38850753" target="_blank" rel="external">From zhihu</a></li><li><a href="http://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/MLbook2016.htm" target="_blank" rel="external">机器学习</a></li></ul><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>]]></content>
     
@@ -521,20 +549,6 @@
       <category term="python" scheme="http://frankchu0229.github.io/tags/python/"/>
     
       <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>sequence-prediction-summary</title>
-    <link href="http://frankchu0229.github.io/2018/07/02/sequence-prediction-summary/"/>
-    <id>http://frankchu0229.github.io/2018/07/02/sequence-prediction-summary/</id>
-    <published>2018-07-02T05:17:19.000Z</published>
-    <updated>2018-07-02T05:17:19.186Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
     
   </entry>
   

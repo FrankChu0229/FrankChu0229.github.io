@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Java8 Functional Programming-8]]></title>
+    <url>%2F2019%2F01%2F07%2Fjava8-functional-programming8%2F</url>
+    <content type="text"><![CDATA[使用Lambda表达式编写并发程序Reference Java 8 Lambdas: Functional Programming for the Masses]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>summary</tag>
+        <tag>java</tag>
+        <tag>coding</tag>
+        <tag>functional programming</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Java8 Functional Programming-7]]></title>
     <url>%2F2018%2F11%2F04%2Fjava8-functional-programming7%2F</url>
-    <content type="text"><![CDATA[设计和架构的原则使用Lambda表达式编写并发程序Reference Java 8 Lambdas: Functional Programming for the Masses]]></content>
+    <content type="text"><![CDATA[设计和架构的原则Reference Java 8 Lambdas: Functional Programming for the Masses]]></content>
       <categories>
         <category>Java</category>
       </categories>
