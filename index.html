@@ -410,87 +410,14 @@
 
       
         
-          
-            <p>在企业中，和线上数据打交道的最简单方式可能就是使用如hive，impala等平台了；用户只需会写SQL语句即可。在hive平台上，与它对应的是HQL语句，HQL基本支持SQL的全部操作，除此之外，他还支持<code>array</code>, <code>struct</code>, <code>map</code>等数据结构，具有更强大的能力。</p>
-<h2 id="通过SQL方式在hive上进行查询等操作"><a href="#通过SQL方式在hive上进行查询等操作" class="headerlink" title="通过SQL方式在hive上进行查询等操作"></a>通过SQL方式在hive上进行查询等操作</h2><table>
-<thead>
-<tr>
-<th><strong>Function</strong></th>
-<th><strong>MySQL</strong></th>
-<th><strong>Hive</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Retrieving Information (General)</td>
-<td><code>SELECT from_columns FROM table WHERE conditions;</code></td>
-<td><code>SELECT from_columns FROM table WHERE conditions;</code></td>
-</tr>
-<tr>
-<td>Retrieving All Values</td>
-<td><code>SELECT * FROM table;</code></td>
-<td><code>SELECT * FROM table;</code></td>
-</tr>
-<tr>
-<td>Retrieving Some Values</td>
-<td><code>SELECT * FROM table WHERE rec_name = &quot;value&quot;;</code></td>
-<td><code>SELECT * FROM table WHERE rec_name = &quot;value&quot;;</code></td>
-</tr>
-<tr>
-<td>Retrieving With Multiple Criteria</td>
-<td><code>SELECT * FROM TABLE WHERE rec1= &quot;value1&quot; AND rec2 = &quot;value2&quot;;</code></td>
-<td><code>SELECT * FROM TABLE WHERE rec1 =&quot;value1&quot; AND rec2 = &quot;value2&quot;;</code></td>
-</tr>
-<tr>
-<td>Retrieving Specific Columns</td>
-<td><code>SELECT column_name FROM table;</code></td>
-<td><code>SELECT column_name FROM table;</code></td>
-</tr>
-<tr>
-<td>Retrieving Unique Output</td>
-<td><code>SELECT DISTINCT column_name FROM table;</code></td>
-<td><code>SELECT DISTINCT column_name FROM table;</code></td>
-</tr>
-<tr>
-<td>Sorting</td>
-<td><code>SELECT col1, col2 FROM table ORDER BY col2;</code></td>
-<td><code>SELECT col1, col2 FROM table ORDER BY col2;</code></td>
-</tr>
-<tr>
-<td>Sorting Reverse</td>
-<td><code>SELECT col1, col2 FROM table ORDER BY col2 DESC;</code></td>
-<td><code>SELECT col1, col2 FROM table ORDER BY col2 DESC;</code></td>
-</tr>
-<tr>
-<td>Counting Rows</td>
-<td><code>SELECT COUNT(*) FROM table;</code></td>
-<td><code>SELECT COUNT(*) FROM table;</code></td>
-</tr>
-<tr>
-<td>Grouping With Counting</td>
-<td><code>SELECT owner, COUNT(*) FROM table GROUP BY owner;</code></td>
-<td><code>SELECT owner, COUNT(*) FROM table GROUP BY owner;</code></td>
-</tr>
-<tr>
-<td>Maximum Value</td>
-<td><code>SELECT MAX(col_name) AS label FROM table;</code></td>
-<td><code>SELECT MAX(col_name) AS label FROM table;</code></td>
-</tr>
-<tr>
-<td>Selecting from multiple tables (Join same table using alias w/”AS”)</td>
-<td><code>SELECT pet.name, comment FROM pet, event WHERE pet.name =event.name;</code></td>
-<td><code>SELECT pet.name, comment FROM pet JOIN event ON (pet.name =event.name)</code></td>
-</tr>
-</tbody>
-</table>
-<h2 id="处理hive表中的array-struct等表中数据"><a href="#处理hive表中的array-struct等表中数据" class="headerlink" title="处理hive表中的array, struct等表中数据"></a>处理hive表中的<code>array</code>, <code>struct</code>等表中数据</h2><p>例如，从一个trade表中，select相关的订单数据，并按照spu_id进行groupby和sum。 这里使用lateral view explode(t.order_list)将array进行展开并和已有的表进行join。<br>这里还需注意的一点是，展开后的array是struct结构，该struct结构包含<code>spu_id</code>, <code>item_count</code>, <code>payment</code>字段，如果直接按照struct.field进行groupby和sum会出错，所以这里使用()构建了一个临时表，在对临时表进行groupby和sum操作。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">INSERT OVERWRITE DIRECTORY &apos;/user/XXX/XXX&apos;</div><div class="line">select store_id, spu_id, sum(item_count) as item_sum, sum(payment) as payment_sum from</div><div class="line">(select t.store_id store_id, </div><div class="line">orderTable.orderTable.spu_id as spu_id, </div><div class="line">orderTable.orderTable.item_count as item_count,</div><div class="line">orderTable.orderTable.payment as payment </div><div class="line">from trade as t </div><div class="line">lateral view explode(t.order_list) orderTable as orderTable</div><div class="line">where t.year = 2019 and (t.month = 5 or t.month=4 or t.month=3)</div><div class="line">and t.store_id in ($&#123;stores&#125;)) as tmp</div><div class="line">group by store_id, spu_id;</div></pre></td></tr></table></figure>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul>
-<li><a href="https://hortonworks.com/blog/hive-cheat-sheet-for-sql-users/" target="_blank" rel="external">HQL Cheat Sheet</a></li>
-<li><a href="https://cwiki.apache.org/confluence/display/Hive/Home" target="_blank" rel="external">HQL Wiki</a></li>
-</ul>
-
-          
+          Hive HQL Summary
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/19/hive-summary/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

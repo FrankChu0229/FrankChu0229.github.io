@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://frankchu0229.github.io/2017/10/15/Dive%20Into%20Python%20Notes/</loc>
+    
+    <lastmod>2019-05-19T07:40:03.215Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://frankchu0229.github.io/2019/05/19/hive-summary/</loc>
     
-    <lastmod>2019-05-19T07:35:44.417Z</lastmod>
+    <lastmod>2019-05-19T07:40:01.973Z</lastmod>
     
   </url>
   
@@ -425,13 +432,6 @@
     <loc>http://frankchu0229.github.io/2017/10/19/Dive%20Into%20Python3%20Notes%20-%20Native%20Datatypes/</loc>
     
     <lastmod>2017-11-02T03:16:39.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://frankchu0229.github.io/2017/10/15/Dive%20Into%20Python%20Notes/</loc>
-    
-    <lastmod>2017-11-02T03:16:27.000Z</lastmod>
     
   </url>
   
