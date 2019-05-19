@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="summary,java,coding,functional programming," />
+  <meta name="keywords" content="summary,coding,java,functional programming," />
 
 
 
@@ -82,14 +82,14 @@
 
 
 <meta name="description" content="Java8 Lambdas Functional Programming Summary.">
-<meta name="keywords" content="summary,java,coding,functional programming">
+<meta name="keywords" content="summary,coding,java,functional programming">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java8 Functional Programming-7">
 <meta property="og:url" content="http://frankchu0229.github.io/2018/11/04/java8-functional-programming7/index.html">
 <meta property="og:site_name" content="Frank Chu">
 <meta property="og:description" content="Java8 Lambdas Functional Programming Summary.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-08T15:57:02.943Z">
+<meta property="og:updated_time" content="2019-04-10T03:17:44.133Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java8 Functional Programming-7">
 <meta name="twitter:description" content="Java8 Lambdas Functional Programming Summary.">
@@ -417,9 +417,9 @@
       
 
       
-        <h2 id="设计和架构的原则"><a href="#设计和架构的原则" class="headerlink" title="设计和架构的原则"></a>设计和架构的原则</h2><p><code>设计原则</code>是编写代码时需要遵守的基本原则；<code>设计模式</code>可以看做是解决某种通用问题的模板，是对某一类问题实现方式的best practice总结。在一些设计模式的书籍中，例如<code>Head First 设计模式</code>，书中的例子还是基于java7或者更早之前的java来实现的。java8中引入lambda表达式之后，一些设计模式的实现可以变得更好，更简单。</p>
+        <h1 id="设计和架构的原则"><a href="#设计和架构的原则" class="headerlink" title="设计和架构的原则"></a>设计和架构的原则</h1><p><code>设计原则</code>是编写代码时需要遵守的基本原则；<code>设计模式</code>可以看做是解决某种通用问题的模板，是对某一类问题实现方式的best practice总结。在一些设计模式的书籍中，例如<code>Head First 设计模式</code>，书中的例子还是基于java7或者更早之前的java来实现的。java8中引入lambda表达式之后，一些设计模式的实现可以变得更好，更简单。</p>
 <p>下面先介绍基本的设计原则和一些常见的设计模式，然后展示如何通过lambda表达式来使得一些设计模式的编写更加简单。</p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<h2 id="面向对象三要素"><a href="#面向对象三要素" class="headerlink" title="面向对象三要素"></a>面向对象三要素</h2><h3 id="集成"><a href="#集成" class="headerlink" title="集成"></a>集成</h3><h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><h2 id="设计原则"><a href="#设计原则" class="headerlink" title="设计原则"></a>设计原则</h2><h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
 <li><a href="https://www.amazon.com/Java-Lambdas-Functional-Programming-Masses/dp/1449370772" target="_blank" rel="external">Java 8 Lambdas: Functional Programming for the Masses</a></li>
 <li><a href="https://java-design-patterns.com/" target="_blank" rel="external">java design patterns</a></li>
 <li><a href="http://cyc2018.gitee.io/cs-notes/#/notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F?id=%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99" target="_blank" rel="external">cs-notes</a></li>
@@ -461,9 +461,9 @@
           
             <a href="/tags/summary/" rel="tag"># summary</a>
           
-            <a href="/tags/java/" rel="tag"># java</a>
-          
             <a href="/tags/coding/" rel="tag"># coding</a>
+          
+            <a href="/tags/java/" rel="tag"># java</a>
           
             <a href="/tags/functional-programming/" rel="tag"># functional programming</a>
           
@@ -575,7 +575,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -586,7 +586,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -597,7 +597,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">84</span>
+                  <span class="site-state-item-count">86</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -639,7 +639,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#设计和架构的原则"><span class="nav-number">1.</span> <span class="nav-text">设计和架构的原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">2.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#设计和架构的原则"><span class="nav-number">1.</span> <span class="nav-text">设计和架构的原则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象三要素"><span class="nav-number">1.1.</span> <span class="nav-text">面向对象三要素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#集成"><span class="nav-number">1.1.1.</span> <span class="nav-text">集成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多态"><span class="nav-number">1.1.2.</span> <span class="nav-text">多态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#封装"><span class="nav-number">1.1.3.</span> <span class="nav-text">封装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计原则"><span class="nav-number">1.2.</span> <span class="nav-text">设计原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计模式"><span class="nav-number">1.3.</span> <span class="nav-text">设计模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">1.4.</span> <span class="nav-text">Reference</span></a></li></ol></li></ol></div>
             
 
           </div>

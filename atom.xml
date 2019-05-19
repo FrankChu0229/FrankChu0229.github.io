@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://frankchu0229.github.io/"/>
-  <updated>2019-04-07T12:08:58.737Z</updated>
+  <updated>2019-05-19T07:35:44.417Z</updated>
   <id>http://frankchu0229.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hive HQL Summary</title>
+    <link href="http://frankchu0229.github.io/2019/05/19/hive-summary/"/>
+    <id>http://frankchu0229.github.io/2019/05/19/hive-summary/</id>
+    <published>2019-05-19T07:11:39.000Z</published>
+    <updated>2019-05-19T07:35:44.417Z</updated>
+    
+    <content type="html"><![CDATA[<p>在企业中，和线上数据打交道的最简单方式可能就是使用如hive，impala等平台了；用户只需会写SQL语句即可。在hive平台上，与它对应的是HQL语句，HQL基本支持SQL的全部操作，除此之外，他还支持<code>array</code>, <code>struct</code>, <code>map</code>等数据结构，具有更强大的能力。</p><h2 id="通过SQL方式在hive上进行查询等操作"><a href="#通过SQL方式在hive上进行查询等操作" class="headerlink" title="通过SQL方式在hive上进行查询等操作"></a>通过SQL方式在hive上进行查询等操作</h2><table><thead><tr><th><strong>Function</strong></th><th><strong>MySQL</strong></th><th><strong>Hive</strong></th></tr></thead><tbody><tr><td>Retrieving Information (General)</td><td><code>SELECT from_columns FROM table WHERE conditions;</code></td><td><code>SELECT from_columns FROM table WHERE conditions;</code></td></tr><tr><td>Retrieving All Values</td><td><code>SELECT * FROM table;</code></td><td><code>SELECT * FROM table;</code></td></tr><tr><td>Retrieving Some Values</td><td><code>SELECT * FROM table WHERE rec_name = &quot;value&quot;;</code></td><td><code>SELECT * FROM table WHERE rec_name = &quot;value&quot;;</code></td></tr><tr><td>Retrieving With Multiple Criteria</td><td><code>SELECT * FROM TABLE WHERE rec1= &quot;value1&quot; AND rec2 = &quot;value2&quot;;</code></td><td><code>SELECT * FROM TABLE WHERE rec1 =&quot;value1&quot; AND rec2 = &quot;value2&quot;;</code></td></tr><tr><td>Retrieving Specific Columns</td><td><code>SELECT column_name FROM table;</code></td><td><code>SELECT column_name FROM table;</code></td></tr><tr><td>Retrieving Unique Output</td><td><code>SELECT DISTINCT column_name FROM table;</code></td><td><code>SELECT DISTINCT column_name FROM table;</code></td></tr><tr><td>Sorting</td><td><code>SELECT col1, col2 FROM table ORDER BY col2;</code></td><td><code>SELECT col1, col2 FROM table ORDER BY col2;</code></td></tr><tr><td>Sorting Reverse</td><td><code>SELECT col1, col2 FROM table ORDER BY col2 DESC;</code></td><td><code>SELECT col1, col2 FROM table ORDER BY col2 DESC;</code></td></tr><tr><td>Counting Rows</td><td><code>SELECT COUNT(*) FROM table;</code></td><td><code>SELECT COUNT(*) FROM table;</code></td></tr><tr><td>Grouping With Counting</td><td><code>SELECT owner, COUNT(*) FROM table GROUP BY owner;</code></td><td><code>SELECT owner, COUNT(*) FROM table GROUP BY owner;</code></td></tr><tr><td>Maximum Value</td><td><code>SELECT MAX(col_name) AS label FROM table;</code></td><td><code>SELECT MAX(col_name) AS label FROM table;</code></td></tr><tr><td>Selecting from multiple tables (Join same table using alias w/”AS”)</td><td><code>SELECT pet.name, comment FROM pet, event WHERE pet.name =event.name;</code></td><td><code>SELECT pet.name, comment FROM pet JOIN event ON (pet.name =event.name)</code></td></tr></tbody></table><h2 id="处理hive表中的array-struct等表中数据"><a href="#处理hive表中的array-struct等表中数据" class="headerlink" title="处理hive表中的array, struct等表中数据"></a>处理hive表中的<code>array</code>, <code>struct</code>等表中数据</h2><p>例如，从一个trade表中，select相关的订单数据，并按照spu_id进行groupby和sum。 这里使用lateral view explode(t.order_list)将array进行展开并和已有的表进行join。<br>这里还需注意的一点是，展开后的array是struct结构，该struct结构包含<code>spu_id</code>, <code>item_count</code>, <code>payment</code>字段，如果直接按照struct.field进行groupby和sum会出错，所以这里使用()构建了一个临时表，在对临时表进行groupby和sum操作。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">INSERT OVERWRITE DIRECTORY &apos;/user/XXX/XXX&apos;</div><div class="line">select store_id, spu_id, sum(item_count) as item_sum, sum(payment) as payment_sum from</div><div class="line">(select t.store_id store_id, </div><div class="line">orderTable.orderTable.spu_id as spu_id, </div><div class="line">orderTable.orderTable.item_count as item_count,</div><div class="line">orderTable.orderTable.payment as payment </div><div class="line">from trade as t </div><div class="line">lateral view explode(t.order_list) orderTable as orderTable</div><div class="line">where t.year = 2019 and (t.month = 5 or t.month=4 or t.month=3)</div><div class="line">and t.store_id in ($&#123;stores&#125;)) as tmp</div><div class="line">group by store_id, spu_id;</div></pre></td></tr></table></figure><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul><li><a href="https://hortonworks.com/blog/hive-cheat-sheet-for-sql-users/" target="_blank" rel="external">HQL Cheat Sheet</a></li><li><a href="https://cwiki.apache.org/confluence/display/Hive/Home" target="_blank" rel="external">HQL Wiki</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在企业中，和线上数据打交道的最简单方式可能就是使用如hive，impala等平台了；用户只需会写SQL语句即可。在hive平台上，与它对应的是HQL语句，HQL基本支持SQL的全部操作，除此之外，他还支持&lt;code&gt;array&lt;/code&gt;, &lt;code&gt;struct&lt;/c
+      
+    
+    </summary>
+    
+      <category term="Data Engineering" scheme="http://frankchu0229.github.io/categories/Data-Engineering/"/>
+    
+    
+      <category term="big data" scheme="http://frankchu0229.github.io/tags/big-data/"/>
+    
+      <category term="data engineering" scheme="http://frankchu0229.github.io/tags/data-engineering/"/>
+    
+  </entry>
   
   <entry>
     <title>Java8 Functional Programming-8</title>
@@ -36,9 +63,9 @@
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
     
-      <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
-    
       <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
+    
+      <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
     
       <category term="functional programming" scheme="http://frankchu0229.github.io/tags/functional-programming/"/>
     
@@ -49,9 +76,9 @@
     <link href="http://frankchu0229.github.io/2018/11/04/java8-functional-programming7/"/>
     <id>http://frankchu0229.github.io/2018/11/04/java8-functional-programming7/</id>
     <published>2018-11-04T09:41:44.000Z</published>
-    <updated>2019-04-08T15:57:02.943Z</updated>
+    <updated>2019-04-10T03:17:44.133Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="设计和架构的原则"><a href="#设计和架构的原则" class="headerlink" title="设计和架构的原则"></a>设计和架构的原则</h2><p><code>设计原则</code>是编写代码时需要遵守的基本原则；<code>设计模式</code>可以看做是解决某种通用问题的模板，是对某一类问题实现方式的best practice总结。在一些设计模式的书籍中，例如<code>Head First 设计模式</code>，书中的例子还是基于java7或者更早之前的java来实现的。java8中引入lambda表达式之后，一些设计模式的实现可以变得更好，更简单。</p><p>下面先介绍基本的设计原则和一些常见的设计模式，然后展示如何通过lambda表达式来使得一些设计模式的编写更加简单。</p><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="https://www.amazon.com/Java-Lambdas-Functional-Programming-Masses/dp/1449370772" target="_blank" rel="external">Java 8 Lambdas: Functional Programming for the Masses</a></li><li><a href="https://java-design-patterns.com/" target="_blank" rel="external">java design patterns</a></li><li><a href="http://cyc2018.gitee.io/cs-notes/#/notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F?id=%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99" target="_blank" rel="external">cs-notes</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="设计和架构的原则"><a href="#设计和架构的原则" class="headerlink" title="设计和架构的原则"></a>设计和架构的原则</h1><p><code>设计原则</code>是编写代码时需要遵守的基本原则；<code>设计模式</code>可以看做是解决某种通用问题的模板，是对某一类问题实现方式的best practice总结。在一些设计模式的书籍中，例如<code>Head First 设计模式</code>，书中的例子还是基于java7或者更早之前的java来实现的。java8中引入lambda表达式之后，一些设计模式的实现可以变得更好，更简单。</p><p>下面先介绍基本的设计原则和一些常见的设计模式，然后展示如何通过lambda表达式来使得一些设计模式的编写更加简单。</p><h2 id="面向对象三要素"><a href="#面向对象三要素" class="headerlink" title="面向对象三要素"></a>面向对象三要素</h2><h3 id="集成"><a href="#集成" class="headerlink" title="集成"></a>集成</h3><h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><h2 id="设计原则"><a href="#设计原则" class="headerlink" title="设计原则"></a>设计原则</h2><h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="https://www.amazon.com/Java-Lambdas-Functional-Programming-Masses/dp/1449370772" target="_blank" rel="external">Java 8 Lambdas: Functional Programming for the Masses</a></li><li><a href="https://java-design-patterns.com/" target="_blank" rel="external">java design patterns</a></li><li><a href="http://cyc2018.gitee.io/cs-notes/#/notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F?id=%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99" target="_blank" rel="external">cs-notes</a></li></ul>]]></content>
     
     <summary type="html">
     
@@ -64,9 +91,9 @@
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
     
-      <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
-    
       <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
+    
+      <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
     
       <category term="functional programming" scheme="http://frankchu0229.github.io/tags/functional-programming/"/>
     
@@ -92,9 +119,9 @@
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
     
-      <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
-    
       <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
+    
+      <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
     
       <category term="functional programming" scheme="http://frankchu0229.github.io/tags/functional-programming/"/>
     
@@ -120,9 +147,9 @@
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
     
-      <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
-    
       <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
+    
+      <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
     
       <category term="functional programming" scheme="http://frankchu0229.github.io/tags/functional-programming/"/>
     
@@ -198,9 +225,9 @@
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
     
-      <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
-    
       <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
+    
+      <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
     
       <category term="functional programming" scheme="http://frankchu0229.github.io/tags/functional-programming/"/>
     
@@ -330,9 +357,9 @@
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
     
-      <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
-    
       <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
+    
+      <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
     
       <category term="functional programming" scheme="http://frankchu0229.github.io/tags/functional-programming/"/>
     
@@ -358,9 +385,9 @@
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
     
-      <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
-    
       <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
+    
+      <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
     
       <category term="functional programming" scheme="http://frankchu0229.github.io/tags/functional-programming/"/>
     
@@ -412,9 +439,9 @@
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
     
-      <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
-    
       <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
+    
+      <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
     
       <category term="functional programming" scheme="http://frankchu0229.github.io/tags/functional-programming/"/>
     
@@ -523,32 +550,6 @@
       <category term="dl" scheme="http://frankchu0229.github.io/tags/dl/"/>
     
       <category term="tensorflow" scheme="http://frankchu0229.github.io/tags/tensorflow/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python Cookbook Number Summary</title>
-    <link href="http://frankchu0229.github.io/2018/07/14/python-cookbook-number/"/>
-    <id>http://frankchu0229.github.io/2018/07/14/python-cookbook-number/</id>
-    <published>2018-07-14T08:59:10.000Z</published>
-    <updated>2018-07-14T10:08:27.077Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="数字的四舍五入-round"><a href="#数字的四舍五入-round" class="headerlink" title="数字的四舍五入 round"></a>数字的四舍五入 round</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">print(round(1.23, 1)) ## ndigits, 保留小数的位数</div><div class="line">print(round(-1.27, 1))</div><div class="line">print(round(1.55, 1))</div><div class="line">print(round(1.5))</div><div class="line">print(round(-1.5))</div><div class="line"></div><div class="line">### round ndigits为负数</div><div class="line"></div><div class="line">print(round(16323232, -1)) ## 只做舍入操作，在相应的十位、百位等上</div><div class="line">print(round(23233232, -2))</div></pre></td></tr></table></figure><h2 id="精确浮点数计算"><a href="#精确浮点数计算" class="headerlink" title="精确浮点数计算"></a>精确浮点数计算</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">a = 4.2</div><div class="line">b = 2.1</div><div class="line">print(a + b)</div><div class="line">print((a + b) == 6.3)</div><div class="line"></div><div class="line">from decimal import Decimal, localcontext</div><div class="line">a = Decimal(&apos;1.3&apos;)</div><div class="line">b = Decimal(&apos;1.7&apos;)</div><div class="line">print(a + b)</div><div class="line">print(a / b)</div><div class="line"></div><div class="line">with localcontext() as ctx:</div><div class="line">    ctx.prec = 3</div><div class="line">    print(a/b)</div><div class="line"></div><div class="line">## 在正常的科学计算中，可以使用python的标准库进行计算，速度快，误差基本可以忽略，但是有的时候还是要注意误差，以及注意数学运算的使用， 比如：</div><div class="line"></div><div class="line"></div><div class="line">num = [1.2e+18, 1, -1.2e+18]</div><div class="line">print(sum(num))</div><div class="line">import math</div><div class="line">print(math.fsum(num))</div></pre></td></tr></table></figure><h2 id="Number-Format"><a href="#Number-Format" class="headerlink" title="Number Format"></a>Number Format</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">a = 1234.56789</div><div class="line">format(a, &apos;.2f&apos;) ## 用round方式进行四舍五入</div><div class="line">format(a, &apos;&lt;10.2f&apos;)</div><div class="line">format(a, &apos;&gt;10.2f&apos;)</div><div class="line">format(a, &apos;^10.2f&apos;)</div><div class="line">format(a, &apos;,&apos;)</div><div class="line">format(a, &apos;0,.1f&apos;)</div><div class="line"></div><div class="line">### exp format</div><div class="line"></div><div class="line">format(a, &apos;e&apos;)</div><div class="line">format(a, &apos;0.2e&apos;)</div><div class="line"></div><div class="line">### format digit in a string</div><div class="line"></div><div class="line">&apos;The value is &#123;:10,.1f&#125;&apos;.format(a)</div><div class="line"></div><div class="line">### In all, width + digits: `[&lt;&gt;^]?width[,]?(.digits)?[ef]?`</div><div class="line">print(format(a, &apos;.2&apos;))</div></pre></td></tr></table></figure><h2 id="不同进制"><a href="#不同进制" class="headerlink" title="不同进制"></a>不同进制</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">a = 1234</div><div class="line">bin(a)</div><div class="line">format(a, &apos;b&apos;) ## Starts with &apos;0b&apos;</div><div class="line"></div><div class="line">oct(a)</div><div class="line">format(a, &apos;o&apos;) ## Starts with &apos;0o&apos;</div><div class="line"></div><div class="line">hex(a)</div><div class="line">format(a, &apos;x&apos;) ## Starts with &apos;0h&apos;</div><div class="line"></div><div class="line">int(&apos;4d2&apos;, 16)</div><div class="line">int(&apos;10101010101&apos;, 2)</div></pre></td></tr></table></figure><h2 id="字节字符串与大整数的打包与解包"><a href="#字节字符串与大整数的打包与解包" class="headerlink" title="字节字符串与大整数的打包与解包"></a>字节字符串与大整数的打包与解包</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">data = b&apos;\x00\x124V\x00x\x90\xab\x00\xcd\xef\x01\x00#\x004&apos;</div><div class="line">print(int.from_bytes(data, &apos;little&apos;))</div><div class="line">print(int.from_bytes(data, &apos;big&apos;))</div><div class="line"></div><div class="line">x = 94522842520747284487117727783387188</div><div class="line">print(x.to_bytes(16, &apos;little&apos;))</div><div class="line">print(x.to_bytes(16, &apos;big&apos;))</div></pre></td></tr></table></figure><h2 id="复数的数学运算"><a href="#复数的数学运算" class="headerlink" title="复数的数学运算"></a>复数的数学运算</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">### 复数表示</div><div class="line">import math</div><div class="line">import cmath ## python 标准库不支持复数的运算</div><div class="line">import numpy as np</div><div class="line"></div><div class="line">a = 3 + 5j</div><div class="line">b = complex(3, 5)</div><div class="line">print(a, b)</div><div class="line">print(a.real, a.imag, a.conjugate)</div><div class="line">print(b.real, b.imag, b.conjugate)</div><div class="line">math.sin(3)</div><div class="line">print(cmath.sin(a))</div><div class="line"></div><div class="line"># print(math.sqrt(-1))</div><div class="line">print(cmath.sqrt(-1))</div><div class="line"></div><div class="line">array = np.array([1 + 2j, 2 + 3j])</div><div class="line">print(np.sum(array + 2))</div></pre></td></tr></table></figure><h2 id="Nan-inf"><a href="#Nan-inf" class="headerlink" title="Nan, inf"></a>Nan, inf</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">a = float(&apos;nan&apos;)</div><div class="line">d = float(&apos;nan&apos;)</div><div class="line"></div><div class="line">print(a == d)</div><div class="line">b = float(&apos;inf&apos;)</div><div class="line">c = float(&apos;-inf&apos;)</div><div class="line"></div><div class="line">import math</div><div class="line">print(math.isinf(b))</div><div class="line">print(math.isinf(c))</div><div class="line">print(math.isnan(a))</div></pre></td></tr></table></figure><h2 id="分数运算"><a href="#分数运算" class="headerlink" title="分数运算"></a>分数运算</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">from fractions import  Fraction</div><div class="line">a = Fraction(3, 4)</div><div class="line">b = Fraction(4, 5)</div><div class="line">c = a + b</div><div class="line">print(c)</div><div class="line">print(c.numerator, c.denominator)</div><div class="line"></div><div class="line">print(float(c))</div><div class="line">d = 3.75</div><div class="line">print(d.as_integer_ratio())</div><div class="line">num, den = d.as_integer_ratio()</div><div class="line">print(Fraction(*d.as_integer_ratio()))</div><div class="line">print(Fraction(num, den))</div></pre></td></tr></table></figure><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c01/p11_naming_slice.html" target="_blank" rel="external">Python Cookbook</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      Python Cookbook Digit Summary.
-    
-    </summary>
-    
-      <category term="python" scheme="http://frankchu0229.github.io/categories/python/"/>
-    
-    
-      <category term="notes" scheme="http://frankchu0229.github.io/tags/notes/"/>
-    
-      <category term="python" scheme="http://frankchu0229.github.io/tags/python/"/>
-    
-      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
     
   </entry>
   
