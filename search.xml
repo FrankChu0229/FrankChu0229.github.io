@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Awk Summary]]></title>
+    <url>%2F2019%2F06%2F18%2Fawk-summary%2F</url>
+    <content type="text"><![CDATA[Awk SummaryAwk 命令可以帮助在linux命令行下更好的进行操作，提高效率. 基本用法awk 动作 文件名 例如，awk &#39;{print $0 }&#39; a.txt 打印当前文件每一行，awk默认使用空格或tab进行分割，可以使用$1, $2等获取每一列的值。 123456$ awk &apos;&#123;print $0 &#125;&apos; a.txtMarry 2143 78 84 77Jack 2321 66 78 45Tom 2122 48 77 71Mike 2537 87 97 95Bob 2415 40 57 62 如果想指定分割符，可以使用 1awk -F &apos;:&apos; &apos;&#123;print $1&#125;&apos; a.txt 123456$ awk -F &apos; &apos; &apos;&#123;print $1&#125;&apos; a.txtMarryJackTomMikeBob Awk 中的变量 $ + 数字 获取相应列的值 NF 表示当前行有多少列，$NF, $(NF-1)获取倒数第二列 NR 表示当前处理的是第几行，相应的FNR表示的是在当前文件的行数 FILENAME 当前文件名 RS 行分割符，默认为换行符 FS 字段分割符， 默认为空格或者tab ORS 输出行分割符， 默认为换行符 OFS 输出字段分割符，默认为空格 指定输出分割符例子： 1awk &apos;NR!=1&#123;print $1, $2, $3&#125;&apos; OFS=&quot;---&quot; netstat.txt 12345$ awk &apos;NR!=1 &#123;print $1, $2, $3&#125;&apos; OFS=&quot;---&quot; a.txtJack---2321---66Tom---2122---48Mike---2537---87Bob---2415---40 指定输入分割符例子: 1awk -F &apos;:&apos; &apos;&#123;print $1&#125;&apos; a.txt Awk中的函数Awk 中可以使用如toUpper()等函数，例如 1awk -F &apos;:&apos; &apos;&#123;print toupper($1)&#125;&apos; a.txt 123456$ awk -F &apos; &apos; &apos;&#123;print toupper($1)&#125;&apos; a.txtMARRYJACKTOMMIKEBOB 其他函数： tolower() length()等 Awk中的条件Awk 条件使用方式 awk &#39;条件 动作&#39; 文件名 例如： awk &#39;/LISTEN/ {print $1}&#39; a.txt 当前行含有LISTEN字段, //中可以写正则 12$ awk &apos;/M.*y/ &#123;print $0&#125;&apos; a.txtMarry 2143 78 84 77 awk &#39;$6 ~ /LISTEN/ {print $1}&#39; a.txt 第六行是否含有LISTEN， ~表示模式开始，!~表示反模式 12$ awk &apos;$1 ~ /M.*y/ &#123;print $0&#125;&apos; a.txtMarry 2143 78 84 77 awk &#39;NR == 1 || NR &gt; 3 {print $1}&#39; a.txt 1234$ awk &apos;NR == 1 || NR &gt; 3 &#123;print $1&#125;&apos; a.txtMarryMikeBob Reference https://coolshell.cn/articles/9070.html http://www.ruanyifeng.com/blog/2018/11/awk.html]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux. tool</tag>
+        <tag>awk</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hive HQL Summary]]></title>
     <url>%2F2019%2F05%2F19%2Fhive-summary%2F</url>
     <content type="text"><![CDATA[在企业中，和线上数据打交道的最简单方式可能就是使用如hive，impala等平台了；用户只需会写SQL语句即可。在hive平台上，与它对应的是HQL语句，HQL基本支持SQL的全部操作，除此之外，他还支持array, struct, map等数据结构，具有更强大的能力。 通过SQL方式在hive上进行查询等操作 Function MySQL Hive Retrieving Information (General) SELECT from_columns FROM table WHERE conditions; SELECT from_columns FROM table WHERE conditions; Retrieving All Values SELECT * FROM table; SELECT * FROM table; Retrieving Some Values SELECT * FROM table WHERE rec_name = &quot;value&quot;; SELECT * FROM table WHERE rec_name = &quot;value&quot;; Retrieving With Multiple Criteria SELECT * FROM TABLE WHERE rec1= &quot;value1&quot; AND rec2 = &quot;value2&quot;; SELECT * FROM TABLE WHERE rec1 =&quot;value1&quot; AND rec2 = &quot;value2&quot;; Retrieving Specific Columns SELECT column_name FROM table; SELECT column_name FROM table; Retrieving Unique Output SELECT DISTINCT column_name FROM table; SELECT DISTINCT column_name FROM table; Sorting SELECT col1, col2 FROM table ORDER BY col2; SELECT col1, col2 FROM table ORDER BY col2; Sorting Reverse SELECT col1, col2 FROM table ORDER BY col2 DESC; SELECT col1, col2 FROM table ORDER BY col2 DESC; Counting Rows SELECT COUNT(*) FROM table; SELECT COUNT(*) FROM table; Grouping With Counting SELECT owner, COUNT(*) FROM table GROUP BY owner; SELECT owner, COUNT(*) FROM table GROUP BY owner; Maximum Value SELECT MAX(col_name) AS label FROM table; SELECT MAX(col_name) AS label FROM table; Selecting from multiple tables (Join same table using alias w/”AS”) SELECT pet.name, comment FROM pet, event WHERE pet.name =event.name; SELECT pet.name, comment FROM pet JOIN event ON (pet.name =event.name) 处理hive表中的array, struct等表中数据例如，从一个trade表中，select相关的订单数据，并按照spu_id进行groupby和sum。 这里使用lateral view explode(t.order_list)将array进行展开并和已有的表进行join。这里还需注意的一点是，展开后的array是struct结构，该struct结构包含spu_id, item_count, payment字段，如果直接按照struct.field进行groupby和sum会出错，所以这里使用()构建了一个临时表，在对临时表进行groupby和sum操作。 1234567891011INSERT OVERWRITE DIRECTORY &apos;/user/XXX/XXX&apos;select store_id, spu_id, sum(item_count) as item_sum, sum(payment) as payment_sum from(select t.store_id store_id, orderTable.orderTable.spu_id as spu_id, orderTable.orderTable.item_count as item_count,orderTable.orderTable.payment as payment from trade as t lateral view explode(t.order_list) orderTable as orderTablewhere t.year = 2019 and (t.month = 5 or t.month=4 or t.month=3)and t.store_id in ($&#123;stores&#125;)) as tmpgroup by store_id, spu_id; Reference HQL Cheat Sheet HQL Wiki]]></content>
@@ -21,8 +33,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>coding</tag>
         <tag>java</tag>
+        <tag>coding</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -35,8 +47,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>coding</tag>
         <tag>java</tag>
+        <tag>coding</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -49,8 +61,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>coding</tag>
         <tag>java</tag>
+        <tag>coding</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -63,8 +75,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>coding</tag>
         <tag>java</tag>
+        <tag>coding</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -103,8 +115,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>coding</tag>
         <tag>java</tag>
+        <tag>coding</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -167,8 +179,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>coding</tag>
         <tag>java</tag>
+        <tag>coding</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -181,8 +193,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>coding</tag>
         <tag>java</tag>
+        <tag>coding</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -208,8 +220,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>coding</tag>
         <tag>java</tag>
+        <tag>coding</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>

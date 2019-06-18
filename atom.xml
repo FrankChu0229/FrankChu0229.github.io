@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://frankchu0229.github.io/"/>
-  <updated>2019-05-19T07:42:36.752Z</updated>
+  <updated>2019-06-18T08:46:56.996Z</updated>
   <id>http://frankchu0229.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Awk Summary</title>
+    <link href="http://frankchu0229.github.io/2019/06/18/awk-summary/"/>
+    <id>http://frankchu0229.github.io/2019/06/18/awk-summary/</id>
+    <published>2019-06-18T06:20:54.000Z</published>
+    <updated>2019-06-18T08:46:56.996Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Awk-Summary"><a href="#Awk-Summary" class="headerlink" title="Awk Summary"></a>Awk Summary</h1><p><code>Awk</code> 命令可以帮助在linux命令行下更好的进行操作，提高效率.</p><h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p><code>awk 动作 文件名</code></p><p>例如，<code>awk &#39;{print $0 }&#39; a.txt</code> 打印当前文件每一行，awk默认使用空格或tab进行分割，可以使用<code>$1</code>, <code>$2</code>等获取每一列的值。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ awk &apos;&#123;print $0 &#125;&apos; a.txt</div><div class="line">Marry   2143 78 84 77</div><div class="line">Jack    2321 66 78 45</div><div class="line">Tom     2122 48 77 71</div><div class="line">Mike    2537 87 97 95</div><div class="line">Bob     2415 40 57 62</div></pre></td></tr></table></figure><p>如果想指定分割符，可以使用</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">awk -F &apos;:&apos; &apos;&#123;print $1&#125;&apos; a.txt</div></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$  awk -F &apos; &apos; &apos;&#123;print $1&#125;&apos; a.txt</div><div class="line">Marry</div><div class="line">Jack</div><div class="line">Tom</div><div class="line">Mike</div><div class="line">Bob</div></pre></td></tr></table></figure><h2 id="Awk-中的变量"><a href="#Awk-中的变量" class="headerlink" title="Awk 中的变量"></a>Awk 中的变量</h2><ol><li><code>$ + 数字</code> 获取相应列的值</li><li><code>NF</code> 表示当前行有多少列，<code>$NF</code>, <code>$(NF-1)</code>获取倒数第二列</li><li><code>NR</code> 表示当前处理的是第几行，相应的<code>FNR</code>表示的是在当前文件的行数</li><li><code>FILENAME</code> 当前文件名</li><li><code>RS</code> 行分割符，默认为换行符</li><li><code>FS</code> 字段分割符， 默认为空格或者tab</li><li><code>ORS</code> 输出行分割符， 默认为换行符</li><li><code>OFS</code> 输出字段分割符，默认为空格</li></ol><p>指定输出分割符例子：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">awk &apos;NR!=1&#123;print $1, $2, $3&#125;&apos; OFS=&quot;---&quot; netstat.txt</div></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$  awk &apos;NR!=1 &#123;print $1, $2, $3&#125;&apos; OFS=&quot;---&quot; a.txt</div><div class="line">Jack---2321---66</div><div class="line">Tom---2122---48</div><div class="line">Mike---2537---87</div><div class="line">Bob---2415---40</div></pre></td></tr></table></figure><p>指定输入分割符例子: </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">awk -F &apos;:&apos; &apos;&#123;print $1&#125;&apos; a.txt</div></pre></td></tr></table></figure><h2 id="Awk中的函数"><a href="#Awk中的函数" class="headerlink" title="Awk中的函数"></a>Awk中的函数</h2><p>Awk 中可以使用如<code>toUpper()</code>等函数，例如</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">awk -F &apos;:&apos; &apos;&#123;print toupper($1)&#125;&apos; a.txt</div></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ awk -F &apos; &apos; &apos;&#123;print toupper($1)&#125;&apos; a.txt</div><div class="line">MARRY</div><div class="line">JACK</div><div class="line">TOM</div><div class="line">MIKE</div><div class="line">BOB</div></pre></td></tr></table></figure><p>其他函数：</p><ul><li><code>tolower()</code></li><li><code>length()</code><br>等</li></ul><h2 id="Awk中的条件"><a href="#Awk中的条件" class="headerlink" title="Awk中的条件"></a>Awk中的条件</h2><p>Awk 条件使用方式 <code>awk &#39;条件 动作&#39; 文件名</code></p><p>例如：</p><p><code>awk &#39;/LISTEN/ {print $1}&#39; a.txt</code>  当前行含有LISTEN字段, //中可以写正则</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ awk &apos;/M.*y/ &#123;print $0&#125;&apos; a.txt</div><div class="line">Marry   2143 78 84 77</div></pre></td></tr></table></figure><p><code>awk &#39;$6 ~ /LISTEN/ {print $1}&#39; a.txt</code> 第六行是否含有LISTEN， ~表示模式开始，!~表示反模式 </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ awk &apos;$1 ~ /M.*y/ &#123;print $0&#125;&apos; a.txt</div><div class="line">Marry   2143 78 84 77</div></pre></td></tr></table></figure><p><code>awk &#39;NR == 1 || NR &gt; 3 {print $1}&#39; a.txt</code> </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ awk &apos;NR == 1 || NR &gt; 3 &#123;print $1&#125;&apos; a.txt</div><div class="line">Marry</div><div class="line">Mike</div><div class="line">Bob</div></pre></td></tr></table></figure><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ul><li><a href="https://coolshell.cn/articles/9070.html" target="_blank" rel="external">https://coolshell.cn/articles/9070.html</a></li><li><a href="http://www.ruanyifeng.com/blog/2018/11/awk.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2018/11/awk.html</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      Awk Summary.
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://frankchu0229.github.io/categories/Linux/"/>
+    
+    
+      <category term="Linux. tool" scheme="http://frankchu0229.github.io/tags/Linux-tool/"/>
+    
+      <category term="awk" scheme="http://frankchu0229.github.io/tags/awk/"/>
+    
+  </entry>
   
   <entry>
     <title>Hive HQL Summary</title>
@@ -60,9 +84,9 @@
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
     
-      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
-    
       <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
+    
+      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
     
       <category term="functional programming" scheme="http://frankchu0229.github.io/tags/functional-programming/"/>
     
@@ -88,9 +112,9 @@
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
     
-      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
-    
       <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
+    
+      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
     
       <category term="functional programming" scheme="http://frankchu0229.github.io/tags/functional-programming/"/>
     
@@ -116,9 +140,9 @@
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
     
-      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
-    
       <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
+    
+      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
     
       <category term="functional programming" scheme="http://frankchu0229.github.io/tags/functional-programming/"/>
     
@@ -144,9 +168,9 @@
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
     
-      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
-    
       <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
+    
+      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
     
       <category term="functional programming" scheme="http://frankchu0229.github.io/tags/functional-programming/"/>
     
@@ -222,9 +246,9 @@
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
     
-      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
-    
       <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
+    
+      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
     
       <category term="functional programming" scheme="http://frankchu0229.github.io/tags/functional-programming/"/>
     
@@ -354,9 +378,9 @@
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
     
-      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
-    
       <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
+    
+      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
     
       <category term="functional programming" scheme="http://frankchu0229.github.io/tags/functional-programming/"/>
     
@@ -382,9 +406,9 @@
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
     
-      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
-    
       <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
+    
+      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
     
       <category term="functional programming" scheme="http://frankchu0229.github.io/tags/functional-programming/"/>
     
@@ -436,9 +460,9 @@
     
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
     
-      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
-    
       <category term="java" scheme="http://frankchu0229.github.io/tags/java/"/>
+    
+      <category term="coding" scheme="http://frankchu0229.github.io/tags/coding/"/>
     
       <category term="functional programming" scheme="http://frankchu0229.github.io/tags/functional-programming/"/>
     
@@ -519,34 +543,6 @@
       <category term="summary" scheme="http://frankchu0229.github.io/tags/summary/"/>
     
       <category term="kg" scheme="http://frankchu0229.github.io/tags/kg/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TF Python Train And Java Serve</title>
-    <link href="http://frankchu0229.github.io/2018/08/02/tf-python-train-java-serve/"/>
-    <id>http://frankchu0229.github.io/2018/08/02/tf-python-train-java-serve/</id>
-    <published>2018-08-02T02:30:59.000Z</published>
-    <updated>2018-09-02T03:03:08.963Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Python-Model"><a href="#Python-Model" class="headerlink" title="Python Model"></a>Python Model</h2><p>Convert model to frozen graph with tf, frozen graph cannot be trained again and usually used in production environment.</p><h3 id="1-TF-Add-Name-For-Each-Placeholder"><a href="#1-TF-Add-Name-For-Each-Placeholder" class="headerlink" title="1. TF: Add Name For Each Placeholder"></a>1. TF: Add Name For Each Placeholder</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">in_question = tf.placeholder(tf.int32, [None, None], name=&apos;in_question&apos;)  # shape: (batch x seq)</div><div class="line">in_answer = tf.placeholder(tf.int32, [None, None], name=&apos;in_answer&apos;)</div><div class="line">in_question_len = tf.placeholder(tf.int32, [None], name=&apos;in_question_len&apos;)</div><div class="line">in_answer_len = tf.placeholder(tf.int32, [None], name=&apos;in_answer_len&apos;)</div><div class="line">dropout_rate = tf.placeholder(tf.float32, None, name=&apos;dropout_rate&apos;)</div><div class="line">y_prob = tf.nn.softmax(logits, name=&apos;y_pred&apos;)</div></pre></td></tr></table></figure><h3 id="2-Train-and-Save-the-Model-with-SavedModelBuilder"><a href="#2-Train-and-Save-the-Model-with-SavedModelBuilder" class="headerlink" title="2. Train and Save the Model with SavedModelBuilder"></a>2. Train and Save the Model with SavedModelBuilder</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">builder = tf.saved_model.builder.SavedModelBuilder(saved_model_dir)</div><div class="line"># x 为输入tensor, keep_prob为dropout的prob tensor</div><div class="line">inputs = &#123;&apos;in_question&apos;: tf.saved_model.utils.build_tensor_info(self.in_question),</div><div class="line">          &apos;in_answer&apos;: tf.saved_model.utils.build_tensor_info(self.in_answer),</div><div class="line">          &apos;in_question_len&apos;: tf.saved_model.utils.build_tensor_info(self.in_question_len),</div><div class="line">          &apos;in_answer_len&apos;: tf.saved_model.utils.build_tensor_info(self.in_answer_len),</div><div class="line">          &apos;in_y&apos;: tf.saved_model.utils.build_tensor_info(self.in_y),</div><div class="line">          &apos;learning_rate&apos;: tf.saved_model.utils.build_tensor_info(self.learning_rate),</div><div class="line">          &apos;dropout_rate&apos;: tf.saved_model.utils.build_tensor_info(self.dropout_rate)&#125;</div><div class="line"></div><div class="line">outputs = &#123;&apos;y_p&apos;: tf.saved_model.utils.build_tensor_info(self.y_p)&#125;</div><div class="line"></div><div class="line">signature = tf.saved_model.signature_def_utils.build_signature_def(inputs, outputs, &apos;test_sig_name&apos;)</div><div class="line"></div><div class="line">builder.add_meta_graph_and_variables(sess, [&apos;baidu-model&apos;], &#123;&apos;signature&apos;: signature&#125;)</div><div class="line">builder.save()</div></pre></td></tr></table></figure><h3 id="3-Choose-the-best-model-and-convert-it-to-frozen-graph"><a href="#3-Choose-the-best-model-and-convert-it-to-frozen-graph" class="headerlink" title="3. Choose the best model and convert it to frozen graph."></a>3. Choose the best model and convert it to frozen graph.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">def convert_to_frozen_graph(path, tags, output_node_names, frozen_path=&apos;./&apos;,</div><div class="line">                            frozen_graph_name=&apos;model.pb&apos;):</div><div class="line">    &quot;&quot;&quot;</div><div class="line">    To convert a saved model to a frozen graph. A saved model can be trained,</div><div class="line">    however, a frozen graph cannot be trained again. The model used by java</div><div class="line">    applications is a frozen graph.</div><div class="line">    :param path: saved model path</div><div class="line">    :param tags: saved model tags, set of string tags to identify the</div><div class="line">    required MetaGraphDef.</div><div class="line">    :param output_node_names: List of name strings for the result nodes</div><div class="line">    of the graph.</div><div class="line">    :param frozen_path: frozen graph save path</div><div class="line">    :param frozen_graph_name: frozen graph model name</div><div class="line">    :return: a frozen graph</div><div class="line">    &quot;&quot;&quot;</div><div class="line">    with tf.Session(graph=tf.Graph()) as sess:</div><div class="line">        meta_graph_def = tf.saved_model.loader.load(sess, tags, path)</div><div class="line">        constant_graph = graph_util.convert_variables_to_constants(sess,</div><div class="line">                                                                   sess.graph.as_graph_def(),</div><div class="line">                                                                   output_node_names)</div><div class="line"></div><div class="line">        with tf.gfile.GFile(frozen_path + frozen_graph_name, &apos;wb&apos;) as fw:</div><div class="line">            fw.write(constant_graph.SerializeToString())</div><div class="line">        print(&quot;%d ops in the final graph.&quot; % len(constant_graph.node))</div><div class="line"></div><div class="line"></div><div class="line">def load_frozen_graph(path=&apos;./model.pb&apos;):</div><div class="line">    with tf.gfile.GFile(path, &quot;rb&quot;) as f:</div><div class="line">        graph_def = tf.GraphDef()</div><div class="line">        graph_def.ParseFromString(f.read())</div><div class="line"></div><div class="line">    # We load the graph_def in the default graph</div><div class="line">    with tf.Graph().as_default() as graph:</div><div class="line">        tf.import_graph_def(</div><div class="line">            graph_def,</div><div class="line">            input_map=None,</div><div class="line">            return_elements=None,</div><div class="line">            name=&quot;prefix&quot;,</div><div class="line">            op_dict=None,</div><div class="line">            producer_op_list=None</div><div class="line">        )</div><div class="line">    return graph</div></pre></td></tr></table></figure><h3 id="4-Test-the-frozen-graph"><a href="#4-Test-the-frozen-graph" class="headerlink" title="4. Test the frozen graph"></a>4. Test the frozen graph</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    convert_to_frozen_graph(&apos;../model/x.model&apos;, [&apos;x-model&apos;], [&apos;y_pred&apos;])</div></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">import tensorflow as tf</div><div class="line">from .utils import load_frozen_graph</div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    graph = load_frozen_graph()</div><div class="line">    for op in graph.get_operations():</div><div class="line">        print(op.name, op.values())</div><div class="line"></div><div class="line">    in_question = graph.get_tensor_by_name(&apos;prefix/in_question:0&apos;)</div><div class="line">    in_question_len = graph.get_tensor_by_name(&apos;prefix/in_question_len:0&apos;)</div><div class="line">    in_answer = graph.get_tensor_by_name(&apos;prefix/in_answer:0&apos;)</div><div class="line">    in_answer_len = graph.get_tensor_by_name(&apos;prefix/in_answer_len:0&apos;)</div><div class="line">    dropout_rate = graph.get_tensor_by_name(&apos;prefix/dropout_rate:0&apos;)</div><div class="line">    y_pred = graph.get_tensor_by_name(&apos;prefix/y_pred:0&apos;)</div><div class="line"></div><div class="line">    with tf.Session(graph=graph) as sess:</div><div class="line">        res = sess.run(y_pred,</div><div class="line">                       feed_dict=&#123;</div><div class="line">                           in_question: [</div><div class="line">                               [1935, 1198, 764, 657, 627, 456, 3114, 2964,</div><div class="line">                                137, 2702, 1933, 2003, 634, 137, 643, 3021,</div><div class="line">                                2003, 634, 137, 3177, 967, 2003, 2964, 137,</div><div class="line">                                2729, 240, 2003, 2139, 873, 0, 0, 0, 0, 0, 0]],</div><div class="line">                           in_answer: [</div><div class="line">                               [2300, 2236, 1733, 1206, 2003, 2702, 1933, 456,</div><div class="line">                                3114, 2003, 851, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,</div><div class="line">                                0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]],</div><div class="line">                           in_question_len: [29],</div><div class="line">                           in_answer_len: [11],</div><div class="line">                           dropout_rate: 0</div><div class="line">                       &#125;)</div><div class="line">    print(res)</div></pre></td></tr></table></figure><h2 id="Java-Serve"><a href="#Java-Serve" class="headerlink" title="Java Serve"></a>Java Serve</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">inQuestion = &quot;in_question&quot;;</div><div class="line">inQuestionLen = &quot;in_question_len&quot;;</div><div class="line">inAnswer = &quot;in_answer&quot;;</div><div class="line">inAnswerLen = &quot;in_answer_len&quot;;</div><div class="line">dropoutRate = &quot;dropout_rate&quot;;</div><div class="line">predictSim = &quot;y_pred&quot;;</div><div class="line"></div><div class="line">List&lt;Tensor&lt;?&gt;&gt; res = this.session.runner()</div><div class="line">    .feed(inQuestion, left.get(0)) // left, right are tensors created by tf</div><div class="line">    .feed(inQuestionLen, left.get(1))</div><div class="line">    .feed(inAnswer, right.get(0))</div><div class="line">    .feed(inAnswerLen, right.get(1))</div><div class="line">    .feed(dropoutRate, Tensor.create(0f))</div><div class="line">    .fetch(predictSim)</div><div class="line">    .run();</div><div class="line">res.get(0).copyTo(result);</div></pre></td></tr></table></figure><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul><li><a href="https://docs.google.com/presentation/d/e/2PACX-1vQ6DzxNTBrJo7K5P8t5_rBRGnyJoPUPBVOJR4ooHCwi4TlBFnIriFmI719rDNpcQzojqsV58aUqmBBx/pub?start=false&amp;loop=false&amp;delayms=3000&amp;slide=id.g306175dd89_0_0" target="_blank" rel="external">https://docs.google.com/presentation/d/e/2PACX-1vQ6DzxNTBrJo7K5P8t5_rBRGnyJoPUPBVOJR4ooHCwi4TlBFnIriFmI719rDNpcQzojqsV58aUqmBBx/pub?start=false&amp;loop=false&amp;delayms=3000&amp;slide=id.g306175dd89_0_0</a></li><li><a href="https://blog.metaflow.fr/tensorflow-how-to-freeze-a-model-and-serve-it-with-a-python-api-d4f3596b3adc" target="_blank" rel="external">https://blog.metaflow.fr/tensorflow-how-to-freeze-a-model-and-serve-it-with-a-python-api-d4f3596b3adc</a></li><li><a href="https://www.tensorflow.org/" target="_blank" rel="external">https://www.tensorflow.org/</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      Summary for python offline train and java online serve using keras and tensorflow.
-    
-    </summary>
-    
-      <category term="Machine Learning" scheme="http://frankchu0229.github.io/categories/Machine-Learning/"/>
-    
-    
-      <category term="python" scheme="http://frankchu0229.github.io/tags/python/"/>
-    
-      <category term="keras" scheme="http://frankchu0229.github.io/tags/keras/"/>
-    
-      <category term="dl" scheme="http://frankchu0229.github.io/tags/dl/"/>
-    
-      <category term="tensorflow" scheme="http://frankchu0229.github.io/tags/tensorflow/"/>
     
   </entry>
   
