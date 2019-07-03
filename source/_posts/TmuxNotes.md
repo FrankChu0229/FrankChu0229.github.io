@@ -65,6 +65,7 @@ description: Tmux Summary。
 - [reference1](http://louiszhai.github.io/2017/09/30/tmux/)
 - [reference2](http://wdxtub.com/2016/03/30/tmux-guide/)
 - [reference3](https://gist.github.com/FrankChu0229/7755359af245119586d64adb7b88544d)
+- [Tmux cheatsheet](https://gist.github.com/henrik/1967800)
 
 ---
 
