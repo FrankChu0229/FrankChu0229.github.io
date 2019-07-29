@@ -2,539 +2,546 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://frankchu0229.github.io/2017/09/23/TmuxNotes/</loc>
+    <loc>http://frankchu.tech/2019/07/28/tf-metrics-summary/</loc>
+    
+    <lastmod>2019-07-29T06:44:37.458Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu.tech/2017/10/15/Dive%20Into%20Python%20Notes/</loc>
+    
+    <lastmod>2019-07-29T05:41:38.685Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu.tech/2017/09/23/TmuxNotes/</loc>
     
     <lastmod>2019-07-03T12:54:50.675Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2019/06/18/awk-summary/</loc>
+    <loc>http://frankchu.tech/2019/06/18/awk-summary/</loc>
     
     <lastmod>2019-06-18T08:46:56.996Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2019/05/19/hive-summary/</loc>
+    <loc>http://frankchu.tech/2019/05/19/hive-summary/</loc>
     
     <lastmod>2019-05-19T07:42:36.752Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2017/10/15/Dive%20Into%20Python%20Notes/</loc>
-    
-    <lastmod>2019-05-19T07:40:03.215Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://frankchu0229.github.io/2016/03/19/ML1/</loc>
+    <loc>http://frankchu.tech/2016/03/19/ML1/</loc>
     
     <lastmod>2019-05-19T07:31:46.533Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/11/04/java8-functional-programming7/</loc>
+    <loc>http://frankchu.tech/2018/11/04/java8-functional-programming7/</loc>
     
     <lastmod>2019-04-10T03:17:44.133Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2019/01/07/java8-functional-programming8/</loc>
+    <loc>http://frankchu.tech/2019/01/07/java8-functional-programming8/</loc>
     
     <lastmod>2019-04-07T12:08:58.737Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/10/11/ml-metrics/</loc>
+    <loc>http://frankchu.tech/2018/10/11/ml-metrics/</loc>
     
     <lastmod>2019-04-06T11:47:07.697Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/10/28/java8-functional-programming6/</loc>
+    <loc>http://frankchu.tech/2018/10/28/java8-functional-programming6/</loc>
     
     <lastmod>2018-11-04T09:43:25.880Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/10/17/java8-functional-programming5/</loc>
+    <loc>http://frankchu.tech/2018/10/17/java8-functional-programming5/</loc>
     
     <lastmod>2018-10-28T14:55:22.512Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/10/07/java8-functional-programming3/</loc>
+    <loc>http://frankchu.tech/2018/10/07/java8-functional-programming3/</loc>
     
     <lastmod>2018-10-28T13:35:40.490Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/about/index.html</loc>
+    <loc>http://frankchu.tech/about/index.html</loc>
     
     <lastmod>2018-10-28T13:22:50.050Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2016/04/07/ML3/</loc>
+    <loc>http://frankchu.tech/2016/04/07/ML3/</loc>
     
     <lastmod>2018-10-22T13:54:58.391Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/10/15/java8-functional-programming4/</loc>
+    <loc>http://frankchu.tech/2018/10/15/java8-functional-programming4/</loc>
     
     <lastmod>2018-10-17T15:22:24.998Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/10/17/junit-summary/</loc>
+    <loc>http://frankchu.tech/2018/10/17/junit-summary/</loc>
     
     <lastmod>2018-10-17T06:53:15.621Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/10/15/relation-extraction-summary/</loc>
+    <loc>http://frankchu.tech/2018/10/15/relation-extraction-summary/</loc>
     
     <lastmod>2018-10-15T08:51:11.220Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/10/11/vim-config/</loc>
+    <loc>http://frankchu.tech/2018/10/11/vim-config/</loc>
     
     <lastmod>2018-10-12T06:51:28.510Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2016/11/21/vim2/</loc>
+    <loc>http://frankchu.tech/2016/11/21/vim2/</loc>
     
     <lastmod>2018-10-12T06:32:59.816Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/05/21/conda-notes/</loc>
+    <loc>http://frankchu.tech/2018/05/21/conda-notes/</loc>
     
     <lastmod>2018-10-12T06:30:23.809Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/10/08/kr-summary/</loc>
+    <loc>http://frankchu.tech/2018/10/08/kr-summary/</loc>
     
     <lastmod>2018-10-11T07:18:15.733Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/10/11/qa-summary/</loc>
+    <loc>http://frankchu.tech/2018/10/11/qa-summary/</loc>
     
     <lastmod>2018-10-11T07:18:14.419Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/08/12/kg-mind-map/</loc>
+    <loc>http://frankchu.tech/2018/08/12/kg-mind-map/</loc>
     
     <lastmod>2018-10-08T05:25:07.786Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/10/05/java8-functional-programming2/</loc>
+    <loc>http://frankchu.tech/2018/10/05/java8-functional-programming2/</loc>
     
     <lastmod>2018-10-07T07:51:42.212Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/09/02/java8-functional-programming/</loc>
+    <loc>http://frankchu.tech/2018/09/02/java8-functional-programming/</loc>
     
     <lastmod>2018-10-07T03:07:56.846Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/09/27/virtualenv-summary/</loc>
+    <loc>http://frankchu.tech/2018/09/27/virtualenv-summary/</loc>
     
     <lastmod>2018-09-27T07:08:52.098Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/06/20/matplotlib/</loc>
+    <loc>http://frankchu.tech/2018/06/20/matplotlib/</loc>
     
     <lastmod>2018-09-27T07:01:18.833Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/02/27/design-pattern/</loc>
+    <loc>http://frankchu.tech/2018/02/27/design-pattern/</loc>
     
     <lastmod>2018-09-13T06:25:30.114Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/08/20/semi-supervised-learning/</loc>
+    <loc>http://frankchu.tech/2018/08/20/semi-supervised-learning/</loc>
     
     <lastmod>2018-09-02T05:14:15.019Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/06/06/keras-demo/</loc>
+    <loc>http://frankchu.tech/2018/06/06/keras-demo/</loc>
     
     <lastmod>2018-09-02T04:38:32.463Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/08/02/tf-python-train-java-serve/</loc>
+    <loc>http://frankchu.tech/2018/08/02/tf-python-train-java-serve/</loc>
     
     <lastmod>2018-09-02T03:03:08.963Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/09/02/keras-siamese-network/</loc>
+    <loc>http://frankchu.tech/2018/09/02/keras-siamese-network/</loc>
     
     <lastmod>2018-09-02T02:25:26.838Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/06/08/beautifulsoup-summary/</loc>
+    <loc>http://frankchu.tech/2018/06/08/beautifulsoup-summary/</loc>
     
     <lastmod>2018-07-18T03:33:02.320Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/05/27/python-cookbook-data-structure/</loc>
+    <loc>http://frankchu.tech/2018/05/27/python-cookbook-data-structure/</loc>
     
     <lastmod>2018-07-14T10:08:28.118Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/07/14/python-cookbook-number/</loc>
+    <loc>http://frankchu.tech/2018/07/14/python-cookbook-number/</loc>
     
     <lastmod>2018-07-14T10:08:27.077Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/06/04/python-cookbook-str-text/</loc>
+    <loc>http://frankchu.tech/2018/06/04/python-cookbook-str-text/</loc>
     
     <lastmod>2018-07-14T09:00:13.217Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/07/02/sequence-prediction-summary/</loc>
+    <loc>http://frankchu.tech/2018/07/02/sequence-prediction-summary/</loc>
     
     <lastmod>2018-07-02T05:17:19.186Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/07/02/tf-demo/</loc>
+    <loc>http://frankchu.tech/2018/07/02/tf-demo/</loc>
     
     <lastmod>2018-07-02T05:16:43.247Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/06/23/rl/</loc>
+    <loc>http://frankchu.tech/2018/06/23/rl/</loc>
     
     <lastmod>2018-06-28T11:11:01.390Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/06/28/keras-embedding/</loc>
+    <loc>http://frankchu.tech/2018/06/28/keras-embedding/</loc>
     
     <lastmod>2018-06-28T11:08:51.076Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/06/20/keras-classification/</loc>
+    <loc>http://frankchu.tech/2018/06/20/keras-classification/</loc>
     
     <lastmod>2018-06-20T13:38:41.378Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/06/08/scrapy-summary/</loc>
+    <loc>http://frankchu.tech/2018/06/08/scrapy-summary/</loc>
     
     <lastmod>2018-06-08T13:42:03.776Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/06/06/pandas-summary/</loc>
+    <loc>http://frankchu.tech/2018/06/06/pandas-summary/</loc>
     
     <lastmod>2018-06-08T13:41:20.881Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/06/06/numpy-summary/</loc>
+    <loc>http://frankchu.tech/2018/06/06/numpy-summary/</loc>
     
     <lastmod>2018-06-07T12:24:07.965Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/05/21/jupyter-notes/</loc>
+    <loc>http://frankchu.tech/2018/05/21/jupyter-notes/</loc>
     
     <lastmod>2018-06-07T08:01:10.138Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/06/04/docker-summary/</loc>
+    <loc>http://frankchu.tech/2018/06/04/docker-summary/</loc>
     
     <lastmod>2018-06-04T13:18:15.956Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/05/30/python-dependency-management/</loc>
+    <loc>http://frankchu.tech/2018/05/30/python-dependency-management/</loc>
     
     <lastmod>2018-05-30T12:44:42.226Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/05/28/python-star/</loc>
+    <loc>http://frankchu.tech/2018/05/28/python-star/</loc>
     
     <lastmod>2018-05-29T18:06:28.941Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/05/28/python-underline/</loc>
+    <loc>http://frankchu.tech/2018/05/28/python-underline/</loc>
     
     <lastmod>2018-05-28T06:04:51.077Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2017/12/18/NoSQL/</loc>
+    <loc>http://frankchu.tech/2017/12/18/NoSQL/</loc>
     
     <lastmod>2018-05-28T02:25:32.997Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2017/09/03/linuxShellSummary/</loc>
+    <loc>http://frankchu.tech/2017/09/03/linuxShellSummary/</loc>
     
     <lastmod>2018-05-22T15:18:30.286Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/02/26/java-notes/</loc>
+    <loc>http://frankchu.tech/2018/02/26/java-notes/</loc>
     
     <lastmod>2018-05-21T12:54:16.994Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/03/08/learning-to-rank/</loc>
+    <loc>http://frankchu.tech/2018/03/08/learning-to-rank/</loc>
     
     <lastmod>2018-03-08T09:25:45.891Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/03/05/maven-notes/</loc>
+    <loc>http://frankchu.tech/2018/03/05/maven-notes/</loc>
     
     <lastmod>2018-03-08T09:02:21.986Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/03/04/transfer-learning-alimi/</loc>
+    <loc>http://frankchu.tech/2018/03/04/transfer-learning-alimi/</loc>
     
     <lastmod>2018-03-05T04:02:54.230Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/03/04/drqa/</loc>
+    <loc>http://frankchu.tech/2018/03/04/drqa/</loc>
     
     <lastmod>2018-03-05T04:02:25.686Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/02/11/python-coding-style/</loc>
+    <loc>http://frankchu.tech/2018/02/11/python-coding-style/</loc>
     
     <lastmod>2018-02-11T08:25:02.795Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/02/08/cuda-notes/</loc>
+    <loc>http://frankchu.tech/2018/02/08/cuda-notes/</loc>
     
     <lastmod>2018-02-11T08:23:48.294Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2016/05/09/ML7/</loc>
+    <loc>http://frankchu.tech/2016/05/09/ML7/</loc>
     
     <lastmod>2018-02-11T08:13:37.147Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2017/10/03/MySQLNotes/</loc>
+    <loc>http://frankchu.tech/2017/10/03/MySQLNotes/</loc>
     
     <lastmod>2018-02-05T13:32:11.843Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2016/05/15/ML8/</loc>
+    <loc>http://frankchu.tech/2016/05/15/ML8/</loc>
     
     <lastmod>2018-01-22T09:55:43.521Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2018/01/04/cassandra-note/</loc>
+    <loc>http://frankchu.tech/2018/01/04/cassandra-note/</loc>
     
     <lastmod>2018-01-04T13:00:26.089Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2017/12/04/vimium-notes/</loc>
+    <loc>http://frankchu.tech/2017/12/04/vimium-notes/</loc>
     
     <lastmod>2017-12-04T12:46:35.919Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2017/10/19/Dive%20Into%20Python3%20Notes%20-%20Native%20Datatypes/</loc>
+    <loc>http://frankchu.tech/2017/10/19/Dive%20Into%20Python3%20Notes%20-%20Native%20Datatypes/</loc>
     
     <lastmod>2017-11-02T03:16:39.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2016/10/21/vimNotes/</loc>
+    <loc>http://frankchu.tech/2016/10/21/vimNotes/</loc>
     
     <lastmod>2017-10-30T12:29:24.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2017/10/25/tf_symposium/</loc>
+    <loc>http://frankchu.tech/2017/10/25/tf_symposium/</loc>
     
     <lastmod>2017-10-30T12:28:58.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2016/06/15/ML9/</loc>
+    <loc>http://frankchu.tech/2016/06/15/ML9/</loc>
     
     <lastmod>2017-10-30T12:28:49.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2016/04/26/ML6/</loc>
+    <loc>http://frankchu.tech/2016/04/26/ML6/</loc>
     
     <lastmod>2017-10-30T12:28:22.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2016/04/24/ML5/</loc>
+    <loc>http://frankchu.tech/2016/04/24/ML5/</loc>
     
     <lastmod>2017-10-30T12:28:16.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2016/04/12/ML4/</loc>
+    <loc>http://frankchu.tech/2016/04/12/ML4/</loc>
     
     <lastmod>2017-10-30T12:28:09.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2016/03/31/ML2/</loc>
+    <loc>http://frankchu.tech/2016/03/31/ML2/</loc>
     
     <lastmod>2017-10-30T12:27:54.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2015/09/25/MathTest/</loc>
+    <loc>http://frankchu.tech/2015/09/25/MathTest/</loc>
     
     <lastmod>2017-10-30T12:27:40.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2016/12/21/linuxCmdNotes/</loc>
+    <loc>http://frankchu.tech/2016/12/21/linuxCmdNotes/</loc>
     
     <lastmod>2017-10-30T12:27:25.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2015/09/24/HexoTutorial/</loc>
+    <loc>http://frankchu.tech/2015/09/24/HexoTutorial/</loc>
     
     <lastmod>2017-10-30T12:27:18.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2017/09/03/gitSummary/</loc>
+    <loc>http://frankchu.tech/2017/09/03/gitSummary/</loc>
     
     <lastmod>2017-10-30T12:27:11.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/2016/09/15/books/</loc>
+    <loc>http://frankchu.tech/2016/09/15/books/</loc>
     
     <lastmod>2017-10-30T12:26:23.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/categories/index.html</loc>
+    <loc>http://frankchu.tech/tags/index.html</loc>
     
     <lastmod>2017-10-30T01:57:40.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://frankchu0229.github.io/tags/index.html</loc>
+    <loc>http://frankchu.tech/categories/index.html</loc>
     
     <lastmod>2017-10-30T01:57:40.000Z</lastmod>
     

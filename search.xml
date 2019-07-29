@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[TF Metrics Summary]]></title>
+    <url>%2F2019%2F07%2F28%2Ftf-metrics-summary%2F</url>
+    <content type="text"><![CDATA[最近尝试将bert应用在生产环境中的分类任务上，由于bert中只带了accuracy的指标，因此使用tf.metrics.precision 和tf.metrics.recall将precision和recall指标加进来，但是这里算出来的precision和recall和sklearn中算出来的无论是micro还是macro都不一致，在这里被坑了一段时间，为此记录一下。 最开始尝试取看实现代码，发现代码看起来比较麻烦，因此还是自己动手造了一个例子，然后针对这个例子，通过 手动计算micro-precision, micro-recall, micro-f1等指标 借助sklearn api计算相关指标 使用tf metrics计算相关指标 结果发现，手动计算指标和sklearn计算指标是一致的，最后将tf.metrics 代码拿出来运行发现，precision和recall的计算会首先将结果cast 到true和false，在取统计TP， TP和FP，FN等，因此这里只适合二分类任务的precision和recall计算，但是文档中没提及过这一点。 除了这个坑之外，tf.metrics 在使用时还要注意： 初始化LOCAL_VARIABLES 要先session.run(precision_OP)更新TP等LOCAL变量, 在run(precision)才会得到precision的值，具体可见reference中的链接 代码以下是代码，tf版本1.14.0 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116#!/usr/bin/env python3# encoding=utf8from sklearn.metrics import f1_scorefrom sklearn.metrics import precision_scorefrom sklearn.metrics import recall_scorefrom sklearn.metrics import accuracy_scorefrom sklearn.metrics import accuracy_scorefrom sklearn.metrics import classification_reportfrom sklearn.metrics import confusion_matriximport tensorflow as tffrom tensorflow.python.ops import math_opsfrom tensorflow.python.framework import dtypesdef calculate_performance(predictions, label_ids): true_micro_precision = precision_score(label_ids, predictions, average='micro') true_macro_precision = precision_score(label_ids, predictions, average='macro') true_micro_recall = recall_score(label_ids, predictions, average='micro') true_macro_recall = recall_score(label_ids, predictions, average='macro') true_micro_f1 = f1_score(label_ids, predictions, average='micro') true_macro_f1 = f1_score(label_ids, predictions, average='macro') true_acc = accuracy_score(label_ids, predictions) confusion_matrix_report = confusion_matrix(label_ids, predictions) report = classification_report(label_ids, predictions) return true_micro_precision, true_macro_precision, true_micro_recall, true_macro_recall, \ true_micro_f1, true_macro_f1, true_acc, confusion_matrix_report, reportif __name__ == '__main__': # tf.enable_eager_execution() predictions = [0, 2, 0, 2, 0, 0, 2, 1, 1, 1, 1, 0] gold_labels = [0, 1, 2, 2, 1, 0, 0, 0, 1, 2, 0, 1] true_micro_precision, true_macro_precision, true_micro_recall, true_macro_recall, \ true_micro_f1, true_macro_f1, true_acc, confusion_matrix_report, report = calculate_performance( predictions, gold_labels) print( "|true_micro_precision|true_macro_precision|true_micro_recall|true_macro_recall|true_micro_f1|true_macro_f1|true_acc|") print("|&#123;&#125;|&#123;&#125;|&#123;&#125;|&#123;&#125;|&#123;&#125;|&#123;&#125;|&#123;&#125;|".format(true_micro_precision, true_macro_precision, true_micro_recall, true_macro_recall, true_micro_f1, true_macro_f1, true_acc)) print(confusion_matrix_report) print(report) print(accuracy_score(gold_labels, predictions)) predictions_tensor = tf.get_variable(name="predictions", initializer=tf.constant(predictions)) gold_labels_tensor = tf.get_variable(name='gold_labels', initializer=tf.constant(gold_labels)) print(predictions_tensor) print(gold_labels_tensor) tf_precision, precision_op = tf.metrics.precision( labels=gold_labels_tensor, predictions=predictions_tensor) tf_recall, recall_op = tf.metrics.recall(labels=gold_labels_tensor, predictions=predictions_tensor) tf_acc, acc_op = tf.metrics.accuracy(labels=gold_labels_tensor, predictions=predictions_tensor) tp, tp_op = tf.metrics.true_positives(labels=gold_labels_tensor, predictions=predictions_tensor) fp, fp_op = tf.metrics.false_positives(labels=gold_labels_tensor, predictions=predictions_tensor) fn, fn_op = tf.metrics.false_negatives(labels=gold_labels_tensor, predictions=predictions_tensor) tn, tn_op = tf.metrics.true_negatives(labels=gold_labels_tensor, predictions=predictions_tensor) print(tf_precision, precision_op) print(tf_recall, recall_op) print(tf_acc, acc_op) print(tp, tp_op) cast_predictions = math_ops.cast(predictions_tensor, dtype=dtypes.bool) cast_labels = math_ops.cast(gold_labels_tensor, dtype=dtypes.bool) with tf.Session() as sess: sess.run(tf.global_variables_initializer()) sess.run(tf.local_variables_initializer()) print(sess.run(precision_op)) print(sess.run(tf_precision)) print(sess.run(recall_op)) print(sess.run(tf_recall)) print(sess.run(acc_op)) print(sess.run(tf_acc)) print(sess.run(tp_op)) print("TP", sess.run(tp)) print(sess.run(fp_op)) print("FP", sess.run(fp)) print(sess.run(fn_op)) print("FN", sess.run(fn)) print(sess.run(tn_op)) print("TN", sess.run(tn)) print("Predis", sess.run(cast_predictions)) print("Labels", sess.run(cast_labels)) Reference From zhihu From blog]]></content>
+      <categories>
+        <category>tensorflow</category>
+      </categories>
+      <tags>
+        <tag>summary</tag>
+        <tag>metrics</tag>
+        <tag>tensorflow</tag>
+        <tag>bert</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Awk Summary]]></title>
     <url>%2F2019%2F06%2F18%2Fawk-summary%2F</url>
     <content type="text"><![CDATA[Awk SummaryAwk 命令可以帮助在linux命令行下更好的进行操作，提高效率. 基本用法awk 动作 文件名 例如，awk &#39;{print $0 }&#39; a.txt 打印当前文件每一行，awk默认使用空格或tab进行分割，可以使用$1, $2等获取每一列的值。 123456$ awk &apos;&#123;print $0 &#125;&apos; a.txtMarry 2143 78 84 77Jack 2321 66 78 45Tom 2122 48 77 71Mike 2537 87 97 95Bob 2415 40 57 62 如果想指定分割符，可以使用 1awk -F &apos;:&apos; &apos;&#123;print $1&#125;&apos; a.txt 123456$ awk -F &apos; &apos; &apos;&#123;print $1&#125;&apos; a.txtMarryJackTomMikeBob Awk 中的变量 $ + 数字 获取相应列的值 NF 表示当前行有多少列，$NF, $(NF-1)获取倒数第二列 NR 表示当前处理的是第几行，相应的FNR表示的是在当前文件的行数 FILENAME 当前文件名 RS 行分割符，默认为换行符 FS 字段分割符， 默认为空格或者tab ORS 输出行分割符， 默认为换行符 OFS 输出字段分割符，默认为空格 指定输出分割符例子： 1awk &apos;NR!=1&#123;print $1, $2, $3&#125;&apos; OFS=&quot;---&quot; netstat.txt 12345$ awk &apos;NR!=1 &#123;print $1, $2, $3&#125;&apos; OFS=&quot;---&quot; a.txtJack---2321---66Tom---2122---48Mike---2537---87Bob---2415---40 指定输入分割符例子: 1awk -F &apos;:&apos; &apos;&#123;print $1&#125;&apos; a.txt Awk中的函数Awk 中可以使用如toUpper()等函数，例如 1awk -F &apos;:&apos; &apos;&#123;print toupper($1)&#125;&apos; a.txt 123456$ awk -F &apos; &apos; &apos;&#123;print toupper($1)&#125;&apos; a.txtMARRYJACKTOMMIKEBOB 其他函数： tolower() length()等 Awk中的条件Awk 条件使用方式 awk &#39;条件 动作&#39; 文件名 例如： awk &#39;/LISTEN/ {print $1}&#39; a.txt 当前行含有LISTEN字段, //中可以写正则 12$ awk &apos;/M.*y/ &#123;print $0&#125;&apos; a.txtMarry 2143 78 84 77 awk &#39;$6 ~ /LISTEN/ {print $1}&#39; a.txt 第六行是否含有LISTEN， ~表示模式开始，!~表示反模式 12$ awk &apos;$1 ~ /M.*y/ &#123;print $0&#125;&apos; a.txtMarry 2143 78 84 77 awk &#39;NR == 1 || NR &gt; 3 {print $1}&#39; a.txt 1234$ awk &apos;NR == 1 || NR &gt; 3 &#123;print $1&#125;&apos; a.txtMarryMikeBob Reference https://coolshell.cn/articles/9070.html http://www.ruanyifeng.com/blog/2018/11/awk.html]]></content>
@@ -33,8 +47,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>java</tag>
         <tag>coding</tag>
+        <tag>java</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -47,8 +61,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>java</tag>
         <tag>coding</tag>
+        <tag>java</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -61,8 +75,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>java</tag>
         <tag>coding</tag>
+        <tag>java</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -75,8 +89,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>java</tag>
         <tag>coding</tag>
+        <tag>java</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -115,8 +129,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>java</tag>
         <tag>coding</tag>
+        <tag>java</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -179,8 +193,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>java</tag>
         <tag>coding</tag>
+        <tag>java</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -193,8 +207,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>java</tag>
         <tag>coding</tag>
+        <tag>java</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -220,8 +234,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>java</tag>
         <tag>coding</tag>
+        <tag>java</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -576,8 +590,8 @@
       </categories>
       <tags>
         <tag>notes</tag>
-        <tag>java</tag>
         <tag>engineering</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
