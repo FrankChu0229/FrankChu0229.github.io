@@ -422,7 +422,7 @@
 
       
         <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>这里总结下机器学习中常见任务评价指标的计算方式以及他们代表的含义。通常线上使用的是业务指标，如点击率(CTR),转化率(CVR)等，线下使用机器学习指标，根据机器学习任务类型，可以分为分类指标，回归指标，聚类指标，排序指标等。</p>
-<h2 id="分类指标"><a href="#分类指标" class="headerlink" title="分类指标"></a>分类指标</h2><p>在<a href="http://frankchu.tech/2016/04/07/ML3/" target="_blank" rel="external">Model Selection and Evaluation</a>中，我们介绍了Accuracy, Precision，Recall，F1，\( F_{\beta}\)，confusion matrix(混淆矩阵)，这里我们补充下 <code>ROC</code>, <code>AOC</code>， <code>PR Curve</code>, <code>Macro Precision</code>, <code>Micro Precision</code></p>
+<h2 id="分类指标"><a href="#分类指标" class="headerlink" title="分类指标"></a>分类指标</h2><p>在<a href="http://frankchu.tech/2016/04/07/ML3/">Model Selection and Evaluation</a>中，我们介绍了Accuracy, Precision，Recall，F1，\( F_{\beta}\)，confusion matrix(混淆矩阵)，这里我们补充下 <code>ROC</code>, <code>AOC</code>， <code>PR Curve</code>, <code>Macro Precision</code>, <code>Micro Precision</code></p>
 <h3 id="PR-Curve"><a href="#PR-Curve" class="headerlink" title="PR Curve"></a>PR Curve</h3><p>以Precision为纵轴，Recall为横轴，根据分类threshold不同取值，绘制PR曲线，PR曲线越靠右上代表模型性能越好。</p>
 <h3 id="ROC-与-AUC"><a href="#ROC-与-AUC" class="headerlink" title="ROC 与 AUC"></a>ROC 与 AUC</h3><p>在介绍ROC(Receiver Operating Characteristic)之前，我们先介绍TPR(真正率)和FPR(假正率).</p>
 <p>$$ TPR = \frac{TP}{TP+FN} $$<br>$$ FPR = \frac{FP}{TN+FP} $$</p>
@@ -436,7 +436,7 @@
 <p>Micro-Precision将每一类的(TP), (TP + FP)添加到相应的分子，分母中，然后用总的<br>$$ Micro-Precision = \frac{TP_A}{TP_A + FP_A} $$</p>
 <p>相应的macro-recall， micro-recall 也通过类似的方式进行计算。</p>
 <p><a href="https://datascience.stackexchange.com/questions/15989/micro-average-vs-macro-average-performance-in-a-multiclass-classification-settin" target="_blank" rel="external">Ref</a></p>
-<h2 id="回归指标"><a href="#回归指标" class="headerlink" title="回归指标"></a>回归指标</h2><p>在<a href="http://frankchu.tech/2016/04/07/ML3/" target="_blank" rel="external">Model Selection and Evaluation</a>, 我们介绍了<code>MSE</code>, 常用的回归指标还有 </p>
+<h2 id="回归指标"><a href="#回归指标" class="headerlink" title="回归指标"></a>回归指标</h2><p>在<a href="http://frankchu.tech/2016/04/07/ML3/">Model Selection and Evaluation</a>, 我们介绍了<code>MSE</code>, 常用的回归指标还有 </p>
 <ul>
 <li><code>RMSE</code>  \( RMSE = \sqrt(MSE) \)</li>
 <li><code>MAE</code>   \( MAE = \frac{1}{N} \sum_{i=1}^{N} |f(x_i) - y_i|\)</li>
