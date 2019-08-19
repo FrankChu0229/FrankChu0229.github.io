@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://frankchu.tech/2018/10/11/ml-metrics/</loc>
+    
+    <lastmod>2019-08-19T01:47:04.807Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://frankchu.tech/about/index.html</loc>
     
     <lastmod>2019-07-29T07:13:44.234Z</lastmod>
@@ -61,13 +68,6 @@
     <loc>http://frankchu.tech/2019/01/07/java8-functional-programming8/</loc>
     
     <lastmod>2019-04-07T12:08:58.737Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://frankchu.tech/2018/10/11/ml-metrics/</loc>
-    
-    <lastmod>2019-04-06T11:47:07.697Z</lastmod>
     
   </url>
   
