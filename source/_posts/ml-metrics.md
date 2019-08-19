@@ -11,7 +11,7 @@ description: Machine Learning Metrics Summary.
 
 ## 分类指标
 
-在[Model Selection and Evaluation](http://frankchu.tech/2016/04/07/ML3/)中，我们介绍了Accuracy, Precision，Recall，F1，\\( F\_{\beta}\\)，confusion matrix(混淆矩阵)，这里我们补充下 `ROC`, `AOC`， `PR Curve`, `Macro Precision`, `Micro Precision`
+在[Model Selection and Evaluation](http://frankchu.tech/2016/04/07/ML3/)中，我们介绍了Accuracy, Precision，Recall，F1，\\( F\_{\beta}\\)，confusion matrix(混淆矩阵)，这里我们补充下 `ROC`, `AUC`， `PR Curve`, `Macro Precision`, `Micro Precision`
 
 
 ### PR Curve
@@ -26,7 +26,7 @@ description: Machine Learning Metrics Summary.
 $$ TPR = \frac{TP}{TP+FN} $$ 
 $$ FPR = \frac{FP}{TN+FP} $$
 
-ROC曲线就是以 TPR为纵坐标，FPR为横坐标，根据分类threshold的不同而做的曲线，而曲线下的面积即为AOC
+ROC曲线就是以 TPR为纵坐标，FPR为横坐标，根据分类threshold的不同而做的曲线，而曲线下的面积即为AUC
 (Area Under ROC Curve). 
 
 ROC 曲线越靠近左上角表示模型性能越好，最好情况为(0, 1)点，即TPR = 1, FPR = 0, 进而推算出FN = 0， FP=0, 即全部预测正确。
