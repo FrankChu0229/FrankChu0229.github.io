@@ -215,3 +215,5 @@ plt.show()
 ## Reference
 
 -  [mofan-python-pandas-tutorial](https://morvanzhou.github.io/tutorials/data-manipulation/np-pd/)
+-  [pandas cn manual](https://www.pypandas.cn/)
+-  [pandas manual](https://pandas.pydata.org/pandas-docs/stable/)
