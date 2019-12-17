@@ -74,6 +74,13 @@ ln -s 源地址 目的地址
 
 - `head -n 1 file.txt` 
 
+## 查看centos系统版本
+
+```
+> cat /etc/redhat-release
+
+CentOS Linux release 7.6.1810 (Core)
+```
 
 --- 
 　　
