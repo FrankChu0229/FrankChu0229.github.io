@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://frankchu.tech/2017/09/03/linuxShellSummary/</loc>
+    
+    <lastmod>2019-12-17T06:34:15.502Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://frankchu.tech/2018/06/06/pandas-summary/</loc>
     
     <lastmod>2019-08-20T13:25:56.926Z</lastmod>
@@ -348,13 +355,6 @@
     <loc>http://frankchu.tech/2017/12/18/NoSQL/</loc>
     
     <lastmod>2018-05-28T02:25:32.997Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://frankchu.tech/2017/09/03/linuxShellSummary/</loc>
-    
-    <lastmod>2018-05-22T15:18:30.286Z</lastmod>
     
   </url>
   
