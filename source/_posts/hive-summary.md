@@ -45,6 +45,25 @@ and t.store_id in (${stores})) as tmp
 group by store_id, spu_id;
 ```
 
+```
+SELECT dwd_lu_manager_response.store_id, 
+    dwd_lu_manager_response.domain, 
+    dwd_lu_manager_response.query, 
+    dwd_lu_manager_response.normalized_query, 
+    dwd_lu_manager_response.business_id,
+  dwd_lu_manager_response.intent_info[0].intent as intent, 
+  dwd_lu_manager_response.intent_info[0].score as score,
+
+    dwd_insight_response.business_id,
+    dwd_insight_response.fasttext_entity_masked_tokens
+
+FROM dwd_lu_manager_response
+JOIN dwd_insight_response ON dwd_lu_manager_response.business_id = dwd_insight_response.business_id
+where (dwd_lu_manager_response.dt = "20200405" or dwd_lu_manager_response.dt = "20200406") and  dwd_lu_manager_response.intent_info[0].intent != "NULL" and (array_contains(fasttext_entity_masked_tokens, "{ZHUBO_NAME}") or array_contains(fasttext_entity_masked_tokens, "{YOUHUI_NAME}"))
+ORDER BY dwd_lu_manager_response.domain
+limit 100000
+```
+
 ## Reference
 
 - [HQL Cheat Sheet](https://hortonworks.com/blog/hive-cheat-sheet-for-sql-users/)
