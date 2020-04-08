@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://frankchu.tech/2019/05/19/hive-summary/</loc>
+    
+    <lastmod>2020-04-08T13:09:25.460Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://frankchu.tech/2019/12/17/ipython/</loc>
+    
+    <lastmod>2019-12-17T06:51:49.222Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://frankchu.tech/2017/09/03/linuxShellSummary/</loc>
     
     <lastmod>2019-12-17T06:34:15.502Z</lastmod>
@@ -54,13 +68,6 @@
     <loc>http://frankchu.tech/2019/06/18/awk-summary/</loc>
     
     <lastmod>2019-06-18T08:46:56.997Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://frankchu.tech/2019/05/19/hive-summary/</loc>
-    
-    <lastmod>2019-05-19T07:42:36.753Z</lastmod>
     
   </url>
   

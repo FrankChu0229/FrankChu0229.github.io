@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ipython]]></title>
+    <url>%2F2019%2F12%2F17%2Fipython%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[TF Metrics Summary]]></title>
     <url>%2F2019%2F07%2F28%2Ftf-metrics-summary%2F</url>
     <content type="text"><![CDATA[最近尝试将bert应用在生产环境中的分类任务上，由于bert中只带了accuracy的指标，因此使用tf.metrics.precision 和tf.metrics.recall将precision和recall指标加进来，但是这里算出来的precision和recall和sklearn中算出来的无论是micro还是macro都不一致，在这里被坑了一段时间，为此记录一下。 最开始尝试取看实现代码，发现代码看起来比较麻烦，因此还是自己动手造了一个例子，然后针对这个例子，通过 手动计算micro-precision, micro-recall, micro-f1等指标 借助sklearn api计算相关指标 使用tf metrics计算相关指标 结果发现，手动计算指标和sklearn计算指标是一致的，最后将tf.metrics 代码拿出来运行发现，precision和recall的计算会首先将结果cast 到true和false，在取统计TP， TP和FP，FN等，因此这里只适合二分类任务的precision和recall计算，但是文档中没提及过这一点。 除了这个坑之外，tf.metrics 在使用时还要注意： 初始化LOCAL_VARIABLES 要先session.run(precision_OP)更新TP等LOCAL变量, 在run(precision)才会得到precision的值，具体可见reference中的链接 代码以下是代码，tf版本1.14.0 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116#!/usr/bin/env python3# encoding=utf8from sklearn.metrics import f1_scorefrom sklearn.metrics import precision_scorefrom sklearn.metrics import recall_scorefrom sklearn.metrics import accuracy_scorefrom sklearn.metrics import accuracy_scorefrom sklearn.metrics import classification_reportfrom sklearn.metrics import confusion_matriximport tensorflow as tffrom tensorflow.python.ops import math_opsfrom tensorflow.python.framework import dtypesdef calculate_performance(predictions, label_ids): true_micro_precision = precision_score(label_ids, predictions, average='micro') true_macro_precision = precision_score(label_ids, predictions, average='macro') true_micro_recall = recall_score(label_ids, predictions, average='micro') true_macro_recall = recall_score(label_ids, predictions, average='macro') true_micro_f1 = f1_score(label_ids, predictions, average='micro') true_macro_f1 = f1_score(label_ids, predictions, average='macro') true_acc = accuracy_score(label_ids, predictions) confusion_matrix_report = confusion_matrix(label_ids, predictions) report = classification_report(label_ids, predictions) return true_micro_precision, true_macro_precision, true_micro_recall, true_macro_recall, \ true_micro_f1, true_macro_f1, true_acc, confusion_matrix_report, reportif __name__ == '__main__': # tf.enable_eager_execution() predictions = [0, 2, 0, 2, 0, 0, 2, 1, 1, 1, 1, 0] gold_labels = [0, 1, 2, 2, 1, 0, 0, 0, 1, 2, 0, 1] true_micro_precision, true_macro_precision, true_micro_recall, true_macro_recall, \ true_micro_f1, true_macro_f1, true_acc, confusion_matrix_report, report = calculate_performance( predictions, gold_labels) print( "|true_micro_precision|true_macro_precision|true_micro_recall|true_macro_recall|true_micro_f1|true_macro_f1|true_acc|") print("|&#123;&#125;|&#123;&#125;|&#123;&#125;|&#123;&#125;|&#123;&#125;|&#123;&#125;|&#123;&#125;|".format(true_micro_precision, true_macro_precision, true_micro_recall, true_macro_recall, true_micro_f1, true_macro_f1, true_acc)) print(confusion_matrix_report) print(report) print(accuracy_score(gold_labels, predictions)) predictions_tensor = tf.get_variable(name="predictions", initializer=tf.constant(predictions)) gold_labels_tensor = tf.get_variable(name='gold_labels', initializer=tf.constant(gold_labels)) print(predictions_tensor) print(gold_labels_tensor) tf_precision, precision_op = tf.metrics.precision( labels=gold_labels_tensor, predictions=predictions_tensor) tf_recall, recall_op = tf.metrics.recall(labels=gold_labels_tensor, predictions=predictions_tensor) tf_acc, acc_op = tf.metrics.accuracy(labels=gold_labels_tensor, predictions=predictions_tensor) tp, tp_op = tf.metrics.true_positives(labels=gold_labels_tensor, predictions=predictions_tensor) fp, fp_op = tf.metrics.false_positives(labels=gold_labels_tensor, predictions=predictions_tensor) fn, fn_op = tf.metrics.false_negatives(labels=gold_labels_tensor, predictions=predictions_tensor) tn, tn_op = tf.metrics.true_negatives(labels=gold_labels_tensor, predictions=predictions_tensor) print(tf_precision, precision_op) print(tf_recall, recall_op) print(tf_acc, acc_op) print(tp, tp_op) cast_predictions = math_ops.cast(predictions_tensor, dtype=dtypes.bool) cast_labels = math_ops.cast(gold_labels_tensor, dtype=dtypes.bool) with tf.Session() as sess: sess.run(tf.global_variables_initializer()) sess.run(tf.local_variables_initializer()) print(sess.run(precision_op)) print(sess.run(tf_precision)) print(sess.run(recall_op)) print(sess.run(tf_recall)) print(sess.run(acc_op)) print(sess.run(tf_acc)) print(sess.run(tp_op)) print("TP", sess.run(tp)) print(sess.run(fp_op)) print("FP", sess.run(fp)) print(sess.run(fn_op)) print("FN", sess.run(fn)) print(sess.run(tn_op)) print("TN", sess.run(tn)) print("Predis", sess.run(cast_predictions)) print("Labels", sess.run(cast_labels)) Reference From zhihu From blog]]></content>
@@ -29,7 +34,7 @@
   <entry>
     <title><![CDATA[Hive HQL Summary]]></title>
     <url>%2F2019%2F05%2F19%2Fhive-summary%2F</url>
-    <content type="text"><![CDATA[在企业中，和线上数据打交道的最简单方式可能就是使用如hive，impala等平台了；用户只需会写SQL语句即可。在hive平台上，与它对应的是HQL语句，HQL基本支持SQL的全部操作，除此之外，他还支持array, struct, map等数据结构，具有更强大的能力。 通过SQL方式在hive上进行查询等操作 Function MySQL Hive Retrieving Information (General) SELECT from_columns FROM table WHERE conditions; SELECT from_columns FROM table WHERE conditions; Retrieving All Values SELECT * FROM table; SELECT * FROM table; Retrieving Some Values SELECT * FROM table WHERE rec_name = &quot;value&quot;; SELECT * FROM table WHERE rec_name = &quot;value&quot;; Retrieving With Multiple Criteria SELECT * FROM TABLE WHERE rec1= &quot;value1&quot; AND rec2 = &quot;value2&quot;; SELECT * FROM TABLE WHERE rec1 =&quot;value1&quot; AND rec2 = &quot;value2&quot;; Retrieving Specific Columns SELECT column_name FROM table; SELECT column_name FROM table; Retrieving Unique Output SELECT DISTINCT column_name FROM table; SELECT DISTINCT column_name FROM table; Sorting SELECT col1, col2 FROM table ORDER BY col2; SELECT col1, col2 FROM table ORDER BY col2; Sorting Reverse SELECT col1, col2 FROM table ORDER BY col2 DESC; SELECT col1, col2 FROM table ORDER BY col2 DESC; Counting Rows SELECT COUNT(*) FROM table; SELECT COUNT(*) FROM table; Grouping With Counting SELECT owner, COUNT(*) FROM table GROUP BY owner; SELECT owner, COUNT(*) FROM table GROUP BY owner; Maximum Value SELECT MAX(col_name) AS label FROM table; SELECT MAX(col_name) AS label FROM table; Selecting from multiple tables (Join same table using alias w/”AS”) SELECT pet.name, comment FROM pet, event WHERE pet.name =event.name; SELECT pet.name, comment FROM pet JOIN event ON (pet.name =event.name) 处理hive表中的array, struct等表中数据例如，从一个trade表中，select相关的订单数据，并按照spu_id进行groupby和sum。 这里使用lateral view explode(t.order_list)将array进行展开并和已有的表进行join。这里还需注意的一点是，展开后的array是struct结构，该struct结构包含spu_id, item_count, payment字段，如果直接按照struct.field进行groupby和sum会出错，所以这里使用()构建了一个临时表，在对临时表进行groupby和sum操作。 1234567891011INSERT OVERWRITE DIRECTORY &apos;/user/XXX/XXX&apos;select store_id, spu_id, sum(item_count) as item_sum, sum(payment) as payment_sum from(select t.store_id store_id, orderTable.orderTable.spu_id as spu_id, orderTable.orderTable.item_count as item_count,orderTable.orderTable.payment as payment from trade as t lateral view explode(t.order_list) orderTable as orderTablewhere t.year = 2019 and (t.month = 5 or t.month=4 or t.month=3)and t.store_id in ($&#123;stores&#125;)) as tmpgroup by store_id, spu_id; Reference HQL Cheat Sheet HQL Wiki]]></content>
+    <content type="text"><![CDATA[在企业中，和线上数据打交道的最简单方式可能就是使用如hive，impala等平台了；用户只需会写SQL语句即可。在hive平台上，与它对应的是HQL语句，HQL基本支持SQL的全部操作，除此之外，他还支持array, struct, map等数据结构，具有更强大的能力。 通过SQL方式在hive上进行查询等操作 Function MySQL Hive Retrieving Information (General) SELECT from_columns FROM table WHERE conditions; SELECT from_columns FROM table WHERE conditions; Retrieving All Values SELECT * FROM table; SELECT * FROM table; Retrieving Some Values SELECT * FROM table WHERE rec_name = &quot;value&quot;; SELECT * FROM table WHERE rec_name = &quot;value&quot;; Retrieving With Multiple Criteria SELECT * FROM TABLE WHERE rec1= &quot;value1&quot; AND rec2 = &quot;value2&quot;; SELECT * FROM TABLE WHERE rec1 =&quot;value1&quot; AND rec2 = &quot;value2&quot;; Retrieving Specific Columns SELECT column_name FROM table; SELECT column_name FROM table; Retrieving Unique Output SELECT DISTINCT column_name FROM table; SELECT DISTINCT column_name FROM table; Sorting SELECT col1, col2 FROM table ORDER BY col2; SELECT col1, col2 FROM table ORDER BY col2; Sorting Reverse SELECT col1, col2 FROM table ORDER BY col2 DESC; SELECT col1, col2 FROM table ORDER BY col2 DESC; Counting Rows SELECT COUNT(*) FROM table; SELECT COUNT(*) FROM table; Grouping With Counting SELECT owner, COUNT(*) FROM table GROUP BY owner; SELECT owner, COUNT(*) FROM table GROUP BY owner; Maximum Value SELECT MAX(col_name) AS label FROM table; SELECT MAX(col_name) AS label FROM table; Selecting from multiple tables (Join same table using alias w/”AS”) SELECT pet.name, comment FROM pet, event WHERE pet.name =event.name; SELECT pet.name, comment FROM pet JOIN event ON (pet.name =event.name) 处理hive表中的array, struct等表中数据例如，从一个trade表中，select相关的订单数据，并按照spu_id进行groupby和sum。 这里使用lateral view explode(t.order_list)将array进行展开并和已有的表进行join。这里还需注意的一点是，展开后的array是struct结构，该struct结构包含spu_id, item_count, payment字段，如果直接按照struct.field进行groupby和sum会出错，所以这里使用()构建了一个临时表，在对临时表进行groupby和sum操作。 1234567891011INSERT OVERWRITE DIRECTORY &apos;/user/XXX/XXX&apos;select store_id, spu_id, sum(item_count) as item_sum, sum(payment) as payment_sum from(select t.store_id store_id, orderTable.orderTable.spu_id as spu_id, orderTable.orderTable.item_count as item_count,orderTable.orderTable.payment as payment from trade as t lateral view explode(t.order_list) orderTable as orderTablewhere t.year = 2019 and (t.month = 5 or t.month=4 or t.month=3)and t.store_id in ($&#123;stores&#125;)) as tmpgroup by store_id, spu_id; 12345678910111213141516SELECT dwd_lu_manager_response.store_id, dwd_lu_manager_response.domain, dwd_lu_manager_response.query, dwd_lu_manager_response.normalized_query, dwd_lu_manager_response.business_id, dwd_lu_manager_response.intent_info[0].intent as intent, dwd_lu_manager_response.intent_info[0].score as score, dwd_insight_response.business_id, dwd_insight_response.fasttext_entity_masked_tokensFROM dwd_lu_manager_responseJOIN dwd_insight_response ON dwd_lu_manager_response.business_id = dwd_insight_response.business_idwhere (dwd_lu_manager_response.dt = &quot;20200405&quot; or dwd_lu_manager_response.dt = &quot;20200406&quot;) and dwd_lu_manager_response.intent_info[0].intent != &quot;NULL&quot; and (array_contains(fasttext_entity_masked_tokens, &quot;&#123;ZHUBO_NAME&#125;&quot;) or array_contains(fasttext_entity_masked_tokens, &quot;&#123;YOUHUI_NAME&#125;&quot;))ORDER BY dwd_lu_manager_response.domainlimit 100000 Reference HQL Cheat Sheet HQL Wiki]]></content>
       <categories>
         <category>Data Engineering</category>
       </categories>
@@ -47,8 +52,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>java</tag>
         <tag>coding</tag>
+        <tag>java</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -61,8 +66,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>java</tag>
         <tag>coding</tag>
+        <tag>java</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -75,8 +80,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>java</tag>
         <tag>coding</tag>
+        <tag>java</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -89,8 +94,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>java</tag>
         <tag>coding</tag>
+        <tag>java</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -129,8 +134,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>java</tag>
         <tag>coding</tag>
+        <tag>java</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -193,8 +198,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>java</tag>
         <tag>coding</tag>
+        <tag>java</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -207,8 +212,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>java</tag>
         <tag>coding</tag>
+        <tag>java</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
@@ -234,8 +239,8 @@
       </categories>
       <tags>
         <tag>summary</tag>
-        <tag>java</tag>
         <tag>coding</tag>
+        <tag>java</tag>
         <tag>functional programming</tag>
       </tags>
   </entry>
