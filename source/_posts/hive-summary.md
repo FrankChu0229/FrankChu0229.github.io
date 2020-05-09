@@ -64,6 +64,61 @@ ORDER BY dwd_lu_manager_response.domain
 limit 100000
 ```
 
+```
+-- step 1: create json table
+-- drop table if exists tmp.chushb_spu_3c;
+CREATE EXTERNAL TABLE tmp.chushb_spu_3c (
+    store_id string,
+    store_name string,
+    store_domain string,
+    spu_id string,
+    category_name string,
+    style_name string,
+    title string,
+    config_pvs array<struct<prop_name: string,
+                            prop_value: string>>,
+    spu_pvs array<struct<pid: string,
+                         vid: string,
+                         pid_name:string,
+                         vid_name:string>>,
+    sku_pvs array<array<struct<pid: string,
+                         vid: string,
+                         pid_name:string,
+                         vid_name:string>>>
+)
+ROW FORMAT SERDE 'org.apache.hive.hcatalog.data.JsonSerDe'
+LOCATION '/user/chushb/chushb_spu_3c';
+
+-- step 2: insert sessions
+with store as (
+    select store_id, store_name, domain
+    from tb_store.dim_store_meta
+    where dt = '20200420'
+    and domain = '3C数码配件'
+),
+property as (
+    select spu_id, 
+        collect_list(named_struct(
+            "prop_name", prop_name,
+            "prop_value", prop_value
+            )
+        ) as config_pvs
+    from tb_item.dim_item_property_configuration
+    group by spu_id
+)
+INSERT INTO tmp.chushb_spu_3c
+select
+    store.store_id, store.store_name, store.domain,
+    spu.spu_id, spu.category_name, spu.style_name, spu.title,
+    property.config_pvs,
+    spu.property_name_infos,
+    spu.skus.property_name_infos
+from tb_item.dim_spu spu 
+join store on spu.store_id = store.store_id 
+left outer join property on spu.spu_id = property.spu_id
+
+```
+
 ## Reference
 
 - [HQL Cheat Sheet](https://hortonworks.com/blog/hive-cheat-sheet-for-sql-users/)
