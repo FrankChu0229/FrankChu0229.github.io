@@ -66,8 +66,8 @@ limit 100000
 
 ```
 -- step 1: create json table
--- drop table if exists tmp.chushb_spu_3c;
-CREATE EXTERNAL TABLE tmp.chushb_spu_3c (
+-- drop table if exists tmp.xxx_spu_3c;
+CREATE EXTERNAL TABLE tmp.xxx_spu_3c (
     store_id string,
     store_name string,
     store_domain string,
@@ -87,7 +87,7 @@ CREATE EXTERNAL TABLE tmp.chushb_spu_3c (
                          vid_name:string>>>
 )
 ROW FORMAT SERDE 'org.apache.hive.hcatalog.data.JsonSerDe'
-LOCATION '/user/chushb/chushb_spu_3c';
+LOCATION '/user/xxx/xxx_spu_3c';
 
 -- step 2: insert sessions
 with store as (
@@ -106,7 +106,7 @@ property as (
     from tb_item.dim_item_property_configuration
     group by spu_id
 )
-INSERT INTO tmp.chushb_spu_3c
+INSERT INTO tmp.xxx_spu_3c
 select
     store.store_id, store.store_name, store.domain,
     spu.spu_id, spu.category_name, spu.style_name, spu.title,
@@ -117,6 +117,21 @@ from tb_item.dim_spu spu
 join store on spu.store_id = store.store_id 
 left outer join property on spu.spu_id = property.spu_id
 
+```
+
+```
+INSERT OVERWRITE DIRECTORY "/user/xxx/scenario_open_ratio"
+WITH SCENARIO_HOLDER AS (
+SELECT dt, store_id, scenario.label as scenario_label,
+  scenario.active as scenario_status, scenario.policy_holders
+FROM dwd_policy_stats
+LATERAL VIEW explode(scenario_holders) dwd_policy_stats AS scenario
+WHERE (dt = '20200531' or dt = '20200530' or dt = '20200529')
+)
+select dt, store_id, scenario_label, scenario_status,
+  policy.label as policy_label, policy.active as policy_status
+FROM SCENARIO_HOLDER
+LATERAL VIEW explode(policy_holders) exploded as policy
 ```
 
 ## Reference
